@@ -1,0 +1,172 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft FrontPage 4.0">
+<LINK REL="stylesheet" TYPE="text/css" HREF="style.css" TITLE="MTD">
+<TITLE>Xu ly dong hanh</TITLE>
+</HEAD>
+<BODY>
+<B><P ALIGN="CENTER"><font face="Verdana" color="#00007f" size="2">BÀI 2: </font><font face="Verdana" color="#00007f" size="5">C&Aacute;C M&Ocirc; H&Igrave;NH X&#7916; L&Yacute; &#272;&#7890;NG H&Agrave;NH</font></P><blockquote>
+
+</B><EM><P>H&#7847;u h&#7871;t c&aacute;c h&#7879; <FONT FACE="Times New Roman">&#273;i&#7873;u h</FONT>&agrave;nh hi&#7879;n <FONT FACE="Times New Roman">&#273;&#7841;i &#273;&#7873;u cho phép ng</FONT>&#432;&#7901;i d&ugrave;ng thi h&agrave;nh nhi&#7873;u c&ocirc;ng vi&#7879;c <FONT FACE="Times New Roman">&#273;&#7891;ng th&#7901;i tr</FONT>&ecirc;n c&ugrave;ng m&#7897;t m&aacute;y t&iacute;nh. Nhu c&#7847;u <FONT COLOR="#0000ff"><a href="#nhucau">x&#7917; l&yacute;
+</a> </FONT><a href="#nhucau"><FONT FACE="Times New Roman" COLOR="#0000ff">&#273;&#7891;ng h</FONT><FONT COLOR="#0000ff">&agrave;nh</FONT> </a> <FONT COLOR="#0000ff">(concurrency) </FONT>n&agrave;y xu&#7845;t ph&aacute;t t&#7915; <FONT FACE="Times New Roman">&#273;âu, v</FONT>&agrave; h&#7879; <FONT FACE="Times New Roman">&#273;i&#7873;u h</FONT>&agrave;nh c&#7847;n ph&#7843;i t&#7893; ch&#7913;c h&#7895; tr&#7907; nh&#432; th&#7871; n&agrave;o cho c&aacute;c m&ocirc;i tr&#432;&#7901;ng <FONT FACE="Times New Roman" COLOR="#0000ff">&#273;a nhi&#7879;m (multitask)</FONT> nh&#432; th&#7871; ? <FONT FACE="Times New Roman">&#272;ó l</FONT>&agrave; n&#7897;i dung ch&uacute;ng ta s&#7869; t&igrave;m hi&#7875;u trong b&agrave;i n&agrave;y. </P>
+<P align="center"><img border="0" src="images/dotlineback.gif" width="470" height="10"></EM> </P>
+</blockquote>
+<P class="cap1"><a name="nhucau">I.NHU C&#7846;U X&#7916; LÝ &#272;&#7890;NG HÀNH</a></P>
+<blockquote>
+
+<P>C&oacute; 2 <FONT FACE="Times New Roman">&#273;&#7897;ng l&#7921;c chính khi&#7871;n cho các h&#7879; &#273;i&#7873;u h</FONT>&agrave;nh hi&#7879;n <FONT FACE="Times New Roman">&#273;&#7841;i th</FONT>&#432;&#7901;ng h&#7895; tr&#7907; m&ocirc;i tr&#432;&#7901;ng <FONT FACE="Times New Roman" COLOR="#0000ff">&#273;a nhi&#7879;m (multitask)</FONT> trong <FONT FACE="Times New Roman">&#273;ó ch&#7845;p nh&#7853;n nhi&#7873;u tác v&#7909; th&#7921;c hi&#7879;n &#273;&#7891;ng th&#7901;i tr</FONT>&ecirc;n c&ugrave;ng m&#7897;t m&aacute;y&nbsp; t&iacute;nh :</P>
+<B><FONT SIZE=4><P><img border="0" src="images/bulletjock.gif" width="18" height="18">T</FONT><FONT FACE="Times New Roman" SIZE=4>&#259;ng hi&#7879;u su&#7845;t s&#7917; d&#7909;ng CPU</B></FONT> </P><DIR>
+
+<P>Ph&#7847;n l&#7899;n c&aacute;c t&aacute;c v&#7909; (job)&nbsp; khi thi h&agrave;nh <FONT FACE="Times New Roman">&#273;&#7873;u tr&#7843;i qua nhi&#7873;u chu k&#7923; x&#7917; lý (s&#7917; d&#7909;ng CPU) v</FONT>&agrave; chu k&#7923; nh&#7853;p xu&#7845;t (s&#7917; d&#7909;ng c&aacute;c thi&#7871;t b&#7883; nh&#7853;p xu&#7845;t) xen k&#7869; nh&#432; sau :</P></DIR>
+
+<P ALIGN="LEFT">
+<div align="center">
+  <center><TABLE BORDER="1" CELLSPACING=1 BORDERCOLOR="#7f7f7f" CELLPADDING=1 WIDTH=326>
+<TR><TD WIDTH="20%" VALIGN="MIDDLE">
+<B><P ALIGN="CENTER">CPU</B></TD>
+<TD WIDTH="20%" VALIGN="MIDDLE">
+<B><P ALIGN="CENTER">IO</B></TD>
+<TD WIDTH="20%" VALIGN="MIDDLE">
+<B><P ALIGN="CENTER">CPU</B></TD>
+<TD WIDTH="20%" VALIGN="MIDDLE">
+<B><P ALIGN="CENTER">IO</B></TD>
+<TD WIDTH="20%" VALIGN="MIDDLE">
+<B><P ALIGN="CENTER">CPU</B></TD>
+</TR>
+</TABLE>
+  </center>
+</div>
+<DIR>
+
+<P> N&#7871;u ch&#7881; c&oacute; 1 ti&#7871;n tr&igrave;nh duy nh&#7845;t trong h&#7879; th&#7889;ng, th&igrave; v&agrave;o c&aacute;c chu k&#7923; IO c&#7911;a t&aacute;c v&#7909;, CPU s&#7869;&nbsp; ho&agrave;n to&agrave;n nh&agrave;n r&#7895;i. &Yacute; t&#432;&#7903;ng t<FONT FACE="Times New Roman">&#259;ng c</FONT>&#432;&#7901;ng s&#7889; l&#432;&#7907;ng t&aacute;c v&#7909; trong h&#7879; th&#7889;ng l&agrave; <FONT FACE="Times New Roman">&#273;&#7875; t&#7853;n d&#7909;ng CPU : n&#7871;u tác v&#7909; 1 x&#7917; lý IO, th</FONT>&igrave; c&oacute; th&#7875; s&#7917; d&#7909;ng CPU <FONT FACE="Times New Roman">&#273;&#7875; th&#7921;c hi&#7879;n tác v&#7909; 2...</P></DIR>
+</FONT>
+<P ALIGN="LEFT">
+<div align="center">
+  <center><TABLE BORDER="1" CELLSPACING=1 BORDERCOLOR="#7f7f7f" CELLPADDING=1 WIDTH=326>
+<TR><TD WIDTH="20%" VALIGN="MIDDLE">
+<B><P ALIGN="CENTER">CPU</B></TD>
+<TD WIDTH="20%" VALIGN="MIDDLE">
+<B><P ALIGN="CENTER">IO</B></TD>
+<TD WIDTH="20%" VALIGN="MIDDLE">
+<B><P ALIGN="CENTER">CPU</B></TD>
+<TD WIDTH="20%" VALIGN="MIDDLE">
+<B><P ALIGN="CENTER">IO</B></TD>
+<TD WIDTH="20%" VALIGN="MIDDLE">
+<B><P ALIGN="CENTER">CPU</B></TD>
+</TR>
+</TABLE>
+  </center>
+</div>
+<DIR>
+
+<P>T&aacute;c v&#7909; 1</P></DIR>
+
+<P ALIGN="LEFT">
+<div align="center">
+  <center><TABLE BORDER="1" CELLSPACING=1 BORDERCOLOR="#7f7f7f" CELLPADDING=1 WIDTH=326>
+<TR><TD WIDTH="20%" VALIGN="MIDDLE">
+<P ALIGN="CENTER">&nbsp;</TD>
+<TD WIDTH="20%" VALIGN="MIDDLE">
+<B><P ALIGN="CENTER">CPU</B></TD>
+<TD WIDTH="20%" VALIGN="MIDDLE">
+<B><P ALIGN="CENTER">IO</B></TD>
+<TD WIDTH="20%" VALIGN="MIDDLE">
+<B><P ALIGN="CENTER">CPU</B></TD>
+<TD WIDTH="20%" VALIGN="MIDDLE">
+<B><P ALIGN="CENTER">IO</B></TD>
+</TR>
+</TABLE>
+  </center>
+</div>
+<DIR>
+
+<P>T&aacute;c v&#7909; </P></DIR>
+
+<B><FONT SIZE=4><P><img border="0" src="images/bulletjock.gif" width="18" height="18">T</FONT><FONT FACE="Times New Roman" SIZE=4>&#259;ng t&#7889;c &#273;&#7897; x&#7917; lý </P><DIR>
+
+</B></FONT><P>M&#7897;t s&#7889; b&agrave;i to&aacute;n c&oacute; b&#7843;n ch&#7845;t x&#7917; l&yacute; song song n&#7871;u <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c x&acirc;y d&#7921;ng th&agrave;nh nhi&#7873;u module ho&#7841;t <FONT FACE="Times New Roman">&#273;&#7897;ng &#273;&#7891;ng th&#7901;i th</FONT>&igrave; s&#7869; ti&#7871;t ki&#7879;m <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c th&#7901;i gian x&#7917; l&yacute;.</P>
+<U><P>V&iacute; d&#7909;</U> :&nbsp; X&eacute;t b&agrave;i to&aacute;n t&iacute;nh gi&aacute; tr&#7883; bi&#7875;u th&#7913;c kq = a*b + c*d . N&#7871;u ti&#7871;n h&agrave;nh t&iacute;nh <FONT FACE="Times New Roman">&#273;&#7891;ng th&#7901;i (a*b) v</FONT>&agrave; (c*d) th&igrave; th&#7901;i gian x&#7917; l&yacute; s&#7869; ng&#7855;n h&#417;n l&agrave; th&#7921;c hi&#7879;n tu&#7847;n t&#7921;.</P>
+<P>Trong c&aacute;c tr&#432;&#7901;ng h&#7907;p <FONT FACE="Times New Roman">&#273;ó, c&#7847;n có m&#7897;t mô h</FONT>&igrave;nh x&#7917; l&yacute; <FONT FACE="Times New Roman">&#273;&#7891;ng h</FONT>&agrave;nh th&iacute;ch h&#7907;p. Tr&ecirc;n m&aacute;y t&iacute;nh c&oacute; c&#7845;u h&igrave;nh nhi&#7873;u CPU, h&#7895; tr&#7907; <FONT COLOR="#0000ff">x&#7917; l&yacute; song song (multiprocessing)</FONT> th&#7853;t s&#7921;, <FONT FACE="Times New Roman">&#273;i&#7873;u n</FONT>&agrave;y s&#7869; gi&uacute;p t<FONT FACE="Times New Roman">&#259;ng hi&#7879;u qu&#7843; thi h</FONT>&agrave;nh c&#7911;a h&#7879;t th&#7889;ng <FONT FACE="Times New Roman">&#273;áng k&#7875;.</P>
+</FONT><P>&nbsp;</P></DIR>
+
+</blockquote>
+<P class="cap1"><a name="tientrinh">II. KHÁI NI&#7878;M TI&#7870;N TRÌNH(PROCESS) VÀ MÔ HÌNH &#272;A TI&#7870;N
+TRÌNH (MULTIPROCESS)</a></P>
+<blockquote>
+
+<FONT FACE="Times New Roman"><P>&#272;&#7875; h&#7895; tr&#7907; s&#7921; &#273;a ch</FONT>&#432;&#417;ng, m&aacute;y t&iacute;nh ph&#7843;i c&oacute; kh&#7843; n<FONT FACE="Times New Roman">&#259;ng th&#7921;c hi&#7879;n nhi&#7873;u tác v&#7909; &#273;&#7891;ng th&#7901;i. Nh</FONT>&#432;ng vi&#7879;c <FONT FACE="Times New Roman">&#273;i&#7873;u khi&#7875;n nhi&#7873;u ho&#7841;t &#273;&#7897;ng song song &#7903; c&#7845;p &#273;&#7897; ph&#7847;n c&#7913;ng l</FONT>&agrave; r&#7845;t kh&oacute; kh<FONT FACE="Times New Roman">&#259;n. V</FONT>&igrave; th&#7871; c&aacute;c nh&agrave; thi&#7871;t k&#7871; h&#7879; <FONT FACE="Times New Roman">&#273;i&#7873;u h</FONT>&agrave;nh <FONT FACE="Times New Roman">&#273;&#7873; xu&#7845;t m&#7897;t mô h</FONT>&igrave;nh <I>song song g&#7881;a l&#7863;p</I> b&#7857;ng c&aacute;ch chuy&#7875;n <FONT FACE="Times New Roman">&#273;&#7893;i b&#7897; x&#7917; lý qua l&#7841;i gi&#7919;a các ch</FONT>&#432;&#417;ng tr&igrave;nh <FONT FACE="Times New Roman">&#273;&#7875; duy tr</FONT>&igrave; ho&#7841;t <FONT FACE="Times New Roman">&#273;&#7897;ng c&#7911;a nhi&#7873;u ch</FONT>&#432;&#417;ng tr&igrave;nh c&ugrave;ng l&uacute;c, <FONT FACE="Times New Roman">&#273;i&#7873;u n</FONT>&agrave;y t&#7841;o c&#7843;m gi&aacute;c c&oacute; nhi&#7873;u ho&#7841;t <FONT FACE="Times New Roman">&#273;&#7897;ng &#273;</FONT>&#432;&#7907;c th&#7921;c hi&#7879;n <FONT FACE="Times New Roman">&#273;&#7891;ng th&#7901;i.</P>
+</FONT><P>Trong m&ocirc; h&igrave;nh n&agrave;y, t&#7845;t c&#7843; c&aacute;c ph&#7847;n m&#7873;m trong h&#7879; th&#7889;ng <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c t&#7893; ch&#7913;c th&agrave;nh m&#7897;t s&#7889; nh&#7919;ng <I><FONT COLOR="#0000ff">ti&#7871;n tr&igrave;nh (process)</I></FONT>. Ti&#7871;n tr&igrave;nh l&agrave; m&#7897;t ch&#432;&#417;ng tr&igrave;nh <FONT FACE="Times New Roman">&#273;ang x&#7917; lý, s&#7905; h&#7919;u m&#7897;t con tr&#7887; l&#7879;nh, t&#7853;p các thanh ghi v</FONT>&agrave; c&aacute;c bi&#7871;n. <FONT FACE="Times New Roman">&#272;&#7875; ho</FONT>&agrave;n th&agrave;nh t&aacute;c v&#7909; c&#7911;a m&igrave;nh, m&#7897;t ti&#7871;n tr&igrave;nh c&oacute; th&#7875; c&#7847;n <FONT FACE="Times New Roman">&#273;&#7871;n m&#7897;t s&#7889; t</FONT>&agrave;i nguy&ecirc;n – nh&#432; CPU, b&#7897; nh&#7899; ch&iacute;nh, c&aacute;c t&#7853;p tin v&agrave; thi&#7871;t b&#7883; nh&#7853;p/xu&#7845;t.</P>
+<P>C&#7847;n ph&acirc;n bi&#7879;t hai kh&aacute;i ni&#7879;m <I>ch&#432;&#417;ng tr&igrave;nh</I> v&agrave; <I>ti&#7871;n tr&igrave;nh</I>. M&#7897;t ch&#432;&#417;ng tr&igrave;nh l&agrave; m&#7897;t th&#7921;c th&#7875; th&#7909; <FONT FACE="Times New Roman">&#273;&#7897;ng, ch&#7913;a &#273;&#7921;ng các ch&#7881; th&#7883; &#273;i&#7873;u khi&#7875;n máy tính &#273;&#7875; ti&#7871;n h</FONT>&agrave;nh m&#7897;t t&aacute;c v&#7909; n&agrave;o <FONT FACE="Times New Roman">&#273;ó&nbsp;; khi cho th&#7921;c hi&#7879;n các ch&#7881; th&#7883; n</FONT>&agrave;y, ch&#432;&#417;ng tr&igrave;nh chuy&#7875;n th&agrave;nh ti&#7871;n tr&igrave;nh,  l&agrave; m&#7897;t th&#7921;c th&#7875; ho&#7841;t <FONT FACE="Times New Roman">&#273;&#7897;ng, v&#7899;i con tr&#7887; l&#7879;nh xác &#273;&#7883;nh ch&#7881; th&#7883; k&#7871; ti&#7871;p s&#7869; thi h</FONT>&agrave;nh, k&egrave;m theo t&#7853;p c&aacute;c t&agrave;i nguy&ecirc;n ph&#7909;c v&#7909; cho ho&#7841;t <FONT FACE="Times New Roman">&#273;&#7897;ng c&#7911;a ti&#7871;n tr</FONT>&igrave;nh.</P>
+<P>V&#7873; m&#7863;t &yacute; ni&#7879;m, c&oacute; th&#7875; xem nh&#432; m&#7895;i ti&#7871;n tr&igrave;nh s&#7905; h&#7919;u m&#7897;t b&#7897; x&#7917; l&yacute; &#7843;o cho ri&ecirc;ng n&oacute;, nh&#432;ng trong th&#7921;c t&#7871;, ch&#7881; c&oacute; m&#7897;t b&#7897; x&#7917; l&yacute; th&#7853;t s&#7921; <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c chuy&#7875;n <FONT FACE="Times New Roman">&#273;&#7893;i qua l&#7841;i gi&#7919;a các ti&#7871;n tr</FONT>&igrave;nh. S&#7921; chuy&#7875;n <FONT FACE="Times New Roman">&#273;&#7893;i nhanh chóng n</FONT>&agrave;y <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c g&#7885;i l&agrave; <I>s&#7921; <FONT FACE="Times New Roman">&#273;a ch</FONT>&#432;&#417;ng</I> <I>(multiprogramming)</I> . H&#7879; <FONT FACE="Times New Roman">&#273;i&#7873;u h</FONT>&agrave;nh ch&#7883;u tr&aacute;ch nhi&#7879;m s&#7917; d&#7909;ng m&#7897;t thu&#7853;t to&aacute;n <FONT FACE="Times New Roman">&#273;i&#7873;u ph&#7889;i &#273;&#7875; quy&#7871;t &#273;&#7883;nh th&#7901;i &#273;i&#7875;m c&#7847;n d&#7915;ng ho&#7841;t &#273;&#7897;ng c&#7911;a ti&#7871;n tr</FONT>&igrave;nh <FONT FACE="Times New Roman">&#273;ang x&#7917; lý &#273;&#7875; ph&#7909;c v&#7909; m&#7897;t ti&#7871;n tr</FONT>&igrave;nh kh&aacute;c, v&agrave; l&#7921;a ch&#7885;n ti&#7871;n tr&igrave;nh ti&#7871;p theo s&#7869; <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c ph&#7909;c v&#7909;. B&#7897; ph&#7853;n th&#7921;c hi&#7879;n ch&#7913;c n<FONT FACE="Times New Roman">&#259;ng n</FONT>&agrave;y c&#7911;a h&#7879; <FONT FACE="Times New Roman">&#273;i&#7873;u h</FONT>&agrave;nh <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c g&#7885;i l&agrave; <I>b&#7897; <FONT FACE="Times New Roman">&#273;i&#7873;u ph&#7889;i (sche</FONT>duler)</I>.</P>
+<P align="center"><img border="0" src="images/hinh2.1.gif" width="506" height="255"></P>
+<P>&nbsp;</P>
+</blockquote>
+<P class="cap1"><a name="tieutrinh">III. KHÁI NI&#7878;M TI&#7874;U TRÌNH (THREAD) VÀ MÔ HÌNH &#272;A TI&#7874;U
+TRÌNH(MULTITHREAD)</a></P>
+<blockquote>
+
+<P>Trong h&#7847;u h&#7871;t c&aacute;c h&#7879; <FONT FACE="Times New Roman">&#273;i&#7873;u h</FONT>&agrave;nh, m&#7895;i ti&#7871;n tr&igrave;nh c&oacute; m&#7897;t kh&ocirc;ng gian <FONT FACE="Times New Roman">&#273;&#7883;a ch&#7881; v</FONT>&agrave; ch&#7881; c&oacute; m&#7897;t d&ograve;ng x&#7917; l&yacute;. Tuy nhi&ecirc;n, c&oacute; nhi&#7873;u t&igrave;nh hu&#7889;ng ng&#432;&#7901;i s&#7917; d&#7909;ng mong mu&#7889;n c&oacute; nhi&#7873;u d&ograve;ng x&#7917; l&yacute; c&ugrave;ng chia s&#7867; m&#7897;t kh&ocirc;ng gian <FONT FACE="Times New Roman">&#273;&#7883;a ch&#7881;, v</FONT>&agrave; c&aacute;c d&ograve;ng x&#7917; l&yacute; n&agrave;y ho&#7841;t <FONT FACE="Times New Roman">&#273;&#7897;ng song song t</FONT>&#432;&#417;ng t&#7921;  nh&#432; c&aacute;c ti&#7871;n tr&igrave;nh ph&acirc;n bi&#7879;t (ngo&#7841;i tr&#7915; vi&#7879;c chia s&#7867; kh&ocirc;ng gian <FONT FACE="Times New Roman">&#273;&#7883;a ch&#7881;).</P>
+</FONT><U><P><b>V&iacute; d&#7909;</b></U><b>&nbsp;</b>: M&#7897;t server qu&#7843;n l&yacute; t&#7853;p tin th&#7881;nh tho&#7843;ng ph&#7843;i t&#7921; kh&oacute;a <FONT FACE="Times New Roman">&#273;&#7875; ch&#7901; các thao tác truy xu&#7845;t &#273;&#297;a ho</FONT>&agrave;n t&#7845;t.N&#7871;u server c&oacute; nhi&#7873;u d&ograve;ng x&#7917; l&yacute;, h&#7879; th&#7889;ng c&oacute; th&#7875; x&#7917; l&yacute; c&aacute;c y&ecirc;u c&#7847;u m&#7899;i trong khi m&#7897;t d&ograve;ng x&#7917; l&yacute; b&#7883; kho&aacute;. Nh&#432; v&#7853;y vi&#7879;c th&#7921;c hi&#7879;n ch&#432;&#417;ng tr&igrave;nh s&#7869; c&oacute; hi&#7879;u qu&#7843; h&#417;n. <FONT FACE="Times New Roman">&#272;i&#7873;u n</FONT>&agrave;y kh&ocirc;ng th&#7875; <FONT FACE="Times New Roman">&#273;&#7841;t &#273;</FONT>&#432;&#7907;c b&#7857;ng c&aacute;ch t&#7841;o hai ti&#7871;n tr&igrave;nh server ri&ecirc;ng bi&#7879;t v&igrave; c&#7847;n ph&#7843;i chia s&#7867; c&ugrave;ng m&#7897;t v&ugrave;ng <FONT FACE="Times New Roman">&#273;&#7879;m, do v&#7853;y b&#7855;t bu&#7897;c ph&#7843;i chia s&#7867; không gian &#273;&#7883;a ch&#7881;.</P>
+</FONT><P>Ch&iacute;nh v&igrave; c&aacute;c t&igrave;nh hu&#7889;ng t&#432;&#417;ng t&#7921;, ng&#432;&#7901;i ta c&#7847;n c&oacute; m&#7897;t c&#417; ch&#7871; x&#7917; l&yacute;&nbsp;m&#7899;i cho ph&eacute;p c&oacute; nhi&#7873;u d&ograve;ng x&#7917; l&yacute; trong c&ugrave;ng m&#7897;t ti&#7871;n tr&igrave;nh.</P>
+<P>Ng&agrave;y nay <FONT FACE="Times New Roman">&#273;</FONT>&atilde; c&oacute; nhi&#7873;u h&#7879; <FONT FACE="Times New Roman">&#273;i&#7873;u h</FONT>&agrave;nh cung c&#7845;p m&#7897;t c&#417; ch&#7871; nh&#432; th&#7871; v&agrave; g&#7885;i l&agrave; <I>ti&#7875;u tr&igrave;nh</I> <I>(threads)</I>.</P>
+<FONT SIZE=1>
+</blockquote>
+<P><img border="0" src="images/read_single.gif" width="15" height="12"><a name="nguyenly">&nbsp;</a></FONT><B><a name="nguyenly">Nguy&ecirc;n l&yacute; chung&nbsp;:</a>&nbsp; </B> </P>
+<blockquote>
+
+<P><i>M&#7897;t ti&#7875;u tr&igrave;nh l&agrave; m&#7897;t <FONT FACE="Times New Roman">&#273;</FONT>&#417;n v&#7883; x&#7917; l&yacute; c&#417; b&#7843;n trong h&#7879; th&#7889;ng . M&#7895;i ti&#7875;u tr&igrave;nh x&#7917; l&yacute; tu&#7847;n t&#7921; <FONT FACE="Times New Roman">&#273;o&#7841;n code c&#7911;a nó, s&#7905; h&#7919;u m&#7897;t con tr&#7887; l&#7879;nh, t&#7853;p các thanh ghi v</FONT>&agrave; m&#7897;t v&ugrave;ng nh&#7899; stack ri&ecirc;ng. C&aacute;c ti&#7875;u tr&igrave;nh chia s&#7867; CPU v&#7899;i nhau gi&#7889;ng nh&#432; c&aacute;ch chia s&#7867; gi&#7919;a c&aacute;c ti&#7871;n tr&igrave;nh: m&#7897;t ti&#7875;u tr&igrave;nh x&#7917; l&yacute; trong khi c&aacute;c ti&#7875;u tr&igrave;nh kh&aacute;c ch&#7901; <FONT FACE="Times New Roman">&#273;&#7871;n l</FONT>&#432;&#7907;t&ugrave;. M&#7897;t ti&#7875;u tr&igrave;nh c&#361;ng c&oacute; th&#7875; t&#7841;o l&#7853;p c&aacute;c ti&#7871;n tr&igrave;nh con, v&agrave; nh&#7853;n c&aacute;c tr&#7841;ng th&aacute;i kh&aacute;c nhau nh&#432; m&#7897;t ti&#7871;n tr&igrave;nh th&#7853;t s&#7921;. M&#7897;t ti&#7871;n tr&igrave;nh c&oacute; th&#7875; s&#7905; h&#7919;u nhi&#7873;u ti&#7875;u tr&igrave;nh.</i> </P>
+<P>C&aacute;c ti&#7871;n tr&igrave;nh t&#7841;o th&agrave;nh nh&#7919;ng th&#7921;c th&#7875; <FONT FACE="Times New Roman">&#273;&#7897;c l&#7853;p. M&#7895;i ti&#7871;n tr</FONT>&igrave;nh c&oacute; m&#7897;t t&#7853;p t&agrave;i nguy&ecirc;n  v&agrave; m&#7897;t m&ocirc;i tr&#432;&#7901;ng ri&ecirc;ng (m&#7897;t con tr&#7887; l&#7879;nh, m&#7897;t Stack , c&aacute;c thanh ghi v&agrave; kh&ocirc;ng gian <FONT FACE="Times New Roman">&#273;&#7883;a ch&#7881; ). Các ti&#7871;n tr</FONT>&igrave;nh ho&agrave;n to&agrave;n <FONT FACE="Times New Roman">&#273;&#7897;c l&#7853;p v&#7899;i nhau, ch&#7881; có th&#7875; li</FONT>&ecirc;n l&#7841;c th&ocirc;ng qua c&aacute;c c&#417; ch&#7871; th&ocirc;ng tin gi&#7919;a c&aacute;c ti&#7871;n tr&igrave;nh m&agrave; h&#7879; <FONT FACE="Times New Roman">&#273;i&#7873;u h</FONT>&agrave;nh cung c&#7845;p. Ng&#432;&#7907;c l&#7841;i, c&aacute;c ti&#7875;u tr&igrave;nh trong c&ugrave;ng m&#7897;t ti&#7871;n tr&igrave;nh l&#7841;i chia s&#7867; m&#7897;t kh&ocirc;ng gian <FONT FACE="Times New Roman">&#273;&#7883;a  ch&#7881; chung , &#273;i&#7873;u n</FONT>&agrave;y c&oacute; ngh&#297;a l&agrave; c&aacute;c ti&#7875;u tr&igrave;nh c&oacute; th&#7875; chia s&#7867; c&aacute;c bi&#7871;n to&agrave;n c&#7909;c c&#7911;a ti&#7871;n tr&igrave;nh. M&#7897;t ti&#7875;u tr&igrave;nh c&oacute; th&#7875; truy xu&#7845;t <FONT FACE="Times New Roman">&#273;&#7871;n c&#7843; các stack c&#7911;a nh&#7919;ng ti&#7875;u tr</FONT>&igrave;nh kh&aacute;c trong c&ugrave;ng ti&#7871;n tr&igrave;nh. C&#7845;u tr&uacute;c n&agrave;y kh&ocirc;ng <FONT FACE="Times New Roman">&#273;&#7873; ngh&#7883; m&#7897;t c</FONT>&#417; ch&#7871; b&#7843;o v&#7879; n&agrave;o, v&agrave; <FONT FACE="Times New Roman">&#273;i&#7873;u n</FONT>&agrave;y c&#361;ng kh&ocirc;ng th&#7853;t c&#7847;n thi&#7871;t v&igrave; c&aacute;c ti&#7875;u tr&igrave;nh trong c&ugrave;ng m&#7897;t ti&#7871;n tr&igrave;nh thu&#7897;c v&#7873; c&ugrave;ng m&#7897;t s&#7905; h&#7919;u ch&#7911; <FONT FACE="Times New Roman">&#273;</FONT>&atilde; t&#7841;o ra ch&uacute;ng trong &yacute; <FONT FACE="Times New Roman">&#273;&#7883;nh cho phép chúng h&#7907;p tác v&#7899;i nhau.
+</FONT></P>
+<P align="center"><img border="0" src="images/hinh2.7.gif" width="326" height="209"></P>
+<P align="center">Các ti&#7875;u trình trong cùng m&#7897;t ti&#7875;u trình</P>
+</blockquote>
+<P align="left"><img border="0" src="images/read_single.gif" width="15" height="12"><a name="luutru">&nbsp;<B>Phân
+b&#7893; thông tin l&#432;u tr&#7919;</B></a></P>
+<P align="center"><img border="0" src="images/hinh2.8.gif" width="463" height="108"></P>
+<P align="center">C&#7845;u trúc mô t&#7843; ti&#7871;n trình và ti&#7875;u trình</P>
+<P><img border="0" src="images/read_single.gif" width="15" height="12"><a name="kernel">&nbsp;<B>Kernel thread v&agrave; user
+thread<FONT COLOR="#0000ff">&nbsp;</FONT></B></a><B><FONT COLOR="#0000ff">&nbsp;</FONT></B> </P>
+
+<blockquote>
+
+<P>Kh&aacute;i ni&#7879;m ti&#7875;u tr&igrave;nh c&oacute; th&#7875; <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c c&agrave;i <FONT FACE="Times New Roman">&#273;&#7863;t trong kernel c&#7911;a H&#7879; &#273;i&#7873;u h</FONT>&agrave;nh, khi <FONT FACE="Times New Roman">&#273;ó &#273;</FONT>&#417;n v&#7883; c&#417; s&#7903; s&#7917; d&#7909;ng CPU <FONT FACE="Times New Roman">&#273;&#7875; x&#7917; lý l</FONT>&agrave; ti&#7875;u tr&igrave;nh, H&#7879; <FONT FACE="Times New Roman">&#273;i&#7873;u h</FONT>&agrave;nh s&#7869; ph&acirc;n ph&#7889;i CPU cho c&aacute;c ti&#7875;u tr&igrave;nh trong h&#7879; th&#7889;ng. Tuy nhi&ecirc;n <FONT FACE="Times New Roman">&#273;&#7889;i v&#7899;i m&#7897;t s&#7889; h&#7879; &#273;i&#7873;u h</FONT>&agrave;nh, kh&aacute;i ni&#7879;m ti&#7875;u tr&igrave;nh ch&#7881; <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c h&#7895; tr&#7907; nh&#432; m&#7897;t <FONT FACE="Times New Roman">&#273;&#7889;i t</FONT>&#432;&#7907;ng ng&#432;&#7901;i d&ugrave;ng, c&aacute;c thao t&aacute;c ti&#7875;u tr&igrave;nh <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c cung c&#7845;p k&egrave;m theo do m&#7897;t b&#7897; th&#432; vi&#7879;n x&#7917; l&yacute; trong ch&#7871; <FONT FACE="Times New Roman">&#273;&#7897; ng</FONT>&#432;&#7901;i d&ugrave;ng kh&ocirc;ng <FONT FACE="Times New Roman">&#273;&#7863;c quy&#7873;n (user mode). Lúc n</FONT>&agrave;y H&#7879; <FONT FACE="Times New Roman">&#273;i&#7873;u h</FONT>&agrave;nh s&#7869; ch&#7881; bi&#7871;t <FONT FACE="Times New Roman">&#273;&#7871;n khái ni&#7879;m ti&#7871;n tr</FONT>&igrave;nh, do v&acirc;y c&#7853;n co c&#417; ch&#7871; <FONT FACE="Times New Roman">&#273;&#7875; li</FONT>&ecirc;n k&#7871;t c&aacute;c ti&#7875;u tr&igrave;nh c&ugrave;ng m&#7897;t ti&#7871;n tr&igrave;nh v&#7899;i ti&#7871;n tr&igrave;nh cha trong kernel_ <FONT FACE="Times New Roman">&#273;&#7889;i t</FONT>&#432;&#7907;ng n&agrave;y <FONT FACE="Times New Roman">&#273;ôi lúc &#273;</FONT>&#432;&#7907;c g&#7885;i l&agrave; LWP (lightweight process). </P>
+
+<P align="center"><img border="0" src="images/hinh2_kernel.gif" width="642" height="378"> </P>
+
+<P align="center">&nbsp; </P>
+
+</blockquote>
+<P class="cap1"><a name="tomtat">IV. TÓM T&#7854;T</a></P><blockquote>
+<P><img border="0" src="../../TH031/Htm/images/rightarrow.gif" width="6" height="12">
+Ti&#7871;n tr&igrave;nh l&agrave; m&#7897;t ch&#432;&#417;ng tr&igrave;nh <FONT FACE="Times New Roman">&#273;ang ho&#7841;t &#273;&#7897;ng.</P>
+</FONT><P><img border="0" src="../../TH031/Htm/images/rightarrow.gif" width="6" height="12">
+<FONT FACE="Times New Roman">&#272;&#7875; s&#7917; d&#7909;ng hi&#7879;u qu&#7843; CPU, s&#7921; &#273;a ch</FONT>&#432;&#417;ng c&#7847;n <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c <FONT FACE="Times New Roman">&#273;</FONT>&#432;a v&agrave;o h&#7879; th&#7889;ng</P>
+<P><img border="0" src="../../TH031/Htm/images/rightarrow.gif" width="6" height="12">
+S&#7921; <FONT FACE="Times New Roman">&#273;a ch</FONT>&#432;&#417;ng <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c t&#7893; ch&#7913;c b&#7857;ng c&aacute;ch l&#432;u tr&#7919; nhi&#7873;u ti&#7871;n tr&igrave;nh trong b&#7897; nh&#7899; t&#7841;i m&#7897;t th&#7901;i <FONT FACE="Times New Roman">&#273;i&#7875;m, v</FONT>&agrave; <FONT FACE="Times New Roman">&#273;i&#7873;u ph&#7889;i CPU qua l&#7841;i gi&#7919;a các ti&#7871;n tr</FONT>&igrave;nh trong h&#7879; th&#7889;ng.</P>
+<P><img border="0" src="../../TH031/Htm/images/rightarrow.gif" width="6" height="12">
+ M&ocirc; h&igrave;nh <FONT FACE="Times New Roman">&#273;a ti&#7875;u tr</FONT>&igrave;nh cho ph&eacute;p m&#7895;i ti&#7871;n tr&igrave;nh c&oacute; th&#7875; ti&#7871;n h&agrave;nh nhi&#7873;u d&ograve;ng x&#7917; l&yacute; <FONT FACE="Times New Roman">&#273;&#7891;ng th&#7901;i trong c</FONT>&ugrave;ng m&#7897;t kh&ocirc;ng gian <FONT FACE="Times New Roman">&#273;&#7883;a ch&#7881; nh&#7857;m th&#7921;c hi&#7879;n tác v&#7909; hi&#7879;u q&#7911;a h</FONT>&#417;n trong m&#7897;t s&#7889; tr&#432;&#7901;ng h&#7907;p.</P>
+<P>&nbsp;</P>
+</blockquote>
+<P align="left"><a name="cauhoi"><img border="0" src="images/blebul1a.gif" width="20" height="20">
+<b><font color="#FF0000" face="Times New Roman" size="4">C&#7911;ng c&#7889; bài
+h&#7885;c</font></b></a></P>
+<P>&nbsp;&nbsp;&nbsp; C&aacute;c c&acirc;u h&#7887;i c&#7847;n tr&#7843; l&#7901;i <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c sau b&agrave;i h&#7885;c n&agrave;y :</P>
+<blockquote>
+
+<P>1. T&#7841;i sao c&aacute;c h&#7879; <FONT FACE="Times New Roman">&#273;i&#7873;u h</FONT>&agrave;nh hi&#7879;n <FONT FACE="Times New Roman">&#273;&#7841;i h&#7895; tr&#7907; môi tr</FONT>&#432;&#7901;ng <FONT FACE="Times New Roman">&#273;a nhi&#7879;m ? </P>
+</FONT><P>2. Ph&acirc;n bi&#7879;t multitask, multiprogramming v&agrave; multiprocessing. </P>
+<P>3. Kh&aacute;i ni&#7879;m ti&#7871;n tr&igrave;nh <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c x&acirc;y d&#7921;ng nh&#7857;m m&#7909;c <FONT FACE="Times New Roman">&#273;ích g</FONT>&igrave; ? </P>
+<P>4. S&#7921; kh&aacute;c bi&#7879;t, m&#7889;i quan h&#7879; gi&#7919;a ti&#7871;n tr&igrave;nh v&agrave; ti&#7875;u tr&igrave;nh ? </P>
+</blockquote>
+<P><a name="baitap"><img border="0" src="images/blebul1a.gif" width="20" height="20">
+ <b><font color="#FF0000" face="Times New Roman" size="4">Bài t&#7853;p</font></b></a> </P><blockquote>
+
+<P><img border="0" src="../../TH031/Htm/images/help.gif" width="16" height="16">
+<b>Bài 1.</b> Nhi&#7873;u h&#7879; <FONT FACE="Times New Roman">&#273;i&#7873;u h</FONT>&agrave;nh kh&ocirc;ng cho ph&eacute;p x&#7917; l&yacute; <FONT FACE="Times New Roman">&#273;&#7891;ng h</FONT>&agrave;nh. Th&#7843;o lu&#7853;n v&#7873; c&aacute;c ph&#7913;c t&#7841;p ph&aacute;t sinh khi h&#7879; <FONT FACE="Times New Roman">&#273;i&#7873;u h</FONT>&agrave;nh cho ph&eacute;p <FONT FACE="Times New Roman">&#273;a nhi&#7879;m ?</FONT> </P>
+<P><img border="0" src="../../TH031/Htm/images/help.gif" width="16" height="16">
+<b>Bài 2.</b> T&igrave;m m&#7897;t s&#7889; &#7913;ng d&#7909;ng th&iacute;ch h&#7907;p v&#7899;i m&ocirc; h&igrave;nh <FONT FACE="Times New Roman">&#273;a ti&#7871;n tr</FONT>&igrave;nh; v&agrave; m&#7897;t s&#7889; &#7913;ng d&#7909;ng th&iacute;ch h&#7907;p v&#7899;i m&ocirc; h&igrave;nh <FONT FACE="Times New Roman">&#273;a ti&#7875;u tr</FONT>&igrave;nh. </P>
+</blockquote>
+
+</BODY>
+</HTML>

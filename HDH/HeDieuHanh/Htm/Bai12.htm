@@ -1,0 +1,377 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft FrontPage 4.0">
+<LINK REL="stylesheet" TYPE="text/css" HREF="style.css" TITLE="MTD">
+<TITLE>Gioi thieu mot so HTNX</TITLE>
+</HEAD>
+<BODY LINK="#0000ff">
+
+<B><EM>
+</EM><P ALIGN="CENTER"><font face="Verdana" size="2">BÀI 12 </font><font size="5" face="Verdana">GI&#7898;I THI&#7878;U M&#7896;T S&#7888; H&#7878; TH&#7888;NG I/O</font></P>
+
+</B><P><EM>C&#417; ch&#7871; qu&#7843;n l&yacute; nh&#7853;p/xu&#7845;t(I/O) c&#7911;a h&#7879; <FONT FACE="Times New Roman">&#273;i&#7873;u h</FONT>&agrave;nh <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c minh h&#7885;a c&#7909; th&#7875; qua vi&#7879;c <FONT FACE="Times New Roman">&#273;i&#7873;u khi&#7875;n các thi&#7871;t b&#7883; I/O c&#7909; th&#7875;. Trong b</FONT>&agrave;i n&agrave;y ch&uacute;ng ta t&igrave;m hi&#7875;u m&#7897;t s&#7889; h&#7879; th&#7889;ng I/O  sau: </P>
+</EM>
+
+<blockquote>
+  <P ALIGN="JUSTIFY"><img border="0" src="images/dotgreen.gif" width="9" height="9"><a href="#dia">H&#7879;
+  th&#7889;ng nh&#7853;p xu&#7845;t &#273;&#297;a</a></P>
+  <P ALIGN="JUSTIFY"><img border="0" src="images/dotgreen.gif" width="9" height="9"><a href="#terminals">H&#7879;
+  th&#7889;ng nh&#7853;p xu&#7845;t chu&#7849;n</a></P>
+  <P ALIGN="JUSTIFY"><img border="0" src="images/dotgreen.gif" width="9" height="9"><a href="#dongho">Cài
+  &#273;&#7863;t &#273;&#7891;ng h&#7891;</a></P>
+</blockquote>
+
+<P ALIGN="JUSTIFY">Qua b&agrave;i h&#7885;c n&agrave;y, ch&uacute;ng ta hi&#7875;u <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c c&#417; ch&#7871; qu&#7843;n l&yacute; nh&#7853;p/xu&#7845;t c&#7911;a h&#7879; <FONT FACE="Times New Roman">&#273;i&#7873;u h</FONT>&agrave;nh <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c th&#7875; hi&#7879;n c&#7909; th&#7875; tr&ecirc;n m&#7897;t s&#7889; thi&#7871;t b&#7883; I/O. Ch&uacute;ng ta c&#361;ng n&#7855;m <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c c&#417; ch&#7871; t&#432;&#417;ng t&aacute;c gi&#7919;a h&#7879; <FONT FACE="Times New Roman">&#273;i&#7873;u h</FONT>&agrave;nh v&#7899;i c&aacute;c thi&#7871;t b&#7883; <FONT FACE="Times New Roman">&#273;ó v</FONT>&agrave; tr&ecirc;n h&#7871;t ch&uacute;ng ta th&#7845;y <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c vai tr&ograve; c&#7911;a <FONT FACE="Times New Roman">&#273;&#7897;c l&#7853;p thi&#7871;t b&#7883;.</P>
+</FONT><P>B&agrave;i h&#7885;c n&agrave;y <FONT FACE="Times New Roman">&#273;</FONT>&ograve;i h&#7887;i nh&#7919;ng ki&#7871;n th&#7913;c v&#7873; : ki&#7871;n tr&uacute;c m&aacute;y t&iacute;nh, h&#7879; th&#7889;ng qu&#7843;n l&yacute; I/O c&#7911;a h&#7879; <FONT FACE="Times New Roman">&#273;i&#7873;u h</FONT>&agrave;nh. </P>
+<STRONG><P ALIGN="JUSTIFY" class="cap1"><a name="dia">I. H&#7878; TH&#7888;NG I/O &#272;&#296;A</a></P>
+</STRONG><P ALIGN="JUSTIFY">H&#7847;u nh&#432; t&#7845;t c&#7843; c&aacute;c m&aacute;y t&iacute;nh <FONT FACE="Times New Roman">&#273;&#7873;u c</FONT>&oacute; <FONT FACE="Times New Roman">&#273;&#297;a &#273;&#7875; l</FONT>&#432;u tr&#7919; th&ocirc;ng tin. <FONT FACE="Times New Roman">&#272;&#297;a có ba </FONT>&#432;u <FONT FACE="Times New Roman">&#273;i&#7875;m chính h</FONT>&#417;n s&#7917; d&#7909;ng b&#7897; nh&#7899; ch&iacute;nh <FONT FACE="Times New Roman">&#273;&#7875; l</FONT>&#432;u tr&#7919; :&nbsp;</P>
+<blockquote>
+
+<P ALIGN="JUSTIFY"><img border="0" src="images/dotgreen.gif" width="9" height="9">Dung l&#432;&#7907;ng l&#432;u tr&#7919; l&#7899;n h&#417;n r&#7845;t nhi&#7873;u.</P>
+<P ALIGN="JUSTIFY"><img border="0" src="images/dotgreen.gif" width="9" height="9">Gi&aacute; tr&ecirc;n m&#7897;t bit r&#7867; h&#417;n.</P>
+<P ALIGN="JUSTIFY"><img border="0" src="images/dotgreen.gif" width="9" height="9">Th&ocirc;ng tin kh&ocirc;ng b&#7883; m&#7845;t <FONT FACE="Times New Roman">&#273;i khi không c</FONT>&ograve;n cung c&#7845;p <FONT FACE="Times New Roman">&#273;i&#7879;n.
+</FONT></P>
+</blockquote>
+<P class="cap2"><STRONG><FONT SIZE=4><a name="phancung"><img border="0" src="images/read_single.gif" width="15" height="12">
+ I.1 Ph&#7847;n c&#7913;ng </a> </FONT><a name="phancung"><FONT FACE="Times New Roman" SIZE=4>&#273;&#297;a</FONT></a></STRONG></P>
+<blockquote>
+
+<P ALIGN="JUSTIFY">M&#7897;t <FONT FACE="Times New Roman">&#273;&#297;a bao g&#7891;m nhi&#7873;u cylinder, m&#7895;i cylinder ch&#7913;a nhi&#7873;u track tr</FONT>&ecirc;n c&aacute;c head. M&#7895;i track <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c chia l&agrave;m nhi&#7873;u sector (t&#7915; 8 <FONT FACE="Times New Roman">&#273;&#7871;n 32). M&#7895;i sector có s&#7889; byte l</FONT>&agrave; nh&#432; nhau d&ugrave; v&#7883; tr&iacute; c&#7911;a n&oacute; &#7903; g&#7847;n t&acirc;m hay &#7903; ngo&agrave;i r&igrave;a <FONT FACE="Times New Roman">&#273;&#297;a, nh&#7919;ng kho&#7843;ng tr&#7889;ng th&#7915;a không d</FONT>&ugrave;ng <FONT FACE="Times New Roman">&#273;&#7871;n.</FONT>&nbsp;</P>
+<P ALIGN="JUSTIFY">M&#7897;t <FONT FACE="Times New Roman">&#273;&#7863;c &#273;i&#7875;m thi&#7871;t b&#7883; c</FONT>&agrave;i <FONT FACE="Times New Roman">&#273;&#7863;t quan tr&#7885;ng cho driver c&#7911;a &#273;&#297;a l</FONT>&agrave; kh&#7843; n<FONT FACE="Times New Roman">&#259;ng c&#7911;a b&#7897; &#273;i&#7873;u khi&#7875;n th&#7921;c hi&#7879;n t</FONT>&igrave;m ki&#7871;m tr&ecirc;n hai hay nhi&#7873;u driver c&ugrave;ng l&uacute;c g&#7885;i l&agrave; t&igrave;m ki&#7871;m ch&#7891;ng. Trong khi b&#7897; <FONT FACE="Times New Roman">&#273;i&#7873;u khi&#7875;n v</FONT>&agrave; ph&#7847;n m&#7873;m <FONT FACE="Times New Roman">&#273;&#7907;i vi&#7879;c t</FONT>&igrave;m ki&#7871;m ho&agrave;n t&#7845;t tr&ecirc;n m&#7897;t <FONT FACE="Times New Roman">&#273;&#297;a, b&#7897; &#273;i&#7873;u khi&#7875;n có</FONT> th&#7875; kh&#7903;i <FONT FACE="Times New Roman">&#273;&#7897;ng vi&#7879;c t</FONT>&igrave;m ki&#7871;m tr&ecirc;n <FONT FACE="Times New Roman">&#273;&#297;a khác. Các b&#7897; &#273;i&#7873;u khi&#7875;n không th&#7875; c</FONT>&ugrave;ng l&uacute;c <FONT FACE="Times New Roman">&#273;&#7885;c ho&#7863;c ghi tr</FONT>&ecirc;n hai driver v&igrave; kh&#7843; n<FONT FACE="Times New Roman">&#259;ng n</FONT>&agrave;y c&oacute; th&#7875; l&agrave;m gi&#7843;m th&#7901;i gian truy xu&#7845;t trung b&igrave;nh.</P>
+</blockquote>
+
+<FONT SIZE=4><STRONG><P class="cap2"><a name="thuattoan"><img border="0" src="images/read_single.gif" width="15" height="12">
+ I.2 C&aacute;c thu&#7853;t to&aacute;n </a> </STRONG> </FONT><STRONG><a name="thuattoan"><FONT FACE="Times New Roman" SIZE=4>&#273;&#7885;c &#273;&#297;a
+
+</FONT></a></P></STRONG><blockquote>
+
+<P ALIGN="JUSTIFY">T&#7845;t c&#7843; m&#7885;i c&ocirc;ng vi&#7879;c <FONT FACE="Times New Roman">&#273;&#7873;u ph&#7909; thu&#7897;c v</FONT>&agrave;o vi&#7879;c n&#7841;p ch&#432;&#417;ng tr&igrave;nh v&agrave; nh&#7853;p xu&#7845;t t&#7853;p tin, do <FONT FACE="Times New Roman">&#273;ó &#273;i&#7873;u quan tr&#7885;ng l</FONT>&agrave; d&#7883;ch v&#7909; <FONT FACE="Times New Roman">&#273;&#297;a ph&#7843;i c</FONT>&agrave;ng nhanh c&agrave;ng t&#7889;t. H&#7879; <FONT FACE="Times New Roman">&#273;i&#7873;u h</FONT>&agrave;nh c&oacute; th&#7875; t&#7893; ch&#7913;c d&#7883;ch v&#7909; truy xu&#7845;t <FONT FACE="Times New Roman">&#273;&#297;a t&#7889;t h</FONT>&#417;n b&#7857;ng c&aacute;ch l&#7853;p l&#7883;ch y&ecirc;u c&#7847;u truy xu&#7845;t <FONT FACE="Times New Roman">&#273;&#297;a. </P>
+</FONT>
+<P ALIGN="JUSTIFY">T&#7889;c <FONT FACE="Times New Roman">&#273;&#7897; &#273;&#297;a bao g&#7891;m ba ph&#7847;n. &#272;&#7875; truy xu&#7845;t các kh&#7889;i tr</FONT>&ecirc;n <FONT FACE="Times New Roman">&#273;&#297;a, tr</FONT>&#432;&#7899;c ti&ecirc;n ph&#7843;i di chuy&#7875;n <FONT FACE="Times New Roman">&#273;&#7847;u &#273;&#7885;c &#273;&#7871;n track hay cylinder thích h&#7907;p, thao tác n</FONT>&agrave;y g&#7885;i l&agrave; seek v&agrave; th&#7901;i gian <FONT FACE="Times New Roman">&#273;&#7875; ho</FONT>&agrave;n t&#7845;t g&#7885;i l&agrave; <I>seek time</I>. M&#7897;t khi <FONT FACE="Times New Roman">&#273;</FONT>&atilde; <FONT FACE="Times New Roman">&#273;&#7871;n &#273;úng track, c</FONT>&ograve;n ph&#7843;i ch&#7901; cho <FONT FACE="Times New Roman">&#273;&#7871;n khi kh&#7889;i c&#7847;n thi&#7871;t &#273;&#7871;n d</FONT>&#432;&#7899;i <FONT FACE="Times New Roman">&#273;&#7847;u &#273;&#7885;c. Th&#7901;i gian ch&#7901; n</FONT>&agrave;y g&#7885;i l&agrave; <I>latency time</I>. Cu&#7889;i c&ugrave;ng l&agrave; v&#7853;n chuy&#7875;n d&#7919; li&#7879;u gi&#7919;a <FONT FACE="Times New Roman">&#273;&#297;a v</FONT>&agrave; b&#7897; nh&#7899; ch&iacute;nh g&#7885;i l&agrave; <I>transfer time</I>. T&#7893;ng th&#7901;i gian cho d&#7883;ch v&#7909; <FONT FACE="Times New Roman">&#273;&#297;a chính l</FONT>&agrave; t&#7893;ng c&#7911;a ba kho&#7843;ng th&#7901;i gian tr&ecirc;n. Trong <FONT FACE="Times New Roman">&#273;ó </FONT><I>seek time</I> v&agrave; <I>latency time</I> l&agrave; m&#7845;t nhi&#7873;u th&#7901;i gian nh&#7845;t, do <FONT FACE="Times New Roman">&#273;ó &#273;&#7875; gi&#7843;m thi&#7875;u th&#7901;i gian truy xu&#7845;t h&#7879; &#273;i&#7873;u h</FONT>&agrave;nh <FONT FACE="Times New Roman">&#273;</FONT>&#432;a ra c&aacute;c thu&#7853;t to&aacute;n l&#7853;p l&#7883;ch truy xu&#7845;t.</P>
+
+<B><P><img border="0" src="images/symble_asterisk_blue.gif" width="13" height="14">
+L&#7853;p l&#7883;ch FCFS :</P>
+
+</B>
+<blockquote>
+  <P ALIGN="JUSTIFY">Ph&#432;&#417;ng ph&aacute;p l&#7853;p l&#7883;ch <FONT FACE="Times New Roman">&#273;</FONT>&#417;n gi&#7843;n nh&#7845;t l&agrave; FCFS(first-come,first-served). Thu&#7853;t to&aacute;n n&agrave;y r&#7845;t d&#7875; l&#7853;p tr&igrave;nh nh&#432;ng kh&ocirc;ng cung c&#7845;p <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c m&#7897;t d&#7883;ch v&#7909; t&#7889;t. V&iacute; d&#7909; : c&#7847;n ph&#7843;i <FONT FACE="Times New Roman">&#273;&#7885;c các kh&#7889;i the</FONT>o th&#7913; t&#7921; nh&#432; sau :</P>
+  <blockquote>
+<blockquote>
+
+<P ALIGN="JUSTIFY">98, 183, 37, 122, 14, 124, 65, v&agrave; 67</P>
+</blockquote>
+</blockquote>
+
+<P ALIGN="JUSTIFY">Gi&#7843; s&#7917; hi&#7879;n t&#7841;i <FONT FACE="Times New Roman">&#273;&#7847;u &#273;&#7885;c &#273;ang &#7903; v&#7883; trí 53. Nh</FONT>&#432; v&#7853;y <FONT FACE="Times New Roman">&#273;&#7847;u &#273;&#7885;c l&#7847;n l</FONT>&#432;&#7907;t <FONT FACE="Times New Roman">&#273;i qua các kh&#7889;i 53, 98, 183, 37, 122, 14, 124, 65, v</FONT>&agrave; 67 nh&#432; h&igrave;nh sau :</P>
+
+<P ALIGN="center"><img border="0" src="images/hinh12.1.gif" width="429" height="175"></P>
+</blockquote>
+
+<B><P><img border="0" src="images/symble_asterisk_blue.gif" width="13" height="14">
+L&#7853;p l&#7883;ch  SSTF  (shortest-seek-time-first)</P>
+
+</B>
+<blockquote>
+
+<P ALIGN="JUSTIFY">Thu&#7853;t to&aacute;n n&agrave;y s&#7869; di chuy&#7875;n <FONT FACE="Times New Roman">&#273;&#7847;u &#273;&#7885;c &#273;&#7871;n các kh&#7889;i c&#7847;n thi&#7871;t theo v&#7883; trí l&#7847;n l</FONT>&#432;&#7907;t g&#7847;n v&#7899;i v&#7883; tr&iacute; hi&#7879;n h&agrave;nh c&#7911;a <FONT FACE="Times New Roman">&#273;&#7847;u &#273;&#7885;c nh&#7845;t. Ví d&#7909; : c&#7847;n &#273;&#7885;c các kh&#7889;i nh</FONT>&#432; sau :&nbsp; </P>
+  <blockquote>
+<blockquote>
+
+<P ALIGN="JUSTIFY">98, 183, 37, 122, 14, 124, 65, v&agrave; 67</P></blockquote>
+</blockquote>
+
+<P ALIGN="JUSTIFY">Gi&#7843; s&#7917; hi&#7879;n t&#7841;i <FONT FACE="Times New Roman">&#273;&#7847;u &#273;&#7885;c &#273;ang &#7903; v&#7883; trí 53. Nh</FONT>&#432; v&#7853;y <FONT FACE="Times New Roman">&#273;&#7847;u &#273;&#7885;c l&#7847;n l</FONT>&#432;&#7907;t <FONT FACE="Times New Roman">&#273;i qua các kh&#7889;i 53, 65, 67, 37, 14, 98, 122, 124 v</FONT>&agrave; 183 nh&#432; h&igrave;nh sau :</P>
+
+<P ALIGN="center"><img border="0" src="images/hinh12.2.gif" width="450" height="218"></P>
+<B>
+</B>
+<P ALIGN="JUSTIFY">V&#7899;i v&iacute; d&#7909; n&agrave;y, thu&#7853;t to&aacute;n SSTF l&agrave;m gi&#7843;m s&#7889; kh&#7889;i m&agrave; <FONT FACE="Times New Roman">&#273;&#7847;u &#273;&#7885;c ph&#7843;i di chuy&#7875;n l</FONT>&agrave; 208 kh&#7889;i.</P>
+
+<B>
+</blockquote>
+<I>
+<P ALIGN="JUSTIFY"><img border="0" src="images/symble_asterisk_blue.gif" width="13" height="14">
+</I>
+
+L&#7853;p l&#7883;ch SCAN</P>
+
+</B>
+<blockquote>
+
+<P ALIGN="JUSTIFY">Theo thu&#7853;t to&aacute;n n&agrave;y, <FONT FACE="Times New Roman">&#273;&#7847;u &#273;&#7885;c s&#7869; di chuy&#7875;n v&#7873; m&#7897;t </FONT>ph&iacute;a c&#7911;a <FONT FACE="Times New Roman">&#273;&#297;a v</FONT>&agrave; t&#7915; <FONT FACE="Times New Roman">&#273;ó di chuy&#7875;n qua phía kia. Ví d&#7909; : c&#7847;n &#273;&#7885;c các kh&#7889;i nh</FONT>&#432; sau :&nbsp; </P>
+  <blockquote>
+<blockquote>
+
+<P ALIGN="JUSTIFY">98, 183, 37, 122, 14, 124, 65, v&agrave; 67</P></blockquote>
+</blockquote>
+
+<P ALIGN="JUSTIFY">Gi&#7843; s&#7917; hi&#7879;n t&#7841;i <FONT FACE="Times New Roman">&#273;&#7847;u &#273;&#7885;c &#273;ang &#7903; v&#7883; trí 53. Nh</FONT>&#432; v&#7853;y <FONT FACE="Times New Roman">&#273;&#7847;u &#273;&#7885;c l&#7847;n l</FONT>&#432;&#7907;t <FONT FACE="Times New Roman">&#273;i qua các kh&#7889;i 53, 37, 14, 0 , 65, 67, 98, 122, 124 v</FONT>&agrave; 183 nh&#432; h&igrave;nh sau :</P>
+<P ALIGN="center"><img border="0" src="images/hinh12.3.gif" width="448" height="237"></P>
+
+<P ALIGN="JUSTIFY">Thu&#7853;t to&aacute;n n&agrave;y c&ograve;n <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c g&#7885;i l&agrave; thu&#7853;t to&aacute;n thang m&aacute;y. H&igrave;nh &#7843;nh thu&#7853;t to&aacute;n gi&#7889;ng nh&#432; h&igrave;nh &#7843;nh c&#7911;a m&#7897;t ng&#432;&#7901;i qu&eacute;t tuy&#7871;t, hay qu&eacute;t l&aacute;.</P>
+
+<B>
+</blockquote>
+<P ALIGN="JUSTIFY"><img border="0" src="images/symble_asterisk_blue.gif" width="13" height="14">
+L&#7853;p l&#7883;ch C-SCAN</P>
+
+</B>
+<blockquote>
+<P ALIGN="JUSTIFY">Thu&#7853;t to&aacute;n n&agrave;y t&#432;&#417;ng t&#7921; nh&#432; thu&#7853;t to&aacute;n SCAN, ch&#7881; kh&aacute;c l&agrave; khi n&oacute; di chuy&#7875;n <FONT FACE="Times New Roman">&#273;&#7871;n m&#7897;t &#273;&#7847;u n</FONT>&agrave;o <FONT FACE="Times New Roman">&#273;ó c&#7911;a &#273;&#297;a, nó s&#7869; l&#7853;p t&#7913;c tr&#7903; v&#7873; &#273;&#7847;u b&#7855;t &#273;&#7847;u c&#7911;a &#273;&#297;a. L&#7845;y l&#7841;i ví d&#7909; tr</FONT>&ecirc;n, khi <FONT FACE="Times New Roman">&#273;ó th&#7913; t&#7921; truy xu&#7845;t các kh&#7889;i s&#7869; l</FONT>&agrave; : 53, 65, 67, 98, 122, 124, 183, 199, 0, 14, 37 nh&#432; h&igrave;nh sau :</P>
+<P ALIGN="center"><img border="0" src="images/hinh12.4.gif" width="474" height="224"></P>
+</blockquote>
+<B>
+<P><img border="0" src="images/symble_asterisk_blue.gif" width="13" height="14">
+L&#7853;p l&#7883;ch LOOK:</P>
+
+</B>
+<blockquote>
+
+<P ALIGN="JUSTIFY">Nh&#7853;n x&eacute;t r&#7857;ng c&#7843; hai thu&#7853;t to&aacute;n l&#7853;p l&#7883;ch SCAN v&agrave; C-SCAN lu&ocirc;n lu&ocirc;n chuy&#7875;n <FONT FACE="Times New Roman">&#273;&#7847;u &#273;&#7885;c c&#7911;a &#273;&#297;a t&#7915; &#273;&#7847;u n</FONT>&agrave;y sang <FONT FACE="Times New Roman">&#273;&#7847;u kia. Nh</FONT>&#432;ng th&ocirc;ng th&#432;&#7901;ng th&igrave; <FONT FACE="Times New Roman">&#273;&#7847;u &#273;&#7885;c ch&#7881; chuy&#7875;n &#273;&#7871;n kh&#7889;i xa nh&#7845;t &#7903; m&#7895;i h</FONT>&#432;&#7899;ng ch&#7913; kh&ocirc;ng <FONT FACE="Times New Roman">&#273;&#7871;n cu&#7889;i. Do &#273;ó SCAN v</FONT>&agrave; C-SCAN <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c ch&#7881;nh theo th&#7921;c t&#7871; v&agrave; g&#7885;i l&agrave; l&#7853;p l&#7883;ch LOOK. Nh&#432; h&igrave;nh sau :</P>
+
+<P ALIGN="center"><img border="0" src="images/hinh12.5.gif" width="479" height="201"></P>
+</blockquote>
+<B><P><img border="0" src="images/symble_asterisk_blue.gif" width="13" height="14">
+L&#7921;a ch&#7885;n thu&#7853;t to&aacute;n l&#7853;p l&#7883;ch  :</P>
+
+</B>
+
+<blockquote>
+
+<P ALIGN="JUSTIFY">V&#7899;i nh&#7919;ng thu&#7853;t to&aacute;n l&#7853;p l&#7883;ch, v&#7845;n <FONT FACE="Times New Roman">&#273;&#7873; l</FONT>&agrave; ph&#7843;i l&#7921;a ch&#7885;n thu&#7853;t to&aacute;n n&agrave;o cho h&#7879; th&#7889;ng. Thu&#7853;t to&aacute;n SSTF th&igrave; r&#7845;t th&ocirc;ng th&#432;&#7901;ng. Thu&#7853;t to&aacute;n SCAN v&agrave; C-SCAN th&iacute;ch h&#7907;p cho nh&#7919;ng h&#7879; th&#7889;ng ph&#7843;i truy xu&#7845;t d&#7919; li&#7879;u kh&#7889;i l&#432;&#7907;ng l&#7899;n. V&#7899;i b&#7845;t k&#7923; thu&#7853;t to&aacute;n l&#7853;p l&#7883;ch n&agrave;o, <FONT FACE="Times New Roman">&#273;i&#7873;u quan tr&#7885;ng l</FONT>&agrave; kh&#7889;i l&#432;&#7907;ng v&#7873; s&#7889; v&agrave; ki&#7875;u kh&#7889;i c&#7847;n truy xu&#7845;t. V&iacute; d&#7909; , n&#7871;u s&#7889; kh&#7889;i c&#7847;n truy xu&#7845;t l&agrave; li&ecirc;n t&#7909;c th&igrave; FCFS l&agrave; thu&#7853;t to&aacute;n t&#7889;t. </P>
+</blockquote>
+<FONT SIZE=4><STRONG>
+</blockquote>
+
+<P ALIGN="JUSTIFY" class="cap2"><a name="loi"><img border="0" src="images/read_single.gif" width="15" height="12">
+ I.3 Qu&#7843;n l&yacute; l&#7895;i</a></P>
+</STRONG></FONT><blockquote>
+
+<FONT FACE="Times New Roman"><P ALIGN="JUSTIFY">&#272;&#297;a l</FONT>&agrave; <FONT FACE="Times New Roman">&#273;&#7889;i t</FONT>&#432;&#7907;ng m&agrave; khi truy xu&#7845;t c&oacute; th&#7875; g&acirc;y nhi&#7873;u l&#7895;i. M&#7897;t trong s&#7889; c&aacute;c l&#7895;i th&#432;&#7901;ng g&#7863;p l&agrave; :</P>
+<I><P ALIGN="JUSTIFY"><img border="0" src="images/red.gif" width="7" height="10">
+L&#7895;i l&#7853;p tr&igrave;nh</I> : y&ecirc;u c&#7847;u <FONT FACE="Times New Roman">&#273;&#7885;c các sector không t&#7891;n t&#7841;i.
+</FONT></P>
+<blockquote>
+
+<P ALIGN="JUSTIFY">L&#7895;i l&#7853;p tr&igrave;nh x&#7843;y ra khi y&ecirc;u c&#7847;u b&#7897; <FONT FACE="Times New Roman">&#273;i&#7873;u khi&#7875;n t</FONT>&igrave;m ki&#7871;m cylinder kh&ocirc;ng t&#7891;n t&#7841;i, <FONT FACE="Times New Roman">&#273;&#7885;c sector không t&#7891;n t&#7841;i, d</FONT>&ugrave;ng <FONT FACE="Times New Roman">&#273;&#7847;u &#273;&#7885;c không t&#7891;n t&#7841;i, ho&#7863;c v&#7853;n chuy&#7875;n v</FONT>&agrave;o v&agrave; ra b&#7897; nh&#7899; kh&ocirc;ng t&#7891;n t&#7841;i. H&#7847;u h&#7871;t c&aacute;c b&#7897; <FONT FACE="Times New Roman">&#273;i&#7873;u khi&#7875;n ki&#7875;m tra các tham s&#7889; v</FONT>&agrave; s&#7869; b&aacute;o l&#7895;i n&#7871;u kh&ocirc;ng th&iacute;ch h&#7907;p. </P>
+</blockquote>
+
+<I><P ALIGN="JUSTIFY"><img border="0" src="images/red.gif" width="7" height="10">
+L&#7895;i checksum t&#7841;m th&#7901;i</I> : g&acirc;y ra b&#7903;i b&#7909;i tr&ecirc;n <FONT FACE="Times New Roman">&#273;&#7847;u &#273;&#7885;c.</P>
+</FONT>
+
+<blockquote>
+
+<P ALIGN="JUSTIFY">B&#7909;i t&#7891;n t&#7841;i gi&#7919;a <FONT FACE="Times New Roman">&#273;&#7847;u &#273;&#7885;c v</FONT>&agrave; b&#7873; m&#7863;t <FONT FACE="Times New Roman">&#273;&#297;a s&#7869; gây ra l&#7895;i &#273;&#7885;c. N&#7871;u l&#7895;i t&#7891;n t&#7841;i, kh&#7889;i có th&#7875; b&#7883; &#273;ánh d&#7845;u h&#7887;ng b&#7903;i ph&#7847;n m&#7873;m.
+</FONT></P>
+</blockquote>
+<I><P ALIGN="JUSTIFY"><img border="0" src="images/red.gif" width="7" height="10">
+L&#7895;i checksum th&#432;&#7901;ng tr&#7921;c</I> : <FONT FACE="Times New Roman">&#273;&#297;a b&#7883; h</FONT>&#432; v&#7853;t l&yacute; tr&ecirc;n c&aacute;c kh&#7889;i.</P>
+<I><P ALIGN="JUSTIFY"><img border="0" src="images/red.gif" width="7" height="10">
+L&#7895;i t&igrave;m ki&#7871;m</I> : v&iacute; d&#7909; <FONT FACE="Times New Roman">&#273;&#7847;u &#273;&#7885;c &#273;&#7871;n cylinder 7 trong khi &#273;ó ph&#7843;i &#273;&#7885;c 6.
+</FONT></P>
+<P ALIGN="JUSTIFY">
+<I><img border="0" src="images/red.gif" width="7" height="10"> L&#7895;i <FONT FACE="Times New Roman">&#273;i&#7873;u khi&#7875;n</FONT> </I> : b&#7897; <FONT FACE="Times New Roman">&#273;i&#7873;u khi&#7875;n t&#7915; ch&#7889;i thi h</FONT>&agrave;nh l&#7879;nh.</P>
+</blockquote>
+<FONT SIZE=4><STRONG><P ALIGN="JUSTIFY" class="cap2"><a name="ram"><img border="0" src="images/read_single.gif" width="15" height="12">
+I.4 RAM Disks</a></P></STRONG></FONT>
+<blockquote>
+  <P ALIGN="JUSTIFY">&Yacute; t&#432;&#7903;ng RAM disk kh&aacute; <FONT FACE="Times New Roman">&#273;</FONT>&#417;n gi&#7843;n. Thi&#7871;t b&#7883; kh&#7889;i l&agrave; ph&#7847;n l&#432;u tr&#7919; trung gian v&#7899;i hai l&#7879;nh : <FONT FACE="Times New Roman">&#273;&#7885;c m&#7897;t kh&#7889;i v</FONT>&agrave; ghi m&#7897;t kh&#7889;i. Th&ocirc;ng th&#432;&#7901;ng nh&#7919;ng kh&#7889;i n&agrave;y <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c l&#432;u tr&#7919; tr&ecirc;n <FONT FACE="Times New Roman">&#273;&#297;a m&#7873;m ho&#7863;c &#273;&#297;a c&#7913;ng. RAM disk d</FONT>&ugrave;ng m&#7897;t ph&#7847;n <FONT FACE="Times New Roman">&#273;</FONT>&atilde; <FONT FACE="Times New Roman">&#273;&#7883;nh v&#7883; tr</FONT>&#432;&#7899;c c&#7911;a b&#7897; nh&#7899; ch&iacute;nh <FONT FACE="Times New Roman">&#273;&#7875; l</FONT>&#432;u tr&#7919; c&aacute;c kh&#7889;i. RAM disk c&oacute; &#432;u <FONT FACE="Times New Roman">&#273;i&#7875;m l</FONT>&agrave; cho ph&eacute;p truy xu&#7845;t nhanh ch&oacute;ng (kh&ocirc;ng ph&#7843;i ch&#7901; quay hay t&igrave;m ki&#7871;m). Nh&#432; v&#7853;y n&oacute; th&iacute;ch h&#7907;p cho vi&#7879;c l&#432;u tr&#7919; nh&#7919;ng ch&#432;&#417;ng tr&igrave;nh hay d&#7919; li&#7879;u <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c truy xu&#7845;t th&#432;&#7901;ng xuy&ecirc;n.</P>
+</blockquote>
+<P ALIGN="CENTER"><img border="0" src="images/hinh12.6.gif" width="478" height="433"></P><blockquote>
+
+<P ALIGN="JUSTIFY">H&igrave;nh tr&ecirc;n m&ocirc; t&#7843; &yacute; t&#432;&#7903;ng c&#7911;a RAM disk. M&#7897;t RAM disk <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c chia l&agrave;m nhi&#7873;u kh&#7889;i, s&#7889; l&#432;&#7907;ng t&ugrave;y thu&#7897;c v&agrave;o dung l&#432;&#7907;ng c&#7911;a v&ugrave;ng nh&#7899;. M&#7895;i kh&#7889;i c&oacute; c&ugrave;ng k&iacute;ch th&#432;&#7899;c v&agrave; v&#7915;a <FONT FACE="Times New Roman">&#273;úng b&#7857;ng kích th</FONT>&#432;&#7899;c c&#7911;a kh&#7889;i th&#7921;c s&#7921; tr&ecirc;n <FONT FACE="Times New Roman">&#273;&#297;a. Khi driver nh&#7853;n &#273;</FONT>&#432;&#7907;c ch&#7881; th&#7883; l&agrave; <FONT FACE="Times New Roman">&#273;&#7885;c ho&#7863;c ghi m&#7897;t kh&#7889;i, nó s&#7869; t</FONT>&igrave;m trong b&#7897; nh&#7899; RAM disk v&#7883; tr&iacute; c&#7911;a kh&#7889;i, v&agrave; th&#7921;c hi&#7879;n vi&#7879;c <FONT FACE="Times New Roman">&#273;&#7885;c hay ghi trong &#273;ó thay v</FONT>&igrave; t&#7915; <FONT FACE="Times New Roman">&#273;&#297;a m&#7873;m hay &#273;&#297;a c&#7913;ng.
+
+</FONT> </P>
+</blockquote>
+
+<FONT SIZE=4><STRONG><P class="cap2"><a name="interleave"><img border="0" src="images/read_single.gif" width="15" height="12">
+I.5 Interleave</a> </P></STRONG>
+
+</FONT><blockquote>
+
+<P ALIGN="JUSTIFY">B&#7897; <FONT FACE="Times New Roman">&#273;i&#7873;u khi&#7875;n &#273;&#7885;c ghi &#273;&#297;a ph&#7843;i th&#7921;c hi&#7879;n hai ch&#7913;c n&#259;ng l</FONT>&agrave; <FONT FACE="Times New Roman">&#273;&#7885;c/ghi d&#7919; li&#7879;u v</FONT>&agrave; chuy&#7875;n d&#7919; li&#7879;u v&agrave;o h&#7879; th&#7889;ng. <FONT FACE="Times New Roman">&#272;&#7875; th&#7921;c hi&#7879;n &#273;</FONT>&#432;&#7907;c <FONT FACE="Times New Roman">&#273;&#7891;ng b&#7897; hai ch&#7913;c n&#259;ng n</FONT>&agrave;y, b&#7897; <FONT FACE="Times New Roman">&#273;i&#7873;u khi&#7875;n &#273;&#7885;c &#273;&#297;a cung c&#7845;p ch&#7913;c n&#259;ng interleave. Tr</FONT>&ecirc;n <FONT FACE="Times New Roman">&#273;&#297;a các sector s&#7889; hi&#7879;u li</FONT>&ecirc;n ti&#7871;p nhau kh&ocirc;ng n&#7857;m k&#7871; b&ecirc;n nhau m&agrave; c&oacute; m&#7897;t kho&#7843;ng c&aacute;ch nh&#7845;t <FONT FACE="Times New Roman">&#273;&#7883;nh, kho&#7843;ng cách n</FONT>&agrave;y <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c x&aacute;c <FONT FACE="Times New Roman">&#273;&#7883;nh b&#7903;i quá tr</FONT>&igrave;nh format <FONT FACE="Times New Roman">&#273;&#297;a. Ví d&#7909; : gi&#7843; s&#7917; h&#7879; th&#7889;ng ch&#7881; có 17 sector, v</FONT>&agrave; interleave <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c ch&#7885;n l&agrave; 4 th&igrave; c&aacute;c sector <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c b&#7889; tr&iacute; theo th&#7913; t&#7921; nh&#432; sau :&nbsp;</P>
+<blockquote>
+<P ALIGN="JUSTIFY">1, 14, 10, 6, 2, 15, 11, 7, 3, 16, 12, 8, 4, 17, 13, 9, 5</P>
+</blockquote>
+<P ALIGN="JUSTIFY">C&aacute;ch <FONT FACE="Times New Roman">&#273;&#7885;c l&#7847;n l</FONT>&#432;&#7907;t nh&#432; sau :</P>
+<P ALIGN="JUSTIFY">&nbsp;L&#7847;n 1:</P>
+<blockquote>
+<blockquote>
+
+<B><I><P ALIGN="JUSTIFY">1</I></B>, 14, 10, 6, <B><I>2</B></I>, 15, 11, 7, <B><I>3</B></I>, 16, 12, 8, <B><I>4</B></I>, 17, 13, 9, <B><I>5</P></blockquote>
+</blockquote>
+
+</B></I>
+<P ALIGN="JUSTIFY">L&#7847;n 2:</P><blockquote>
+<blockquote>
+
+<P ALIGN="JUSTIFY">1, 14, 10, <B><I>6</B></I>, 2, 15, 11, <B><I>7</B></I>, 3, 16, 12, <B><I>8</B></I>, 4, 17, 13, <B><I>9</B></I>, 5</P></blockquote>
+</blockquote>
+
+<P ALIGN="JUSTIFY">L&#7847;n 3:</P><blockquote>
+<blockquote>
+
+<P ALIGN="JUSTIFY">1, 14, <B><I>10</B></I>, 6, 2, 15, <B><I>11</B></I>, 7, 3, 16, <B><I>12</B></I>, 8, 4, 17, <B><I>13</B></I>, 9, 5</P></blockquote>
+</blockquote>
+
+<P ALIGN="JUSTIFY">L&#7847;n 4:</P><blockquote>
+<blockquote>
+
+<P ALIGN="JUSTIFY">1, <B><I>14</B></I>, 10, 6, 2, <B><I>15</B></I>, 11, 7, 3, <B><I>16</B></I>, 12, 8, 4, <B><I>17</B></I>, 13, 9, 5</P></blockquote>
+</blockquote>
+
+<P ALIGN="JUSTIFY">Nh&#432; v&#7853;y sau b&#7889;n l&#7847;n th&#7913; t&#7921; c&aacute;c sector <FONT FACE="Times New Roman">&#273;&#7885;c &#273;</FONT>&#432;&#7907;c v&#7851;n l&agrave; t&#7915; 1 <FONT FACE="Times New Roman">&#273;&#7871;n 17</P>
+
+</FONT>
+</blockquote>
+
+<P>&nbsp;</P><STRONG><P ALIGN="JUSTIFY" class="cap1"><a name="terminals">II. H&#7878; TH&#7888;NG I/O CHU&#7848;N (terminals)</a></P>
+</STRONG><P ALIGN="JUSTIFY">M&#7885;i m&aacute;y t&iacute;nh <FONT FACE="Times New Roman">&#273;&#7873;u li</FONT>&ecirc;n l&#7841;c v&#7899;i m&#7897;t hay nhi&#7873;u terminals. Terminals c&oacute; r&#7845;t nhi&#7873;u d&#7841;ng kh&aacute;c nhau. B&#7897; <FONT FACE="Times New Roman">&#273;i&#7873;u khi&#7875;n terminals &#7849;n d&#7845;u m&#7885;i s&#7921; khác bi&#7879;t, v</FONT>&igrave; v&#7853;y ph&#7847;n <FONT FACE="Times New Roman">&#273;&#7897;c l&#7853;p thi&#7871;t b&#7883; c&#7911;a h&#7879; &#273;i&#7873;u h</FONT>&agrave;nh v&agrave; ch&#432;&#417;ng tr&igrave;nh ng&#432;&#7901;i s&#7917; d&#7909;ng kh&ocirc;ng c&#7847;n thi&#7871;t ph&#7843;i vi&#7871;t l&#7841;i cho m&#7895;i lo&#7841;i terminal.</P>
+<FONT SIZE=4><STRONG><P ALIGN="JUSTIFY" class="cap2"><a name="pcterminal"><img border="0" src="images/read_single.gif" width="15" height="12">
+II.1 Ph&#7847;n c&#7913;ng terminal</a></P></STRONG></FONT><blockquote>
+
+<P ALIGN="JUSTIFY">D&#432;&#7899;i quan <FONT FACE="Times New Roman">&#273;i&#7875;m c&#7911;a h&#7879; &#273;i&#7873;u h</FONT>&agrave;nh, terminal <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c chia l&agrave;m hai lo&#7841;i l&#7899;n d&#7921;a v&agrave;o c&aacute;ch li&ecirc;n l&#7841;c v&#7899;i h&#7879; <FONT FACE="Times New Roman">&#273;i&#7873;u h</FONT>&agrave;nh. Lo&#7841;i th&#7913; nh&#7845;t bao g&#7891;m nh&#7919;ng lo&#7841;i terminal giao ti&#7871;p theo chu&#7849;n RS-232. Lo&#7841;i th&#7913; hai l&agrave; nh&#7919;ng terminal d&ugrave;ng &aacute;nh x&#7841; b&#7897; nh&#7899;. M&#7895;i lo&#7841;i <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c chia l&agrave;m nhi&#7873;u lo&#7841;i nh&#7887; nh&#432; h&igrave;nh sau&nbsp;:</P>
+
+<P ALIGN="center"><img border="0" src="images/hinh12.7.gif" width="506" height="317"></P>
+<P ALIGN="JUSTIFY">Terminal RS-232 l&agrave; nh&#7919;ng thi&#7871;t b&#7883; bao g&#7891;m nh&#432; b&agrave;n ph&iacute;m v&agrave; m&agrave;n h&igrave;nh. <FONT FACE="Times New Roman">&#272;ây l</FONT>&agrave; thi&#7871;t b&#7883; giao ti&#7871;p tu&#7847;n t&#7921;, m&#7895;i l&#7847;n m&#7897;t bit. Nh&#7919;ng terminals n&agrave;y d&ugrave;ng connector 25-pin, m&#7897;t pin d&ugrave;ng <FONT FACE="Times New Roman">&#273;&#7875; chuy&#7875;n d&#7919; li&#7879;u, m&#7897;t pin d</FONT>&ugrave;ng <FONT FACE="Times New Roman">&#273;&#7875; nh&#7853;n d&#7919; li&#7879;u, m&#7897;t pin l</FONT>&agrave; n&#7873;n, 22 pin c&ograve;n l&#7841;i c&oacute; nh&#7919;ng ch&#7913;c n<FONT FACE="Times New Roman">&#259;ng khác nhau, h&#7847;u h&#7871;t th</FONT>&#432;&#7901;ng th&#432;&#7901;ng kh&ocirc;ng d&ugrave;ng <FONT FACE="Times New Roman">&#273;&#7871;n. &#272;&#7875; g&#7903;i m&#7897;t ký t&#7921; cho terminal RS-232, máy tính m&#7895;i l&#7847;n chuy&#7875;n m&#7897;t bit, ngo</FONT>&agrave;i ra c&oacute; m&#7897;t bit b&#7855;t <FONT FACE="Times New Roman">&#273;&#7847;u, v</FONT>&agrave; sau <FONT FACE="Times New Roman">&#273;ó có 1 ho&#7863;c 2 bit k&#7871;t thúc &#273;&#7875; gi&#7899;i h&#7841;n m&#7897;t ký t&#7921;. Th</FONT>&#432;&#7901;ng th&#432;&#7901;ng t&#7889;c <FONT FACE="Times New Roman">&#273;&#7897; v&#7853;n chuy&#7875;n l</FONT>&agrave; 1200, 2400, 4800, 9600…bps. V&igrave; c&#7843; m&aacute;y t&iacute;nh v&agrave; terminal <FONT FACE="Times New Roman">&#273;&#7873;u l</FONT>&agrave;m vi&#7879;c v&#7899;i k&yacute; t&#7921; m&agrave; ph&#7843;i li&ecirc;n l&#7841;c v&#7899;i nhau b&#7857;ng bit n&ecirc;n h&#7879; th&#7889;ng ph&#7843;i thi&#7871;t k&#7871; b&#7897; chuy&#7875;n <FONT FACE="Times New Roman">&#273;&#7893;i g&#7885;i l</FONT>&agrave; UART. B&#7897; ph&#7853;n n&agrave;y <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c g&#7855;n v&agrave;o c&aacute;c card giao ti&#7871;p c&#7911;a RS-232.</P>
+<P ALIGN="center"><img border="0" src="images/hinh12.8.gif" width="461" height="229"></P>
+<FONT FACE="Times New Roman"><P ALIGN="JUSTIFY">&#272;&#7875; in m&#7897;t ký t&#7921;, b&#7897; &#273;i&#7873;u khi&#7875;n terminal ghi m&#7897;t ký t&#7921; l</FONT>&ecirc;n card giao ti&#7871;p, sau <FONT FACE="Times New Roman">&#273;ó s&#7869; chuy&#7875;n cho UART. </P>
+</FONT>
+<P ALIGN="JUSTIFY">Terminal RS-232 <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c chia l&agrave;m nhi&#7873;u lo&#7841;i. D&#7841;ng <FONT FACE="Times New Roman">&#273;</FONT>&#417;n gi&#7843;n nh&#7845;t l&agrave; terminal hardcopy(printing). V&iacute; d&#7909; c&aacute;c k&yacute; t&#7921; <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c nh&#7853;p v&agrave;o t&#7915; b&agrave;n ph&iacute;m v&agrave; chuy&#7875;n cho m&aacute;y t&iacute;nh. C&aacute;c k&yacute; t&#7921; t&#7915; m&aacute;y t&iacute;nh xu&#7845;t ra m&aacute;y in. D&#7841;ng t&#432;&#417;ng t&#7921; nh&#432; v&#7853;y nh&#432;ng k&yacute; t&#7921; <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c xu&#7845;t tr&ecirc;n m&agrave;n h&igrave;nh g&#7885;i l&agrave; &quot;glass ttys&quot; do <FONT FACE="Times New Roman">&#273;ó nó c&#361;ng có ch&#7913;c n&#259;ng t</FONT>&#432;&#417;ng t&#7921; nh&#432; tr&ecirc;n. Terminals intelligent d&ugrave;ng trong m&aacute;y t&iacute;nh nh&#7887;. <FONT FACE="Times New Roman">&#272;i&#7875;m khác bi&#7879;t v&#7899;i lo&#7841;i tr</FONT>&ecirc;n d&#432;&#7899;i quan <FONT FACE="Times New Roman">&#273;i&#7875;m h&#7879; &#273;i&#7873;u h</FONT>&agrave;nh l&agrave; n&oacute; s&#7869; g&#7919;i k&yacute; t&#7921; ASCII ESC sau nh&#7919;ng k&yacute; t&#7921; kh&aacute;c nhau d&ugrave;ng <FONT FACE="Times New Roman">&#273;&#7875; chuy&#7875;n cursor &#273;&#7871;n v&#7883; trí b&#7845;t k&#7923; tr</FONT>&ecirc;n m&agrave;n h&igrave;nh, ch&egrave;n m&#7897;t d&ograve;ng v&agrave;o gi&#7919;a m&agrave;n h&igrave;nh. Blit l&agrave; m&#7897;t terminal c&oacute; b&#7897; x&#7917; l&yacute; m&#7841;nh v&agrave; m&#7897;t m&agrave;n h&igrave;nh c&oacute; 1024x800 <FONT FACE="Times New Roman">&#273;i&#7875;m giao ti&#7871;p v&#7899;i máy tính b&#7857;ng RS-232.
+</FONT></P>
+</blockquote>
+
+<FONT SIZE=4><STRONG><P class="cap2"><a name="bonho"><img border="0" src="images/read_single.gif" width="15" height="12">
+II.2 Terminal &aacute;nh x&#7841; b&#7897; nh&#7899;</a></P></STRONG>
+
+</FONT><blockquote>
+<P ALIGN="JUSTIFY">D&#7841;ng th&#7913; hai c&#7911;a terminal l&agrave; terminal &aacute;nh x&#7841; b&#7897; nh&#7899;. Lo&#7841;i n&agrave;y kh&ocirc;ng giao ti&#7871;p v&#7899;i m&aacute;y t&iacute;nh qua <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7901;ng serial. N&oacute; l&agrave; m&#7897;t ph&#7847;n c&#7911;a c&#7911;a h&#7879; th&#7889;ng m&aacute;y t&iacute;nh. Terminal &aacute;nh x&#7841; b&#7897; nh&#7899; giao ti&#7871;p b&#7857;ng m&#7897;t b&#7897; nh&#7899; <FONT FACE="Times New Roman">&#273;&#7863;c bi&#7879;t g&#7885;i l</FONT>&agrave; video RAM, l&agrave; m&#7897;t ph&#7847;n c&#7911;a b&#7897; nh&#7899; ch&iacute;nh <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c <FONT FACE="Times New Roman">&#273;&#7883;nh v&#7883; b&#7903;i CPU.</FONT></P>
+<P ALIGN="center"><img border="0" src="images/hinh12.9.gif" width="421" height="248"></P>
+<B>
+
+</B>
+
+<P ALIGN="JUSTIFY"> Tr&ecirc;n card video RAM c&oacute; m&#7897;t chip g&#7885;i l&agrave; b&#7897; <FONT FACE="Times New Roman">&#273;i&#7873;u khi&#7875;n video. Chip n</FONT>&agrave;y s&#7869; l&#7845;y th&ocirc;ng tin t&#7915; video RAM v&agrave; t&#7841;o ra t&iacute;n hi&#7879;u video <FONT FACE="Times New Roman">&#273;&#7875; &#273;i&#7873;u khi&#7875;n m</FONT>&agrave;n h&igrave;nh. M&agrave;n h&igrave;nh t&#7841;o nh&#7919;ng tia <FONT FACE="Times New Roman">&#273;i&#7879;n t&#7917; quét t&#7915; tr</FONT>&ecirc;n xu&#7889;ng d&#432;&#7899;i. Th&#432;&#7901;ng th&#432;&#7901;ng c&oacute; kho&#7843;ng t&#7915; 200 <FONT FACE="Times New Roman">&#273;&#7871;n 1200 d</FONT>&ograve;ng, tr&ecirc;n m&#7895;i d&ograve;ng c&oacute; t&#7915; 200 <FONT FACE="Times New Roman">&#273;&#7871;n 1200 &#273;i&#7875;m. M&#7895;i &#273;i&#7875;m &#273;</FONT>&#432;&#7907;c g&#7885;i l&agrave; pixel. B&#7897; <FONT FACE="Times New Roman">&#273;i&#7873;u khi&#7875;n tín hi&#7879;u s&#7869; xác &#273;&#7883;nh m&#7895;i &#273;i&#7875;m l</FONT>&agrave; s&aacute;ng hay t&#7889;i. M&agrave;n h&igrave;nh m&agrave;u s&#7869; c&oacute; ba tia l&agrave; <FONT FACE="Times New Roman">&#273;&#7887;, l&#7909;c v</FONT>&agrave; xanh.</P>
+<P ALIGN="JUSTIFY">Th&ocirc;ng th&#432;&#7901;ng m&agrave;n h&igrave;nh mono x&acirc;y d&#7921;ng m&#7897;t k&yacute; t&#7921; trong m&#7897;t box c&oacute; chi&#7873;u r&#7897;ng l&agrave; 9 pixel v&agrave; chi&#7873;u cao l&agrave; 14 pixel (bao g&#7891;m kho&#7843;ng tr&#7889;ng gi&#7919;a nh&#7919;ng k&yacute; t&#7921;) nh&#432; v&#7853;y s&#7869; c&oacute; 25 d&ograve;ng v&agrave; m&#7895;i d&ograve;ng c&oacute; 80 k&yacute; t&#7921;. M&#7895;i khung <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c v&#7869; l&#7841;i t&#7915; 45 <FONT FACE="Times New Roman">&#273;&#7871;n 70 l&#7847;n trong m&#7897;t giây. B&#7897; &#273;i&#7873;u khi&#7875;n video &#273;&#7863;t các d</FONT>&ograve;ng 80 k&yacute; t&#7921; v&agrave;o trong video RAM. </P>
+<P ALIGN="JUSTIFY">M&#7897;t v&iacute; d&#7909; v&#7873; m&agrave;n h&igrave;nh &aacute;nh x&#7841; k&yacute; t&#7921; tr&ecirc;n m&aacute;y IBM PC. M&#7897;t ph&#7847;n b&#7897; nh&#7899; ch&iacute;nh b&#7855;t <FONT FACE="Times New Roman">&#273;&#7847;u t&#7915; &#273;&#7883;a ch&#7881; 0xB000 cho m</FONT>&agrave;n h&igrave;nh <FONT FACE="Times New Roman">&#273;</FONT>&#417;n s&#7855;c v&agrave; 0xB800 cho m&agrave;n h&igrave;nh m&agrave;u. M&#7895;i k&yacute; t&#7921; tr&ecirc;n m&agrave;n h&igrave;nh chi&#7871;m hai bytes trong b&#7897; nh&#7899;. Byte th&#7845;p ch&#7913;a gi&aacute; tr&#7883; ASCII c&#7911;a k&yacute; t&#7921;, byte cao ch&#7913;a thu&#7897;c t&iacute;nh nh&#432; m&agrave;u s&#7855;c, nh&#7845;p nh&aacute;y v.v... M&agrave;n h&igrave;nh 80x25 s&#7869; chi&#7871;m 4000 bytes b&#7897; nh&#7899; video RAM</P>
+<P ALIGN="center"><img border="0" src="images/hinh12.10.gif" width="482" height="265"></P>
+<P ALIGN="JUSTIFY">Khi CPU ghi m&#7897;t k&yacute; t&#7921; v&agrave;o video RAM, n&oacute; xu&#7845;t hi&#7879;n tr&ecirc;n m&agrave;n h&igrave;nh theo m&#7895;i l&#7847;n hi&#7875;n th&#7883; (1/50 gi&acirc;y cho mono, 1/60 cho m&agrave;u ). CPU c&oacute; th&#7875; n&#7841;p 4K &#7843;nh m&agrave;n h&igrave;nh <FONT FACE="Times New Roman">&#273;</FONT>&atilde; <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c t&iacute;nh tr&#432;&#7899;c v&agrave;o video RAM trong v&agrave;i ph&#7847;n tri&#7879;u gi&acirc;y. V&#7899;i t&#7889;c <FONT FACE="Times New Roman">&#273;&#7897; 9600 bps, ghi 2000 ký t&#7921; v</FONT>&agrave;o terminal RS-232 m&#7845;t kho&#7843;ng 2083 ph&#7847;n tri&#7879;u gi&acirc;y. Terminal &aacute;nh x&#7841; b&#7897; nh&#7899; cho ph&eacute;p truy xu&#7845;t r&#7845;t nhanh.</P>
+<P ALIGN="JUSTIFY">Terminal bit-map t&#432;&#417;ng t&#7921; nh&#432; v&#7853;y, ngo&#7841;i tr&#7915; l&agrave; m&#7885;i bit trong video RAM ki&#7875;m so&aacute;t m&#7895;i <FONT FACE="Times New Roman">&#273;i&#7875;m tr</FONT>&ecirc;n m&agrave;n h&igrave;nh. M&agrave;n h&igrave;nh c&oacute; 1024x800 pixel c&#7847;n d&ugrave;ng 100 K b&#7897; nh&#7899; nh&#432;ng kh&oacute; thi&#7871;t k&#7871; font v&agrave; k&iacute;ch th&#432;&#7899;c cho k&yacute; t&#7921;. B&agrave;n ph&iacute;m giao ti&#7871;p th&ocirc;ng qua c&#7893;ng song song v&agrave; giao ti&#7871;p RS-232. M&#7895;i khi g&otilde; ph&iacute;m v&agrave;o, CPU b&#7883; ng&#7855;t, b&#7897; <FONT FACE="Times New Roman">&#273;i&#7873;u khi&#7875;n b</FONT>&agrave;n ph&iacute;m x&aacute;c <FONT FACE="Times New Roman">&#273;&#7883;nh ki&#7875;u ký t&#7921; &#273;</FONT>&#432;&#7907;c <FONT FACE="Times New Roman">&#273;&#7885;c t&#7915; c&#7893;ng I/O. &#272;ôi khi b</FONT>&agrave;n ph&iacute;m ch&#7881; cung c&#7845;p s&#7889; hi&#7879;u ph&iacute;m , kh&ocirc;ng ph&#7843;i m&atilde; ASCII. Tr&ecirc;n IBM PC khi g&otilde; ph&iacute;m A m&atilde; k&yacute; t&#7921; 30 <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c <FONT FACE="Times New Roman">&#273;</FONT>&#432;a v&agrave;o thanh ghi I/O. B&#7897; <FONT FACE="Times New Roman">&#273;i&#7873;u khi&#7875;n xác &#273;&#7883;nh ký t&#7921; l</FONT>&agrave; ch&#7919; hoa hay ch&#7919; th&#432;&#7901;ng hay l&agrave; t&#7893; h&#7907;p ph&iacute;m.</P><FONT SIZE=4><STRONG>
+</blockquote>
+
+<P ALIGN="JUSTIFY" class="cap2"><a name="nhap"><img border="0" src="images/read_single.gif" width="15" height="12">
+II.3 Ph&#7847;n m&#7873;m nh&#7853;p</a></P></STRONG></FONT><blockquote>
+<P ALIGN="JUSTIFY">B&agrave;n ph&iacute;m v&agrave; m&agrave;n h&igrave;nh h&#7847;u nh&#432; <FONT FACE="Times New Roman">&#273;&#7897;c l&#7853;p v&#7899;i thi&#7871;t b&#7883;. Công vi&#7879;c c</FONT>&#417; b&#7843;n c&#7911;a b&#7897; <FONT FACE="Times New Roman">&#273;i&#7873;u khi&#7875;n b</FONT>&agrave;n ph&iacute;m l&agrave; t&#7853;p h&#7907;p c&aacute;c d&#7919; li&#7879;u nh&#7853;p t&#7915; b&agrave;n ph&iacute;m v&agrave; chuy&#7875;n cho ch&#432;&#417;ng tr&igrave;nh c&#7911;a ng&#432;&#7901;i s&#7917; d&#7909;ng. Khi c&oacute; m&#7897;t ph&iacute;m <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c g&otilde;, n&oacute; s&#7869; g&acirc;y m&#7897;t ng&#7855;t, v&agrave; b&#7897; <FONT FACE="Times New Roman">&#273;i&#7873;u khi&#7875;n y</FONT>&ecirc;u c&#7847;u k&yacute; t&#7921; trong su&#7889;t qu&aacute; tr&igrave;nh ng&#7855;t n&agrave;y. N&#7871;u ng&#7855;t <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c g&acirc;y ra b&#7903;i m&#7897;t l&#7901;i g&#7885;i ng&#7855;t c&#7911;a m&#7897;t ng&ocirc;n ng&#7919; l&#7853;p tr&igrave;nh c&#7845;p th&#7845;p n&oacute; s&#7869; chuy&#7875;n k&yacute; t&#7921; n&agrave;y cho ch&#432;&#417;ng tr&igrave;nh <FONT FACE="Times New Roman">&#273;ó. Nó s&#7917; d&#7909;ng m&#7897;t buffer trong b&#7897; nh&#7899; chính v</FONT>&agrave; m&#7897;t th&ocirc;ng <FONT FACE="Times New Roman">&#273;i&#7879;p &#273;&#7875; báo cho b&#7897; &#273;i&#7873;u khi&#7875;n bi&#7871;t &#273;</FONT>&atilde; c&oacute; k&yacute; t&#7921; nh&#7853;p. M&#7897;t khi b&#7897; <FONT FACE="Times New Roman">&#273;i&#7873;u khi&#7875;n nh&#7853;n m&#7897;t ký t&#7921;, nó s&#7869; b&#7855;t &#273;&#7847;u x&#7917; lý. N&#7871;u d</FONT>&#432;&#7899;i d&#7841;ng m&atilde; b&agrave;n ph&iacute;m, n&oacute; s&#7869; &aacute;nh x&#7841; l&#7841;i m&atilde; ASCII th&#7853;t. N&#7871;u terminal &#7903; d&#7841;ng cook, k&yacute; t&#7921; ph&#7843;i <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c l&#432;u tr&#7919; cho t&#7899;i khi nh&#7853;n <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c h&#7871;t d&ograve;ng v&igrave; ng&#432;&#7901;i s&#7917; d&#7909;ng c&oacute; th&#7875; x&oacute;a m&#7897;t ph&#7847;n n&#7897;i dung c&#7911;a n&oacute;. </P>
+<P ALIGN="JUSTIFY">C&oacute; hai lo&#7841;i buffer th&ocirc;ng th&#432;&#7901;ng. D&#7841;ng th&#7913; nh&#7845;t, b&#7897; <FONT FACE="Times New Roman">&#273;i&#7873;u khi&#7875;n ch&#7913;a </FONT>pool ch&iacute;nh c&#7911;a buffer, m&#7895;i buffer ch&#7913;a 16 k&yacute; t&#7921;. C&oacute; m&#7897;t c&#7845;u tr&uacute;c d&#7919; li&#7879;u li&ecirc;n k&#7871;t v&#7899;i n&oacute;, trong <FONT FACE="Times New Roman">&#273;ó có ch&#7913;a m&#7897;t con tr&#7887; tr&#7887; t&#7899;i chu&#7895;i trong buffer. Khi ký t&#7921; chuy&#7875;n cho ch</FONT>&#432;&#417;ng tr&igrave;nh, n&oacute; s&#7869; <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c lo&#7841;i kh&#7887;i buffer.  D&#7841;ng th&#7913; hai l&agrave; buffer tr&#7921;c ti&#7871;p c&oacute; c&#7845;u tr&uacute;c d&#7919; li&#7879;u v&igrave; n&#7871;u t&#7893; ch&#7913;c theo d&#7841;ng th&#7913; nh&#7845;t s&#7869; kh&ocirc;ng <FONT FACE="Times New Roman">&#273;&#7911; b&#7897; nh&#7899;. H</FONT>&igrave;nh sau cho bi&#7871;t s&#7921; kh&aacute;c bi&#7879;t gi&#7919;a hai c&aacute;ch nh&#432; h&igrave;nh sau:</P>
+<P ALIGN="center"><img border="0" src="images/hinh12.11.gif" width="407" height="248"></P>
+
+<P ALIGN="JUSTIFY">M&#7863;t d&ugrave; m&agrave;n h&igrave;nh v&agrave; b&agrave;n ph&iacute;m l&agrave; hai thi&#7871;t b&#7883; logic ri&ecirc;ng bi&#7879;t, nh&#432;ng m&#7885;i ng&#432;&#7901;i <FONT FACE="Times New Roman">&#273;&#7873;u quen v&#7899;i vi&#7879;c g</FONT>&otilde; k&yacute; t&#7921; v&agrave; xem n&oacute; xu&#7845;t hi&#7879;n tr&ecirc;n m&agrave;n h&igrave;nh. M&#7897;t s&#7889; terminal cho ph&eacute;p t&#7921; <FONT FACE="Times New Roman">&#273;&#7897;ng hi&#7875;n th&#7883; l</FONT>&ecirc;n m&agrave;n h&igrave;nh nh&#7919;ng g&igrave; v&#7915;a g&otilde; ho&#7863;c ch&#7881; l&agrave; nh&#7919;ng d&#7845;u . khi g&otilde; password. M&#7897;t s&#7889; terminal kh&ocirc;ng hi&#7875;n th&#7883; k&yacute; t&#7921; <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c g&otilde; do <FONT FACE="Times New Roman">&#273;ó ph&#7843;i d&#7921;a v</FONT>&agrave;o ph&#7847;n m&#7873;m <FONT FACE="Times New Roman">&#273;&#7875; hi&#7875;n th&#7883; input, x&#7917; lý n</FONT>&agrave;y g&#7885;i l&agrave; echoing.</P>
+<P ALIGN="JUSTIFY">Echoing ph&#7913;c t&#7841;p v&igrave; ch&#432;&#417;ng tr&igrave;nh ph&#7843;i xu&#7845;t l&ecirc;n m&agrave;n h&igrave;nh khi ng&#432;&#7901;i d&ugrave;ng g&otilde; v&agrave;o. B&#7897; <FONT FACE="Times New Roman">&#273;i&#7873;u khi&#7875;n b</FONT>&agrave;n ph&iacute;m ph&#7843;i ki&#7875;m so&aacute;t kh&ocirc;ng cho ghi ch&#7891;ng l&ecirc;n output c&#7911;a ch&#432;&#417;ng tr&igrave;nh. Echoing c&#361;ng g&#7863;p kh&oacute; kh<FONT FACE="Times New Roman">&#259;n khi ng</FONT>&#432;&#7901;i nh&#7853;p g&otilde; nhi&#7873;u h&#417;n 80 k&yacute; t&#7921; tr&ecirc;n m&agrave;n h&igrave;nh 80 k&yacute; t&#7921; m&#7897;t d&ograve;ng. M&#7897;t v&#7845;n <FONT FACE="Times New Roman">&#273;&#7873; khác l</FONT>&agrave; x&#7917; l&yacute; tab. B&#7897; <FONT FACE="Times New Roman">&#273;i&#7873;u khi&#7875;n ph&#7843;i tính toán v&#7883; trí hi&#7879;n th&#7901;i cursor sau &#273;ó tính toán &#273;&#7875; chuy&#7875;n cho ch</FONT>&#432;&#417;ng tr&igrave;nh v&agrave; cho echoing v&agrave; t&iacute;nh to&aacute;n bao nhi&ecirc;u kho&#7843;ng tr&#7889;ng ph&#7843;i hi&#7875;n th&#7883;. V&#7845;n <FONT FACE="Times New Roman">&#273;&#7873; ti&#7871;p theo l</FONT>&agrave; ph&#7843;i x&#7917; l&yacute; carriage return v&agrave; line feed <FONT FACE="Times New Roman">&#273;&#7875; chuy&#7875;n cursor qua &#273;&#7847;u d</FONT>&ograve;ng m&#7899;i. Vi&#7879;c x&#7917; l&yacute; n&agrave;y t&ugrave;y thu&#7897;c v&agrave;o c&aacute;c h&#7879; <FONT FACE="Times New Roman">&#273;i&#7873;u h</FONT>&agrave;nh kh&aacute;c nhau. Ngo&agrave;i ra ph&#7843;i ki&#7875;m so&aacute;t t&#7893; h&#7907;p k&yacute; t&#432; v&agrave; nh&#7919;ng k&yacute; t&#7921; xo&aacute;, l&ugrave;i, hay c&aacute;c ph&iacute;m ch&#7913;c n<FONT FACE="Times New Roman">&#259;ng.</P>
+
+</FONT><FONT SIZE=4><STRONG>
+</blockquote>
+
+<P ALIGN="JUSTIFY" class="cap2"><a name="pmxuat"><img border="0" src="images/read_single.gif" width="15" height="12">
+II.4 Ph&#7847;n m&#7873;m xu&#7845;t</a></P></STRONG></FONT><blockquote>
+<P ALIGN="JUSTIFY">Ph&#7847;n m&#7873;m xu&#7845;t th&igrave; <FONT FACE="Times New Roman">&#273;</FONT>&#417;n gi&#7843;n h&#417;n nh&#7853;p nh&#432;ng &#7903; hai d&#7841;ng thi&#7871;t b&#7883;  terminal RS-232 v&agrave; &aacute;nh x&#7841; b&#7897; nh&#7899; l&agrave; kh&aacute;c nhau. Ph&#432;&#417;ng ph&aacute;p th&ocirc;ng th&#432;&#7901;ng c&#7911;a terminal RS-232 l&agrave; c&oacute; m&#7897;t buffer xu&#7845;t cho m&#7895;i lo&#7841;i terminal. D&#7841;ng buffer c&oacute; th&#7875; l&agrave; pool nh&#432; buffer nh&#7853;p hay l&agrave; d&#7841;ng t&#7853;n hi&#7871;n nh&#432;  input. Khi ch&#432;&#417;ng tr&igrave;nh ghi l&ecirc;n terminal, tr&#432;&#7899;c ti&ecirc;n n&oacute; xu&#7845;t l&ecirc;n buffer. Sau khi <FONT FACE="Times New Roman">&#273;</FONT>&atilde; xu&#7845;t l&ecirc;n buffer, k&yacute; t&#7921; <FONT FACE="Times New Roman">&#273;&#7847;u ti</FONT>&ecirc;n <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c xu&#7845;t, sau <FONT FACE="Times New Roman">&#273;ó b&#7897; &#273;i&#7873;u khi&#7875;n t&#7841;m d&#7915;ng, khi có m&#7897;t ng&#7855;t phát sinh, ký t&#7921; ti&#7871;p theo s&#7869; &#273;</FONT>&#432;&#7907;c xu&#7845;t, v&agrave; c&#7913; ti&#7871;p t&#7909;c nh&#432; v&#7853;y.&nbsp;</P>
+<P ALIGN="JUSTIFY">V&#7899;i terminal &aacute;nh x&#7841; b&#7897; nh&#7899;, v&#7845;n <FONT FACE="Times New Roman">&#273;&#7873; &#273;</FONT>&#417;n gi&#7843;n h&#417;n. Nh&#7919;ng k&yacute; t&#7921; <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c in <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c xu&#7845;t m&#7897;t l&#7847;n t&#7915; ch&#432;&#417;ng tr&igrave;nh ng&#432;&#7901;i d&ugrave;ng <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c xu&#7845;t l&ecirc;n video RAM. V&#7899;i m&#7897;t s&#7889; k&yacute;t&#7921; s&#7869; <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c x&#432; l&yacute; <FONT FACE="Times New Roman">&#273;&#7863;c bi&#7879;t. </FONT>V&iacute; d&#7909; : backspace, carriage return, line feed, v&agrave; bell (CTRL-G). B&#7897; <FONT FACE="Times New Roman">&#273;i&#7873;u khi&#7875;n ánh x&#7841; b&#7897; nh&#7899;, l</FONT>&#432;u gi&#7919; trong ph&#7847;n m&#7873;m v&#7883; tr&iacute; c&#7911;a video RAM, v&igrave; v&#7853;y nh&#7919;ng k&yacute; t&#7921; in <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c xu&#7845;t tr&ecirc;n <FONT FACE="Times New Roman">&#273;ó theo th&#7913; t&#7921;, các ký t&#7921; &#273;&#7863;c bi&#7879;t c&#361;ng &#273;</FONT>&#432;&#7907;c c&#7853;p nh&#7853;t th&iacute;ch h&#7907;p.</P>
+<P ALIGN="JUSTIFY">Khi m&#7897;t line feed <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c xu&#7845;t t&#7841;i cu&#7889;i d&ograve;ng c&#7911;a m&agrave;n h&igrave;nh, m&agrave;n h&igrave;nh s&#7869; cu&#7897;n. Th&#432;&#7901;ng th&#432;&#7901;ng ph&#7847;n c&#7913;ng cung c&#7845;p m&#7897;t s&#7889; gi&uacute;p <FONT FACE="Times New Roman">&#273;&#7905; &#7903; &#273;ây. H&#7847;u h&#7871;t nh&#7919;ng b&#7897; &#273;i&#7873;u khi&#7875;n m</FONT>&agrave;n h&igrave;nh ch&#7913;a m&#7897;t thanh ghi x&aacute;c <FONT FACE="Times New Roman">&#273;&#7883;nh v&#7883; trí c&#7911;a video RAM &#273;&#7875; b&#7855;t &#273;&#7847;u &#273;&#7863;t các byte v</FONT>&agrave;o d&ograve;ng <FONT FACE="Times New Roman">&#273;&#7847;u ti</FONT>&ecirc;n c&#7911;a m&agrave;n h&igrave;nh. Ph&#7847;n m&#7873;m so&#7841;n th&#7843;o m&agrave;n h&igrave;nh ph&#7843;i c&oacute; nhi&#7873;u x&#7917; l&yacute; ph&#7913;c t&#7841;p h&#417;n l&agrave; ch&#7881; xu&#7889;ng d&ograve;ng. <FONT FACE="Times New Roman">&#272;&#7875; t</FONT>&#432;&#417;ng th&iacute;ch, m&#7897;t s&#7889; b&#7897; <FONT FACE="Times New Roman">&#273;i&#7873;u khi&#7875;n terminal h&#7895; tr&#7907; m&#7897;t s&#7889; x&#7917; lý, thông th</FONT>&#432;&#7901;ng l&agrave; :</P>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+
+<P ALIGN="JUSTIFY"><img border="0" src="images/red.gif" width="7" height="10">Di chuy&#7875;n cursor l&ecirc;n, xu&#7889;ng, tr&aacute;i, ph&#7843;i c&#7911;a m&#7897;t v&#7883; tr&iacute;.</P>
+<P ALIGN="JUSTIFY"><img border="0" src="images/red.gif" width="7" height="10">Di chuy&#7875;n cursor <FONT FACE="Times New Roman">&#273;&#7871;n v&#7883; trí x,y.</P>
+</FONT><P ALIGN="JUSTIFY"><img border="0" src="images/red.gif" width="7" height="10">Ch&egrave;n m&#7897;t k&yacute; t&#7921; hay ch&egrave;n m&#7897;t d&ograve;ng.</P>
+<P ALIGN="JUSTIFY"><img border="0" src="images/red.gif" width="7" height="10">X&oacute;a m&#7897;t k&yacute; t&#7921; hay m&#7897;t d&ograve;ng.</P>
+<P ALIGN="JUSTIFY"><img border="0" src="images/red.gif" width="7" height="10">Cu&#7897;n m&agrave;n h&igrave;nh l&ecirc;n ho&#7863;c xu&#7889;ng n d&ograve;ng.</P>
+<P ALIGN="JUSTIFY"><img border="0" src="images/red.gif" width="7" height="10">Xo&aacute; m&agrave;n hinh t&#7915; v&#7883; tr&iacute; cursor <FONT FACE="Times New Roman">&#273;&#7871;n cu&#7889;i d</FONT>&ograve;ng ho&#7863;c m&agrave;n h&igrave;nh.</P>
+<P ALIGN="JUSTIFY"><img border="0" src="images/red.gif" width="7" height="10">T&#7841;o t&#432;&#417;ng ph&#7843;n, g&#7841;ch d&#432;&#7899;i, nh&#7845;p nh&aacute;y, hay mode th&#432;&#7901;ng.</P>
+<P ALIGN="JUSTIFY"><img border="0" src="images/red.gif" width="7" height="10">T&#7841;o, h&#7911;y, di chuy&#7875;n qu&#7843;n tr&#7883; c&aacute;c c&#7917;a s&#7893;.</P>
+  </blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+
+<P>&nbsp;</P>
+<STRONG>
+</blockquote>
+
+</blockquote>
+
+<P ALIGN="JUSTIFY" class="cap1"><a name="dongho">III. C&Agrave;I &#272;&#7862;T &#272;&#7890;NG H&#7890;</a></P>
+</STRONG> <FONT FACE="Times New Roman"><P ALIGN="JUSTIFY">&#272;&#7891;ng h&#7891; c</FONT>&ograve;n <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c g&#7885;i l&agrave; timer, l&agrave; b&#7897; ph&#7853;n r&#7845;t c&#7847;n thi&#7871;t cho c&aacute;c thao t&aacute;c c&#7911;a nh&#7919;ng h&#7879; th&#7889;ng chia s&#7867; v&igrave; nhi&#7873;u nguy&ecirc;n nh&acirc;n kh&aacute;c nhau. N&oacute; ki&#7875;m so&aacute;t th&#7901;i gian trong ng&agrave;y v&agrave; kh&ocirc;ng cho ph&eacute;p m&#7897;t ti&#7871;n tr&#7881;nh n&agrave;o <FONT FACE="Times New Roman">&#273;ó &#273;&#7897;c chi&#7871;m CPU trong khi t&#7891;n t&#7841;i nh&#7919;ng ti&#7871;n tr</FONT>&igrave;nh kh&aacute;c. Ph&#7847;n m&#7873;m <FONT FACE="Times New Roman">&#273;&#7891;ng h&#7891; có th&#7875; xem nh</FONT>&#432; l&agrave; device driver m&#7863;c d&ugrave; <FONT FACE="Times New Roman">&#273;&#7891;ng h&#7891; không ph&#7843;i l</FONT>&agrave; thi&#7871;t b&#7883; kh&#7889;i nh&#432; <FONT FACE="Times New Roman">&#273;&#297;a hay thi&#7871;t b&#7883; tu&#7847;n t&#7921; nh</FONT>&#432; b&agrave;n ph&iacute;m, m&agrave;n h&igrave;nh.</P>
+<FONT SIZE=4><STRONG><P ALIGN="JUSTIFY" class="cap2"><a name="pcdongho"><img border="0" src="images/read_single.gif" width="15" height="12">
+III.1 Ph&#7847;n c&#7913;ng </a> </STRONG> </FONT><a name="pcdongho"><STRONG><FONT FACE="Times New Roman" SIZE=4>&#273;&#7891;ng h&#7891;</FONT></STRONG></a></P><blockquote>
+
+<P ALIGN="JUSTIFY">Trong m&aacute;y t&iacute;nh th&#432;&#7901;ng s&#7917; d&#7909;ng hai lo&#7841;i <FONT FACE="Times New Roman">&#273;&#7891;ng h&#7891; nh</FONT>&#432;ng c&#7843; hai <FONT FACE="Times New Roman">&#273;&#7873;u khác v&#7899;i &#273;&#7891;ng h&#7891; ng</FONT>&#432;&#7901;i s&#7917; d&#7909;ng th&ocirc;ng th&#432;&#7901;ng. D&#7841;ng <FONT FACE="Times New Roman">&#273;</FONT>&#417;n gi&#7843;n s&#7917; d&#7909;ng <FONT FACE="Times New Roman">&#273;&#7891;ng h&#7891; v&#7899;i &#273;i&#7879;n th&#7871; 110v hay 220v, v</FONT>&agrave; t&#7841;o ra ng&#7855;t theo m&#7895;i chu k&#7923; c&#7911;a hi&#7879;u <FONT FACE="Times New Roman">&#273;i&#7879;n th&#7871;, t&#7915; 50 &#273;&#7871;n 60 MHz.</FONT>&nbsp;</P>
+<P ALIGN="JUSTIFY">M&#7897;t d&#7841;ng kh&aacute;c c&#7911;a <FONT FACE="Times New Roman">&#273;&#7891;ng h&#7891; &#273;</FONT>&#432;&#7907;c x&acirc;y d&#7921;ng d&#7921;a tr&ecirc;n ba th&agrave;nh ph&#7847;n : b&#7897; dao <FONT FACE="Times New Roman">&#273;&#7897;ng b&#7857;ng th&#7841;ch anh, b&#7897;t &#273;&#7871;m v</FONT>&agrave; b&#7897; thanh ghi l&#432;u tr&#7919; nh&#432; h&igrave;nh v&#7869;. D&#432;&#7899;i t&aacute;c d&#7909;ng c&#7911;a d&ograve;ng <FONT FACE="Times New Roman">&#273;i&#7879;n, tinh th&#7875; th&#7841;ch anh t&#7841;o ra dao &#273;&#7897;ng. Nh&#7883;p dao &#273;&#7897;ng r&#7845;t chính xác theo th&#7901;i gian, th</FONT>&#432;&#7901;ng th&#432;&#7901;ng v&agrave;o kho&#7843;ng t&#7915; 5 <FONT FACE="Times New Roman">&#273;&#7871;n 100 MHz t</FONT>&ugrave;y theo m&#7895;i lo&#7841;i th&#7841;ch anh. T&iacute;n hi&#7879;u n&agrave;y s&#7869; chuy&#7875;n cho b&#7897; <FONT FACE="Times New Roman">&#273;&#7871;m v</FONT>&agrave; b&#7897; <FONT FACE="Times New Roman">&#273;&#7871;m s&#7869; th&#7921;c hi&#7879;n vi&#7879;c &#273;&#7871;m l</FONT>&ugrave;i v&#7873; 0. Khi b&#7897; <FONT FACE="Times New Roman">&#273;&#7871;m có giá tr&#7883; l</FONT>&agrave; 0, n&oacute; s&#7869; g&acirc;y ra m&#7897;t ng&#7855;t CPU. <FONT FACE="Times New Roman">&#272;i&#7873;u g</FONT>&igrave; x&#7843;y ra ti&#7871;p theo l&agrave; do h&#7879; <FONT FACE="Times New Roman">&#273;i&#7873;u h</FONT>&agrave;nh.</P>
+<P ALIGN="center"><img border="0" src="images/hinh12.12.gif" width="488" height="263"></P>
+<P ALIGN="JUSTIFY">D&#7841;ng <FONT FACE="Times New Roman">&#273;&#7891;ng h&#7891; có th&#7875; l&#7853;p tr</FONT>&igrave;nh c&oacute; v&agrave;i d&#7841;ng thao t&aacute;c. Th&#7913; nh&#7845;t l&agrave; one-shot, khi <FONT FACE="Times New Roman">&#273;&#7891;ng h&#7891; kh&#7903;i &#273;&#7897;ng, nó s&#7869; copy giá tr&#7883; </FONT>trong thanh ghi l&#432;u tr&#7919; v&agrave;o b&#7897; <FONT FACE="Times New Roman">&#273;&#7871;m v</FONT>&agrave; sau <FONT FACE="Times New Roman">&#273;ó gi&#7843;m b&#7897; &#273;&#7871;m sau m&#7895;i nh&#7883;p c&#7911;a th&#7841;ch anh. Khi b&#7897; &#273;&#7871;m &#273;&#7871;n giá tr&#7883; 0, nó s&#7869; gây ra m&#7897;t ng&#7855;t v</FONT>&agrave; d&#7915;ng l&#7841;i cho <FONT FACE="Times New Roman">&#273;&#7871;n khi ph&#7847;n m&#7873;m kh&#7903;i &#273;&#7897;ng l&#7841;i nó. Th&#7913; hai l</FONT>&agrave; square-wave, khi <FONT FACE="Times New Roman">&#273;&#7871;n giá tr&#7883; 0, nó s&#7869; gây ra m&#7897;t ng&#7855;t, b&#7897; tha</FONT>nh ghi l&#432;u tr&#7919; t&#7921; <FONT FACE="Times New Roman">&#273;&#7897;ng n&#7841;p l&#7841;i giá tr&#7883; v</FONT>&agrave;o b&#7897; <FONT FACE="Times New Roman">&#273;&#7871;m, v</FONT>&agrave; ti&#7871;n tr&igrave;nh s&#7869; <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c l&#7853;p l&#7841;i. Nh&#7919;ng ng&#7855;t ph&aacute;t sinh <FONT FACE="Times New Roman">&#273;&#7883;nh k&#7923; n</FONT>&agrave;y g&#7885;i l&agrave;  clock tick.</P>
+<P ALIGN="JUSTIFY">&#431;u <FONT FACE="Times New Roman">&#273;i&#7875;m c&#7911;a &#273;&#7891;ng h&#7891; có th&#7875; l&#7853;p tr</FONT>&igrave;nh l&agrave; ng&#7855;t <FONT FACE="Times New Roman">&#273;&#7883;nh k&#7923; &#273;</FONT>&#432;&#7907;c <FONT FACE="Times New Roman">&#273;i&#7873;u khi&#7875;n b&#7903;i ph&#7847;n m&#7873;m. N&#7871;u s&#7917; d&#7909;ng tin th&#7875; th&#7841;ch anh có t&#7847;n</FONT> s&#7889; 1 MHz, b&#7897; <FONT FACE="Times New Roman">&#273;&#7871;m s&#7869; có nh&#7883;p l</FONT>&agrave; m&#7895;i micro gi&acirc;y. V&#7899;i thanh ghi 16 bit, ng&#7855;t c&oacute; th&#7875; <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c l&#7853;p tr&igrave;nh <FONT FACE="Times New Roman">&#273;&#7875; x&#7843;y ra trong kho&#7843;ng t&#7915; 1 &#273;&#7871;n 65535 msec.</P>
+</FONT><P ALIGN="JUSTIFY"></P></blockquote>
+
+<FONT SIZE=4><STRONG><P class="cap2"><a name="pmdongho">III.2 Ph&#7847;n m&#7873;m
+</a> </STRONG> </FONT><STRONG><FONT FACE="Times New Roman" SIZE=4><a name="pmdongho">&#273;&#7891;ng h&#7891;</a>
+
+</FONT></STRONG></P><blockquote>
+
+<P ALIGN="JUSTIFY">T&#7845;t c&#7843; m&#7885;i vi&#7879;c m&agrave; ph&#7847;n c&#7913;ng <FONT FACE="Times New Roman">&#273;&#7891;ng h&#7891; th&#7921;c hi&#7879;n t&#7841;o ra các ng&#7855;t theo t&#7915;ng kho&#7843;ng th&#7901;i gian &#273;&#7873;u &#273;&#7863;n. M&#7885;i &#273;i&#7873;u khác &#273;&#7873;u &#273;</FONT>&#432;&#7907;c th&#7921;c hi&#7879;n b&#7903;i ph&#7847;n m&#7873;m <FONT FACE="Times New Roman">&#273;&#7891;ng h&#7891;, l</FONT>&agrave; driver <FONT FACE="Times New Roman">&#273;&#7891;ng h&#7891;. Công vi&#7879;c c&#7911;a driver &#273;&#7891;ng h&#7891; tr</FONT>&ecirc;n m&#7895;i h&#7879; <FONT FACE="Times New Roman">&#273;i&#7873;u h</FONT>&agrave;nh l&agrave; kh&aacute;c nhau, nh&#432;ng th&#432;&#7901;ng bao g&#7891;m nh&#7919;ng ch&#7913;c n<FONT FACE="Times New Roman">&#259;ng chính nh</FONT>&#432; sau :</P>
+<blockquote>
+
+<P ALIGN="JUSTIFY"><img border="0" src="images/red.gif" width="7" height="10">Qu&#7843;n l&yacute; th&#7901;i gian trong ng&agrave;y.</P>
+<P ALIGN="JUSTIFY"><img border="0" src="images/red.gif" width="7" height="10">Kh&ocirc;ng cho ph&eacute;p ti&#7871;n tr&igrave;nh ch&#7841;y l&acirc;u h&#417;n th&#7901;i gian m&agrave; n&oacute; <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c ph&eacute;p.</P>
+<P ALIGN="JUSTIFY"><img border="0" src="images/red.gif" width="7" height="10">K&#7871; to&aacute;n vi&#7879;c s&#7917; d&#7909;ng CPU.</P>
+<P ALIGN="JUSTIFY"><img border="0" src="images/red.gif" width="7" height="10">Cung c&#7845;p watchdog timer cho m&#7897;t ph&#7847;n c&#7911;a ch&iacute;nh h&#7879; th&#7889;ng <FONT FACE="Times New Roman">&#273;ó.</P>
+</FONT></blockquote>
+
+<P ALIGN="JUSTIFY"><img border="0" src="images/bulletjock.gif" width="18" height="18">Ch&#7913;c n<FONT FACE="Times New Roman">&#259;ng &#273;&#7847;u ti</FONT>&ecirc;n c&#7911;a <FONT FACE="Times New Roman">&#273;&#7891;ng h&#7891;, qu&#7843;n lý th&#7901;i gian trong ng</FONT>&agrave;y th&igrave; kh&ocirc;ng kh&oacute;. Ch&#7881; c&#7847;n t<FONT FACE="Times New Roman">&#259;ng m&#7897;t b&#7897; &#273;&#7871;m sau m&#7895;i nh&#7883;p c&#7911;a &#273;&#7891;ng h&#7891; nh</FONT>&#432; <FONT FACE="Times New Roman">&#273;&#7873; c&#7853;p &#7903; tr</FONT>&ecirc;n. V&#7845;n <FONT FACE="Times New Roman">&#273;&#7873; l</FONT>&#432;u &yacute; &#7903; <FONT FACE="Times New Roman">&#273;ây l</FONT>&agrave; s&#7889; l&#432;&#7907;ng bit cho b&#7897; counter. V&#7899;i <FONT FACE="Times New Roman">&#273;&#7891;ng h&#7891; &#7903; t&#7847;n s&#7889; 60 MHz, m&#7897;t b&#7897; &#273;&#7871;m 32 bit s&#7869; b&#7883; tr</FONT>&agrave;n sau hai n<FONT FACE="Times New Roman">&#259;m. Do &#273;ó h&#7879; th&#7889;ng không th&#7875; l</FONT>&#432;u tr&#7919; th&#7901;i gian th&#7921;c s&#7921; d&#432;&#7899;i d&#7841;ng s&#7889; nh&#7883;p t&#7915; 01/01/1970. C&oacute; ba c&aacute;ch gi&#7843;i quy&#7871;t. Th&#7913; nh&#7845;t, d&ugrave;ng b&#7897; <FONT FACE="Times New Roman">&#273;&#7871;m 64 bit, gi&#7843;i pháp n</FONT>&agrave;y t&#7889;n k&eacute;m. Th&#7913; hai, l&#432;u tr&#7919; d&#432;&#7899;i d&#7841;ng gi&acirc;y thay v&igrave; nh&#7883;p v&igrave; 2<SUP>32</SUP> gi&acirc;y s&#7869; l&agrave; 136 n<FONT FACE="Times New Roman">&#259;m. Th&#7913; ba, &#273;&#7871;m theo nh&#7883;p, nh</FONT>&#432;ng li&ecirc;n h&#7879; v&#7899;i th&#7901;i gian c&#7911;a h&#7879; th&#7889;ng khi kh&#7903;i <FONT FACE="Times New Roman">&#273;&#7897;ng.
+</FONT>
+</P>
+
+<P ALIGN="center"><img border="0" src="images/hinh12.13.gif" width="434" height="236">
+</P>
+<P ALIGN="JUSTIFY"><img border="0" src="images/bulletjock.gif" width="18" height="18">Ch&#7913;c n<FONT FACE="Times New Roman">&#259;ng th&#7913; hai l</FONT>&agrave; kh&ocirc;ng cho ph&eacute;p m&#7897;t ti&#7871;n tr&igrave;nh th&#7921;c hi&#7879;n qu&aacute; l&acirc;u. Khi n&agrave;o m&#7897;t ti&#7871;n tr&igrave;nh b&#7855;t <FONT FACE="Times New Roman">&#273;&#7847;u, b&#7897; l&#7853;p l&#7883;ch s&#7869; kh&#7903;i gán giá tr&#7883; cho b&#7897; &#273;&#7871;m, m&#7895;i ng&#7855;t &#273;&#7891;ng h&#7891; s&#7869; gi&#7843;m giá tr&#7883; c&#7911;a b&#7897; &#273;&#7871;m, khi n</FONT>&agrave;o gi&aacute; tr&#7883; b&#7857;ng 0, b&#7897; <FONT FACE="Times New Roman">&#273;i&#7873;u khi&#7875;n &#273;&#7891;ng h&#7891; s&#7869; y</FONT>&ecirc;u c&#7847;u b&#7897; l&#7853;p l&#7883;ch thi&#7871;t l&#7853;p gi&aacute; tr&#7883; cho m&#7897;t ti&#7871;n tr&igrave;nh kh&aacute;c.</P>
+<P ALIGN="JUSTIFY"><img border="0" src="images/bulletjock.gif" width="18" height="18">Ch&#7913;c n<FONT FACE="Times New Roman">&#259;ng th&#7913; ba l</FONT>&agrave; k&#7871; to&aacute;n vi&#7879;c s&#7917; d&#7909;ng CPU. C&aacute;ch th&#7913;c ch&iacute;nh x&aacute;c nh&#7845;t l&agrave; s&#7917; d&#7909;ng m&#7897;t b&#7897; timer th&#7913; hai, kh&aacute;c v&#7899;i timer h&#7879; th&#7889;ng. B&#7897; timer th&#7913; hai kh&#7903;i <FONT FACE="Times New Roman">&#273;&#7897;ng khi ti&#7871;n tr</FONT>&igrave;nh b&#7855;t <FONT FACE="Times New Roman">&#273;&#7847;u v</FONT>&agrave; khi ti&#7871;n tr&igrave;nh k&#7871;t th&uacute;c, timer n&agrave;y s&#7869; cho bi&#7871;t th&#7901;i gian ti&#7871;n tr&igrave;nh <FONT FACE="Times New Roman">&#273;</FONT>&atilde; th&#7921;c hi&#7879;n.</P>
+<P ALIGN="JUSTIFY"><img border="0" src="images/bulletjock.gif" width="18" height="18">Ph&#7847;n l&#7899;n h&#7879; th&#7889;ng c&#7847;n thi&#7871;t thi&#7871;t l&#7853;p timer. G&#7885;i l&agrave; watchdog timer. V&iacute; d&#7909;, <FONT FACE="Times New Roman">&#273;&#7875; s&#7917; d&#7909;ng &#273;&#297;a m&#7873;m, h&#7879; th&#7889;ng ph&#7843;i kh&#7903;i &#273;&#7897;ng motor v</FONT>&agrave; ch&#7901; kho&#7843;ng 500msec <FONT FACE="Times New Roman">&#273;&#7841;t &#273;</FONT>&#432;&#7907;c t&#7889;c <FONT FACE="Times New Roman">&#273;&#7897;. V</FONT>&igrave; v&#7853;y, &yacute; t&#432;&#7903;ng t&#7889;t l&agrave; ph&#7843;i s&#7917; d&#7909;ng watchdog timer <FONT FACE="Times New Roman">&#273;&#7875; ch&#7901; cho thao tác I/O ti&#7871;p theo, v</FONT>&agrave;o kho&#7843;ng 3 gi&acirc;y, kh&ocirc;ng t&#7855;t motor.</P>
+</blockquote>
+
+<STRONG><P><font size="4" color="#FF0000"><a name="cauhoi"><img border="0" src="images/blebul1a.gif" width="20" height="20">
+C&acirc;u h&#7887;i ki&#7875;m tra ki&#7871;n th&#7913;c</a></font></P>
+</STRONG>
+<blockquote>
+  <P>1. So s&aacute;nh c&aacute;c thu&#7853;t to&aacute;n <FONT FACE="Times New Roman">&#273;&#7885;c &#273;&#297;a.</P>
+</FONT><P>2. L&#7921;a ch&#7885;n c&aacute;c thu&#7853; to&aacute;n <FONT FACE="Times New Roman">&#273;&#7885;c &#273;&#297;a nh</FONT>&#432; th&#7871; n&agrave;o&nbsp;?</P>
+<P>3. Nguy&ecirc;n nh&acirc;n c&aacute;c l&#7895;i khi truy xu&#7845;t <FONT FACE="Times New Roman">&#273;&#297;a </FONT>v&agrave; c&aacute;ch kh&#7855;c ph&#7909;c ?</P>
+<P>4. RAM disks l&agrave; g&igrave; ?</P>
+<P>5. V&igrave; sao c&oacute; c&#417; ch&#7871; Interleave ?</P>
+<P>6. <FONT FACE="Times New Roman">&#272;&#7863;c &#273;i&#7875;m c&#7911;a ph&#7847;n c&#7913;ng terminal.</P>
+</FONT><P>7. Terminal &aacute;nh x&#7841; b&#7897; nh&#7899; d&ugrave;ng <FONT FACE="Times New Roman">&#273;&#7875; l</FONT>&agrave;m g&igrave;&nbsp;?</P>
+<P>8. Vai tr&ograve; c&#7911;a <FONT FACE="Times New Roman">&#273;&#7891;ng h&#7891;.</P>
+  </blockquote>
+</FONT><FONT SIZE=4><STRONG><P><font color="#FF0000"><a name="baitap"><img border="0" src="images/blebul1a.gif" width="20" height="20">
+B&agrave;i t&#7853;p</a></font></P>
+</STRONG>
+</FONT><P ALIGN="JUSTIFY">&nbsp;Gi&#7843; s&#7917; <FONT FACE="Times New Roman">&#273;&#297;a có 2 side, m&#7895;i side có 1024 track, m&#7895;i track có 32 sector. T&#7889;c &#273;&#7897; xoay c&#7911;a &#273;&#297;a l</FONT>&agrave; 6000 v&ograve;ng/ph&uacute;t. Th&#7901;i gian di chuy&#7875;n gi&#7919;a c&aacute;c  track l&agrave; 100ms. Gi&#7843; s&#7917; th&#7901;i gian <FONT FACE="Times New Roman">&#273;&#7885;c v</FONT>&agrave; chuy&#7875;n d&#7919; li&#7879;u l&agrave; kh&ocirc;ng <FONT FACE="Times New Roman">&#273;áng k&#7875;. Cho bi&#7871;t &#273;&#7875; truy xu&#7845;t t&#7845;t c&#7843; sector logic sau ph&#7843;i t&#7889;n bao lâu :</P>
+</FONT>
+<P ALIGN="CENTER">34, 16, 120, 14, 86, 200, 79, 300, 8, 500, 170, 450, 1000, 380, 800</P>
+<blockquote>
+<blockquote>
+
+<P>Bi&#7871;t :</P><blockquote>
+<blockquote>
+
+<P>Sector = Seclog / SecTrk + 1</P>
+<P>Side = (Seclog/SecTrk) / SideNo</P>
+<P>Track = (Seclog/(Sectrk *SideNo))</P></blockquote>
+</blockquote>
+
+<P>V&#7899;i Seclog l&agrave; sector logic, SideNo l&agrave; s&#7889; side, Sectrk l&agrave; s&#7889; sector tr&ecirc;n 1 track</P></blockquote>
+</blockquote>
+
+<P>&nbsp;&nbsp;&nbsp; </P>
+</BODY>
+</HTML>

@@ -1,0 +1,9 @@
+body {  font-family: "Times New Roman", Arial, Tahoma; color: #800080; background-image: url(images/barbkgde.gif)}
+title        { font-family: Verdana; font-size: 18pt; color: #000080; font-weight: bold }
+code {  font-family: "Courier New", Courier, mono; color: #006633}
+
+.cap2 {  font-family: "Times New Roman", Tahoma, Arial;  font-weight: bold; color: #800000; text-align: Left; margin-left: 0 ;}
+.cap1 {  font-family: "Times New Roman",Verdana, Arial, Helvetica, sans-serif; font-weight: bold; text-transform: uppercase; font-size: 14pt; color: #FF0000;}
+
+.TD1 {  background-image: url(images/bg_yellow.gif);}
+.TD2 { background-image: url(images/blocks.gif); }

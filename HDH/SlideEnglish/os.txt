@@ -1,0 +1,32 @@
+ Volume in drive D is STUDY
+ Volume Serial Number is 1813-81FC
+
+ Directory of D:\0-GIANGDAYKHAPNOI\0-DHGTVT\0-HeDieuHanh\Silberschatz\SlideEnglish
+
+01/02/2009  04:46 PM    <DIR>          .
+01/02/2009  04:46 PM    <DIR>          ..
+01/02/2009  04:46 PM                 0 os.txt
+13/01/2009  12:09 AM         1,332,224 Slide01-Introduction.ppt
+13/01/2009  12:14 AM         1,491,968 Slide02-Operating-System Structures.ppt
+13/01/2009  12:14 AM         1,952,256 Slide03-Processes.ppt
+13/01/2009  12:14 AM         1,344,512 Slide04-Threads.ppt
+13/01/2009  12:15 AM         1,788,416 Slide05-CPU Scheduling.ppt
+13/01/2009  12:16 AM         2,334,720 Slide06-Process Synchronization.ppt
+13/01/2009  12:15 AM         1,234,944 Slide07-Deadlocks.ppt
+13/01/2009  12:17 AM         2,178,560 Slide08-Main Memory.ppt
+13/01/2009  12:17 AM         2,254,336 Slide09-Virtual Memory.ppt
+13/01/2009  12:17 AM         1,261,568 Slide10-File-System Interface.ppt
+13/01/2009  12:17 AM         1,243,136 Slide11-File System Implementation.ppt
+13/01/2009  12:18 AM         1,027,072 Slide12-Mass-Storage Systems.ppt
+13/01/2009  12:19 AM         2,125,824 Slide13-I-O Systems.ppt
+13/01/2009  12:18 AM         1,270,272 Slide14-Protection.ppt
+13/01/2009  12:19 AM         1,440,768 Slide15-Security.ppt
+13/01/2009  12:19 AM         1,431,552 Slide16-Distributed System Structures.ppt
+13/01/2009  12:19 AM           847,872 Slide17-Distributed-File Systems.ppt
+13/01/2009  12:20 AM         1,112,064 Slide18-Distributed Coordination.ppt
+13/01/2009  12:20 AM         1,122,304 Slide19-Real-Time Systems.ppt
+13/01/2009  12:20 AM         1,175,040 Slide20-Multimedia Systems.ppt
+13/01/2009  12:21 AM         1,339,904 Slide21-The Linux System.ppt
+13/01/2009  12:21 AM         1,387,008 Slide22-Windows XP.ppt
+              23 File(s)     32,696,320 bytes
+               2 Dir(s)     587,206,656 bytes free

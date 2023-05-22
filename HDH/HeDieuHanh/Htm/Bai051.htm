@@ -1,0 +1,441 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft FrontPage 4.0">
+<TITLE>Cac giai phap dong bo hoa</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="style.css" TITLE="MTD">
+</HEAD>
+<BODY LINK="#0000ff">
+
+<B><P ALIGN="CENTER"><font face="Verdana" color="#000080" size="2">B&Agrave;I 5 :</font><font face="Verdana" size="5" color="#000080"> C&Aacute;C GI&#7842;I PH&Aacute;P
+&#272;&#7890;NG B&#7896; HOÁ</font></P>
+</B><I><P ALIGN="JUSTIFY">B&agrave;i h&#7885;c n&agrave;y s&#7869;  gi&#7899;i thi&#7879;u c&aacute;c gi&#7843;i ph&aacute;p c&#7909; th&#7875; <FONT FACE="Times New Roman">&#273;&#7875; x&#7917; lý b</FONT>&agrave;i to&aacute;n <FONT FACE="Times New Roman">&#273;&#7891;ng b&#7897; hoá. Có nhi&#7873;u gi&#7843;i pháp &#273;&#7875; th&#7921;c hi&#7879;n vi&#7879;c truy xu&#7845;t mi&#7873;n g&#259;ng, các gi&#7843;i pháp n</FONT>&agrave;y <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c ph&acirc;n bi&#7879;t th&agrave;nh hai l&#7899;p t&ugrave;y theo c&aacute;ch ti&#7871;p c&#7853;n trong x&#7917; l&yacute; c&#7911;a ti&#7871;n tr&igrave;nh b&#7883; kh&oacute;a&nbsp;:c&aacute;c gi&#7843;i ph&aacute;p «&nbsp;busy waiting&nbsp;» v&agrave; c&aacute;c gi&#7843;i ph&aacute;p «&nbsp;sleep and wakeup&nbsp;».</P>
+</I><B><P ALIGN="JUSTIFY" class="cap1"><a name="giaiphap">I. Gi&#7843;i ph&aacute;p «&nbsp;busy waiting&nbsp;»</a></P>
+<P ALIGN="JUSTIFY" class="cap2"><a name="phanmem"><img border="0" src="images/read_single.gif" width="15" height="12">
+ I.1. C&aacute;c gi&#7843;i ph&aacute;p ph&#7847;n m&#7873;m</a></P><blockquote>
+<I><P ALIGN="JUSTIFY"><img border="0" src="images/symble_asterisk_blue.gif" width="13" height="14">
+I.1.1. S&#7917; d&#7909;ng c&aacute;c bi&#7871;n c&#7901; hi&#7879;u: </P><blockquote>
+</B></I><U><P ALIGN="JUSTIFY"><img border="0" src="images/bulletjock.gif" width="18" height="18">Ti&#7871;p c&acirc;n </U>: c&aacute;c ti&#7871;n tr&igrave;nh chia s&#7867; m&#7897;t bi&#7871;n chung <FONT FACE="Times New Roman">&#273;óng vai tr</FONT>&ograve;      «&nbsp;ch&#7889;t c&#7917;a&nbsp;» (lock) , bi&#7871;n n&agrave;y <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c kh&#7903;i <FONT FACE="Times New Roman">&#273;&#7897;ng l</FONT>&agrave; 0. M&#7897;t ti&#7871;n tr&igrave;nh mu&#7889;n v&agrave;o mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng tr</FONT>&#432;&#7899;c ti&ecirc;n ph&#7843;i ki&#7875;m tra gi&aacute; tr&#7883; c&#7911;a bi&#7871;n lock. N&#7871;u  lock = 0, ti&#7871;n tr&igrave;nh <FONT FACE="Times New Roman">&#273;&#7863;t l&#7841;i giá tr&#7883; cho lock = 1 v</FONT>&agrave; <FONT FACE="Times New Roman">&#273;i v</FONT>&agrave;o mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng. N&#7871;u lock &#273;ang nh&#7853;n giá tr&#7883; 1, ti&#7871;n tr</FONT>&igrave;nh ph&#7843;i ch&#7901; b&ecirc;n ngo&agrave;i mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng cho &#273;&#7871;n khi lock có giá tr&#7883; 0. Nh</FONT>&#432; v&#7853;y gi&aacute; tr&#7883; 0 c&#7911;a lock mang &yacute; ngh&#297;a l&agrave; kh&ocirc;ng c&oacute; ti&#7871;n tr&igrave;nh n&agrave;o <FONT FACE="Times New Roman">&#273;ang &#7903; trong mi&#7873;n g&#259;ng, v</FONT>&agrave; lock=1 khi c&oacute; m&#7897;t ti&#7871;n tr&igrave;nh <FONT FACE="Times New Roman">&#273;ang &#7903; trong mi&#7873;n g&#259;ng.</P><blockquote>
+<blockquote>
+
+</FONT><FONT FACE="Courier New" SIZE=2><P ALIGN="JUSTIFY">while (TRUE) {</P><blockquote>
+
+<P ALIGN="JUSTIFY">while (lock == 1); // wait<br>
+lock = 1;
+
+<B><br>
+critical-section ();<br>
+</B>lock = 0<B>;<br>
+</B>Noncritical-section ();</P>
+</blockquote>
+
+<P ALIGN="JUSTIFY">}</P>
+</blockquote>
+</blockquote>
+
+</FONT><B><P ALIGN="JUSTIFY">H&igrave;nh 3.5  </B>C&#7845;u tr&uacute;c m&#7897;t ch&#432;&#417;ng tr&igrave;nh s&#7917; d&#7909;ng bi&#7871;n kh&oacute;a <FONT FACE="Times New Roman">&#273;&#7875; &#273;&#7891;ng b&#7897;      </P>
+</FONT><U><P ALIGN="JUSTIFY"><img border="0" src="images/bulletjock.gif" width="18" height="18">Th&#7843;o lu&#7853;n :</U> Gi&#7843;i ph&aacute;p n&agrave;y c&oacute; th&#7875; vi ph&#7841;m <FONT FACE="Times New Roman">&#273;i&#7873;u ki&#7879;n th&#7913; nh&#7845;t: hai ti&#7871;n tr</FONT>&igrave;nh c&oacute; th&#7875; c&ugrave;ng &#7903; trong mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng t&#7841;i m&#7897;t th&#7901;i &#273;i&#7875;m. Gi&#7843; s&#7917; m&#7897;t ti&#7871;n tr</FONT>&igrave;nh nh&#7853;n th&#7845;y lock = 0 v&agrave; chu&#7849;n b&#7883; v&agrave;o mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng, nh</FONT>&#432;ng tr&#432;&#7899;c khi n&oacute; c&oacute; th&#7875; <FONT FACE="Times New Roman">&#273;&#7863;t l&#7841;i giá tr&#7883; cho lock l</FONT>&agrave; 1, n&oacute; b&#7883; t&#7841;m d&#7915;ng <FONT FACE="Times New Roman">&#273;&#7875; m&#7897;t ti&#7871;n tr</FONT>&igrave;nh kh&aacute;c ho&#7841;t <FONT FACE="Times New Roman">&#273;&#7897;ng. Ti&#7871;n tr</FONT>&igrave;nh th&#7913; hai n&agrave;y th&#7845;y lock v&#7851;n l&agrave; 0 th&igrave; v&agrave;o mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng v</FONT>&agrave; <FONT FACE="Times New Roman">&#273;&#7863;t l&#7841;i lock = 1. Sau &#273;ó ti&#7871;n tr</FONT>&igrave;nh th&#7913; nh&#7845;t <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c t&aacute;i k&iacute;ch ho&#7841;t, n&oacute; g&aacute;n lock = 1 l&#7847;n n&#7919;a r&#7891;i va&ograve; mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng. Nh</FONT>&#432; v&#7853;y t&#7841;i th&#7901;i <FONT FACE="Times New Roman">&#273;i&#7875;m &#273;ó c&#7843; hai ti&#7871;n tr</FONT>&igrave;nh <FONT FACE="Times New Roman">&#273;&#7873;u &#7903; trong mi&#7873;n g&#259;ng.</P></blockquote>
+
+</FONT><B><I><P ALIGN="JUSTIFY"><img border="0" src="images/symble_asterisk_blue.gif" width="13" height="14">
+I.1.2. S&#7917; d&#7909;ng vi&#7879;c ki&#7875;m tra lu&acirc;n phi&ecirc;n : </P><blockquote>
+
+</B></I><U><P ALIGN="JUSTIFY"><img border="0" src="images/bulletjock.gif" width="18" height="18">Ti&#7871;p c&#7853;n </U>: <FONT FACE="Times New Roman">&#272;ây l</FONT>&agrave; m&#7897;t gi&#7843;i ph&aacute;p <FONT FACE="Times New Roman">&#273;&#7873; ngh&#7883; cho hai ti&#7871;n tr</FONT>&igrave;nh. Hai ti&#7871;n tr&igrave;nh n&agrave;y s&#7917; d&#7909;ng chung bi&#7871;n <I>turn </I>(ph&#7843;n &aacute;nh phi&ecirc;n ti&#7871;n tr&igrave;nh n&agrave;o <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c v&agrave;o mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng), &#273;</FONT>&#432;&#7907;c kh&#7903;i <FONT FACE="Times New Roman">&#273;&#7897;ng v&#7899;i giá tr&#7883; 0. N&#7871;u </FONT><I>turn = 0</I>, ti&#7871;n tr&igrave;nh  A <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c v&agrave;o mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng. N&#7871;u </FONT><I>turn = 1,</I> ti&#7871;n tr&igrave;nh A <FONT FACE="Times New Roman">&#273;i v</FONT>&agrave;o m&#7897;t v&ograve;ng l&#7863;p ch&#7901; <FONT FACE="Times New Roman">&#273;&#7871;n khi </FONT><I>turn</I> nh&#7853;n gi&aacute; tr&#7883; <I>0</I>. Khi ti&#7871;n tr&igrave;nh A r&#7901;i kh&#7887;i mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng, nó &#273;&#7863;t giá tr&#7883; </FONT><I>turn </I>v&#7873; 1 <FONT FACE="Times New Roman">&#273;&#7875; cho phép ti&#7871;n tr</FONT>&igrave;nh B <FONT FACE="Times New Roman">&#273;i v</FONT>&agrave;o mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng. </P>
+<blockquote>
+<blockquote>
+
+</FONT><FONT FACE="Courier New" SIZE=2><P ALIGN="JUSTIFY">while (TRUE) {</P><blockquote>
+
+<P ALIGN="JUSTIFY">while (turn&nbsp;!= 0); // wait<B><br>
+critical-section ();<br>
+</B>turn = 1<B>;<br>
+</B>Noncritical-section ();</P></blockquote>
+
+<P ALIGN="JUSTIFY">}</P></blockquote>
+</blockquote>
+
+</FONT><B></blockquote>
+
+<P ALIGN="CENTER">(a)</B>     C&#7845;u tr&uacute;c ti&#7871;n tr&igrave;nh A</P><blockquote>
+<blockquote>
+<blockquote>
+
+<FONT FACE="Courier New" SIZE=2><P ALIGN="JUSTIFY">while (TRUE) {</P><blockquote>
+
+<P ALIGN="JUSTIFY">while (turn&nbsp;!= 1); // wait<B><br>
+critical-section ();<br>
+</B>turn = 0<B>;<br>
+</B>Noncritical-section ();</P></blockquote>
+
+<P ALIGN="JUSTIFY">}</P></blockquote>
+</blockquote>
+</blockquote>
+
+</FONT><B><P ALIGN="CENTER">(b) </B>C&#7845;u tr&uacute;c ti&#7871;n tr&igrave;nh B</P>
+<blockquote>
+
+<B><P ALIGN="JUSTIFY">H&igrave;nh 3.6</B> C&#7845;u tr&uacute;c c&aacute;c ti&#7871;n tr&igrave;nh trong gi&#7843;i ph&aacute;p ki&#7875;m tra lu&acirc;n phi&ecirc;n</P>
+<U><P ALIGN="JUSTIFY"><img border="0" src="images/bulletjock.gif" width="18" height="18">Th&#7843;o lu&#7853;n:</U> Gi&#7843;i ph&aacute;p n&agrave;y d&#7921;a tr&ecirc;n vi&#7879;c th&#7921;c hi&#7879;n s&#7921; ki&#7875;m tra nghi&ecirc;m nh&#7863;t <FONT FACE="Times New Roman">&#273;&#7871;n l</FONT>&#432;&#7907;t ti&#7871;n tr&igrave;nh n&agrave;o <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c v&agrave;o mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng. Do &#273;ó nó có th&#7875; ng&#259;n ch&#7863;n &#273;</FONT>&#432;&#7907;c t&igrave;nh tr&#7841;ng hai ti&#7871;n tr&igrave;nh c&ugrave;ng v&agrave;o mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng, nh</FONT>&#432;ng l&#7841;i c&oacute; th&#7875; vi ph&#7841;m <FONT FACE="Times New Roman">&#273;i&#7873;u ki&#7879;n th&#7913; ba: m&#7897;t ti&#7871;n tr</FONT>&igrave;nh c&oacute; th&#7875; b&#7883; ng<FONT FACE="Times New Roman">&#259;n ch&#7863;n v</FONT>&agrave;o mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng b&#7903;i m&#7897;t ti&#7871;n tr</FONT>&igrave;nh kh&aacute;c kh&ocirc;ng &#7903; trong mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng. Gi&#7843; s&#7917; ti&#7871;n tr</FONT>&igrave;nh B ra kh&#7887;i mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng r&#7845;t nhanh chóng. C&#7843; hai ti&#7871;n tr</FONT>&igrave;nh <FONT FACE="Times New Roman">&#273;&#7873;u &#7903; ngo</FONT>&agrave;i mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng, v</FONT>&agrave; turn = 0. Ti&#7871;n tr&igrave;nh A v&agrave;o mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng v</FONT>&agrave; ra kh&#7887;i nhanh ch&oacute;ng, <FONT FACE="Times New Roman">&#273;&#7863;t l&#7841;i giá tr&#7883; c&#7911;a turn l</FONT>&agrave;1, r&#7891;i l&#7841;i x&#7917; l&yacute; <FONT FACE="Times New Roman">&#273;o&#7841;n l&#7879;nh ngo</FONT>&agrave;i mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng l&#7847;n n&#7919;a. Sau &#273;ó, ti&#7871;n tr</FONT>&igrave;nh A l&#7841;i k&#7871;t th&uacute;c nhanh ch&oacute;ng <FONT FACE="Times New Roman">&#273;o&#7841;n l&#7879;nh ngo</FONT>&agrave;i mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng c&#7911;a nó v</FONT>&agrave; mu&#7889;n v&agrave;o mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng m&#7897;t l&#7847;n n&#7919;a. Tuy nhi</FONT>&ecirc;n l&uacute;c n&agrave;y B v&#7851;n c&ograve;n m&atilde;i x&#7917; l&yacute; <FONT FACE="Times New Roman">&#273;o&#7841;n l&#7879;nh ngo</FONT>&agrave;i mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng c&#7911;a m</FONT>&igrave;nh, v&agrave; turn l&#7841;i mang gi&aacute; tr&#7883; 1&nbsp;! Nh&#432; v&#7853;y, gi&#7843;i ph&aacute;p n&agrave;y kh&ocirc;ng c&oacute; gi&aacute; tr&#7883; khi c&oacute; s&#7921; kh&aacute;c bi&#7879;t l&#7899;n v&#7873; t&#7889;c <FONT FACE="Times New Roman">&#273;&#7897; th&#7921;c hi&#7879;n c&#7911;a hai ti&#7871;n tr</FONT>&igrave;nh, n&oacute; vi ph&#7841;m c&#7843; <FONT FACE="Times New Roman">&#273;i&#7873;u ki&#7879;n th&#7913; hai.</P></blockquote>
+
+</FONT><B><I><P ALIGN="JUSTIFY"><img border="0" src="images/symble_asterisk_blue.gif" width="13" height="14">
+I.1.3. Gi&#7843;i ph&aacute;p c&#7911;a Peterson </P><blockquote>
+
+</B></I><U><P ALIGN="JUSTIFY"><img border="0" src="images/bulletjock.gif" width="18" height="18">Ti&#7871;p c&#7853;n </U>: Petson <FONT FACE="Times New Roman">&#273;</FONT>&#432;a ra m&#7897;t gi&#7843;i ph&aacute;p k&#7871;t h&#7907;p &yacute; t&#432;&#7903;ng c&#7911;a c&#7843; hai gi&#7843;i ph&aacute;p k&#7875; tr&ecirc;n. C&aacute;c ti&#7871;n tr&igrave;nh chia s&#7867; hai bi&#7871;n chung :</P>
+<blockquote>
+  <blockquote>
+
+<FONT FACE="Courier New" SIZE=2><P ALIGN="JUSTIFY">int turn; // </FONT><FONT FACE="Courier New" SIZE=1>&#273;</FONT><FONT FACE="Courier New" SIZE=1>&#7871;n phi&ecirc;n ai</P>
+</FONT><FONT FACE="Courier New" SIZE=2><P ALIGN="JUSTIFY">int interesse[2]; // </FONT><FONT FACE="Courier New" SIZE=1>kh&#7903;i </FONT><FONT FACE="Courier New" SIZE=1>&#273;</FONT><FONT FACE="Courier New" SIZE=1>&#7897;ng l&agrave;</FONT><FONT FACE="Courier New" SIZE=2> FALSE </P></blockquote>
+
+</FONT><P ALIGN="JUSTIFY">N&#7871;u <I>interesse[i]</I><FONT SIZE=3> =</FONT> TRUE c&oacute; ngh&#297;a l&agrave; ti&#7871;n tr&igrave;nh Pi mu&#7889;n v&agrave;o mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng. Kh&#7903;i &#273;&#7847;u, </FONT><I>interesse[0]=interesse[1]=FALSE</I> v&agrave; gi&aacute; tr&#7883; c&#7911;a est <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c kh&#7903;i <FONT FACE="Times New Roman">&#273;&#7897;ng l</FONT>&agrave; 0 hay 1. <FONT FACE="Times New Roman">&#272;&#7875; có th&#7875; v</FONT>&agrave;o <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng, tr</FONT>&#432;&#7899;c ti&ecirc;n ti&#7871;n tr&igrave;nh Pi <FONT FACE="Times New Roman">&#273;&#7863;t giá tr&#7883; </FONT><I>interesse[i]=</I>TRUE ( x&aacute;c <FONT FACE="Times New Roman">&#273;&#7883;nh r&#7857;ng ti&#7871;n tr</FONT>&igrave;nh mu&#7889;n v&agrave;o mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng), sau &#273;ó &#273;&#7863;t  turn</FONT><I>=j</I> (<FONT FACE="Times New Roman">&#273;&#7873; ngh&#7883; th&#7917; ti&#7871;n tr</FONT>&igrave;nh kh&aacute;c v&agrave;o mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng). N&#7871;u ti&#7871;n tr</FONT>&igrave;nh Pj kh&ocirc;ng quan t&acirc;m <FONT FACE="Times New Roman">&#273;&#7871;n vi&#7879;c v</FONT>&agrave;o mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng (</FONT><I>interesse[j]=FALSE</I>), th&igrave; Pi c&oacute; th&#7875; v&agrave;o mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng, n&#7871;u không, Pi ph&#7843;i ch&#7901; &#273;&#7871;n khi </FONT><I>interesse[j]=FALSE</I>. Khi ti&#7871;n tr&igrave;nh Pi r&#7901;i kh&#7887;i mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng, nó &#273;&#7863;t l&#7841;i giá tr&#7883; cho </FONT><I>interesse[i]=</I> FALSE. </P><blockquote>
+
+<FONT FACE="Courier New" SIZE=2><P ALIGN="JUSTIFY">while (TRUE) {</P>
+<blockquote>
+<P ALIGN="JUSTIFY">int j = 1-i; </FONT><FONT SIZE=2>// j l&agrave; ti&#7871;n tr&igrave;nh c&ograve;n l&#7841;i</FONT><FONT FACE="Courier New" SIZE=2><br>
+interesse[i]= TRUE;<br>
+turn = j;<br>
+while (turn&nbsp;== j &amp;&amp; interesse[j]==TRUE);<B><br>
+critical-section ();<br>
+</B>interesse[i] = FALSE<B>;<br>
+</B>Noncritical-section ();</P>
+</blockquote>
+
+<P ALIGN="JUSTIFY">}</P>
+
+</FONT><B><P ALIGN="JUSTIFY">H&igrave;nh  3.7 </B>C&#7845;u tr&uacute;c ti&#7871;n tr&igrave;nh Pi trong gi&#7843;i ph&aacute;p Peterson</P>
+
+<U>
+</blockquote>
+</blockquote>
+<P ALIGN="JUSTIFY"><img border="0" src="images/bulletjock.gif" width="18" height="18">Th&#7843;o lu&#7853;n:</U> gi&#7843;i ph&aacute;p n&agrave;y ng<FONT FACE="Times New Roman">&#259;n ch&#7863;n &#273;</FONT>&#432;&#7907;c t&igrave;nh tr&#7841;ng m&acirc;u thu&#7851;n truy xu&#7845;t : m&#7895;i ti&#7871;n tr&igrave;nh Pi ch&#7881; c&oacute; th&#7875; v&agrave;o mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng khi </FONT><I>interesse[j]=FALSE</I> ho&#7863;c <I>turn = i</I>. N&#7871;u c&#7843; hai ti&#7871;n tr&igrave;nh <FONT FACE="Times New Roman">&#273;&#7873;u mu&#7889;n v</FONT>&agrave;o mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng th</FONT>&igrave; <I>interesse[i] =</I> <I>interesse[j] =TRUE</I> nh&#432;ng gi&aacute; tr&#7883; c&#7911;a  <I>turn</I> ch&#7881; c&oacute; th&#7875; ho&#7863;c l&agrave; 0 ho&#7863;c l&agrave; 1, do v&#7853;y ch&#7881; c&oacute; m&#7897;t ti&#7871;n tr&igrave;nh <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c v&agrave;o mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng.
+
+</FONT></P><P ALIGN="JUSTIFY">&nbsp;</P><B>
+</blockquote>
+  </blockquote>
+  <P ALIGN="JUSTIFY" class="cap2"><a name="phancung"><img border="0" src="images/read_single.gif" width="15" height="12">
+  I.2. C&aacute;c gi&#7843;i ph&aacute;p ph&#7847;n c&#7913;ng</a></P>
+</B>
+<blockquote>
+<B><I><P ALIGN="JUSTIFY"><img border="0" src="images/symble_asterisk_blue.gif" width="13" height="14">
+I.2.1. C&#7845;m ng&#7855;t: </P></I></B><blockquote>
+<U><P ALIGN="JUSTIFY"><img border="0" src="images/bulletjock.gif" width="18" height="18">Ti&#7871;p c&acirc;n</U>: cho ph&eacute;p ti&#7871;n tr&igrave;nh c&#7845;m t&#7845;t c&#7843; c&aacute;c ng&#7855;t tr&#432;&#7899;c khi v&agrave;o mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng, v</FONT>&agrave; ph&#7909;c h&#7891;i ng&#7855;t khi ra kh&#7887;i mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng. Khi &#273;ó, ng&#7855;t &#273;&#7891;ng h&#7891; c&#361;ng không x&#7843;y ra, do v&#7853;y h&#7879; th&#7889;ng không th&#7875; t&#7841;m d&#7915;ng ho&#7841;t &#273;&#7897;ng c&#7911;a ti&#7871;n tr</FONT>&igrave;nh <FONT FACE="Times New Roman">&#273;ang x&#7917; lý &#273;&#7875; c&#7845;p phát CPU cho ti&#7871;n tr</FONT>&igrave;nh kh&aacute;c, nh&#7901; <FONT FACE="Times New Roman">&#273;ó ti&#7871;n tr</FONT>&igrave;nh hi&#7879;n h&agrave;nh y&ecirc;n t&acirc;m thao t&aacute;c tr&ecirc;n mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng m</FONT>&agrave; kh&ocirc;ng s&#7907; b&#7883; ti&#7871;n tr&igrave;nh n&agrave;o kh&aacute;c tranh ch&#7845;p.</P>
+<U><P ALIGN="JUSTIFY"><img border="0" src="images/bulletjock.gif" width="18" height="18">Th&#7843;o lu&#7853;n:</U> gi&#7843;i ph&aacute;p n&agrave;y kh&ocirc;ng <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c &#432;a chu&#7897;ng v&igrave; r&#7845;t thi&#7871;u th&#7853;n tr&#7885;ng khi cho ph&eacute;p ti&#7871;n tr&igrave;nh ng&#432;&#7901;i d&ugrave;ng <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c ph&eacute;p th&#7921;c hi&#7879;n l&#7879;nh c&#7845;m ng&#7855;t. H&#417;n n&#7919;a, n&#7871;u h&#7879; th&#7889;ng c&oacute; nhi&#7873;u b&#7897; x&#7917; l&yacute;, l&#7879;nh c&#7845;m ng&#7855;t ch&#7881; c&oacute; t&aacute;c d&#7909;ng tr&ecirc;n b&#7897; x&#7917; l&yacute; <FONT FACE="Times New Roman">&#273;ang x&#7917; lý  ti&#7871;n tr</FONT>&igrave;nh, c&ograve;n c&aacute;c ti&#7871;n tr&igrave;nh ho&#7841;t <FONT FACE="Times New Roman">&#273;&#7897;ng tr</FONT>&ecirc;n c&aacute;c b&#7897; x&#7917; l&yacute; kh&aacute;c v&#7851;n c&oacute; th&#7875; truy xu&#7845;t <FONT FACE="Times New Roman">&#273;&#7871;n mi&#7873;n g&#259;ng&nbsp;!</P></blockquote>
+</FONT><B><I><P ALIGN="JUSTIFY"><img border="0" src="images/symble_asterisk_blue.gif" width="13" height="14">
+I.2.2. </B>Ch&#7881; th&#7883;  TSL (Test-and-Set)<B>: </P><blockquote>
+
+</B></I><U><P ALIGN="JUSTIFY"><img border="0" src="images/bulletjock.gif" width="18" height="18">Ti&#7871;p c&#7853;n</U>: <FONT FACE="Times New Roman">&#273;ây l</FONT>&agrave; m&#7897;t gi&#7843;i ph&aacute;p <FONT FACE="Times New Roman">&#273;</FONT>&ograve;i h&#7887;i s&#7921; tr&#7907; gi&uacute;p c&#7911;a c&#417; ch&#7871; ph&#7847;n c&#7913;ng. Nhi&#7873;u m&aacute;y t&iacute;nh cung c&#7845;p m&#7897;t ch&#7881; th&#7883; <FONT FACE="Times New Roman">&#273;&#7863;c bi&#7879;t cho phép ki&#7875;m tra v</FONT>&agrave; c&#7853;p nh&#7853;t n&#7897;i dung m&#7897;t v&ugrave;ng nh&#7899; trong m&#7897;t thao t&aacute;c kh&ocirc;ng th&#7875; ph&acirc;n chia, g&#7885;i l&agrave; ch&#7881; th&#7883; <I>Test-and-Set Lock</I> (TSL) v&agrave; <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c <FONT FACE="Times New Roman">&#273;&#7883;nh ngh&#297;a nh</FONT>&#432; sau:</P><blockquote>
+<blockquote>
+
+<B><FONT FACE="Courier New" SIZE=2><P ALIGN="JUSTIFY">Test-and-Setlock</B>(boolean target)<br>
+{</P>
+<blockquote>
+
+<P ALIGN="JUSTIFY">Test-and-Setlock = target;<br>
+target = TRUE;</P>
+</blockquote>
+
+<P ALIGN="JUSTIFY"> }</P>
+</blockquote>
+
+</FONT><P ALIGN="JUSTIFY">N&#7871;u c&oacute; hai ch&#7881; th&#7883; TSL x&#7917; l&yacute; <FONT FACE="Times New Roman">&#273;&#7891;ng th&#7901;i (tr</FONT>&ecirc;n hai b&#7897; x&#7917; l&yacute; kh&aacute;c nhau), ch&uacute;ng s&#7869; <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c x&#7917; l&yacute; tu&#7847;n t&#7921; . C&oacute; th&#7875; c&agrave;i <FONT FACE="Times New Roman">&#273;&#7863;t gi&#7843;i pháp truy xu&#7845;t &#273;&#7897;c quy&#7873;n v&#7899;i TSL b&#7857;ng cách s&#7917; d&#7909;ng th</FONT>&ecirc;m m&#7897;t bi&#7871;n lock, <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c kh&#7903;i g&aacute;n l&agrave; FALSE. Ti&#7871;n tr&igrave;nh ph&#7843;i ki&#7875;m tra gi&aacute; tr&#7883; c&#7911;a bi&#7871;n lock tr&#432;&#7899;c khi v&agrave;o mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng, n&#7871;u lock = FALSE, ti&#7871;n tr</FONT>&igrave;nh c&oacute; th&#7875; v&agrave;o mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng. </P>
+<blockquote>
+
+</FONT><FONT FACE="Courier New" SIZE=2><P ALIGN="JUSTIFY">while (TRUE) {</P><blockquote>
+
+<P>while (Test-and-Setlock(lock));<B><br>
+critical-section ();<br>
+</B>lock = FALSE<B>;<br>
+</B>Noncritical-section (); </P></blockquote>
+
+<P ALIGN="JUSTIFY">}</P>
+</blockquote>
+
+</blockquote>
+
+</FONT><B><P ALIGN="center">        H&igrave;nh 3.8</B>   C&#7845;u tr&uacute;c m&#7897;t ch&#432;&#417;ng tr&igrave;nh trong gi&#7843;i ph&aacute;p TSL </P>
+<U><P ALIGN="JUSTIFY"><img border="0" src="images/bulletjock.gif" width="18" height="18">Th&#7843;o lu&#7853;n :</U> c&#361;ng gi&#7889;ng nh&#432; c&aacute;c gi&#7843;i ph&aacute;p ph&#7847;n c&#7913;ng kh&aacute;c, ch&#7881; th&#7883; TSL gi&#7843;m nh&#7865; c&ocirc;ng vi&#7879;c l&#7853;p tr&igrave;nh <FONT FACE="Times New Roman">&#273;&#7875; gi&#7843;i quy&#7871;t v&#7845;n &#273;&#7875;, nh</FONT>&#432;ng l&#7841;i kh&ocirc;ng d&#7877; d&agrave;ng <FONT FACE="Times New Roman">&#273;&#7875; c</FONT>&agrave;i <FONT FACE="Times New Roman">&#273;&#7863;t ch&#7881; th&#7883; TSL sao cho &#273;</FONT>&#432;&#7907;c x&#7917; l&yacute; m&#7897;t c&aacute;ch kh&ocirc;ng th&#7875; ph&acirc;n chia, nh&#7845;t l&agrave; tr&ecirc;n m&aacute;y v&#7899;i c&#7845;u h&igrave;nh nhi&#7873;u b&#7897; x&#7917; l&yacute;.</P></blockquote>
+</blockquote>
+
+<P ALIGN="JUSTIFY">&nbsp;&nbsp;&nbsp; T&#7845;t c&#7843; c&aacute;c gi&#7843;i ph&aacute;p tr&ecirc;n <FONT FACE="Times New Roman">&#273;ây &#273;&#7873;u ph&#7843;i th&#7921;c hi&#7879;n m&#7897;t v</FONT>&ograve;ng l&#7863;p <FONT FACE="Times New Roman">&#273;&#7875; ki&#7875;m tra li&#7879;u nó có &#273;</FONT>&#432;&#7907;c ph&eacute;p v&agrave;o mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng, n&#7871;u &#273;i&#7873;u ki&#7879;n ch</FONT>&#432;a cho ph&eacute;p, ti&#7871;n tr&igrave;nh ph&#7843;i ch&#7901; ti&#7871;p t&#7909;c trong v&ograve;ng l&#7863;p ki&#7875;m tra n&agrave;y. C&aacute;c gi&#7843;i ph&aacute;p bu&#7897;c ti&#7871;n tr&igrave;nh ph&#7843;i li&ecirc;n t&#7909;c ki&#7875;m tra <FONT FACE="Times New Roman">&#273;i&#7873;u ki&#7879;n &#273;&#7875; phát hi&#7879;n th&#7901;i &#273;i&#7875;m thích h&#7907;p &#273;</FONT>&#432;&#7907;c v&agrave;o mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng nh</FONT>&#432; th&#7871; <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c g&#7885;i c&aacute;c gi&#7843;i ph&aacute;p «&nbsp;<I>busy waiting</I>&nbsp;». L&#432;u &yacute; r&#7857;ng vi&#7879;c ki&#7875;m tra nh&#432; th&#7871; ti&ecirc;u th&#7909; r&#7845;t nhi&#7873;u th&#7901;i gian s&#7917; d&#7909;ng CPU, do v&#7853;y ti&#7871;n tr&igrave;nh <FONT FACE="Times New Roman">&#273;ang ch&#7901; v&#7851;n chi&#7871;m d&#7909;ng CPU. Xu h</FONT>&#432;&#7899;ng gi&#7843;i quy&#7871;t v&#7845;n <FONT FACE="Times New Roman">&#273;&#7873; &#273;&#7891;ng b&#7897; hoá l</FONT>&agrave; n&ecirc;n tr&aacute;nh c&aacute;c gi&#7843;i ph&aacute;p «&nbsp;<I>busy waiting</I>&nbsp;».</P>
+
+<P ALIGN="JUSTIFY">&nbsp;</P>
+
+<B><P ALIGN="JUSTIFY" class="cap1"><a name="sleep">II. C&aacute;c gi&#7843;i ph&aacute;p «&nbsp;SLEEP and WAKEUP&nbsp;»</a></P>
+</B><FONT FACE="Times New Roman"><P ALIGN="JUSTIFY">&#272;&#7875; lo&#7841;i b&#7887; các b&#7845;t ti&#7879;n c&#7911;a gi&#7843;i pháp «&nbsp;busy waiting&nbsp;», chúng ta có th&#7875; ti&#7871;p c&#7853;n theo h</FONT>&#432;&#7899;ng cho m&#7897;t ti&#7871;n tr&igrave;nh ch&#432;a <FONT FACE="Times New Roman">&#273;&#7911; &#273;i&#7873;u ki&#7879;n v</FONT>&agrave;o mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng chuy&#7875;n sang tr&#7841;ng thái blocked, t&#7915; b&#7887; quy&#7873;n s&#7917; d&#7909;ng CPU. &#272;&#7875; th&#7921;c hi&#7879;n &#273;i&#7873;u n</FONT>&agrave;y, c&#7847;n ph&#7843;i s&#7917; d&#7909;ng c&aacute;c th&#7911; t&#7909;c do h&#7879; <FONT FACE="Times New Roman">&#273;i&#7873;u h</FONT>&agrave;nh cung c&#7845;p <FONT FACE="Times New Roman">&#273;&#7875; thay &#273;&#7893;i tr&#7841;ng thái ti&#7871;n tr</FONT>&igrave;nh. Hai th&#7911; t&#7909;c c&#417; b&#7843;n <I>SLEEP</I> v&agrave; <I>WAKEUP</I> th&#432;&#7901;ng <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c s&#7917; d&#7909;ng <FONT FACE="Times New Roman">&#273;&#7875; ph&#7909;c v&#7909; m&#7909;c &#273;ích n</FONT>&agrave;y. </P>
+<I><P ALIGN="JUSTIFY">SLEEP</I> l&agrave; m&#7897;t l&#7901;i g&#7885;i h&#7879; th&#7889;ng c&oacute; t&aacute;c d&#7909;ng t&#7841;m d&#7915;ng ho&#7841;t <FONT FACE="Times New Roman">&#273;&#7897;ng c&#7911;a ti&#7871;n tr</FONT>&igrave;nh (blocked) g&#7885;i n&oacute; v&agrave; ch&#7901; <FONT FACE="Times New Roman">&#273;&#7871;n khi &#273;</FONT>&#432;&#7907;c m&#7897;t ti&#7871;n tr&igrave;nh kh&aacute;c «&nbsp;<FONT FACE="Times New Roman">&#273;ánh th&#7913;c&nbsp;». L&#7901;i g&#7885;i h&#7879; th&#7889;ng </FONT><I>WAKEUP</I> nh&#7853;n m&#7897;t tham s&#7889; duy nh&#7845;t : ti&#7871;n tr&igrave;nh s&#7869; <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c t&aacute;i k&iacute;ch ho&#7841;t (<FONT FACE="Times New Roman">&#273;&#7863;t v&#7873; tr&#7841;ng thái ready). </P>
+</FONT><P ALIGN="JUSTIFY">&Yacute; t&#432;&#7903;ng s&#7917; d&#7909;ng SLEEP v&agrave; WAKEUP nh&#432; sau&nbsp;: khi m&#7897;t ti&#7871;n tr&igrave;nh ch&#432;a <FONT FACE="Times New Roman">&#273;&#7911; &#273;i&#7873;u ki&#7879;n v</FONT>&agrave;o mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng, nó g&#7885;i </FONT><I>SLEEP</I> <FONT FACE="Times New Roman">&#273;&#7875; t&#7921; khóa &#273;&#7871;n khi có m&#7897;t ti&#7871;n tr</FONT>&igrave;nh kh&aacute;c g&#7885;i <I>WAKEUP</I> <FONT FACE="Times New Roman">&#273;&#7875; gi&#7843;i phóng cho nó. M&#7897;t ti&#7871;n tr</FONT>&igrave;nh g&#7885;i <I>WAKEUP</I> khi ra kh&#7887;i mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng &#273;&#7875; &#273;ánh th&#7913;c m&#7897;t ti&#7871;n tr</FONT>&igrave;nh <FONT FACE="Times New Roman">&#273;ang ch&#7901;, t&#7841;o c</FONT>&#417; h&#7897;i cho ti&#7871;n tr&igrave;nh n&agrave;y v&agrave;o mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng&nbsp;:</P>
+</FONT>
+  <blockquote>
+    <PRE>int busy;   // <font size="2">1 n&#7871;u mi&#7873;n g<FONT FACE="Courier New" SIZE=1>&#259;</FONT>ng <FONT FACE="Courier New" SIZE=1>&#273;</FONT>ang b&#7883; chi&#7871;m, n&#7871;u không là 0 
+</font>int blocked;   <font size="2">// <FONT FACE="Courier New" SIZE=1>&#273;</FONT>&#7871;m s&#7889; l&#432;&#7907;ng ti&#7871;n trình <FONT FACE="Courier New" SIZE=1>&#273;</FONT>ang b&#7883; khóa</font><FONT SIZE=1>
+</FONT>
+while (TRUE) {</PRE>
+<blockquote>
+
+<FONT FACE="Courier New" SIZE=2><P>if (busy){<br>
+&nbsp;&nbsp;&nbsp; blocked = blocked + 1;<br>
+&nbsp;&nbsp;&nbsp; sleep();<br>
+}<br>
+else busy = 1;</P>
+<P><B>critical-section ();<br>
+<br>
+</B>busy = 0<B>;<br>
+</B>if(blocked){<br>
+&nbsp;&nbsp;&nbsp; wakeup(process);<br>
+&nbsp;&nbsp;&nbsp; blocked = blocked - 1;<br>
+}</P>
+<P ALIGN="JUSTIFY">Noncritical-section ();</P>
+</blockquote>
+
+<P ALIGN="JUSTIFY">}</P>
+    </blockquote>
+  </FONT><B><P ALIGN="center">H&igrave;nh 3.9</B>   C&#7845;u tr&uacute;c ch&#432;&#417;ng tr&igrave;nh trong gi&#7843;i ph&aacute;p
+  SLEEP and WAKEUP</P>
+
+<P ALIGN="JUSTIFY">Khi s&#7917; d&#7909;ng SLEEP v&agrave; WAKEUP c&#7847;n h&#7871;t s&#7913;c c&#7849;n th&#7853;n, n&#7871;u kh&ocirc;ng mu&#7889;n x&#7843;y ra t&igrave;nh tr&#7841;ng m&acirc;u thu&#7851;n truy xu&#7845;t trong m&#7897;t v&agrave;i t&igrave;nh hu&#7889;ng <FONT FACE="Times New Roman">&#273;&#7863;c bi&#7879;t nh</FONT>&#432; sau&nbsp;: gi&#7843; s&#7917; ti&#7871;n tr&igrave;nh A v&agrave;o mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng, v</FONT>&agrave; tr&#432;&#7899;c khi n&oacute; r&#7901;i kh&#7887;i mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng th</FONT>&igrave; ti&#7871;n tr&igrave;nh B <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c k&iacute;ch ho&#7841;t. Ti&#7871;n tr&igrave;nh B th&#7917; v&agrave;o mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng nh</FONT>&#432;ng n&oacute; nh&#7853;n th&#7845;y A <FONT FACE="Times New Roman">&#273;ang &#7903; trong &#273;ó, do v&#7853;y B t&#259;ng giá tr&#7883; bi&#7871;n </FONT><I>blocked</I> v&agrave; chu&#7849;n b&#7883; g&#7885;i <I>SLEEP</I> <FONT FACE="Times New Roman">&#273;&#7875; t&#7921; khoá. Tuy nhi</FONT>&ecirc;n tr&#432;&#7899;c khi B c&oacute; th&#7875; th&#7921;c hi&#7879;n <I>SLEEP</I>, ti&#7871;n tr&igrave;nh A l&#7841;i <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c t&aacute;i k&iacute;ch ho&#7841;t v&agrave; ra kh&#7887;i mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng. Khi ra kh&#7887;i mi&#7873;n g&#259;ng A nh&#7853;n th&#7845;y có m&#7897;t ti&#7871;n tr</FONT>&igrave;nh <FONT FACE="Times New Roman">&#273;ang ch&#7901; (</FONT><I>blocked</I>=1) n&ecirc;n g&#7885;i <I>WAKEUP</I>  v&agrave; gi&#7843;m gi&aacute; tr&#7883; c&#7911;a <I>blocked</I>. Khi <FONT FACE="Times New Roman">&#273;ó tín hi&#7879;u </FONT><I>WAKEUP</I> s&#7869; l&#7841;c m&#7845;t do ti&#7871;n tr&igrave;nh B ch&#432;a th&#7853;t s&#7921; «&nbsp;ng&#7911;&nbsp;» <FONT FACE="Times New Roman">&#273;&#7875; nh&#7853;n tín hi&#7879;u &#273;ánh th&#7913;c&nbsp;!Khi ti&#7871;n tr</FONT>&igrave;nh B <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c ti&#7871;p t&#7909;c x&#7917; l&yacute;, n&oacute; m&#7899;i goi <I>SLEEP</I> v&agrave; t&#7921; kh&oacute; v&#297;nh vi&#7877;n&nbsp;!</P>
+<P ALIGN="JUSTIFY">V&#7845;n <FONT FACE="Times New Roman">&#273;&#7873; ghi nh&#7853;n &#273;</FONT>&#432;&#7907;c l&agrave; t&igrave;nh tr&#7841;ng l&#7895;i n&agrave;y x&#7843;y ra do vi&#7879;c ki&#7875;m tra t&#432; c&aacute;ch v&agrave;o mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng v</FONT>&agrave; vi&#7879;c g&#7885;i SLEEP hay WAKEUP l&agrave; nh&#7919;ng h&agrave;nh <FONT FACE="Times New Roman">&#273;&#7897;ng tách bi&#7879;, có th&#7875; b&#7883; ng&#7855;t n&#7917;a ch&#7915;ng trong quá tr</FONT>&igrave;nh x&#7917; l&yacute;, do <FONT FACE="Times New Roman">&#273;ó có khi tín hi&#7879;u WAKEUP g&#7903;i &#273;&#7871;n m&#7897;t ti&#7871;n tr</FONT>&igrave;nh ch&#432;a b&#7883; kh&oacute;a s&#7869; l&#7841;c m&#7845;t.</P>
+<FONT FACE="Times New Roman"><P ALIGN="JUSTIFY">&#272;&#7875; tránh nh&#7919;ng t</FONT>&igrave;nh hu&#7889;ng t&#432;&#417;ng t&#7921;, h&#7879; <FONT FACE="Times New Roman">&#273;i&#7873;u h</FONT>&agrave;nh cung c&#7845;p nh&#7919;ng c&#417; ch&#7871; <FONT FACE="Times New Roman">&#273;&#7891;ng b&#7897; hóa d&#7921;a tr</FONT>&ecirc;n &yacute; t&#432;&#7903;ng c&#7911;a chi&#7871;n l&#432;&#7907;c «&nbsp;SLEEP and WAKEUP&nbsp;» nh&#432;ng <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c x&acirc;y d&#7921;ng bao h&agrave;m c&#7843; ph&#432;&#417;ng ti&#7879;n ki&#7875;m tra <FONT FACE="Times New Roman">&#273;i&#7873;u ki&#7879;n v</FONT>&agrave;o mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng giúp s&#7917; d&#7909;ng an to</FONT>&agrave;n.</P>
+<B><P ALIGN="JUSTIFY" class="cap2"><a name="semaphore"><img border="0" src="images/read_single.gif" width="15" height="12">
+ II.1. Semaphore</a></P><blockquote>
+
+</B><U><P ALIGN="JUSTIFY"><img border="0" src="images/bulletjock.gif" width="18" height="18">Ti&#7871;p c&#7853;n:</U> <FONT FACE="Times New Roman">&#272;</FONT>&#432;&#7907;c <B>Dijkstra</B> <FONT FACE="Times New Roman">&#273;&#7873; xu&#7845;t v</FONT>&agrave;o 1965, m&#7897;t semaphore <B><I>s</B></I> l&agrave; m&#7897;t <I>bi&#7871;n</I> c&oacute; c&aacute;c thu&#7897;c t&iacute;nh sau:</P><blockquote>
+
+<P><img border="0" src="images/red.gif" width="7" height="10">M&#7897;t gi&aacute; tr&#7883; nguy&ecirc;n d&#432;&#417;ng <I>e(s)</P>
+</I><P><img border="0" src="images/red.gif" width="7" height="10">M&#7897;t h&agrave;ng <FONT FACE="Times New Roman">&#273;&#7907;i </FONT><I>f(s)  </I>l&#432;u danh s&aacute;ch c&aacute;c ti&#7871;n tr&igrave;nh <FONT FACE="Times New Roman">&#273;ang b&#7883; khóa (ch&#7901;) tr</FONT>&ecirc;n semaphore <I>s </P>
+</I><P><img border="0" src="images/red.gif" width="7" height="10">Ch&#7881; c&oacute; hai thao t&aacute;c <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c <FONT FACE="Times New Roman">&#273;&#7883;nh ngh&#297;a tr</FONT>&ecirc;n semaphore</P><blockquote>
+<blockquote>
+
+<B><FONT FACE="Courier New" SIZE=2><P>Down(s)</FONT>:</B> gi&#7843;m gi&aacute; tr&#7883; c&#7911;a semaphore <I>s</I> <FONT FACE="Times New Roman">&#273;i 1 &#273;</FONT>&#417;n v&#7883; n&#7871;u semaphore c&oacute; tr&#7883; e(s) &gt; 0, v&agrave; ti&#7871;p t&#7909;c x&#7917; l&yacute;. Ng&#432;&#7907;c l&#7841;i, n&#7871;u   e(s) <FONT FACE="Symbol">&#163;</FONT>
+ 0, ti&#7871;n tr&igrave;nh ph&#7843;i ch&#7901; <FONT FACE="Times New Roman">&#273;&#7871;n khi e(s) &gt;0.</P>
+</FONT><B><FONT FACE="Courier New" SIZE=2><P>Up(s)</B></FONT>: t<FONT FACE="Times New Roman">&#259;ng giá tr&#7883; c&#7911;a semaphore </FONT><I>s</I> l&ecirc;n 1 <FONT FACE="Times New Roman">&#273;</FONT>&#417;n v&#7883;. N&#7871;u c&oacute; m&#7897;t ho&#7863;c nhi&#7873;u ti&#7871;n tr&igrave;nh <FONT FACE="Times New Roman">&#273;ang ch&#7901; tr</FONT>&ecirc;n semaphore <I><FONT FACE="Courier New" SIZE=2>s</I></FONT>, b&#7883; kh&oacute;a b&#7903;i thao t&aacute;c <B><FONT FACE="Courier New" SIZE=2>Down</B></FONT>, th&igrave; h&#7879; th&#7889;ng s&#7869; ch&#7885;n m&#7897;t trong c&aacute;c ti&#7871;n tr&igrave;nh n&agrave;y <FONT FACE="Times New Roman">&#273;&#7875; k&#7871;t thúc thao tác </FONT><B><FONT FACE="Courier New" SIZE=2>Down </B></FONT>v&agrave; cho ti&#7871;p t&#7909;c x&#7917; l&yacute;.</P>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+
+<CENTER>
+<blockquote>
+<blockquote>
+
+<B><P><img border="0" src="images/hinh3.10.jpg" width="400" height="137"></P><P>H&igrave;nh 3.10</B> Semaphore s</P></blockquote>
+  <P ALIGN="JUSTIFY"><img border="0" src="images/bulletjock.gif" width="18" height="18">C&agrave;i <FONT FACE="Times New Roman">&#273;&#7863;t:</U></FONT> G&#7885;i  <I>p</I> l&agrave; ti&#7871;n tr&igrave;nh th&#7921;c hi&#7879;n thao t&aacute;c <I>Down(s)</I> hay <I>Up(s).</I> </P></center>
+<blockquote>
+
+<B><FONT FACE="Courier New" SIZE=2><P align="left">Down(s):</FONT> </B> </P>
+<blockquote>
+<FONT FACE="Courier New" SIZE=2>
+
+<P align="left">   e(s) = e(s) - 1;</P>
+<P align="left">   if e(s) &lt; 0 {</P><blockquote>
+
+<P align="left"> status(P)= <B>blocked</B>; </P>
+<P align="left"> enter(P,f(s));</P>
+<P align="left">}</P>
+<B></blockquote>
+</blockquote>
+
+<P align="left">Up(s)</B>: </P>
+<blockquote>
+
+<P align="left">    e(s) = e(s) + 1;</P>
+<P align="left">    if s <FONT FACE="Symbol">&#163;</FONT>
+ 0 {</P>
+<blockquote>
+
+<P align="left"> exit(Q,f(s));</FONT> //<FONT FACE="Courier New" SIZE=1>Q l&agrave; ti&#7871;n tr&igrave;nh
+&#273;ang ch&#7901; tr&ecirc;n s</P>
+  </FONT><FONT FACE="Courier New" SIZE=2><P align="left"> status (Q) = <B>ready</B>;</P>
+<P align="left"> enter(Q,ready-list);</P>
+<P align="left">} </P></blockquote>
+</blockquote>
+
+</FONT>
+
+<CENTER><P ALIGN="JUSTIFY">L&#432;u &yacute; c&agrave;i <FONT FACE="Times New Roman">&#273;&#7863;t n</FONT>&agrave;y c&oacute; th&#7875; <FONT FACE="Times New Roman">&#273;</FONT>&#432;a <FONT FACE="Times New Roman">&#273;&#7871;n m&#7897;t giá tr&#7883; âm cho semaphore, khi &#273;ó tr&#7883; tuy&#7879;t &#273;&#7889;i c&#7911;a semaphore cho bi&#7871;t s&#7889; ti&#7871;n tr</FONT>&igrave;nh <FONT FACE="Times New Roman">&#273;ang ch&#7901; tr</FONT>&ecirc;n semaphore.</P>
+<FONT FACE="Times New Roman"><P ALIGN="JUSTIFY">&#272;i&#7873;u quan tr&#7885;ng l</FONT>&agrave; c&aacute;c thao t&aacute;c n&agrave;y c&#7847;n th&#7921;c hi&#7879;n m&#7897;t c&aacute;ch kh&ocirc;ng b&#7883; ph&acirc;n chia, kh&ocirc;ng b&#7883; ng&#7855;t n&#7919;a ch&#7915;ng, c&oacute; ngh&#297;a l&agrave; kh&ocirc;ng m&#7897;t ti&#7871;n tr&igrave;nh n&agrave;o <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c ph&eacute;p truy xu&#7845;t <FONT FACE="Times New Roman">&#273;&#7871;n semaphore n&#7871;u ti&#7871;n tr</FONT>&igrave;nh <FONT FACE="Times New Roman">&#273;ang thao tác tr</FONT>&ecirc;n semaphore n&agrave;y ch&#432;a k&#7871;t th&uacute;c x&#7917; l&yacute; hay chuy&#7875;n sang tr&#7841;ng th&aacute;i blocked.</P>
+</blockquote>
+
+</center>
+</blockquote>
+<blockquote>
+<blockquote>
+
+</blockquote>
+
+<U><P ALIGN="JUSTIFY"><img border="0" src="images/bulletjock.gif" width="18" height="18">S&#7917; d&#7909;ng:</U> c&oacute; th&#7875; d&ugrave;ng semaphore <FONT FACE="Times New Roman">&#273;&#7875; gi&#7843;i quy&#7871;t v&#7845;n &#273;&#7873; truy xu&#7845;t &#273;&#7897;c quy&#7873;n hay t&#7893; ch&#7913;c ph&#7889;i h&#7907;p gi&#7919;a các ti&#7871;n tr</FONT>&igrave;nh.</P>
+
+<B><I>
+<blockquote>
+  <P ALIGN="JUSTIFY"><img border="0" src="images/bullet.gif" width="12" height="14">
+T&#7893; ch&#7913;c truy xu&#7845;t <FONT FACE="Times New Roman">&#273;&#7897;c quy&#7873;n v&#7899;i Semaphores</B></I></FONT>: kh&aacute;i ni&#7879;m <EM>semaphore</EM> cho ph&eacute;p b&#7843;o <FONT FACE="Times New Roman">&#273;&#7843;m nhi&#7873;u ti&#7871;n tr</FONT>&igrave;nh c&ugrave;ng truy xu&#7845;t <FONT FACE="Times New Roman">&#273;&#7871;n mi&#7873;n g&#259;ng m</FONT>&agrave; kh&ocirc;ng c&oacute; s&#7921; m&acirc;u thu&#7851;n truy xu&#7845;t. <I>n</I> ti&#7871;n tr&igrave;nh c&ugrave;ng s&#7917; d&#7909;ng m&#7897;t semaphore s, e(s) <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c kh&#7903;i g&aacute;n l&agrave; 1. <FONT FACE="Times New Roman">&#272;&#7875; th&#7921;c hi&#7879;n &#273;&#7891;ng b&#7897; hóa, t&#7845;t c&#7843; các ti&#7871;n tr</FONT>&igrave;nh c&#7847;n ph&#7843;i &aacute;p d&#7909;ng c&ugrave;ng c&#7845;u tr&uacute;c ch&#432;&#417;ng tr&igrave;nh sau <FONT FACE="Times New Roman">&#273;ây:</P>
+<blockquote>
+
+</FONT><FONT FACE="Courier New" SIZE=2>
+<P ALIGN="JUSTIFY">while (TRUE) {</P><blockquote>
+<P>Down(s)</P>
+<B><P ALIGN="JUSTIFY">critical-section ();</P></B>
+<P ALIGN="JUSTIFY">Up(s)</P>
+<P ALIGN="JUSTIFY">Noncritical-section ();</P>
+</blockquote>
+<P ALIGN="JUSTIFY">}</P></blockquote>
+
+</FONT><B><P ALIGN="center">H&igrave;nh  3.11</B>  C&#7845;u tr&uacute;c m&#7897;t ch&#432;&#417;ng tr&igrave;nh trong gi&#7843;i ph&aacute;p  semaphore</P>
+<B><I><P ALIGN="JUSTIFY"><img border="0" src="images/bullet.gif" width="12" height="14">
+T&#7893; ch&#7913;c <FONT FACE="Times New Roman">&#273;&#7891;ng b&#7897; hóa v&#7899;i Semaphores</B></I></FONT>: v&#7899;i semaphore c&oacute; th&#7875; <FONT FACE="Times New Roman">&#273;&#7891;ng b&#7897; hóa ho&#7841;t &#273;&#7897;ng c&#7911;a hai ti&#7871;n tr</FONT>&igrave;nh trong t&igrave;nh hu&#7889;ng m&#7897;t ti&#7871;n tr&igrave;nh ph&#7843;i <FONT FACE="Times New Roman">&#273;&#7907;i m&#7897;t ti&#7871;n tr</FONT>&igrave;nh kh&aacute;c ho&agrave;n t&#7845;t thao t&aacute;c n&agrave;o <FONT FACE="Times New Roman">&#273;ó m&#7899;i có th&#7875; b&#7855;t &#273;&#7847;u hay ti&#7871;p t&#7909;c x&#7917; lý. Hai ti&#7871;n tr</FONT>&igrave;nh chia s&#7867; m&#7897;t semaphore s, kh&#7903;i g&aacute;n e(s) l&agrave; 0. C&#7843; hai ti&#7871;n tr&igrave;nh c&oacute; c&#7845;u tr&uacute;c nh&#432; sau:</P>
+<blockquote>
+<B><FONT FACE="Courier New" SIZE=2><P ALIGN="JUSTIFY">P1:</P></B>
+<P ALIGN="JUSTIFY">while (TRUE) { </P>
+<blockquote>
+<P><B>job1();<br>
+</B>Up(s); //&#273;ánh th&#7913;c P2</P></blockquote>
+
+<P ALIGN="JUSTIFY">}</P>
+
+<B><P ALIGN="JUSTIFY">P2:</P>
+</B><P ALIGN="JUSTIFY">while (TRUE) {</P><blockquote>
+
+<P ALIGN="JUSTIFY">Down(s); // </FONT><FONT FACE="Courier New" SIZE=1>ch&#7901; P</FONT><FONT FACE="Courier New" SIZE=2>1<B><br>
+job2();</P>
+</blockquote>
+
+</B><P ALIGN="JUSTIFY">}</P>
+
+</FONT><B><P ALIGN="CENTER">H&igrave;nh 3.12</B>  C&#7845;u tr&uacute;c ch&#432;&#417;ng tr&igrave;nh trong gi&#7843;i ph&aacute;p semaphore</P><P ALIGN="left">&nbsp;</P>
+<U></blockquote>
+</blockquote>
+
+<P ALIGN="JUSTIFY"><img border="0" src="images/bulletjock.gif" width="18" height="18">Th&#7843;o lu&#7853;n :</U> Nh&#7901; c&oacute; th&#7921;c hi&#7879;n m&#7897;t c&aacute;c kh&ocirc;ng th&#7875; ph&acirc;n chia, semaphore <FONT FACE="Times New Roman">&#273;</FONT>&atilde; gi&#7843;i quy&#7871;t <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c v&#7845;n <FONT FACE="Times New Roman">&#273;&#7873; tín hi&#7879;u "&#273;ánh th&#7913;c" b&#7883; th&#7845;t l&#7841;c. Tuy nhi</FONT>&ecirc;n, n&#7871;u l&#7853;p tr&igrave;nh vi&ecirc;n v&ocirc; t&igrave;nh <FONT FACE="Times New Roman">&#273;&#7863;t các primitive </FONT><FONT FACE="Courier New" SIZE=2>Down </FONT>v&agrave; <FONT FACE="Courier New" SIZE=2>Up </FONT>sai v&#7883; tr&iacute;, th&#7913; t&#7921; trong ch&#432;&#417;ng tr&igrave;nh, th&igrave; ti&#7871;n tr&igrave;nh c&oacute; th&#7875; b&#7883; kh&oacute;a v&#297;nh vi&#7877;n.</P>
+<blockquote>
+
+<U><P ALIGN="JUSTIFY">V&iacute; d&#7909;</U>&nbsp;:      <FONT FACE="Courier New" SIZE=2>while (TRUE) {</P>
+<blockquote>
+
+<blockquote>
+
+<P>Down(s)<B><br>
+critical-section ();<br>
+</B>Noncritical-section ();</P>
+</blockquote>
+<P ALIGN="JUSTIFY">         }</P>
+
+</FONT></blockquote>
+<P ALIGN="JUSTIFY">ti&#7871;n tr&igrave;nh tr&ecirc;n <FONT FACE="Times New Roman">&#273;ây qu</FONT>&ecirc;n g&#7885;i Up(s), v&agrave; k&#7871;t qu&#7843; l&agrave; khi ra kh&#7887;i mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng nó s&#7869; không cho ti&#7871;n tr</FONT>&igrave;nh kh&aacute;c v&agrave;o mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng&nbsp;!</P>
+</FONT>
+</blockquote>
+<P ALIGN="JUSTIFY">V&igrave; th&#7871; vi&#7879;c s&#7917; d&#7909;ng <FONT FACE="Times New Roman">&#273;úng cách semaphore &#273;&#7875; &#273;&#7891;ng b&#7897; hóa ph&#7909; thu&#7897;c ho</FONT>&agrave;n to&agrave;n v&agrave;o l&#7853;p tr&igrave;nh vi&ecirc;n v&agrave; <FONT FACE="Times New Roman">&#273;</FONT>&ograve;i h&#7887;i l&#7853;p tr&igrave;nh vi&ecirc;n ph&#7843;i h&#7871;t s&#7913;c th&#7853;n tr&#7885;ng.</P>
+</blockquote>
+<B><P class="cap2"><a name="monitors"><img border="0" src="images/read_single.gif" width="15" height="12">
+ II.2. Monitors</a></P><blockquote>
+
+</B><U><P ALIGN="JUSTIFY"><img border="0" src="images/bulletjock.gif" width="18" height="18">Ti&#7871;p c&#7853;n:</U> <FONT FACE="Times New Roman">&#272;&#7875; có th&#7875; d&#7877; vi&#7871;t &#273;úng các ch</FONT>&#432;&#417;ng tr&igrave;nh <FONT FACE="Times New Roman">&#273;&#7891;ng b&#7897; hóa h</FONT>&#417;n, Hoare(1974) v&agrave; Brinch &amp; Hansen (1975) <FONT FACE="Times New Roman">&#273;</FONT>&atilde; <FONT FACE="Times New Roman">&#273;&#7873; ngh&#7883; m&#7897;t c</FONT>&#417; ch&#7871; cao h&#417;n <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c cung c&#7845;p b&#7903;i ng&ocirc;n ng&#7919; l&#7853;p tr&igrave;nh , l&agrave; <I>monitor</I>. Monitor l&agrave; m&#7897;t c&#7845;u tr&uacute;c <FONT FACE="Times New Roman">&#273;&#7863;c bi&#7879;t bao g&#7891;m các th&#7911; t&#7909;c, các bi&#7871;n v</FONT>&agrave; c&#7845;u tr&uacute;c d&#7919; li&#7879;u  c&oacute; c&aacute;c thu&#7897;c t&iacute;nh sau : </P><blockquote>
+
+<P><img border="0" src="images/red.gif" width="7" height="10">C&aacute;c bi&#7871;n v&agrave; c&#7845;u tr&uacute;c d&#7919; li&#7879;u b&ecirc;n trong monitor ch&#7881; c&oacute; th&#7875; <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c thao t&aacute;c b&#7903;i c&aacute;c th&#7911; t&#7909;c <FONT FACE="Times New Roman">&#273;&#7883;nh ngh&#297;a b</FONT>&ecirc;n trong monitor <FONT FACE="Times New Roman">&#273;ó. (</FONT><I>encapsulation</I>).</P>
+<P><img border="0" src="images/red.gif" width="7" height="10">T&#7841;i m&#7897;t th&#7901;i <FONT FACE="Times New Roman">&#273;i&#7875;m, ch&#7881; có m&#7897;t ti&#7871;n tr</FONT>&igrave;nh duy nh&#7845;t <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c ho&#7841;t <FONT FACE="Times New Roman">&#273;&#7897;ng b</FONT>&ecirc;n trong m&#7897;t monitor (<I>mutual</I> <I>exclusive</I>).</P>
+<P><img border="0" src="images/red.gif" width="7" height="10">Trong m&#7897;t monitor, c&oacute; th&#7875; <FONT FACE="Times New Roman">&#273;&#7883;nh ngh&#297;a các </FONT><I>bi&#7871;n <FONT FACE="Times New Roman">&#273;i&#7873;u ki&#7879;n</I></FONT> v&agrave; hai thao t&aacute;c k&egrave;m theo l&agrave; <B><FONT FACE="Courier New" SIZE=2>Wait </B></FONT>v&agrave; <B><FONT FACE="Courier New" SIZE=2>Signal </B></FONT>nh&#432; sau&nbsp;: g&#7885;i <B><I>c</B></I> l&agrave; bi&#7871;n <FONT FACE="Times New Roman">&#273;i&#7873;u ki&#7879;n &#273;</FONT>&#432;&#7907;c <FONT FACE="Times New Roman">&#273;&#7883;nh ngh&#297;a </FONT>trong monitor:</P>
+<blockquote>
+
+<B><FONT FACE="Courier New" SIZE=2><P><img border="0" src="images/rightarrow.gif" width="6" height="12">
+Wait(c)</FONT>:</B> chuy&#7875;n tr&#7841;ng th&aacute;i ti&#7871;n tr&igrave;nh g&#7885;i sang blocked , v&agrave; <FONT FACE="Times New Roman">&#273;&#7863;t ti&#7871;n tr</FONT>&igrave;nh n&agrave;y v&agrave;o h&agrave;ng <FONT FACE="Times New Roman">&#273;&#7907;i tr</FONT>&ecirc;n bi&#7871;n <FONT FACE="Times New Roman">&#273;i&#7873;u ki&#7879;n </FONT><B><I>c</B></I>.</P>
+<B><FONT FACE="Courier New" SIZE=2><P><img border="0" src="images/rightarrow.gif" width="6" height="12">
+ Signal(c)</B></FONT>: n&#7871;u c&oacute; m&#7897;t ti&#7871;n tr&igrave;nh <FONT FACE="Times New Roman">&#273;ang b&#7883; khóa trong h</FONT>&agrave;ng <FONT FACE="Times New Roman">&#273;&#7907;i c&#7911;a </FONT><B><I>c</B>,</I> t&aacute;i k&iacute;ch ho&#7841;t ti&#7871;n tr&igrave;nh <FONT FACE="Times New Roman">&#273;ó, v</FONT>&agrave; ti&#7871;n tr&igrave;nh g&#7885;i s&#7869; r&#7901;i kh&#7887;i monitor.</P>
+
+<B><P ALIGN="CENTER"><img border="0" src="images/hinh3.13.gif" width="377" height="332"></P><P ALIGN="CENTER">H&igrave;nh
+3.13</B> Monitor và các bi&#7871;n &#273;i&#7873;u ki&#7879;n</P>
+
+<U></blockquote>
+
+</blockquote>
+<P ALIGN="JUSTIFY"><img border="0" src="images/bulletjock.gif" width="18" height="18">C&agrave;i <FONT FACE="Times New Roman">&#273;&#7863;t :</U></FONT> tr&igrave;nh bi&ecirc;n d&#7883;ch ch&#7883;u tr&aacute;ch nhi&#7879;m th&#7921;c hi&#7879;n vi&#7879;c truy xu&#7845;t <FONT FACE="Times New Roman">&#273;&#7897;c quy&#7873;n &#273;&#7871;n d&#7919; li&#7879;u trong monitor. &#272;&#7875; th&#7921;c hi&#7879;n &#273;i&#7873;u n</FONT>&agrave;y, m&#7897;t semaphore nh&#7883; ph&acirc;n th&#432;&#7901;ng <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c s&#7917; d&#7909;ng. M&#7895;i monitor c&oacute; m&#7897;t h&agrave;ng <FONT FACE="Times New Roman">&#273;&#7907;i to</FONT>&agrave;n c&#7909;c l&#432;u c&aacute;c ti&#7871;n tr&igrave;nh <FONT FACE="Times New Roman">&#273;ang ch&#7901; &#273;</FONT>&#432;&#7907;c v&agrave;o monitor, ngo&agrave;i ra, m&#7895;i bi&#7871;n <FONT FACE="Times New Roman">&#273;i&#7873;u ki&#7879;n </FONT><B><I>c</B></I> c&#361;ng g&#7855;n v&#7899;i m&#7897;t h&agrave;ng <FONT FACE="Times New Roman">&#273;&#7907;i </FONT><B><I>f(c)</B></I> v&agrave; hai thao t&aacute;c tr&ecirc;n <FONT FACE="Times New Roman">&#273;ó &#273;</FONT>&#432;&#7907;c  <FONT FACE="Times New Roman">&#273;&#7883;nh ngh&#297;a nh</FONT>&#432; sau:</P><blockquote>
+<blockquote>
+
+<B><FONT FACE="Courier New" SIZE=2><P><img border="0" src="images/red.gif" width="7" height="10">Wait(c) :</B>&nbsp;</P>
+<blockquote>
+  <P>status(P)= <B>blocked</B>;<br>
+  enter(P,f(c));</P>
+</blockquote>
+
+<B><P>Signal(c)</B></FONT> <FONT FACE="Courier New" SIZE=2>:&nbsp;</FONT> </P>
+<blockquote>
+  <P> <FONT FACE="Courier New" SIZE=2> if (f(c)&nbsp;!= NULL){</FONT> </P>
+  <blockquote>
+    <P> <FONT FACE="Courier New" SIZE=2>exit(Q,f(c));</FONT> //<FONT FACE="Courier New" SIZE=1>Q l&agrave; ti&#7871;n tr&igrave;nh ch&#7901; tr&ecirc;n c</FONT><FONT FACE="Courier New" SIZE=2><br>
+    statusQ) = <B>ready</B>;</FONT><FONT SIZE=3><br>
+    enter(Q,ready-list);
+</FONT></P>
+  </blockquote>
+  <P><font size="3">}</font></P>
+</blockquote>
+</blockquote>
+</blockquote>
+<U><P ALIGN="JUSTIFY"><img border="0" src="images/bulletjock.gif" width="18" height="18">S&#7917; d&#7909;ng:</U> V&#7899;i m&#7895;i nh&oacute;m t&agrave;i nguy&ecirc;n c&#7847;n chia s&#7867;, c&oacute; th&#7875; <FONT FACE="Times New Roman">&#273;&#7883;nh ngh&#297;a m&#7897;t monitor trong &#273;ó &#273;&#7863;c t&#7843; t&#7845;t c&#7843; các thao tác tr</FONT>&ecirc;n t&agrave;i nguy&ecirc;n n&agrave;y v&#7899;i m&#7897;t s&#7889; <FONT FACE="Times New Roman">&#273;i&#7873;u ki&#7879;n n</FONT>&agrave;o <FONT FACE="Times New Roman">&#273;ó.: </P><blockquote>
+<blockquote>
+
+</FONT><B><PRE>monitor</B> <font size="2">&lt;tên monitor &gt;
+</font><B>condition</B> <font size="2">&lt;danh sách các bi&#7871;n <FONT FACE="Courier New" SIZE=1>&#273;</FONT>i&#7873;u ki&#7879;n&gt;;</font>
+<B>&lt;déclaration de variables&gt;</B>;
+  
+  <B>procedure</B> Action<SUB>1</SUB>();
+  {
+   
+  }
+  
+ 		....
+
+ <B> procedure</B> Action<SUB>n</SUB>();
+  {
+
+  }
+ <B>end monitor</B>;</PRE></blockquote>
+</blockquote>
+
+<B><P ALIGN="CENTER">H&igrave;nh 3.14</B>  C&#7845;u tr&uacute;c m&#7897;t monitor</P><blockquote>
+
+<P ALIGN="JUSTIFY">C&aacute;c ti&#7871;n tr&igrave;nh mu&#7889;n s&#7917; d&#7909;ng t&agrave;i nguy&ecirc;n chung n&agrave;y ch&#7881; c&oacute; th&#7875; thao t&aacute;c th&ocirc;ng qua c&aacute;c th&#7911; t&#7909;c b&ecirc;n trong monitor <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c g&#7855;n k&#7871;t v&#7899;i t&agrave;i nguy&ecirc;n:</P>
+<FONT FACE="Courier New" SIZE=2>
+<blockquote>
+  <P ALIGN="JUSTIFY"> while (TRUE) {</P><blockquote>
+
+<P ALIGN="JUSTIFY">Noncritical-section ();<B><br>
+&lt;monitor&gt;.Actioni; </B>//critical-section();<br>
+Noncritical-section ();</P>
+  </blockquote>
+
+<P ALIGN="JUSTIFY">}&#9; </P>
+</blockquote>
+</FONT><B><P ALIGN="JUSTIFY">H&igrave;nh 3.15</B>  C&#7845;u tr&uacute;c ti&#7871;n tr&igrave;nh Pi<SUB> </SUB>trong gi&#7843;i<SUB> </SUB>ph&aacute;p monitor</P></blockquote>
+
+<U><P ALIGN="JUSTIFY"><img border="0" src="images/bulletjock.gif" width="18" height="18">Th&#7843;o lu&#7853;n:</U> V&#7899;i monitor, vi&#7879;c truy xu&#7845;t <FONT FACE="Times New Roman">&#273;&#7897;c quy&#7873;n &#273;</FONT>&#432;&#7907;c b&#7843;o <FONT FACE="Times New Roman">&#273;&#7843;m b&#7903;i tr</FONT>&igrave;nh bi&ecirc;n d&#7883;ch m&agrave; kh&ocirc;ng do l&#7853;p tr&igrave;nh vi&ecirc;n, do v&#7853;y nguy c&#417; th&#7921;c hi&#7879;n <FONT FACE="Times New Roman">&#273;&#7891;ng b&#7897; hóa sai gi&#7843;m r&#7845;t nhi&#7873;u. Tuy nhi</FONT>&ecirc;n gi&#7843;i ph&aacute;p monitor <FONT FACE="Times New Roman">&#273;</FONT>&ograve;i h&#7887;i ph&#7843;i c&oacute; m&#7897;t ng&ocirc;n ng&#7919; l&#7853;p tr&igrave;nh <FONT FACE="Times New Roman">&#273;&#7883;nh ngh&#297;a khái ni&#7879;m monitor, v</FONT>&agrave; c&aacute;c ng&ocirc;n ng&#7919; nh&#432; th&#7871; ch&#432;a c&oacute; nhi&#7873;u.</P>
+
+<B></blockquote>
+<P ALIGN="JUSTIFY" class="cap2"><a name="thongdiep"><img border="0" src="images/read_single.gif" width="15" height="12">
+ II.3. Trao <FONT FACE="Times New Roman">&#273;&#7893;i thông &#273;i&#7879;p</FONT></a></P><blockquote>
+
+</B><U><P ALIGN="JUSTIFY"><img border="0" src="images/bulletjock.gif" width="18" height="18">Ti&#7871;p c&#7853;n:</U> gi&#7843;i ph&aacute;p n&agrave;y d&#7921;a tr&ecirc;n c&#417; s&#7903; trao <FONT FACE="Times New Roman">&#273;&#7893;i thông &#273;i&#7879;p v&#7899;i hai primitive Send v</FONT>&agrave; Receive <FONT FACE="Times New Roman">&#273;&#7875; th&#7921;c hi&#7879;n s&#7921; &#273;&#7891;ng b&#7897; hóa:</P><blockquote>
+<blockquote>
+
+</FONT><B><FONT FACE="Courier New" SIZE=2><P><img border="0" src="images/red.gif" width="7" height="10">Send(destination, message)</FONT>:</B> g&#7903;i m&#7897;t th&ocirc;ng <FONT FACE="Times New Roman">&#273;i&#7879;p &#273;&#7871;n m&#7897;t ti&#7871;n tr</FONT>&igrave;nh hay g&#7903;i v&agrave;o h&#7897;p th&#432;. </P>
+<B><FONT FACE="Courier New" SIZE=2><P><img border="0" src="images/red.gif" width="7" height="10">Receive(source,message)</B></FONT>: nh&#7853;n m&#7897;t th&ocirc;ng <FONT FACE="Times New Roman">&#273;i&#7879;p th&#7915; m&#7897;t ti&#7871;n tr</FONT>&igrave;nh  hay t&#7915; b&#7845;t k&#7923; m&#7897;t ti&#7871;n tr&igrave;nh n&agrave;o, ti&#7871;n tr&igrave;nh g&#7885;i s&#7869; ch&#7901; n&#7871;u kh&ocirc;ng c&oacute; th&ocirc;ng <FONT FACE="Times New Roman">&#273;i&#7879;p n</FONT>&agrave;o <FONT FACE="Times New Roman">&#273;&#7875; nh&#7853;n.</P></blockquote>
+</blockquote>
+
+</FONT><U><P ALIGN="JUSTIFY"><img border="0" src="images/bulletjock.gif" width="18" height="18">S&#7917; d&#7909;ng:</U> C&oacute; nhi&#7873;u c&aacute;ch th&#7913;c <FONT FACE="Times New Roman">&#273;&#7875; th&#7921;c hi&#7879;n vi&#7879;c truy xu&#7845;t &#273;&#7897;c quy&#7873;n b&#7857;ng c</FONT>&#417; ch&#7871; trao <FONT FACE="Times New Roman">&#273;&#7893;i thông &#273;i&#7879;p. &#272;ây l</FONT>&agrave; m&#7897;t m&ocirc; h&igrave;nh <FONT FACE="Times New Roman">&#273;</FONT>&#417;n gi&#7843;n: m&#7897;t ti&#7871;n tr&igrave;nh ki&#7875;m so&aacute;t vi&#7879;c s&#7917; d&#7909;ng t&agrave;i nguy&ecirc;n v&agrave; nhi&#7873;u ti&#7871;n tr&igrave;nh kh&aacute;c y&ecirc;u c&#7847;u t&agrave;i nguy&ecirc;n n&agrave;y. Ti&#7871;n tr&igrave;nh c&oacute; y&ecirc;u c&#7847;u t&agrave;i nguy&ecirc;n s&#7869; g&#7903;i m&#7897;t th&ocirc;ng <FONT FACE="Times New Roman">&#273;i&#7879;p &#273;&#7871;n ti&#7871;n tr</FONT>&igrave;nh ki&#7875;m so&aacute;t v&agrave; sau <FONT FACE="Times New Roman">&#273;ó chuy&#7875;n sang tr&#7841;ng thái blocked cho &#273;&#7871;n khi nh&#7853;n &#273;</FONT>&#432;&#7907;c m&#7897;t th&ocirc;ng <FONT FACE="Times New Roman">&#273;i&#7879;p ch&#7845;p nh&#7853;n cho truy xu&#7845;t t&#7915; ti&#7871;n tr</FONT>&igrave;nh ki&#7875;m so&aacute;t t&agrave;i nguy&ecirc;n.Khi s&#7917;  d&#7909;ng xong t&agrave;i nguy&ecirc;n , ti&#7871;n tr&igrave;nh g&#7903;i m&#7897;t th&ocirc;ng <FONT FACE="Times New Roman">&#273;i&#7879;p khác &#273;&#7871;n ti&#7871;n tr</FONT>&igrave;nh ki&#7875;m so&aacute;t <FONT FACE="Times New Roman">&#273;&#7875; báo k&#7871;t thúc truy xu&#7845;t. V&#7873; ph&#7847;n ti&#7871;n tr</FONT>&igrave;nh ki&#7875;m so&aacute;t , khi nh&#7853;n <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c th&ocirc;ng <FONT FACE="Times New Roman">&#273;i&#7879;p</FONT> y&ecirc;u c&#7847;u t&agrave;i nguy&ecirc;n, n&oacute; s&#7869; ch&#7901; <FONT FACE="Times New Roman">&#273;&#7871;n khi t</FONT>&agrave;i nguy&ecirc;n s&#7861;n s&agrave;ng <FONT FACE="Times New Roman">&#273;&#7875; c&#7845;p phát th</FONT>&igrave; g&#7903;i m&#7897;t th&ocirc;ng <FONT FACE="Times New Roman">&#273;i&#7879;p &#273;&#7871;n ti&#7871;n tr</FONT>&igrave;nh <FONT FACE="Times New Roman">&#273;ang b&#7883; khóa tr</FONT>&ecirc;n t&agrave;i nguy&ecirc;n <FONT FACE="Times New Roman">&#273;ó &#273;&#7875; &#273;ánh th&#7913;c ti&#7871;n tr</FONT>&igrave;nh n&agrave;y.</P>
+<blockquote>
+<FONT FACE="Courier New" SIZE=2><P ALIGN="JUSTIFY">while (TRUE) {</P><blockquote>
+
+<P>Send(process controler,&nbsp;request message);<br>
+Receive(process controler,&nbsp;accept message);<B><br>
+critical-section ();<br>
+</B>Send(process controler,&nbsp;end message);<br>
+Noncritical-section ();</P>
+</blockquote>
+</blockquote>
+</FONT>
+
+<FONT FACE="Courier New" SIZE=2>
+
+<P ALIGN="JUSTIFY">}</P>
+</blockquote>
+
+</FONT><B><P ALIGN="CENTER">H&igrave;nh 3.16</B>  C&#7845;u tr&uacute;c ti&#7871;n tr&igrave;nh y&ecirc;u c&#7847;u t&agrave;i nguy&ecirc;n trong gi&#7843;i ph&aacute;p message</P><blockquote>
+<U><P ALIGN="JUSTIFY"><img border="0" src="images/bulletjock.gif" width="18" height="18">Th&#7843;o lu&#7853;n:</U> C&aacute;c primitive semaphore v&agrave; monitor c&oacute; th&#7875; gi&#7843;i quy&#7871;t <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c v&#7845;n <FONT FACE="Times New Roman">&#273;&#7873; truy xu&#7845;t &#273;&#7897;c quy&#7873;n tr</FONT>&ecirc;n c&aacute;c m&aacute;y t&iacute;nh c&oacute; m&#7897;t ho&#7863;c nhi&#7873;u b&#7897; x&#7917; l&yacute; chia s&#7867; m&#7897;t v&ugrave;ng nh&#7899; chung. Nh&#432;ng c&aacute;c primitive kh&ocirc;ng h&#7919;u d&#7909;ng trong c&aacute;c h&#7879; th&#7889;ng ph&acirc;n t&aacute;n, khi m&agrave; m&#7895;i b&#7897; x&#7917; l&yacute; s&#7905; h&#7919;u m&#7897;t b&#7897; nh&#7899; ri&ecirc;ng bi&#7879;t v&agrave; li&ecirc;n l&#7841;c th&ocirc;ng qua m&#7841;ng. Trong nh&#7919;ng h&#7879; th&#7889;ng ph&acirc;n t&aacute;n nh&#432; th&#7871;, c&#417; ch&#7871; trao <FONT FACE="Times New Roman">&#273;&#7893;i thông &#273;i&#7879;p t&#7887; ra h&#7919;u hi&#7879;u v</FONT>&agrave; <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c d&ugrave;ng <FONT FACE="Times New Roman">&#273;&#7875; gi&#7843;i quy&#7871;t b</FONT>&agrave;i to&aacute;n <FONT FACE="Times New Roman">&#273;&#7891;ng b&#7897; hóa.
+</FONT></P></blockquote>
+</BODY>
+</HTML>

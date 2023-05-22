@@ -1,0 +1,445 @@
+﻿<html>
+<head>
+<title>Folder Navigation</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=UTF-8">
+<script language="javascript" src="foldernav.js"></script>
+
+<style TYPE="text/css">
+<!--
+A:link {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR:#304080; TEXT-DECORATION: none
+}
+A:active {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #304080; TEXT-DECORATION: none
+}
+A:visited {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #AA3088; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #FF0400; TEXT-DECORATION: none
+}
+ -->
+</STYLE>
+
+<script language="javascript">
+<!--
+    function OpenMyWindow(url,name) {
+	 window.open(url, name,"width=780,height=580,status=1,toolbar=no,menubar=no,location=no,scrollbars=yes,left=0,top=0");
+ }	
+-->
+</script>
+</head>
+
+
+<body topmargin="15" leftmargin="15" marginwidth="15" marginheight="11" bgcolor="#006699" background="images/bg.gif" >
+<TABLE border=0 cellPadding=0 cellSpacing=0>
+<TBODY>
+     <TR>
+        <td nowrap>
+
+<div ID="mParent" class="parent">
+<a name="ma" href="main.htm" target="mainFrame" onClick="FolderExpand('m','top')">
+<img name="mTree" src="images/topopen.gif" class="icon" align="absmiddle" border="0"><font 
+color="black" size="2" class="item">Hệ Điều Hành</font></a>
+</div>
+</td></tr>
+<tr>
+<td nowrap>
+<div ID="mChild">
+
+<div ID="mbai1Parent" class="parent"><a name="mbai1a" href="Htm/Bai01.htm" onClick="FolderExpand('mbai1')" target="mainFrame"><img name="mbai1Tree" src="images/Tplus.gif" align="absmiddle" border="0"><img name="mbai1Folder" src="images/foldericon.gif" class="icon" align="absmiddle" border="0"><font color="black" size="2" class="item">Bài 1 Tổng quan về hệ điều hành</font></a></div>
+<div ID="mbai1Child" CLASS="child">
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/T.gif" align="absmiddle"><img src="images/audio.gif" align="absmiddle" class="icon"><a class="item" href="javascript:OpenMyWindow('video/Bai01/Introduce/Default.htm', 'null')" >Giới thiệu tổng quan</a><br>
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai01.htm#khainiem" target="mainFrame">Khái niệm về hệ điều hành</a><br>
+	<div ID="m10Parent" class="parent"><a name="m10a" href="Htm/Bai01.htm#phanloai" onClick="FolderExpand('m10')" target="mainFrame"><img src="images/I.gif" align="absmiddle" border="0"><img name="m10Tree" src="images/Tplus.gif" align="absmiddle" border="0"><img name="m10Folder" src="images/foldericon.gif" class="icon" align="absmiddle" border="0"><font color="black" size="1" class="item">Phân loại hệ điều hành</font></a></div>
+	<div ID="m10Child" CLASS="child">		
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai01.htm#theolo" target="mainFrame">Hệ thống xử lý theo lô</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai01.htm#dachuong" target="mainFrame">Hệ thống xử lý theo lô đa chương</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai01.htm#thoigian" target="mainFrame">Hệ thống chia xẻ thời gian</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai01.htm#songsong" target="mainFrame">Hệ thống song song</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai01.htm#phantan" target="mainFrame">Hệ thống phân tán</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/L.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai01.htm#thoigianthuc" target="mainFrame">Hệ thống thời gian thực</a><br>
+	</div>
+	<div ID="m11Parent" class="parent"><a name="m11a" href="Htm/Bai012.htm#cautruc" onClick="FolderExpand('m11')" target="mainFrame"><img src="images/I.gif" align="absmiddle" border="0"><img name="m11Tree" src="images/Tplus.gif" align="absmiddle" border="0"><img name="m11Folder" src="images/foldericon.gif" class="icon" align="absmiddle" border="0"><font color="black" size="2" class="item">Cấu trúc của hệ điều hành</font></a></div>
+	<div ID="m11Child" CLASS="child">		
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai012.htm#thanhphan" target="mainFrame">Các thành phần của hệ thống</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai012.htm#dichvu" target="mainFrame">Các dịch vụ của hệ điều hành</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai012.htm#loigoi" target="mainFrame">Lời gọi hệ thống</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/L.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai012.htm#cautrucht" target="mainFrame">Cấu trúc hệ thống</a><br>
+	</div>
+	<div ID="m12Parent" class="parent"><a name="m12a" href="Htm/Bai013.htm" onClick="FolderExpand('m12')" target="mainFrame"><img src="images/I.gif" align="absmiddle" border="0"><img name="m12Tree" src="images/Tplus.gif" align="absmiddle" border="0"><img name="m12Folder" src="images/foldericon.gif" class="icon" align="absmiddle" border="0"><font color="black" size="2" class="item">Lịch sử phát triển các HĐH</font></a></div>
+	<div ID="m12Child" CLASS="child">		
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai013.htm#thehe1" target="mainFrame">Thế hệ 1</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai013.htm#thehe2" target="mainFrame">Thế hệ 2</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai013.htm#thehe3" target="mainFrame">Thế hệ 3</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/L.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai013.htm#thehe4" target="mainFrame">Thế hệ 4</a><br>
+	</div>
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai014.htm#cauhoi" target="mainFrame">Câu hỏi</a><br>
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/L.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai014.htm#baitap" target="mainFrame">Bài tập</a><br>
+
+</div>
+
+<div ID="mbai2Parent" class="parent"><a name="mbai2a" href="Htm/Bai02.htm" onClick="FolderExpand('mbai2')" target="mainFrame"><img name="mbai2Tree" src="images/Tplus.gif" align="absmiddle" border="0"><img name="mbai2Folder" src="images/foldericon.gif" class="icon" align="absmiddle" border="0"><font color="black" size="2" class="item">Bài 2 Các mô hình xử lý đồng hành</font></a></div>
+<div ID="mbai2Child" CLASS="child">
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/T.gif" align="absmiddle"><img src="images/audio.gif" align="absmiddle" class="icon"><a class="item" href="javascript:OpenMyWindow('Video/Bai02/Introduce/Default.htm', 'null')" >Giới thiệu tổng quan</a><br>
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai02.htm#nhucau" target="mainFrame">Nhu cầu xử lý đồng hành</a><br>
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai02.htm#tientrinh" target="mainFrame">Khái niệm tiến trình,đa tiến trình</a><br>
+
+	<div ID="m20Parent" class="parent"><a name="m20a" href="Htm/Bai02.htm#tieutrinh" onClick="FolderExpand('m20')" target="mainFrame"><img src="images/I.gif" align="absmiddle" border="0"><img name="m20Tree" src="images/Tplus.gif" align="absmiddle" border="0"><img name="m20Folder" src="images/foldericon.gif" class="icon" align="absmiddle" border="0"><font color="black" size="2" class="item">Khái niệm tiểu trình và đa tiểu trình</font></a></div>
+	<div ID="m20Child" CLASS="child">		
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai02.htm#nguyenly" target="mainFrame">Nguyên lý chung</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai02.htm#luutru" target="mainFrame">Phân bổ thông tin lưu trữ</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/L.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai02.htm#kernel" target="mainFrame">Kernel thread và user thread</a><br>
+	</div>
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai02.htm#tomtat" target="mainFrame">Tóm tắt</a><br>
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai02.htm#cauhoi" target="mainFrame">Câu hỏi</a><br>
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/L.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai02.htm#baitap" target="mainFrame">Bài tập</a><br>
+
+
+</div>
+
+<div ID="mbai3Parent" class="parent"><a name="mbai3a" href="Htm/Bai03.htm" onClick="FolderExpand('mbai3')" target="mainFrame"><img name="mbai3Tree" src="images/Tplus.gif" align="absmiddle" border="0"><img name="mbai3Folder" src="images/foldericon.gif" class="icon" align="absmiddle" border="0"><font color="black" size="2" class="item">Bài 3 Quản lý tiến trình</font></a></div>
+<div ID="mbai3Child" CLASS="child">
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/T.gif" align="absmiddle"><img src="images/audio.gif" align="absmiddle" class="icon"><a class="item" href="javascript:OpenMyWindow('Video/Bai03/Introduce/Default.htm', 'null')" >Giới thiệu tổng quan</a><br>
+	<div ID="m30Parent" class="parent"><a name="m30a" href="Htm/Bai03.htm#tochucquanly" onClick="FolderExpand('m30')" target="mainFrame"><img src="images/I.gif" align="absmiddle" border="0"><img name="m30Tree" src="images/Tplus.gif" align="absmiddle" border="0"><img name="m30Folder" src="images/foldericon.gif" class="icon" align="absmiddle" border="0"><font color="black" size="2" class="item">Tổ chức quản lý tiến trình</font></a></div>
+	<div ID="m30Child" CLASS="child">		
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai03.htm#trangthai" target="mainFrame">Các trạng thái của tiến trình</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai03.htm#xuly" target="mainFrame">Chế độ xử lý của tiến trình</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai03.htm#dulieu" target="mainFrame">Cấu trúc dữ liệu khối quản lý tiến trình</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai03.htm#thaotac" target="mainFrame">Thao tác trên tiến trình</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/L.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai03.htm#capphat" target="mainFrame">Cấp phát tài nguyên cho tiến trình</a><br>
+	</div>
+	<div ID="m31Parent" class="parent"><a name="m31a" href="Htm/Bai03.htm#dieuphoi" onClick="FolderExpand('m31')" target="mainFrame"><img src="images/I.gif" align="absmiddle" border="0"><img name="m31Tree" src="images/Tplus.gif" align="absmiddle" border="0"><img name="m31Folder" src="images/foldericon.gif" class="icon" align="absmiddle" border="0"><font color="black" size="2" class="item">Điều phối tiến trình</font></a></div>
+	<div ID="m31Child" CLASS="child">		
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai03.htm#goithieu" target="mainFrame">Giới thiệu</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai03.htm#tochuc" target="mainFrame">Tổ chức điều phối</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/L.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai03.htm#chienluoc" target="mainFrame">Các chiến lược điều phối</a><br>
+	</div>
+
+
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai03.htm#tomtat" target="mainFrame">Tóm tắt</a><br>
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai03.htm#cauhoi" target="mainFrame">Câu hỏi</a><br>
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/L.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai03.htm#baitap" target="mainFrame">Bài tập</a><br>
+
+</div>
+
+<div ID="mbai4Parent" class="parent"><a name="mbai4a" href="Htm/Bai04.htm" onClick="FolderExpand('mbai4')" target="mainFrame"><img name="mbai4Tree" src="images/Tplus.gif" align="absmiddle" border="0"><img name="mbai4Folder" src="images/foldericon.gif" class="icon" align="absmiddle" border="0"><font color="black" size="2" class="item">Bài 4 Liên lạc giữa các tiến trình</font></a></div>
+<div ID="mbai4Child" CLASS="child">
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/T.gif" align="absmiddle"><img src="images/audio.gif" align="absmiddle" class="icon"><a class="item" href="javascript:OpenMyWindow('Video/Bai04/Introduce/Default.htm', 'null')" >Giới thiệu tổng quan</a><br>
+	<div ID="m40Parent" class="parent"><a name="m40a" href="Htm/Bai04.htm#lienlac" onClick="FolderExpand('m40')" target="mainFrame"><img src="images/I.gif" align="absmiddle" border="0"><img name="m40Tree" src="images/Tplus.gif" align="absmiddle" border="0"><img name="m40Folder" src="images/foldericon.gif" class="icon" align="absmiddle" border="0"><font color="black" size="2" class="item">Liên lạc giữa các tiến trình</font></a></div>
+	<div ID="m40Child" CLASS="child">		
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai04.htm#nhucau" target="mainFrame">Nhu cầu liên lạc giữa các tiến trình</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/L.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai04.htm#vande" target="mainFrame">Các vấn đề nảy sinh</a><br>
+	</div>
+	<div ID="m41Parent" class="parent"><a name="m41a" href="Htm/Bai04.htm#coche" onClick="FolderExpand('m41')" target="mainFrame"><img src="images/I.gif" align="absmiddle" border="0"><img name="m41Tree" src="images/Tplus.gif" align="absmiddle" border="0"><img name="m41Folder" src="images/foldericon.gif" class="icon" align="absmiddle" border="0"><font color="black" size="2" class="item">Các cơ chế thông tin liên lạc</font></a></div>
+	<div ID="m41Child" CLASS="child">		
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai04.htm#tinhieu" target="mainFrame">Tín hiệu</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai04.htm#pipe" target="mainFrame">Pipe</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai04.htm#vungnho" target="mainFrame">Vùng nhớ chia sẻ</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai04.htm#thongdiep" target="mainFrame">Trao đổi thông điệp</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/L.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai04.htm#sockets" target="mainFrame">Sockets</a><br>
+	</div>
+	<div ID="m42Parent" class="parent"><a name="m42a" href="Htm/Bai04.htm#dongbo" onClick="FolderExpand('m42')" target="mainFrame"><img src="images/I.gif" align="absmiddle" border="0"><img name="m42Tree" src="images/Tplus.gif" align="absmiddle" border="0"><img name="m42Folder" src="images/foldericon.gif" class="icon" align="absmiddle" border="0"><font color="black" size="2" class="item">Nhu cầu đồng bộ hoá</font></a></div>
+	<div ID="m42Child" CLASS="child">		
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai04.htm#docquyen" target="mainFrame">Yêu cầu độc quyền truy xuất</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai04.htm#yeucau" target="mainFrame">Yêu cầu phối hợp</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/L.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai04.htm#baitoan" target="mainFrame">Bài toán đồng bộ hóa</a><br>
+	</div>
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai04.htm#tomtat" target="mainFrame">Tóm tắt</a><br>
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai04.htm#cauhoi" target="mainFrame">Câu hỏi</a><br>
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/L.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai04.htm#baitap" target="mainFrame">Bài tập</a><br>
+
+</div>
+
+<div ID="mbai5Parent" class="parent"><a name="mbai5a" href="Htm/Bai051.htm" onClick="FolderExpand('mbai5')" target="mainFrame"><img name="mbai5Tree" src="images/Tplus.gif" align="absmiddle" border="0"><img name="mbai5Folder" src="images/foldericon.gif" class="icon" align="absmiddle" border="0"><font color="black" size="2" class="item">Bài 5 Các giải pháp đồng bộ hóa</font></a></div>
+<div ID="mbai5Child" CLASS="child">
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/T.gif" align="absmiddle"><img src="images/audio.gif" align="absmiddle" class="icon"><a class="item" href="javascript:OpenMyWindow('Video/Bai05/Introduce/Default.htm', 'null')" >Giới thiệu tổng quan</a><br>
+
+	<div ID="m50Parent" class="parent"><a name="m50a" href="Htm/Bai051.htm#giaiphap" onClick="FolderExpand('m50')" target="mainFrame"><img src="images/I.gif" align="absmiddle" border="0"><img name="m50Tree" src="images/Tplus.gif" align="absmiddle" border="0"><img name="m50Folder" src="images/foldericon.gif" class="icon" align="absmiddle" border="0"><font color="black" size="2" class="item">Các giải pháp "Busy waiting" </font></a></div>
+	<div ID="m50Child" CLASS="child">		
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai051.htm#phanmem" target="mainFrame">Các giải pháp phần mềm</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/L.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai051.htm#phancung" target="mainFrame">Các giải pháp phần cứng</a><br>
+	</div>
+	<div ID="m51Parent" class="parent"><a name="m51a" href="Htm/Bai051.htm#sleep" onClick="FolderExpand('m51')" target="mainFrame"><img src="images/I.gif" align="absmiddle" border="0"><img name="m51Tree" src="images/Tplus.gif" align="absmiddle" border="0"><img name="m51Folder" src="images/foldericon.gif" class="icon" align="absmiddle" border="0"><font color="black" size="2" class="item">Các giải pháp "Sleep and wakeup"</font></a></div>
+	<div ID="m51Child" CLASS="child">		
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai051.htm#semaphore" target="mainFrame">Semaphore</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai051.htm#monitors" target="mainFrame">Monitors</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/L.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai051.htm#thongdiep" target="mainFrame">Trao đổi thông điệp</a><br>
+	</div>
+	<div ID="m52Parent" class="parent"><a name="m52a" href="Htm/Bai052.htm#vande" onClick="FolderExpand('m52')" target="mainFrame"><img src="images/I.gif" align="absmiddle" border="0"><img name="m52Tree" src="images/Tplus.gif" align="absmiddle" border="0"><img name="m52Folder" src="images/foldericon.gif" class="icon" align="absmiddle" border="0"><font color="black" size="2" class="item">Các vấn đề cổ điển của đồng bộ hóa</font></a></div>
+	<div ID="m52Child" CLASS="child">		
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai052.htm#nguoisanxuat" target="mainFrame">Vấn đề người sản xuất-người tiêu thụ</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/L.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai052.htm#reader" target="mainFrame">Mô hình Readers-Writers</a><br>
+	</div>
+	<div ID="m53Parent" class="parent"><a name="m53a" href="Htm/Bai052.htm#tacnghen" onClick="FolderExpand('m53')" target="mainFrame"><img src="images/I.gif" align="absmiddle" border="0"><img name="m53Tree" src="images/Tplus.gif" align="absmiddle" border="0"><img name="m53Folder" src="images/foldericon.gif" class="icon" align="absmiddle" border="0"><font color="black" size="2" class="item">Tắc nghẽn</font></a></div>
+	<div ID="m53Child" CLASS="child">		
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai052.htm#dinhnghia" target="mainFrame">Định nghĩa</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai052.htm#dieukien" target="mainFrame">Điều kiện xuất hiện tắc nghẽn</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai052.htm#dothi" target="mainFrame">Đồ thị cấp phát tài nguyên</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai052.htm#xuly" target="mainFrame">Các phương pháp xử lý tắc nghẽn</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai052.htm#nganchan" target="mainFrame">Ngăn chặn tắc nghẽn</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai052.htm#tranh" target="mainFrame">Tránh tắc nghẽn</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai052.htm#phathien" target="mainFrame">Phát hiện tắc nghẽn</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/L.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai052.htm#hieuchinh" target="mainFrame">Hiệu chỉnh tắc nghẽn</a><br>
+
+	</div>
+
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai052.htm#tomtat" target="mainFrame">Tóm tắt</a><br>
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai052.htm#cauhoi" target="mainFrame">Câu hỏi</a><br>
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/L.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai052.htm#baitap" target="mainFrame">Bài tập</a><br>
+
+
+</div>
+
+<div ID="mbai6Parent" class="parent"><a name="mbai6a" href="Htm/Bai06.htm" onClick="FolderExpand('mbai6')" target="mainFrame"><img name="mbai6Tree" src="images/Tplus.gif" align="absmiddle" border="0"><img name="mbai6Folder" src="images/foldericon.gif" class="icon" align="absmiddle" border="0"><font color="black" size="2" class="item">Bài 6 Quản lý bộ nhớ</font></a></div>
+<div ID="mbai6Child" CLASS="child">
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/T.gif" align="absmiddle"><img src="images/audio.gif" align="absmiddle" class="icon"><a class="item" href="javascript:OpenMyWindow('Video/Bai06/Introduce/Default.htm', 'null')" >Giới thiệu tổng quan</a><br>
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai06.htm#boicanh" target="mainFrame">Bối cảnh</a><br>	
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai06.htm#khonggian" target="mainFrame">Không gian địa chỉ và vật lý</a><br>	
+	<div ID="m60Parent" class="parent"><a name="m60a" href="Htm/Bai06.htm#lientuc" onClick="FolderExpand('m60')" target="mainFrame"><img src="images/I.gif" align="absmiddle" border="0"><img name="m60Tree" src="images/Tplus.gif" align="absmiddle" border="0"><img name="m60Folder" src="images/foldericon.gif" class="icon" align="absmiddle" border="0"><font color="black" size="2" class="item">Cấp phát liên tục</font></a></div>
+	<div ID="m60Child" CLASS="child">		
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai06.htm#Linker_Loader" target="mainFrame">Mô hình Linker_Loader</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/L.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai06.htm#base" target="mainFrame">Mô hình Base and Bound</a><br>
+	</div>
+	<div ID="m61Parent" class="parent"><a name="m61a" href="Htm/Bai06.htm#khonglientuc" onClick="FolderExpand('m61')" target="mainFrame"><img src="images/I.gif" align="absmiddle" border="0"><img name="m61Tree" src="images/Tplus.gif" align="absmiddle" border="0"><img name="m61Folder" src="images/foldericon.gif" class="icon" align="absmiddle" border="0"><font color="black" size="2" class="item">Cấp phát không liên tục</font></a></div>
+	<div ID="m61Child" CLASS="child">		
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai06.htm#phandoan" target="mainFrame">Phân đoạn</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai06.htm#phantrang" target="mainFrame">Phân trang</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/L.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai06.htm#phandoantrang" target="mainFrame">Phân đoạn kết hợp phân trang</a><br>
+	</div>
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai06.htm#tomtat" target="mainFrame">Tóm tắt</a><br>
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai06.htm#cauhoi" target="mainFrame">Câu hỏi</a><br>
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/L.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai06.htm#baitap" target="mainFrame">Bài tập</a><br>
+
+
+</div>
+
+<div ID="mbai7Parent" class="parent"><a name="mbai7a" href="Htm/Bai071.htm" onClick="FolderExpand('mbai7')" target="mainFrame"><img name="mbai7Tree" src="images/Tplus.gif" align="absmiddle" border="0"><img name="mbai7Folder" src="images/foldericon.gif" class="icon" align="absmiddle" border="0"><font color="black" size="2" class="item">Bài 7 Bộ nhớ ảo</font></a></div>
+<div ID="mbai7Child" CLASS="child">
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/T.gif" align="absmiddle"><img src="images/audio.gif" align="absmiddle" class="icon"><a class="item" href="javascript:OpenMyWindow('Video/Bai07/Introduce/Default.htm', 'null')" >Giới thiệu tổng quan</a><br>
+	<div ID="m70Parent" class="parent"><a name="m70a" href="Htm/Bai071.htm#dannhap" onClick="FolderExpand('m70')" target="mainFrame"><img src="images/I.gif" align="absmiddle" border="0"><img name="m70Tree" src="images/Tplus.gif" align="absmiddle" border="0"><img name="m70Folder" src="images/foldericon.gif" class="icon" align="absmiddle" border="0"><font color="black" size="2" class="item">Dẫn nhập</font></a></div>
+	<div ID="m70Child" CLASS="child">		
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai071.htm#dinhnghia" target="mainFrame">Định nghĩa</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/L.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai071.htm#caidat" target="mainFrame">Cài đặt bộ nhớ ảo</a><br>
+	</div>
+
+	<div ID="m71Parent" class="parent"><a name="m71a" href="Htm/Bai071.htm#thaythetrang" onClick="FolderExpand('m71')" target="mainFrame"><img src="images/I.gif" align="absmiddle" border="0"><img name="m71Tree" src="images/Tplus.gif" align="absmiddle" border="0"><img name="m71Folder" src="images/foldericon.gif" class="icon" align="absmiddle" border="0"><font color="black" size="2" class="item">Thay thế trang</font></a></div>
+	<div ID="m71Child" CLASS="child">		
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai071.htm#yeucau" target="mainFrame">Sự thi hành phân trang theo yêu cầu</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/L.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai071.htm#thuattoan" target="mainFrame">Các thuật toán thay thế</a><br>
+	</div>
+	<div ID="m72Parent" class="parent"><a name="m72a" href="Htm/Bai072.htm#capphat" onClick="FolderExpand('m72')" target="mainFrame"><img src="images/I.gif" align="absmiddle" border="0"><img name="m72Tree" src="images/Tplus.gif" align="absmiddle" border="0"><img name="m72Folder" src="images/foldericon.gif" class="icon" align="absmiddle" border="0"><font color="black" size="2" class="item">Cấp phát khung trang</font></a></div>
+	<div ID="m72Child" CLASS="child">		
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai072.htm#tritrue" target="mainFrame">Trì truệ toàn bộ hệ thống</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/L.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai072.htm#tansuat" target="mainFrame">Tần suất xảy ra lỗi trang</a><br>
+	</div>
+
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai072.htm#tomtat" target="mainFrame">Tóm tắt</a><br>
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai072.htm#cauhoi" target="mainFrame">Câu hỏi</a><br>
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/L.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai072.htm#baitap" target="mainFrame">Bài tập</a><br>
+
+</div>
+
+<div ID="mbai8Parent" class="parent"><a name="mbai8a" href="Htm/Bai08.htm" onClick="FolderExpand('mbai8')" target="mainFrame"><img name="mbai8Tree" src="images/Tplus.gif" align="absmiddle" border="0"><img name="mbai8Folder" src="images/foldericon.gif" class="icon" align="absmiddle" border="0"><font color="black" size="2" class="item">Bài 8 Hệ thống quản lý tập tin</font></a></div>
+<div ID="mbai8Child" CLASS="child">
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/T.gif" align="absmiddle"><img src="images/audio.gif" align="absmiddle" class="icon"><a class="item" href="javascript:OpenMyWindow('Video/Bai08/Introduce/Default.htm', 'null')" >Giới thiệu tổng quan</a><br>
+	<div ID="m80Parent" class="parent"><a name="m80a" href="Htm/Bai08.htm#khainiem" onClick="FolderExpand('m80')" target="mainFrame"><img src="images/I.gif" align="absmiddle" border="0"><img name="m80Tree" src="images/Tplus.gif" align="absmiddle" border="0"><img name="m80Folder" src="images/foldericon.gif" class="icon" align="absmiddle" border="0"><font color="black" size="2" class="item">Các khái niệm cơ bản</font></a></div>
+	<div ID="m80Child" CLASS="child">		
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai08.htm#bonhongoai" target="mainFrame">Bộ nhớ ngoài</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai08.htm#taptinthumuc" target="mainFrame">Tập tin và thư mục</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/L.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai08.htm#htqltt" target="mainFrame">Hệ thống quản lý tập tin</a><br>
+	</div>
+
+	<div ID="m81Parent" class="parent"><a name="m81a" href="Htm/Bai08.htm#mohinhtochuc" onClick="FolderExpand('m81')" target="mainFrame"><img src="images/I.gif" align="absmiddle" border="0"><img name="m81Tree" src="images/Tplus.gif" align="absmiddle" border="0"><img name="m81Folder" src="images/foldericon.gif" class="icon" align="absmiddle" border="0"><font color="black" size="2" class="item">Mô hình quản lý và tổ chức các tập tin</font></a></div>
+	<div ID="m81Child" CLASS="child">		
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai08.htm#mohinh" target="mainFrame">Mô hình</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/L.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai08.htm#chucnang" target="mainFrame">Các chức năng</a><br>
+	</div>
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/L.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai08.htm#cauhoi" target="mainFrame">Câu hỏi</a><br>
+
+</div>
+
+<div ID="mbai9Parent" class="parent"><a name="mbai9a" href="Htm/Bai09.htm" onClick="FolderExpand('mbai9')" target="mainFrame"><img name="mbai9Tree" src="images/Tplus.gif" align="absmiddle" border="0"><img name="mbai9Folder" src="images/foldericon.gif" class="icon" align="absmiddle" border="0"><font color="black" size="2" class="item">Bài 9 Các phương pháp cài đặt HTQLTT</font></a></div>
+<div ID="mbai9Child" CLASS="child">
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/T.gif" align="absmiddle"><img src="images/audio.gif" align="absmiddle" class="icon"><a class="item" href="javascript:OpenMyWindow('Video/Bai09/Introduce/Default.htm', 'null')" >Giới thiệu tổng quan</a><br>
+	<div ID="m90Parent" class="parent"><a name="m90a" href="Htm/Bai09.htm#bang" onClick="FolderExpand('m90')" target="mainFrame"><img src="images/I.gif" align="absmiddle" border="0"><img name="m90Tree" src="images/Tplus.gif" align="absmiddle" border="0"><img name="m90Folder" src="images/foldericon.gif" class="icon" align="absmiddle" border="0"><font color="black" size="2" class="item">Bảng quản lý thư mục, tập tin</font></a></div>
+	<div ID="m90Child" CLASS="child">		
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai09.htm#khainiem" target="mainFrame">Khái niệm</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/L.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai09.htm#caidat" target="mainFrame">Cài đặt</a><br>
+	</div>
+	<div ID="m91Parent" class="parent"><a name="m91a" href="Htm/Bai09.htm#bangphanphoi" onClick="FolderExpand('m91')" target="mainFrame"><img src="images/I.gif" align="absmiddle" border="0"><img name="m91Tree" src="images/Tplus.gif" align="absmiddle" border="0"><img name="m91Folder" src="images/foldericon.gif" class="icon" align="absmiddle" border="0"><font color="black" size="2" class="item">Bảng phân phối vùng nhớ</font></a></div>
+	<div ID="m91Child" CLASS="child">		
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai09.htm#khainiem1" target="mainFrame">Khái niệm</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/L.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai09.htm#phuongphap" target="mainFrame">Các phương pháp</a><br>
+	</div>
+
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai09.htm#chiase" target="mainFrame">Tập tin chia sẻ</a><br>
+
+	<div ID="m92Parent" class="parent"><a name="m92a" href="Htm/Bai09.htm#dia" onClick="FolderExpand('m92')" target="mainFrame"><img src="images/I.gif" align="absmiddle" border="0"><img name="m92Tree" src="images/Tplus.gif" align="absmiddle" border="0"><img name="m92Folder" src="images/foldericon.gif" class="icon" align="absmiddle" border="0"><font color="black" size="2" class="item">Quản lý đĩa</font></a></div>
+	<div ID="m92Child" CLASS="child">		
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai09.htm#kichthuoc" target="mainFrame">Kích thước khối</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/L.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai09.htm#luu" target="mainFrame">Lưu giữ các khối trống</a><br>
+	</div>
+	<div ID="m93Parent" class="parent"><a name="m93a" href="Htm/Bai09.htm#doantoan" onClick="FolderExpand('m93')" target="mainFrame"><img src="images/I.gif" align="absmiddle" border="0"><img name="m93Tree" src="images/Tplus.gif" align="absmiddle" border="0"><img name="m93Folder" src="images/foldericon.gif" class="icon" align="absmiddle" border="0"><font color="black" size="2" class="item">Độ an toàn của hệ thống tập tin</font></a></div>
+	<div ID="m93Child" CLASS="child">		
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai09.htm#quanly" target="mainFrame">Quản lý khối bị hỏng</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai09.htm#backup" target="mainFrame">Backup</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/L.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai09.htm#tinhkhongdoi" target="mainFrame">Tính không đổi của hệ thống tập tin</a><br>		
+	</div>
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai09.htm#cauhoi" target="mainFrame">Câu hỏi</a><br>
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/L.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai09.htm#baitap" target="mainFrame">Bài tập</a><br>
+
+</div>
+
+<div ID="mbai10Parent" class="parent"><a name="mbai10a" href="Htm/Bai10.htm" onClick="FolderExpand('mbai10')" target="mainFrame"><img name="mbai10Tree" src="images/Tplus.gif" align="absmiddle" border="0"><img name="mbai10Folder" src="images/foldericon.gif" class="icon" align="absmiddle" border="0"><font color="black" size="2" class="item">Bài 10 Giới thiệu một số hệ thống tập tin</font></a></div>
+<div ID="mbai10Child" CLASS="child">
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/T.gif" align="absmiddle"><img src="images/audio.gif" align="absmiddle" class="icon"><a class="item" href="javascript:OpenMyWindow('Video/Bai10/Introduce/Default.htm', 'null')" >Giới thiệu tổng quan</a><br>
+	<div ID="m100Parent" class="parent"><a name="m100a" href="Htm/Bai10.htm#dos" onClick="FolderExpand('m100')" target="mainFrame"><img src="images/I.gif" align="absmiddle" border="0"><img name="m100Tree" src="images/Tplus.gif" align="absmiddle" border="0"><img name="m100Folder" src="images/foldericon.gif" class="icon" align="absmiddle" border="0"><font color="black" size="2" class="item">MS-DOS</font></a></div>
+	<div ID="m100Child" CLASS="child">		
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai10.htm#dacdiem" target="mainFrame">Đặc điểm</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/L.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai10.htm#caidat" target="mainFrame">Cài đặt</a><br>
+	</div>
+	<div ID="m101Parent" class="parent"><a name="m101a" href="Htm/Bai10.htm#win95" onClick="FolderExpand('m101')" target="mainFrame"><img src="images/I.gif" align="absmiddle" border="0"><img name="m101Tree" src="images/Tplus.gif" align="absmiddle" border="0"><img name="m101Folder" src="images/foldericon.gif" class="icon" align="absmiddle" border="0"><font color="black" size="2" class="item">Windows 95</font></a></div>
+	<div ID="m101Child" CLASS="child">		
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai10.htm#ifs" target="mainFrame">Bộ quản lý cài đặt hệ thồng tập tin</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai10.htm#vfat" target="mainFrame">VFAT</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai10.htm#vcache" target="mainFrame">VCACHE</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai10.htm#scsi" target="mainFrame">SCSI</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/L.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai10.htm#cdfs" target="mainFrame">CDFS</a><br>
+	</div>
+	<div ID="m102Parent" class="parent"><a name="m102a" href="Htm/Bai10.htm#winnt" onClick="FolderExpand('m102')" target="mainFrame"><img src="images/I.gif" align="absmiddle" border="0"><img name="m102Tree" src="images/Tplus.gif" align="absmiddle" border="0"><img name="m102Folder" src="images/foldericon.gif" class="icon" align="absmiddle" border="0"><font color="black" size="2" class="item">Windows NT</font></a></div>
+	<div ID="m102Child" CLASS="child">		
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai10.htm#ntfs" target="mainFrame">Đặc điểm của NTFS</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/L.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai10.htm#cautruc" target="mainFrame">Cấu trúc tập tin và volume của NTFS</a><br>
+	</div>
+	<div ID="m103Parent" class="parent"><a name="m103a" href="Htm/Bai10.htm#unix" onClick="FolderExpand('m103')" target="mainFrame"><img src="images/I.gif" align="absmiddle" border="0"><img name="m103Tree" src="images/Tplus.gif" align="absmiddle" border="0"><img name="m103Folder" src="images/foldericon.gif" class="icon" align="absmiddle" border="0"><font color="black" size="2" class="item">Unix</font></a></div>
+	<div ID="m103Child" CLASS="child">		
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai10.htm#taptin" target="mainFrame">Hệ thống tập tin của Unix</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/L.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai10.htm#httt" target="mainFrame">Cài đặt hệ thống tập tin của Unix</a><br>		
+	</div>
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/L.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai10.htm#baitap" target="mainFrame">Bài tập</a><br>
+
+
+</div>
+
+<div ID="mbai11Parent" class="parent"><a name="mbai11a" href="Htm/Bai11.htm" onClick="FolderExpand('mbai11')" target="mainFrame"><img name="mbai11Tree" src="images/Tplus.gif" align="absmiddle" border="0"><img name="mbai11Folder" src="images/foldericon.gif" class="icon" align="absmiddle" border="0"><font color="black" size="2" class="item">Bài 11 Hệ thống quản lý nhập xuất</font></a></div>
+<div ID="mbai11Child" CLASS="child">
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/T.gif" align="absmiddle"><img src="images/audio.gif" align="absmiddle" class="icon"><a class="item" href="javascript:OpenMyWindow('Video/Bai11/Introduce/Default.htm', 'null')" >Giới thiệu tổng quan</a><br>
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai11.htm#khainiem" target="mainFrame">Khái niệm về hệ thống quản lý nhập xuất</a><br>
+	<div ID="m110Parent" class="parent"><a name="m110a" href="Htm/Bai11.htm#phancung" onClick="FolderExpand('m110')" target="mainFrame"><img src="images/I.gif" align="absmiddle" border="0"><img name="m110Tree" src="images/Tplus.gif" align="absmiddle" border="0"><img name="m110Folder" src="images/foldericon.gif" class="icon" align="absmiddle" border="0"><font color="black" size="2" class="item">Phần cứng nhập xuất</font></a></div>
+	<div ID="m110Child" CLASS="child">		
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai11.htm#thietbi" target="mainFrame">Thiết bị nhập xuất</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai11.htm#tochuc" target="mainFrame">Tổ chức nhập xuất</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai11.htm#dieukhien" target="mainFrame">Bộ điều khiển thiết bị</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/L.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai11.htm#dma" target="mainFrame">DMA(Direct Memory Access)</a><br>
+	</div>
+	<div ID="m111Parent" class="parent"><a name="m111a" href="Htm/Bai11.htm#phanmem" onClick="FolderExpand('m111')" target="mainFrame"><img src="images/I.gif" align="absmiddle" border="0"><img name="m111Tree" src="images/Tplus.gif" align="absmiddle" border="0"><img name="m111Folder" src="images/foldericon.gif" class="icon" align="absmiddle" border="0"><font color="black" size="2" class="item">Phần mềm nhập xuất</font></a></div>
+	<div ID="m111Child" CLASS="child">		
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai11.htm#ngat" target="mainFrame">Kiểm soát ngắt</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai11.htm#dktb" target="mainFrame">Điều khiển thiết bị</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai11.htm#dltb" target="mainFrame">Phần mềm nhập xuất độc lập thiết bị</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/L.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai11.htm#nguoidung" target="mainFrame">Phần mềm nhập xuất phạm vi người sử dụng</a><br>
+	</div>
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai11.htm#tomtat" target="mainFrame">Tóm tắt</a><br>
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai11.htm#cauhoi" target="mainFrame">Câu hỏi</a><br>
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/L.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai11.htm#baitap" target="mainFrame">Câu hỏi trắc nghiệm</a><br>
+
+</div>
+
+<div ID="mbai12Parent" class="parent"><a name="mbai12a" href="Htm/Bai12.htm" onClick="FolderExpand('mbai12')" target="mainFrame"><img name="mbai12Tree" src="images/Tplus.gif" align="absmiddle" border="0"><img name="mbai12Folder" src="images/foldericon.gif" class="icon" align="absmiddle" border="0"><font color="black" size="2" class="item">Bài 12 Giới thiệu một số hệ thống nhập xuất</font></a></div>
+<div ID="mbai12Child" CLASS="child">
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/T.gif" align="absmiddle"><img src="images/audio.gif" align="absmiddle" class="icon"><a class="item" href="javascript:OpenMyWindow('Video/Bai12/Introduce/Default.htm', 'null')" >Giới thiệu tổng quan</a><br>
+	<div ID="m120Parent" class="parent"><a name="m120a" href="Htm/Bai12.htm#dia" onClick="FolderExpand('m120')" target="mainFrame"><img src="images/I.gif" align="absmiddle" border="0"><img name="m120Tree" src="images/Tplus.gif" align="absmiddle" border="0"><img name="m120Folder" src="images/foldericon.gif" class="icon" align="absmiddle" border="0"><font color="black" size="2" class="item">Hệ thống nhập xuất đĩa</font></a></div>
+	<div ID="m120Child" CLASS="child">		
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai12.htm#phancung" target="mainFrame">Phần cứng đĩa</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai12.htm#thuattoan" target="mainFrame">Các thuật toán đọc đĩa</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai12.htm#loi" target="mainFrame">Quản lý lỗi</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai12.htm#ram" target="mainFrame">RAM Disk</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/L.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai12.htm#interleave" target="mainFrame">Interleave</a><br>
+	</div>
+	<div ID="m121Parent" class="parent"><a name="m121a" href="Htm/Bai12.htm#terminals" onClick="FolderExpand('m121')" target="mainFrame"><img src="images/I.gif" align="absmiddle" border="0"><img name="m121Tree" src="images/Tplus.gif" align="absmiddle" border="0"><img name="m121Folder" src="images/foldericon.gif" class="icon" align="absmiddle" border="0"><font color="black" size="2" class="item">Hệ thống nhập xuất chuẩn</font></a></div>
+	<div ID="m121Child" CLASS="child">		
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai12.htm#pcterminal" target="mainFrame">Phần cứng terminal</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai12.htm#bonho" target="mainFrame">Terminal ánh xạ bộ nhớ</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai12.htm#nhap" target="mainFrame">Phần mềm nhập</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/L.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai12.htm#pmxuat" target="mainFrame">Phần mềm xuất</a><br>
+	</div>
+	<div ID="m122Parent" class="parent"><a name="m122a" href="Htm/Bai12.htm#dongho" onClick="FolderExpand('m122')" target="mainFrame"><img src="images/I.gif" align="absmiddle" border="0"><img name="m122Tree" src="images/Tplus.gif" align="absmiddle" border="0"><img name="m122Folder" src="images/foldericon.gif" class="icon" align="absmiddle" border="0"><font color="black" size="2" class="item">Cài đặt đồng hồ</font></a></div>
+	<div ID="m122Child" CLASS="child">		
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai12.htm#pcdongho" target="mainFrame">Phần cứng đồng hồ</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/L.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai12.htm#pmdongho" target="mainFrame">Phần mềm đồng hồ</a><br>
+	</div>
+
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai12.htm#cauhoi" target="mainFrame">Câu hỏi</a><br>
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/L.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai12.htm#baitap" target="mainFrame">Câu hỏi trắc nghiệm</a><br>
+
+</div>
+
+<div ID="mbai13Parent" class="parent"><a name="mbai13a" href="Htm/Bai131.htm" onClick="FolderExpand('mbai13')" target="mainFrame"><img name="mbai13Tree" src="images/Tplus.gif" align="absmiddle" border="0"><img name="mbai13Folder" src="images/foldericon.gif" class="icon" align="absmiddle" border="0"><font color="black" size="2" class="item">Bài 13 Bảo vệ và an toàn hệ thống</font></a></div>
+<div ID="mbai13Child" CLASS="child">
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/T.gif" align="absmiddle"><img src="images/audio.gif" align="absmiddle" class="icon"><a class="item" href="javascript:OpenMyWindow('Video/Bai13/Introduce/Default.htm', 'null')" >Giới thiệu tổng quan</a><br>
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai131.htm#muctieu" target="mainFrame">Mục tiêu bảo vệ hệ thống</a><br>
+
+	<div ID="m130Parent" class="parent"><a name="m130a" href="Htm/Bai131.htm#mien" onClick="FolderExpand('m130')" target="mainFrame"><img src="images/I.gif" align="absmiddle" border="0"><img name="m130Tree" src="images/Tplus.gif" align="absmiddle" border="0"><img name="m130Folder" src="images/foldericon.gif" class="icon" align="absmiddle" border="0"><font color="black" size="2" class="item">Miền bảo vệ</font></a></div>
+	<div ID="m130Child" CLASS="child">		
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai131.htm#khainiem" target="mainFrame">Khái niệm</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/L.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai131.htm#cautruc" target="mainFrame">Cấu trúc của miền bảo vệ</a><br>
+	</div>
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai131.htm#matran" target="mainFrame">Ma trận quyền truy xuất</a><br>
+	<div ID="m131Parent" class="parent"><a name="m131a" href="Htm/Bai132.htm#caidat" onClick="FolderExpand('m131')" target="mainFrame"><img src="images/I.gif" align="absmiddle" border="0"><img name="m131Tree" src="images/Tplus.gif" align="absmiddle" border="0"><img name="m131Folder" src="images/foldericon.gif" class="icon" align="absmiddle" border="0"><font color="black" size="2" class="item">Cài đặt ma trận quyền truy xuất</font></a></div>
+	<div ID="m131Child" CLASS="child">		
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai132.htm#toancuc" target="mainFrame">Bảng toàn cục</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai132.htm#danhsach" target="mainFrame">Danh sách quyền truy xuất</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai132.htm#tiemnang" target="mainFrame">Danh sách tiềm năng của miền bảo vệ</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai132.htm#khoa" target="mainFrame">Cơ chế khóa và chìa</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/L.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai132.htm#thuhoi" target="mainFrame">Thu hồi quyền truy xuất</a><br>
+	</div>
+	<div ID="m132Parent" class="parent"><a name="m132a" href="Htm/Bai132.htm#antoan" onClick="FolderExpand('m132')" target="mainFrame"><img src="images/I.gif" align="absmiddle" border="0"><img name="m132Tree" src="images/Tplus.gif" align="absmiddle" border="0"><img name="m132Folder" src="images/foldericon.gif" class="icon" align="absmiddle" border="0"><font color="black" size="2" class="item">An toàn hệ thống</font></a></div>
+	<div ID="m132Child" CLASS="child">		
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai132.htm#vande" target="mainFrame">Các vấn đề an toàn hệ thống</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai132.htm#kiemdinh" target="mainFrame">Kiểnm định danh tính</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai132.htm#dedoa" target="mainFrame">Mối đe doạ từ các chương trình</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai132.htm#hethong" target="mainFrame">Mối đe dọa từ hệ thống</a><br>
+		<img src="images/I.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/L.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai132.htm#giamsat" target="mainFrame">Giám sát mối đe dọa</a><br>
+	</div>
+
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai132.htm#tomtat" target="mainFrame">Tóm tắt</a><br>
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai132.htm#cauhoi" target="mainFrame">Câu hỏi</a><br>
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/L.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai132.htm#baitap" target="mainFrame">Bài tập</a><br>
+
+
+</div>
+
+<div ID="mbai14Parent" class="parent"><a name="mbai14a" href="Htm/Bai14.htm" onClick="FolderExpand('mbai14')" target="mainFrame"><img name="mbai14Tree" src="images/Tplus.gif" align="absmiddle" border="0"><img name="mbai14Folder" src="images/foldericon.gif" class="icon" align="absmiddle" border="0"><font color="black" size="2" class="item">Bài 14 Hệ điều hành Windows NT</font></a></div>
+<div ID="mbai14Child" CLASS="child">
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/T.gif" align="absmiddle"><img src="images/audio.gif" align="absmiddle" class="icon"><a class="item" href="javascript:OpenMyWindow('Video/Bai14/Introduce/Default.htm', 'null')" >Giới thiệu tổng quan</a><br>
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai14.htm#lichsu" target="mainFrame">Lịch sử</a><br>
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai14.htm#muctieu" target="mainFrame">Mục tiêu thiết kế</a><br>
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai14.htm#thanhphan" target="mainFrame">Các thành phần hệ thống</a><br>
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai14.htm#kientruc" target="mainFrame">Kiến trúc hệ điều hành WindowsNT</a><br>
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/L.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai14.htm#module" target="mainFrame">Các module quản lý của WindowsNT</a><br>
+</div>
+
+<div ID="mbai15Parent" class="parent"><a name="mbai15a" href="Htm/Bai15.htm" onClick="FolderExpand('mbai15','last')" target="mainFrame"><img name="mbai15Tree" src="images/Lplus.gif" align="absmiddle" border="0"><img name="mbai15Folder" src="images/foldericon.gif" class="icon" align="absmiddle" border="0"><font color="black" size="2" class="item">Bài 15 Hệ điều hành Linux</font></a></div>
+<div ID="mbai15Child" CLASS="child">
+	<img src="images/I.gif" align="absmiddle" border="0"><img src="images/T.gif" align="absmiddle"><img src="images/audio.gif" align="absmiddle" class="icon"><a class="item" href="javascript:OpenMyWindow('Video/Bai15/Introduce/Default.htm', 'null')" >Giới thiệu tổng quan</a><br>
+	<img src="images/white.gif" align="absmiddle" border="0"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai15.htm#gioithieu" target="mainFrame">Giới thiệu</a><br>
+	<div ID="m150Parent" class="parent"><a name="m150a" href="Htm/Bai15.htm#tochuc" onClick="FolderExpand('m150')" target="mainFrame"><img src="images/white.gif" align="absmiddle" border="0"><img name="m150Tree" src="images/Tplus.gif" align="absmiddle" border="0"><img name="m150Folder" src="images/foldericon.gif" class="icon" align="absmiddle" border="0"><font color="black" size="2" class="item">Tổ chức hệ thống</font></a></div>
+	<div ID="m150Child" CLASS="child">		
+		<img src="images/white.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai15.htm#httaptin" target="mainFrame">Hệ thống tập tin</a><br>
+		<img src="images/white.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai15.htm#dieukhien" target="mainFrame">Điều khiển thiết bị</a><br>
+		<img src="images/white.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/T.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai15.htm#qltientrinh" target="mainFrame">Quản lý tiến trình</a><br>
+		<img src="images/white.gif" align="absmiddle"><img src="images/I.gif" align="absmiddle"><img src="images/L.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai15.htm#qlbonho" target="mainFrame">Quản lý bộ nhớ</a><br>
+	</div>
+	<img src="images/white.gif" align="absmiddle" border="0"><img src="images/L.gif" align="absmiddle"><img src="images/htmlicon.gif" align="absmiddle" class="icon"><a class="item" href="Htm/Bai15.htm#cauhoi" target="mainFrame">Câu hỏi</a><br>
+</div>
+
+
+</div>
+        </TD>
+     </TR>
+</TBODY>
+</TABLE>
+
+</body>
+</html>

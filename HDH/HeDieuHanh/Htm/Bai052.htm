@@ -1,0 +1,1751 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft FrontPage 4.0">
+<TITLE>I</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="style.css" TITLE="MTD">
+</HEAD>
+<BODY LINK="#0000ff">
+<B><P ALIGN="JUSTIFY" class="cap1"><a name="vande">III. C&aacute;c v&#7845;n &#273;&#7873; c&#7893; &#273;i&#7875;n c&#7911;a &#273;&#7891;ng b&#7897; hoá</a></P><P ALIGN="JUSTIFY" class="cap2"><a name="nguoisanxuat"><img border="0" src="images/read_single.gif" width="15" height="12">
+ III.1. V&#7845;n <FONT FACE="Times New Roman">&#273;&#7873; Ng</FONT>&#432;&#7901;i s&#7843;n xu&#7845;t – Ng&#432;&#7901;i ti&ecirc;u th&#7909; (Producer-Consumer)</a></P>
+<blockquote>
+<P ALIGN="JUSTIFY"><img border="0" src="images/bullet.gif" width="12" height="14">
+V&#7845;n <FONT FACE="Times New Roman">&#273;&#7873;</B></FONT>: hai ti&#7871;n tr&igrave;nh c&ugrave;ng chia s&#7867; m&#7897;t b&#7897; <FONT FACE="Times New Roman">&#273;&#7879;m có kích th</FONT>&#432;&#7899;c gi&#7899;i h&#7841;n. M&#7897;t trong hai ti&#7871;n tr&igrave;nh <FONT FACE="Times New Roman">&#273;óng vai tr</FONT>&ograve; ng&#432;&#7901;i s&#7843;n xu&#7845;t – t&#7841;o ra d&#7919; li&#7879;u v&agrave; <FONT FACE="Times New Roman">&#273;&#7863;t d&#7919; li&#7879;u v</FONT>&agrave;o b&#7897; <FONT FACE="Times New Roman">&#273;&#7879;m- v</FONT>&agrave; ti&#7871;n tr&igrave;nh kia <FONT FACE="Times New Roman">&#273;óng vai tr</FONT>&ograve; ng&#432;&#7901;i ti&ecirc;u th&#7909; – l&#7845;y d&#7919; li&#7879;u t&#7915; b&#7897; <FONT FACE="Times New Roman">&#273;&#7879;m ra &#273;&#7875; x&#7917; lý. </P><blockquote>
+</FONT><B><P ALIGN="center"><img border="0" src="images/hinh3.17.gif" width="320" height="200"></P><P ALIGN="center">H&igrave;nh 3.17</B>  Producer v&agrave; Consumer</P>
+</blockquote>
+<P ALIGN="JUSTIFY">&#272;&#7875; &#273;&#7891;ng b&#7897; hóa ho&#7841;t &#273;&#7897;ng c&#7911;a hai ti&#7871;n tr&igrave;nh s&#7843;n xu&#7845;t ti&ecirc;u th&#7909; c&#7847;n tu&acirc;n th&#7911; c&aacute;c quy &#273;&#7883;nh sau&nbsp;:</P><blockquote>
+<P ALIGN="JUSTIFY"><img border="0" src="images/red.gif" width="7" height="10">Ti&#7871;n tr&igrave;nh s&#7843;n xu&#7845;t (producer) kh&ocirc;ng <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c ghi d&#7919; li&#7879;u v&agrave;o b&#7897; <FONT FACE="Times New Roman">&#273;&#7879;m &#273;&atilde; &#273;&#7847;y.<I>(synchronisation)</P>
+</I><P ALIGN="JUSTIFY"><img border="0" src="images/red.gif" width="7" height="10">Ti&#7871;n tr&igrave;nh ti&ecirc;u th&#7909; (consumer) kh&ocirc;ng <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c <FONT FACE="Times New Roman">&#273;&#7885;c d&#7919; li&#7879;u t&#7915; b&#7897; &#273;&#7879;m &#273;ang tr&#7889;ng.</FONT><I>(synchronisation)</P>
+</I><P ALIGN="JUSTIFY"><img border="0" src="images/red.gif" width="7" height="10">Hai ti&#7871;n tr&igrave;nh s&#7843;n xu&#7845;t v&agrave; ti&ecirc;u th&#7909; kh&ocirc;ng <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c thao t&aacute;c tr&ecirc;n b&#7897; <FONT FACE="Times New Roman">&#273;&#7879;m c</FONT>&ugrave;ng l&uacute;c . <I>(exclusion mutuelle)</P></DIR>
+</I><B></blockquote>
+
+<P ALIGN="JUSTIFY"><img border="0" src="images/bullet.gif" width="12" height="14">
+Gi&#7843;i ph&aacute;p: </P>
+
+<I><P ALIGN="JUSTIFY"><img border="0" src="images/symble_asterisk_blue.gif" width="13" height="14">
+ III.1.1. Semaphore</P>
+</B></I>
+<blockquote>
+  <P>S&#7917; d&#7909;ng ba semaphore : <B><I>full</B></I>, <FONT FACE="Times New Roman">&#273;&#7871;m s&#7889; ch&#7895; &#273;</FONT>&atilde; c&oacute; d&#7919; li&#7879;u trong b&#7897; <FONT FACE="Times New Roman">&#273;&#7879;m;</FONT><B><I> empty</B></I>, <FONT FACE="Times New Roman">&#273;&#7871;m s&#7889; ch&#7895; c</FONT>&ograve;n tr&#7889;ng trong b&#7897; <FONT FACE="Times New Roman">&#273;&#7879;m; v</FONT>&agrave; <B><I>mutex</B></I>, ki&#7875;m tra vi&#7879;c Producer v&agrave; Consumer kh&ocirc;ng truy xu&#7845;t <FONT FACE="Times New Roman">&#273;&#7891;ng th&#7901;i &#273;&#7871;n b&#7897; &#273;&#7879;m.</P>
+</FONT>
+<blockquote>
+  <PRE>
+BufferSize = 3; 	   	<font size="2">// s&#7889; ch&#7895; trong b&#7897; &#273;&#7879;m
+</font>
+<B>semaphore</B> mutex = 1;        <font size="2">// ki&#7875;m soát truy xu&#7845;t &#273;&#7897;c quy&#7873;n</font><FONT SIZE=1>
+</FONT><B>semaphore</B> empty = BufferSize;   <font size="2">  // s&#7889; ch&#7895; tr&#7889;ng </font><font size="1">
+</font><B>semaphore</B> full = 0;               <font size="2">// s&#7889; ch&#7895; &#273;&#7847;y</font><FONT SIZE=1>
+</FONT>
+Producer()
+{
+  <B>int</B> item;
+  <B>while</B> (TRUE) {         
+    produce_item(&amp;item); 	// t&#7841;o d&#7919; li&#7879;u m&#7899;i
+    down(&amp;empty);            	// gi&#7843;m s&#7889; ch&#7895; tr&#7889;ng
+    down(&amp;mutex);         	// báo   hi&#7879;u vào mi&#7873;n g&#259;ng 
+    enter_item(item);    	// &#273;&#7863;t d&#7919; li&#7879;u vào b&#7897; &#273;&#7879;m
+    up(&amp;mutex);            	// ra kh&#7887;i mi&#7873;n g&#259;ng
+    up(&amp;full);           	// t&#259;ng s&#7889; ch&#7895; &#273;&#7847;y
+  }
+}
+
+Consumer()
+{
+  <B>int</B> item;
+    
+  <B>while</B> (TRUE) {                  
+    down(&amp;full); 		// gi&#7843;m s&#7889; ch&#7895; &#273;&#7847;y
+    down(&amp;mutex); 		// báo   hi&#7879;u vào mi&#7873;n g&#259;ng 
+    remove_item(&amp;item); 	// l&#7845;y d&#7919; li&#7879;u t&#7915; b&#7897; &#273;&#7879;m
+    up(&amp;mutex); 		// ra kh&#7887;i mi&#7873;n g&#259;ng 
+    up(&amp;empty); 		// t&#259;ng s&#7889; ch&#7895; tr&#7889;ng  
+    consume_item(item); 	// x&#7917; lý d&#7919; li&#7879;u 
+ }
+}</PRE>
+</blockquote>
+</blockquote>
+<B><I><P ALIGN="JUSTIFY"><img border="0" src="images/symble_asterisk_blue.gif" width="13" height="14">
+ III.1.2. Monitor</P>
+</B></I><FONT FACE="Times New Roman">
+<blockquote>
+  <P>&#272;&#7883;nh ngh&#297;a m&#7897;t monitor </FONT><B><I>ProducerConsumer </B></I>v&#7899;i hai th&#7911; t&#7909;c <B><I>enter</B></I> v&agrave; <B><I>remove</B></I> thao t&aacute;c tr&ecirc;n b&#7897; <FONT FACE="Times New Roman">&#273;&#7879;m. X&#7917; lý c&#7911;a các th&#7911; t&#7909;c n</FONT>&agrave;y ph&#7909; thu&#7897;c v&agrave;o c&aacute;c bi&#7871;n <FONT FACE="Times New Roman">&#273;i&#7873;u ki&#7879;n </FONT><B><I>full</B></I> v&agrave; <B><I>empty</B></I>.</P>
+
+<B>
+<blockquote>
+  <PRE>monitor</B> ProducerConsumer
+    <B>condition</B> full, empty;
+    <B>int</B> count;
+  
+  <B>procedure</B> enter();
+  {
+    <B>if</B> (count == N) 
+	    wait(full);         // n&#7871;u b&#7897; &#273;&#7879;m  &#273;&#7847;y, ph&#7843;i ch&#7901;
+    enter_item(item);      	// &#273;&#7863;t d&#7919; li&#7879;u vào b&#7897; &#273;&#7879;m
+    count ++;              	// t&#259;ng s&#7889; ch&#7895; &#273;&#7847;y
+    <B>if</B> (count == 1) 	  	// n&#7871;u b&#7897; &#273;&#7879;m không tr&#7889;ng
+	    signal(empty); 	// thì kích ho&#7841;t Consumer
+  }
+ <B> procedure</B> remove();
+  {
+    <B>if</B> (count == 0) 
+	    wait(empty)   	// n&#7871;u b&#7897; &#273;&#7879;m  tr&#7889;ng, ch&#7901;
+    remove_item(&amp;item);		// l&#7845;y d&#7919; li&#7879;u t&#7915; b&#7897; &#273;&#7879;m
+    count --;       		// gi&#7843;m s&#7889; ch&#7895; &#273;&#7847;y
+    <B>if</B> (count == N-1) 	   	// n&#7871;u b&#7897; &#273;&#7879;m không &#273;&#7847;y
+        signal(full); 		// thì kích ho&#7841;t Producer
+  }
+  count = 0;
+  <B>end monitor</B>;
+
+  Producer();
+  {
+    <B>while</B> (TRUE)
+   {
+	produce_item(&amp;item);  
+	ProducerConsumer.enter; 
+   }
+  }
+  Consumer();
+  {
+    <B>while</B> (TRUE)
+    {
+	ProducerConsumer.remove;
+	consume_item(item); 
+   }
+  }</PRE>
+</blockquote>
+</blockquote>
+<B><I><P ALIGN="JUSTIFY"><img border="0" src="images/symble_asterisk_blue.gif" width="13" height="14">
+ III.1.3. Trao <FONT FACE="Times New Roman">&#273;&#7893;i thông &#273;i&#7879;p</P>
+</B></I></FONT>
+<blockquote>
+  <P>Th&ocirc;ng <FONT FACE="Times New Roman">&#273;i&#7879;p </FONT><B><I>empty</B></I> h&agrave;m &yacute; c&oacute; m&#7897;t ch&#7895; tr&#7889;ng trong b&#7897; <FONT FACE="Times New Roman">&#273;&#7879;m. Ti&#7871;n tr</FONT>&igrave;nh Consumer b&#7855;t <FONT FACE="Times New Roman">&#273;&#7847;u công vi&#7879;c b&#7857;ng cách g&#7903;i 4 thông &#273;i&#7879;p </FONT><B><I>empty</B></I> <FONT FACE="Times New Roman">&#273;&#7845;ng Producer. Ti&#7871;n tr</FONT>&igrave;nh  Producer t&#7841;o ra m&#7897;t d&#7919; li&#7879;u m&#7899;i v&agrave; ch&#7901; <FONT FACE="Times New Roman">&#273;&#7871;n khi nh&#7853;n &#273;</FONT>&#432;&#7907;c m&#7897;t th&ocirc;ng <FONT FACE="Times New Roman">&#273;i&#7879;p  </FONT><B><I>empty </B></I>th&igrave; g&#7903;i ng&#432;&#7907;c l&#7841;i cho Consumer m&#7897;t th&ocirc;ng <FONT FACE="Times New Roman">&#273;i&#7879;p ch&#7913;a d&#7919; li&#7879;u . Ti&#7871;n tr</FONT>&igrave;nh Consumer ch&#7901; nh&#7853;n th&ocirc;ng <FONT FACE="Times New Roman">&#273;i&#7879;p ch&#7913;a d&#7919; li&#7879;u, v</FONT>&agrave; sau khi x&#7917; l&yacute; xong d&#7919; li&#7879;u n&agrave;y, Consumer s&#7869; l&#7841;i g&#7903;i m&#7897;t th&ocirc;ng <FONT FACE="Times New Roman">&#273;i&#7879;p </FONT><B><I>empty</B></I> <FONT FACE="Times New Roman">&#273;&#7871;n  Producer, ...</P>
+</FONT>
+<blockquote>
+  <PRE>BufferSize = 4;
+  
+Producteur()
+{
+   <B>int</B> item;
+   <B>message</B> m;                	// thông &#273;i&#7879;p
+   
+    <B>while</B> (TRUE) {
+     produce_item(&amp;item);
+     receive(consumer,&amp;m);     	//  ch&#7901; thông &#273;i&#7879;p<B><I> empty</I></B> 
+     create_message(&amp;m, item); 	// t&#7841;o thông &#273;i&#7879;p d&#7919; li&#7879;u
+     send(consumer,&amp;m);		// g&#7903;i d&#7919; li&#7879;u &#273;&#7871;n Consumer
+   }
+}
+
+Consumer()
+{
+    <B>int</B> item;
+    <B>message</B> m;
+    
+    <B>for</B>(0 to N)
+	     send(producer, &amp;m);  // g&#7903;i N thông &#273;i&#7879;p <B><I>empty
+</I></B>    <B>while</B> (TRUE) {
+      receive(producer, &amp;m);  	  // ch&#7901; thông &#273;i&#7879;p d&#7919; li&#7879;u 
+	    remove_item(&amp;m,&amp;item);// l&#7845;y d&#7919; li&#7879;u t&#7915; thông &#273;i&#7879;p
+      send(producer, &amp;m);     	  // g&#7903;i thông &#273;i&#7879;p <B><I>empty
+</I></B>      consumer_item(item);        // x&#7917; lý d&#7919; li&#7879;u 
+    }
+}</PRE>
+</blockquote>
+</blockquote>
+</blockquote>
+
+<B><P ALIGN="JUSTIFY" class="cap2"><a name="reader"><img border="0" src="images/read_single.gif" width="15" height="12">
+ III.2. M&ocirc; h&igrave;nh Readers-Writers</a></P><blockquote>
+<P ALIGN="JUSTIFY"><img border="0" src="images/bullet.gif" width="12" height="14">
+V&#7845;n <FONT FACE="Times New Roman">&#273;&#7873; </B></FONT>: Nhi&#7873;u ti&#7871;n tr&igrave;nh <FONT FACE="Times New Roman">&#273;&#7891;ng th&#7901;i s&#7917; d&#7909;ng m&#7897;t c</FONT>&#417; s&#7903; d&#7919; li&#7879;u. C&aacute;c ti&#7871;n tr&igrave;nh ch&#7881; c&#7847;n l&#7845;y n&#7897;i dung c&#7911;a c&#417; s&#7903; d&#7919; li&#7879;u <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c g&#7885;i l&agrave; c&aacute;c ti&#7871;n tr&igrave;nh Reader, nh&#432;ng m&#7897;t s&#7889; ti&#7871;n tr&igrave;nh kh&aacute;c l&#7841;i c&oacute; nhu c&#7847;u s&#7917;a <FONT FACE="Times New Roman">&#273;&#7893;i, c&#7853;p nh&#7853;t d&#7919; li&#7879;u trong c</FONT>&#417; s&#7903; d&#7919; li&#7879;u chung n&agrave;y, ch&uacute;ng <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c g&#7885;i l&agrave; c&aacute;c ti&#7871;n tr&igrave;nh Writer. C&aacute;c quy <FONT FACE="Times New Roman">&#273;&#7883;nh &#273;&#7891;ng b&#7897; hóa vi&#7879;c truy xu&#7845;t c</FONT>&#417; s&#7905; d&#7919; li&#7879;u c&#7847;n tu&acirc;n th&#7911; l&agrave;&nbsp;:</P><blockquote>
+
+<P ALIGN="JUSTIFY"><img border="0" src="images/red.gif" width="7" height="10">Kh&ocirc;ng cho ph&eacute;p m&#7897;t ti&#7871;n tr&igrave;nh Writer c&#7853;p nh&#7853;t d&#7919; li&#7879;u trong c&#417; s&#7903; d&#7919; li&#7879;u khi c&aacute;c ti&#7871;n tr&igrave;nh Reader kh&aacute;c <FONT FACE="Times New Roman">&#273;ang truy xu&#7845;t n&#7897;i dung c</FONT>&#417; s&#7903; d&#7919; li&#7879;u.. <I>(synchronisation)</P>
+</I><P ALIGN="JUSTIFY"> <FONT FACE="Times New Roman"><img border="0" src="images/red.gif" width="7" height="10"></font>T&#7841;i m&#7897;t th&#7901;i <FONT FACE="Times New Roman">&#273;i&#7875;m , ch&#7881; cho phép m&#7897;t ti&#7871;n tr</FONT>&igrave;nh Writer <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c s&#7917;a <FONT FACE="Times New Roman">&#273;&#7893;i n&#7897;i dung c</FONT>&#417; s&#7903; d&#7919; li&#7879;u. <I>(mutuelle exclusion).</P></DIR>
+
+</I><B></blockquote>
+
+<P ALIGN="JUSTIFY"><img border="0" src="images/bullet.gif" width="12" height="14">
+Gi&#7843;i ph&aacute;p: </P>
+
+<I><P ALIGN="JUSTIFY"><img border="0" src="images/symble_asterisk_blue.gif" width="13" height="14">
+ III.2.1. Semaphore</P>
+</B></I>
+<blockquote>
+  <P>S&#7917; d&#7909;ng m&#7897;t bi&#7871;n chung <B><I>rc</B></I> <FONT FACE="Times New Roman">&#273;&#7875; ghi nh&#7899; s&#7889; l</FONT>&#432;&#7907;ng c&aacute;c ti&#7871;n tr&igrave;nh Reader mu&#7889;n truy xu&#7845;t c&#417; s&#7903; d&#7919; li&#7879;u. Hai semaphore c&#361;ng <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c s&#7917; d&#7909;ng&nbsp;: <B><I>mutex</B></I>, ki&#7875;m so&aacute;t s&#7921; truy c&#7853;p <FONT FACE="Times New Roman">&#273;&#7871;n  </FONT><B><I>rc</B></I>;<B><I> </B></I>v&agrave; <B><I>db</B></I>, ki&#7875;m tra s&#7921; truy xu&#7845;t <FONT FACE="Times New Roman">&#273;&#7897;c quy&#7873;n &#273;&#7871;n c</FONT>&#417; s&#7903; d&#7919; li&#7879;u.</P>
+
+<B>
+<blockquote>
+  <PRE>semaphore</B> mutex = 1;    // Ki&#7875;m tra truy xu&#7845;t rc
+<B>semaphore</B> db = 1;   	// Ki&#7875;m tra truy xu&#7845;t c&#417; s&#7903; d&#7919; li&#7879;u
+<B>int</B> rc;                 // S&#7889; l&#432;&#7907;ng ti&#7871;n trình Reader
+Reader()
+{
+  <B>while</B> (TRUE) {                     
+     down(&amp;mutex);      // giành quy&#7873;n truy xu&#7845;t rc
+     rc = rc + 1;       // thêm m&#7897;t ti&#7871;n trình Reader
+     if (rc == 1)       //  n&#7871;u là Reader &#273;&#7847;u tiên thì
+       down(&amp;db);       // c&#7845;m Writer truy xu&#7845;t d&#7919; li&#7879;u
+     up(&amp;mutex);        // ch&#7845;m d&#7913;t truy xu&#7845;t rc
+     read_database(); 	// &#273;&#7885;c d&#7919; li&#7879;u
+     down(&amp;mutex);      // giành quy&#7873;n truy xu&#7845;t rc
+     rc = rc - 1;       // b&#7899;t m&#7897;t ti&#7871;n trình Reader
+     if (rc == 0)       // n&#7871;u là Reader cu&#7889;i cùng thì
+         up(&amp;db);       // cho  phép Writer truy xu&#7845;t db     
+     up(&amp;mutex); 	// ch&#7845;m d&#7913;t truy xu&#7845;t rc
+     use_data_read();  
+  }
+}
+
+Writer()
+{
+  <B>while</B> (TRUE) {                     
+     create_data();
+     down(&amp;db);          // giành quy&#7873;n truy xu&#7845;t db
+     write_database();   // c&#7853;p nh&#7853;t d&#7919; li&#7879;u 
+     up(&amp;db);            // ch&#7845;m d&#7913;t truy xu&#7845;t db 
+  }
+}</PRE>
+</blockquote>
+</blockquote>
+<B><I><P ALIGN="JUSTIFY"><img border="0" src="images/symble_asterisk_blue.gif" width="13" height="14">
+ III.2.2. Monitor</P>
+</I>
+</B>
+<blockquote>
+  <P>S&#7917; d&#7909;ng m&#7897;t bi&#7871;n chung <B><I>rc</B></I> <FONT FACE="Times New Roman">&#273;&#7875; ghi nh&#7899; s&#7889; l</FONT>&#432;&#7907;ng c&aacute;c ti&#7871;n tr&igrave;nh Reader mu&#7889;n truy xu&#7845;t c&#417; s&#7903; d&#7919; li&#7879;u. M&#7897;t ti&#7871;n tr&igrave;nh Writer ph&#7843;i chuy&#7875;n sang tr&#7841;ng th&aacute;i ch&#7901; n&#7871;u <B><I>rc</B></I> &gt; 0. KHi ra kh&#7887;i mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng, ti&#7871;n tr</FONT>&igrave;nh Reader cu&#7889;i c&ugrave;ng s&#7869; <FONT FACE="Times New Roman">&#273;ánh th&#7913;c ti&#7871;n tr</FONT>&igrave;nh Writer <FONT FACE="Times New Roman">&#273;ang b&#7883; khóa.</P>
+</FONT><B>
+<blockquote>
+  <PRE>monitor</B> ReaderWriter
+    <B>condition</B> OKWrite, OKRead;  
+    <B>int</B> 	    rc = 0;
+    <B>Boolean</B>   busy = false;
+    
+  <B>procedure</B> BeginRead()
+  {
+    <B>if</B> (busy)		      	// n&#7871;u db &#273;ang b&#7853;n, ch&#7901;
+       wait(OKRead); 
+    rc++;             	        // thêm m&#7897;t Reader
+    signal(OKRead); 
+  }
+  <B>procedure</B> FinishRead()
+  {
+     rc--;		   	// b&#7899;t m&#7897;t Reader
+     if (rc == 0)         	//  n&#7871;u là Reader cu&#7889;i cùng
+        signal(OKWrite);     	// thì cho phép Writer 
+				// truy xu&#7845;t db
+  }
+  <B>procedure</B> BeginWrite()
+  {
+    if (busy || rc != 0) 	// n&#7871;u db &#273;ang b&#7853;n, hay m&#7897;t
+	wait(OKWrite);	    	// Reader &#273;ang &#273;&#7885;c db,ch&#7901;
+    busy = true;
+  } 
+  <B>procedure</B> FinishWrite() 
+  {
+    busy = false;
+    If (OKRead.Queue)
+      signal(OKRead);
+    else
+      signal(OKWrite);
+   }
+ Reader()
+  {
+     <B>while</B> (TRUE)		
+     {
+        ReaderWriter.BeginRead();
+        Read_database();	
+        ReaderWriter.FinishRead();
+     }
+  }
+ Writer()
+  {
+     <B>while</B> (TRUE)		
+     {
+ 	      create_data(&amp;info);	
+	      ReaderWriter.BeginWrite();
+	      Write_database();	
+        ReaderWriter.FinishWrite();
+     }
+  }</PRE>
+</blockquote>
+</blockquote>
+<B><I><P ALIGN="JUSTIFY"><img border="0" src="images/symble_asterisk_blue.gif" width="13" height="14">
+ III.2.3. Trao <FONT FACE="Times New Roman">&#273;&#7893;i thông &#273;i&#7879;p</P>
+</B></I></FONT>
+<blockquote>
+  <P ALIGN="JUSTIFY">C&#7847;n c&oacute; m&#7897;t ti&#7871;n tr&igrave;nh server <FONT FACE="Times New Roman">&#273;i&#7873;u khi&#7875;n vi&#7879;c truy xu&#7845;t c</FONT>&#417; s&#7903; d&#7919; li&#7879;u. </P>
+<P ALIGN="JUSTIFY">C&aacute;c ti&#7871;n tr&igrave;nh Writer v&agrave; Reader g&#7903;i c&aacute;c th&ocirc;ng <FONT FACE="Times New Roman">&#273;i&#7879;p y</FONT>&ecirc;u c&#7847;u truy xu&#7845;t <FONT FACE="Times New Roman">&#273;&#7871;n server v</FONT>&agrave; nh&#7853;n t&#7915; server c&aacute;c th&ocirc;ng <FONT FACE="Times New Roman">&#273;i&#7879;p h&#7891;i &#273;áp t</FONT>&#432;&#417;ng &#7913;ng .</P>
+  <blockquote>
+<PRE>Reader()
+{
+    <B>while</B> (TRUE) {
+          send (server, RequestRead);
+          receive (server, value);
+          print(value); }
+}
+
+Writer()
+{
+    <B>while</B> (TRUE) {
+          create_data(&amp;value);
+          send (server, RequestWrite,value);
+          receive (server,OKWrite); }
+}</PRE>
+  </blockquote>
+</blockquote>
+</blockquote>
+
+<B><P ALIGN="JUSTIFY">&nbsp;</P><P ALIGN="JUSTIFY" class="cap1"><a name="tacnghen">IV. T&#7855;c ngh&#7869;n (Deadlock)</a></P>
+
+<P ALIGN="JUSTIFY" class="cap2"><a name="dinhnghia"><img border="0" src="images/read_single.gif" width="15" height="12">
+ IV.1. <FONT FACE="Times New Roman">&#272;&#7883;nh ngh&#297;a:</FONT></a></P>
+<blockquote>
+</B><P ALIGN="JUSTIFY">M&#7897;t t&#7853;p h&#7907;p c&aacute;c ti&#7871;n tr&igrave;nh <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c <FONT FACE="Times New Roman">&#273;&#7883;nh ngh&#297;a &#7903; trong t</FONT>&igrave;nh tr&#7841;ng <I>t&#7855;c ngh&#7869;n</I> khi m&#7895;i ti&#7871;n tr&igrave;nh trong t&#7853;p h&#7907;p <FONT FACE="Times New Roman">&#273;&#7873;u ch&#7901; &#273;&#7907;i m&#7897;t s&#7921; ki&#7879;n m</FONT>&agrave; ch&#7881; c&oacute; m&#7897;t ti&#7871;n tr&igrave;nh kh&aacute;c trong t&#7853;p h&#7907;p m&#7899;i c&oacute; th&#7875; ph&aacute;t sinh <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c.</P>
+<P ALIGN="JUSTIFY">N&oacute;i c&aacute;ch kh&aacute;c, m&#7895;i ti&#7871;n tr&igrave;nh trong t&#7853;p h&#7907;p <FONT FACE="Times New Roman">&#273;&#7873;u ch&#7901; &#273;</FONT>&#432;&#7907;c c&#7845;p ph&aacute;t m&#7897;t t&agrave;i nguy&ecirc;n hi&#7879;n <FONT FACE="Times New Roman">&#273;ang b&#7883; m&#7897;t ti&#7871;n tr</FONT>&igrave;nh kh&aacute;c c&#361;ng &#7903; tr&#7841;ng th&aacute;i blocked chi&#7871;m gi&#7919;. Nh&#432; v&#7853;y kh&ocirc;ng c&oacute; ti&#7871;n tr&igrave;nh n&agrave;o c&oacute; th&#7875; ti&#7871;p t&#7909;c x&#7917; l&yacute; , c&#361;ng nh&#432; gi&#7843;i ph&oacute;ng t&agrave;i nguy&ecirc;n cho ti&#7871;n tr&igrave;nh kh&aacute;c s&#7917; d&#7909;ng, t&#7845;t c&#7843; c&aacute;c ti&#7871;n tr&igrave;nh trong t&#7853;p h&#7907;p <FONT FACE="Times New Roman">&#273;&#7873;u b&#7883; khóa v&#297;nh vi&#7877;n&nbsp;!</P><blockquote>
+</FONT><B><P ALIGN="JUSTIFY">V&#7845;n <FONT FACE="Times New Roman">&#273;&#7873; B&#7919;a &#259;n t&#7889;i c&#7911;a các tri&#7871;t gia&nbsp;</B></FONT>: 5 nh&agrave; tri&#7871;t h&#7885;c c&ugrave;ng ng&#7891;i <FONT FACE="Times New Roman">&#259;n t&#7889;i v&#7899;i món spaghetti n&#7893;i ti&#7871;ng. M&#7895;i nh</FONT>&agrave; tri&#7871;t h&#7885;c c&#7847;n d&ugrave;ng 2 c&aacute;i n&#297;a <FONT FACE="Times New Roman">&#273;&#7875; có th&#7875; &#259;n spaghetti . Nh</FONT>&#432;ng tr&ecirc;n b&agrave;n ch&#7881; c&oacute; t&#7893;ng c&#7897;ng 5 c&aacute;i n&#297;a <FONT FACE="Times New Roman">&#273;&#7875; xen k&#7869; v&#7899;i 5 cái &#273;&#297;a. M&#7895;i nh</FONT>&agrave; tri&#7871;t h&#7885;c s&#7869; suy ng&#7851;m c&aacute;c tri&#7871;t l&yacute; c&#7911;a m&igrave;nh <FONT FACE="Times New Roman">&#273;&#7871;n khi c&#7843;m th&#7845;y &#273;ói th</FONT>&igrave; d&#7921; <FONT FACE="Times New Roman">&#273;&#7883;nh l&#7847;n l</FONT>&#432;&#7907;t c&#7847;m 1 c&aacute;i n&#297;a b&ecirc;n tr&aacute;i v&agrave; 1 c&aacute;i n&#297;a b&ecirc;n ph&#7843;i <FONT FACE="Times New Roman">&#273;&#7875; &#259;n. N&#7871;u c&#7843; 5 nh</FONT>&agrave; tri&#7871;t h&#7885;c <FONT FACE="Times New Roman">&#273;&#7873;u c&#7847;m cái n&#297;a b</FONT>&ecirc;n tr&aacute;i c&ugrave;ng l&uacute;c, th&igrave; s&#7869; kh&ocirc;ng c&oacute; ai c&oacute; <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c c&aacute;i n&#297;a b&ecirc;n ph&#7843;i <FONT FACE="Times New Roman">&#273;&#7875; có th&#7875; b&#7855;t &#273;&#7847;u th</FONT>&#432;&#7903;ng th&#7913;c spaghetti . <FONT FACE="Times New Roman">&#272;ây chính l</FONT>&agrave; t&igrave;nh tr&#7841;ng <I>t&#7855;c ngh&#7869;n</I>.</P>
+<P ALIGN="center"><img border="0" src="images/hinh3.18.gif" width="300" height="300"></P>
+<P ALIGN="center"><b>Hình 3.18 </b> <FONT FACE="Times New Roman"> B&#7919;a &#259;n t&#7889;i c&#7911;a các tri&#7871;t gia
+
+</font>
+</P>
+<B>
+</blockquote>
+</blockquote>
+<P ALIGN="JUSTIFY" class="cap2"> <FONT FACE="Times New Roman"><a name="dieukien"><img border="0" src="images/read_single.gif" width="15" height="12">
+ </a>
+</font><a name="dieukien">IV.2. <FONT FACE="Times New Roman">&#272;i&#7873;u ki&#7879;n xu&#7845;t hi&#7879;n t&#7855;c ngh&#7869;n
+</FONT>
+</a></P>
+</B>
+<blockquote>
+<P ALIGN="JUSTIFY">Coffman, Elphick v&agrave; Shoshani <FONT FACE="Times New Roman">&#273;</FONT>&atilde; <FONT FACE="Times New Roman">&#273;</FONT>&#432;a ra 4 <FONT FACE="Times New Roman">&#273;i&#7873;u ki&#7879;n c&#7847;n có th&#7875; l</FONT>&agrave;m xu&#7845;t hi&#7879;n t&#7855;c ngh&#7869;n:</P><blockquote>
+<blockquote>
+<U><P ALIGN="JUSTIFY"><img border="0" src="images/red.gif" width="7" height="10">C&oacute; s&#7917; d&#7909;ng t&agrave;i nguy&ecirc;n kh&ocirc;ng th&#7875; chia s&#7867; (Mutual exclusion)</U>: M&#7895;i th&#7901;i <FONT FACE="Times New Roman">&#273;i&#7875;m, m&#7897;t t</FONT>&agrave;i nguy&ecirc;n kh&ocirc;ng th&#7875; chia s&#7867; <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c h&#7879; th&#7889;ng c&#7845;p ph&aacute;t ch&#7881; cho m&#7897;t ti&#7871;n tr&igrave;nh , khi ti&#7871;n tr&igrave;nh s&#7917; d&#7909;ng xong t&agrave;i nguy&ecirc;n n&agrave;y, h&#7879; th&#7889;ng m&#7899;i thu h&#7891;i v&agrave; c&#7845;p ph&aacute;t t&agrave;i nguy&ecirc;n cho ti&#7871;n tr&igrave;nh kh&aacute;c.</P>
+<U><P ALIGN="JUSTIFY"><img border="0" src="images/red.gif" width="7" height="10">S&#7921; chi&#7871;m gi&#7919; v&agrave; y&ecirc;u c&#7847;u th&ecirc;m t&agrave;i nguy&ecirc;n (Wait for)</U>: C&aacute;c ti&#7871;n tr&igrave;nh ti&#7871;p t&#7909;c chi&#7871;m gi&#7919; c&aacute;c t&agrave;i nguy&ecirc;n <FONT FACE="Times New Roman">&#273;</FONT>&atilde; c&#7845;p ph&aacute;t cho n&oacute; trong khi ch&#7901; <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c c&#7845;p ph&aacute;t th&ecirc;m m&#7897;t s&#7889; t&agrave;i nguy&ecirc;n m&#7899;i.</P>
+<U><P ALIGN="JUSTIFY"><img border="0" src="images/red.gif" width="7" height="10">Kh&ocirc;ng thu h&#7891;i t&agrave;i nguy&ecirc;n t&#7915; ti&#7871;n tr&igrave;nh <FONT FACE="Times New Roman">&#273;ang gi&#7919; chúng (No preemption)</U></FONT>: T&agrave;i nguy&ecirc;n kh&ocirc;ng th&#7875; <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c thu h&#7891;i t&#7915; ti&#7871;n tr&igrave;nh <FONT FACE="Times New Roman">&#273;ang chi&#7871;m gi&#7919; chúng tr</FONT>&#432;&#7899;c khi ti&#7871;n tr&igrave;nh n&agrave;y s&#7911; d&#7909;ng ch&uacute;ng xong.</P>
+<U><P ALIGN="JUSTIFY"><img border="0" src="images/red.gif" width="7" height="10">T&#7891;n t&#7841;i m&#7897;t chu k&#7923; trong <FONT FACE="Times New Roman">&#273;&#7891; th&#7883; c&#7845;p phát t</FONT>&agrave;i nguy&ecirc;n ( Circular wait)</U>: c&oacute; &iacute;t nh&#7845;t hai ti&#7871;n tr&igrave;nh ch&#7901; <FONT FACE="Times New Roman">&#273;&#7907;i l&#7851;n nhau&nbsp;: ti&#7871;n tr</FONT>&igrave;nh n&agrave;y ch&#7901; <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c c&#7845;p ph&aacute;t t&agrave;i nguy&ecirc;n <FONT FACE="Times New Roman">&#273;ang b&#7883; ti&#7871;n tr</FONT>&igrave;nh kia chi&#7871;m gi&#7919; v&agrave; ng&#432;&#7907;c l&#7841;i.</P></blockquote>
+</blockquote>
+<P ALIGN="JUSTIFY">Khi c&oacute; <FONT FACE="Times New Roman">&#273;&#7911; 4 &#273;i&#7873;u ki&#7879;n n</FONT>&agrave;y, th&igrave; t&#7855;c ngh&#7869;n x&#7843;y ra. N&#7871;u thi&#7871;u m&#7897;t trong 4 <FONT FACE="Times New Roman">&#273;i&#7873;u ki&#7879;n tr</FONT>&ecirc;n th&igrave; kh&ocirc;ng c&oacute; t&#7855;c ngh&#7869;n.</P>
+
+<B>
+</blockquote>
+<h4 ALIGN="JUSTIFY" class="cap2"><a name="dothi"><img border="0" src="images/read_single.gif" width="15" height="12">
+ IV.3. <FONT FACE="Times New Roman">&#272;&#7891; th&#7883; c&#7845;p phát t</FONT>&agrave;i nguy&ecirc;n</a></h4>
+
+</B>
+<blockquote>
+<P ALIGN="JUSTIFY">C&oacute; th&#7875; s&#7917; d&#7909;ng m&#7897;t <FONT FACE="Times New Roman">&#273;&#7891; th&#7883; &#273;&#7875; mô h</FONT>&igrave;nh h&oacute;a vi&#7879;c c&#7845;p ph&aacute;t t&agrave;i nguy&ecirc;n. <FONT FACE="Times New Roman">&#272;&#7891; th&#7883; n</FONT>&agrave;y c&oacute; 2 lo&#7841;i n&uacute;t : c&aacute;c ti&#7871;n tr&igrave;nh <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c bi&#7877;u di&#7877;n b&#7857;ng h&igrave;nh tr&ograve;n, v&agrave; m&#7895;i t&agrave;i nguy&ecirc;n <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c hi&#7875;n th&#7883; b&#7857;ng h&igrave;nh vu&ocirc;ng</P>
+
+<P ALIGN="center"><img border="0" src="images/hinh3.19.gif" width="380" height="285"></P>
+
+<P ALIGN="center"><B>H&igrave;nh 3.19</B> &#272;&#7891; th&#7883; c&#7845;p phát tài nguyên</P>
+
+<B>
+</blockquote>
+<P ALIGN="JUSTIFY" class="cap2"><a name="xuly"><img border="0" src="images/read_single.gif" width="15" height="12">
+ IV.4. C&aacute;c ph&#432;&#417;ng ph&aacute;p x&#7917; l&yacute; t&#7855;c ngh&#7869;n</a></P>
+
+</B>
+<blockquote>
+<P ALIGN="JUSTIFY">Ch&#7911; y&#7871;u c&oacute; ba h&#432;&#417;ng ti&#7871;p c&#7853;n <FONT FACE="Times New Roman">&#273;&#7875; x&#7917; lý t&#7855;c ngh&#7869;n :</P><blockquote>
+<blockquote>
+
+</FONT><P ALIGN="JUSTIFY"><img border="0" src="images/red.gif" width="7" height="10">S&#7917; d&#7909;ng m&#7897;t nghi th&#7913;c (protocol) <FONT FACE="Times New Roman">&#273;&#7875; b&#7843;o &#273;&#7843;m r&#7857;ng h&#7879; th&#7889;ng không bao gi&#7901; x&#7843;y ra t&#7855;c ngh&#7869;n.</P>
+</FONT><P ALIGN="JUSTIFY"> <FONT FACE="Times New Roman"><img border="0" src="images/red.gif" width="7" height="10"></font>Cho ph&eacute;p x&#7843;y ra t&#7855;c ngh&#7869;n v&agrave; t&igrave;m c&aacute;ch s&#7919;a ch&#7919;a t&#7855;c ngh&#7869;n.</P>
+<P ALIGN="JUSTIFY"> <FONT FACE="Times New Roman"><img border="0" src="images/red.gif" width="7" height="10"></font>Ho&agrave;n to&agrave;n b&#7887; qua vi&#7879;c x&#7917; l&yacute; t&#7855;c ngh&#7869;n, xem nh&#432; h&#7879; th&#7889;ng kh&ocirc;ng bao gi&#7901; x&#7843;y ra t&#7855;c ngh&#7869;n.</P>
+<B></blockquote>
+</blockquote>
+
+</blockquote>
+
+<P ALIGN="JUSTIFY" class="cap2"><FONT FACE="Times New Roman"><a name="nganchan"><img border="0" src="images/read_single.gif" width="15" height="12">
+ </a>
+</font><a name="nganchan">IV.5. Ng<FONT FACE="Times New Roman">&#259;n ch&#7863;n t&#7855;c ngh&#7869;n
+
+</FONT>
+
+</a></P>
+
+</B>
+<blockquote>
+<P ALIGN="JUSTIFY">&#272;&#7875; t&#7855;c ngh&#7869;n không x&#7843;y ra, c&#7847;n b&#7843;o &#273;&#7843;m t&#7889;i thi&#7875;u m&#7897;t trong 4 &#273;i&#7873;u ki&#7879;n c&#7847;n không x&#7843;y ra:</P><blockquote>
+<blockquote>
+
+<U><P ALIGN="JUSTIFY"><img border="0" src="images/red.gif" width="7" height="10">T&agrave;i nguy&ecirc;n kh&ocirc;ng th&#7875; chia s&#7867; :</U>  nh&igrave;n chung g&#7847;n nh&#432; kh&ocirc;ng th&#7875; tr&aacute;nh <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c <FONT FACE="Times New Roman">&#273;i&#7873;u ki&#7879;n n</FONT>&agrave;y v&igrave; b&#7843;n ch&#7845;t t&agrave;i nguy&ecirc;n g&#7847;n nh&#432; c&#7889; <FONT FACE="Times New Roman">&#273;&#7883;nh. Tuy nhi</FONT>&ecirc;n <FONT FACE="Times New Roman">&#273;&#7889;i v&#7899;i m&#7897;t s&#7889; t</FONT>&agrave;i nguy&ecirc;n v&#7873; k&#7871;t xu&#7845;t, ng&#432;&#7901;i ta c&oacute; th&#7875; d&ugrave;ng c&aacute;c c&#417; ch&#7871; spooling <FONT FACE="Times New Roman">&#273;&#7875; bi&#7871;n &#273;&#7893;i th</FONT>&agrave;nh t&agrave;i nguy&ecirc;n c&oacute; th&#7875; chia s&#7867;.</P>
+<U><P ALIGN="JUSTIFY"><img border="0" src="images/red.gif" width="7" height="10">S&#7921; chi&#7871;m gi&#7919; v&agrave; y&ecirc;u c&#7847;u th&ecirc;m t&agrave;i nguy&ecirc;n:</U> ph&#7843;i b&#7843;o <FONT FACE="Times New Roman">&#273;&#7843;m r&#7857;ng m&#7895;i khi ti&#7871;n tr</FONT>&igrave;nh y&ecirc;u c&#7847;u th&ecirc;m m&#7897;t t&agrave;i nguy&ecirc;n th&igrave; n&oacute; kh&ocirc;ng chi&#7871;m gi&#7919; c&aacute;c t&agrave;i nguy&ecirc;n kh&aacute;c. C&oacute; th&#7875; &aacute;p <FONT FACE="Times New Roman">&#273;&#7863;t m&#7897;t trong hai c</FONT>&#417; ch&#7871; truy xu&#7845;t sau&nbsp;:</P><blockquote>
+
+<P ALIGN="JUSTIFY"><img border="0" src="images/rightarrow.gif" width="6" height="12">
+Ti&#7871;n tr&igrave;nh ph&#7843;i y&ecirc;u c&#7847;u t&#7845;t c&#7843; c&aacute;c t&agrave;i nguy&ecirc;n c&#7847;n thi&#7871;t tr&#432;&#7899;c khi b&#7855;t <FONT FACE="Times New Roman">&#273;&#7847;u x&#7917; lý . </P>
+
+</FONT><P ALIGN="JUSTIFY">=&gt; ph&#432;&#417;ng ph&aacute;p n&agrave;y c&oacute; kh&oacute; kh<FONT FACE="Times New Roman">&#259;n l</FONT>&agrave; ti&#7871;n tr&igrave;nh kh&oacute; c&oacute; th&#7875; &#432;&#7899;c l&#432;&#7907;ng ch&iacute;nh x&aacute;c t&agrave;i nguy&ecirc;n c&#7847;n s&#7917; d&#7909;ng v&igrave; c&oacute; th&#7875; nhu c&#7847;u ph&#7909; thu&#7897;c v&agrave;o qu&aacute; tr&igrave;nh x&#7917; l&yacute;&nbsp;. Ngo&agrave;i ra n&#7871;u ti&#7871;n tr&igrave;nh chi&#7871;m gi&#7919; s&#7861;n c&aacute;c t&agrave;i nguy&ecirc;n ch&#432;a c&#7847;n s&#7917; d&#7909;ng ngay th&igrave; vi&#7879;c s&#7917; d&#7909;ng t&agrave;i nguy&ecirc;n s&#7869; k&eacute;m hi&#7879;u qu&#7843;.</P>
+
+<P ALIGN="JUSTIFY"><FONT FACE="Times New Roman"><img border="0" src="images/rightarrow.gif" width="6" height="12"></font>Khi ti&#7871;n tr&igrave;nh y&ecirc;u c&#7847;u m&#7897;t t&agrave;i nguy&ecirc;n m&#7899;i v&agrave; b&#7883; t&#7915; ch&#7889;i, n&oacute; ph&#7843;i gi&#7843;i ph&oacute;ng c&aacute;c t&agrave;i nguy&ecirc;n <FONT FACE="Times New Roman">&#273;ang chi&#7871;m gi&#7919; , sau &#273;ó l&#7841;i &#273;</FONT>&#432;&#7907;c c&#7845;p ph&aacute;t tr&#7903; l&#7841;i c&ugrave;ng l&#7847;n v&#7899;i t&agrave;i nguy&ecirc;n m&#7899;i.</P>
+
+<P ALIGN="JUSTIFY">=&gt; ph&#432;&#417;ng ph&aacute;p n&agrave;y l&agrave;m ph&aacute;t sinh c&aacute;c kh&oacute; kh<FONT FACE="Times New Roman">&#259;n trong vi&#7879;c b&#7843;o v&#7879; tính to</FONT>&agrave;n v&#7865;n d&#7919; li&#7879;u c&#7911;a h&#7879; th&#7889;ng.</P>
+</blockquote>
+
+<U><P ALIGN="JUSTIFY"> <FONT FACE="Times New Roman"><img border="0" src="images/red.gif" width="7" height="10"></font>Kh&ocirc;ng thu h&#7891;i t&agrave;i nguy&ecirc;n:</U> cho ph&eacute;p h&#7879; th&#7889;ng <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c thu h&#7891;i t&agrave;i nguy&ecirc;n t&#7915; c&aacute;c ti&#7871;n tr&igrave;nh b&#7883; kho&aacute; v&agrave; c&#7845;p ph&aacute;t tr&#7903; l&#7841;i cho ti&#7871;n tr&igrave;nh khi n&oacute; tho&aacute;t kh&#7887;i t&igrave;nh tr&#7841;ng b&#7883; kh&oacute;a. Tuy nhi&ecirc;n v&#7899;i m&#7897;t s&#7889; lo&#7841;i t&agrave;i nguy&ecirc;n, vi&#7879;c thu h&#7891;i s&#7869; r&#7845;t kh&oacute; kh<FONT FACE="Times New Roman">&#259;n v</FONT>&igrave; vi ph&#7841;m s&#7921; to&agrave;n v&#7865;n d&#7919; li&#7879;u .</P>
+<U><P ALIGN="JUSTIFY"> <FONT FACE="Times New Roman"><img border="0" src="images/red.gif" width="7" height="10"></font>T&#7891;n t&#7841;i m&#7897;t chu k&#7923;:</U> tr&aacute;nh t&#7841;o chu k&#7923; trong <FONT FACE="Times New Roman">&#273;&#7891; th&#7883; b&#7857;ng cách c&#7845;p phát t</FONT>&agrave;i nguy&ecirc;n theo m&#7897;t s&#7921; ph&acirc;n c&#7845;p nh&#432; sau :</P>
+<blockquote>
+<P ALIGN="JUSTIFY">g&#7885;i R = {R<SUB>1</SUB>, R<SUB>2</SUB>,...,Rm} l&agrave; t&#7853;p c&aacute;c lo&#7841;i t&agrave;i nguy&ecirc;n.</P>
+<P ALIGN="JUSTIFY">C&aacute;c lo&#7841;i t&agrave;i nguy&ecirc;n <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c ph&acirc;n c&#7845;p t&#7915; 1-N. </P>
+<U><P ALIGN="JUSTIFY">V&iacute; d&#7909; </U>: F(<FONT FACE="Times New Roman">&#273;&#297;a) = 2, F(máy in) = 12</P>
+</FONT><P ALIGN="JUSTIFY">C&aacute;c ti&#7871;n tr&igrave;nh khi y&ecirc;u c&#7847;u t&agrave;i nguy&ecirc;n ph&#7843;i tu&acirc;n th&#7911; quy <FONT FACE="Times New Roman">&#273;&#7883;nh&nbsp;: khi ti&#7871;n tr</FONT>&igrave;nh <FONT FACE="Times New Roman">&#273;ang chi&#7871;m gi&#7919; t</FONT>&agrave;i nguy&ecirc;n Ri th&igrave; ch&#7881; c&oacute; th&#7875; y&ecirc;u c&#7847;u c&aacute;c t&agrave;i nguy&ecirc;n Rj n&#7871;u F(Rj) &gt; F(Ri).</P>
+</blockquote>
+<B></blockquote>
+</blockquote>
+
+</blockquote>
+
+<P ALIGN="JUSTIFY" class="cap2"><a name="tranh"><img border="0" src="images/read_single.gif" width="15" height="12">
+ IV.6. Tr&aacute;nh t&#7855;c ngh&#7869;n</a> </P>
+
+</B>
+<blockquote>
+<P ALIGN="JUSTIFY">Ng<FONT FACE="Times New Roman">&#259;n c&#7843;n t&#7855;c ngh&#7869;n </FONT>l&agrave; m&#7897;t m&#7889;i b&#7853;n t&acirc;m l&#7899;n khi s&#7917; d&#7909;ng t&agrave;i nguy&ecirc;n. Tr&aacute;nh t&#7855;c ngh&#7869;n l&agrave; lo&#7841;i b&#7887; t&#7845;t c&#7843; c&aacute;c c&#417; h&#7897;i c&oacute; th&#7875; d&#7851;n <FONT FACE="Times New Roman">&#273;&#7871;n t&#7855;c ngh&#7869;n trong t&#432;&#417;ng lai. C&#7847;n ph&#7843;i s&#7917; d&#7909;ng nh&#7919;ng c&#417; ch&#7871; ph&#7913;c t&#7841;p &#273;&#7875; th&#7921;c hi&#7879;n ý &#273;&#7883;nh n</FONT>&agrave;y.</P>
+
+<B><P><img border="0" src="images/bulletjock.gif" width="18" height="18">M&#7897;t s&#7889; kh&aacute;i ni&#7879;m c&#417; s&#7903;</P><blockquote>
+
+<blockquote>
+
+<P><img border="0" src="images/red.gif" width="7" height="10">Tr&#7841;ng th&aacute;i an to&agrave;n </B>: tr&#7841;ng th&aacute;i A l&agrave; an to&agrave;n n&#7871;u h&#7879; th&#7889;ng c&oacute; th&#7875; th&#7887;a m&atilde;n  c&aacute;c nhu c&#7847;u t&agrave;i nguy&ecirc;n (cho <FONT FACE="Times New Roman">&#273;&#7871;n t&#7889;i &#273;a) c&#7911;a m&#7895;i ti&#7871;n tr</FONT>&igrave;nh theo m&#7897;t th&#7913; t&#7921; n&agrave;o <FONT FACE="Times New Roman">&#273;ó m</FONT>&agrave; v&#7851;n ng<FONT FACE="Times New Roman">&#259;n ch&#7863;n &#273;&#432;&#7907;c t&#7855;c ngh&#7869;n. </P>
+</FONT><B><P> <FONT FACE="Times New Roman"><img border="0" src="images/red.gif" width="7" height="10"></font>M&#7897;t chu&#7895;i c&#7845;p ph&aacute;t an to&agrave;n: </B>m&#7897;t th&#7913; t&#7921;  c&#7911;a c&aacute;c ti&#7871;n tr&igrave;nh &lt;P<SUB>1</SUB>, P<SUB>2</SUB>,...,Pn&gt; <B> </B>l&agrave; an to&agrave;n <FONT FACE="Times New Roman">&#273;&#7889;i v&#7899;i t</FONT>&igrave;nh tr&#7841;ng c&#7845;p ph&aacute;t hi&#7879;n h&agrave;nh n&#7871;u v&#7899;i m&#7895;i ti&#7871;n tr&igrave;nh Pi nhu c&#7847;u t&agrave;i nguy&ecirc;n c&#7911;a Pi c&oacute; th&#7875; <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c th&#7887;a m&atilde;n v&#7899;i c&aacute;c t&agrave;i nguy&ecirc;n c&ograve;n t&#7921; do c&#7911;a h&#7879; th&#7889;ng, c&#7897;ng v&#7899;i c&aacute;c t&agrave;i nguy&ecirc;n <FONT FACE="Times New Roman">&#273;ang b&#7883; chi&#7871;m gi&#7919; b&#7903;i các ti&#7871;n tr</FONT>&igrave;nh Pj kh&aacute;c, v&#7899;i  j&lt;i. </P></blockquote>
+
+<P>&nbsp;&nbsp;&nbsp; M&#7897;t tr&#7841;ng th&aacute;i an to&agrave;n kh&ocirc;ng th&#7875; l&agrave; tr&#7841;ng th&aacute;i t&#7855;c ngh&#7869;n. Ng&#432;&#7907;c l&#7841;i m&#7897;t tr&#7841;ng th&aacute;i kh&ocirc;ng an to&agrave;n c&oacute; th&#7875; d&#7851;n <FONT FACE="Times New Roman">&#273;&#7871;n t</FONT>&igrave;nh tr&#7841;ng t&#7855;c ngh&#7869;n.</P>
+<B>
+</blockquote>
+
+<P><FONT FACE="Times New Roman"><img border="0" src="images/bulletjock.gif" width="18" height="18"></font>Chi&#7871;n l&#432;&#7907;c c&#7845;p ph&aacute;t </B>: ch&#7881; th&#7887;a m&atilde;n y&ecirc;u c&#7847;u t&agrave;i nguy&ecirc;n c&#7911;a ti&#7871;n tr&igrave;nh khi tr&#7841;ng th&aacute;i k&#7871;t qu&#7843; l&agrave; an to&agrave;n! </P>
+<B> 
+<P><FONT FACE="Times New Roman"><img border="0" src="images/bulletjock.gif" width="18" height="18"></font>Gi&#7843;i thu&#7853;t x&aacute;c <FONT FACE="Times New Roman">&#273;&#7883;nh tr&#7841;ng thái an to</FONT>&agrave;n</P>
+<blockquote>
+
+</B><P>C&#7847;n s&#7917; d&#7909;ng c&aacute;c c&#7845;u tr&uacute;c d&#7919; li&#7879;u sau&nbsp;:</P><blockquote>
+
+<B><PRE>int Available[NumResources];
+</B>/* Available[r]= s&#7889; l&#432;&#7907;ng các th&#7875; hi&#7879;n còn t&#7921; do c&#7911;a tài nguyên r*/
+<B>int Max[NumProcs, NumResources]; 
+</B>/*Max[p,r]= nhu c&#7847;u t&#7889;i &#273;a c&#7911;a ti&#7871;n trình p v&#7873; tài nguyên r*/
+<B>int Allocation[NumProcs, NumResources];
+</B>/* Allocation[p,r] = s&#7889; l&#432;&#7907;ng tài nguyên r th&#7921;c s&#7921; c&#7845;p phát cho p*/<B>
+int Need[NumProcs, NumResources];
+</B>/* Need[p,r] = Max[p,r] - Allocation[p,r]*/</PRE>
+<PRE>1.Gi&#7843; s&#7917; có các m&#7843;ng  </PRE>
+<blockquote>
+  <PRE>int Work[NumProcs, NumResources] = Available;
+int Finish[NumProcs] = false;</PRE>
+</blockquote>
+<PRE>2.Tìm  i sao cho </PRE>
+<blockquote>
+  <PRE>Finish[i] == false
+Need[i] &lt;= Work[i]
+N&#7871;u không có i nh&#432; th&#7871;, &#273;&#7871;n b&#432;&#7899;c 4.
+</PRE>
+</blockquote>
+<PRE>3. Work = Work + Allocation[i];
+   Finish[i] = true;
+   &#272;&#7871;n b&#432;&#7899;c 2
+</PRE>
+<PRE>4.N&#7871;u Finish[i] == true v&#7899;i m&#7885;i i, thì h&#7879; th&#7889;ng &#7903; tr&#7841;ng thái an toàn.</PRE>
+</blockquote>
+<PRE>
+<U><img border="0" src="images/more1.gif" width="14" height="14">Ví d&#7909;</U>&nbsp;: Gi&#7843; s&#7917;  tình tr&#7841;ng hi&#7879;n hành c&#7911;a h&#7879; th&#7889;ng <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c mô t&#7843; nh&#432; sau&nbsp;:</PRE>
+</blockquote>
+
+<CENTER><TABLE BORDER CELLSPACING=1 CELLPADDING=7 WIDTH=477>
+<TR><TD WIDTH="30%" VALIGN="TOP" COLSPAN=3 HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">Max</FONT></TD>
+<TD WIDTH="30%" VALIGN="TOP" COLSPAN=3 HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">Allocation</FONT></TD>
+<TD WIDTH="30%" VALIGN="TOP" COLSPAN=3 HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">Available</FONT></TD>
+</TR>
+<TR><TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R1</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R2</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R3</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R1</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R2</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R3</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R1</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R2</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R3</FONT></TD>
+</TR>
+<TR><TD WIDTH="11%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">P1</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">3</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">2</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">2</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">1</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+</TR>
+<TR><TD WIDTH="11%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">P2</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">6</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">1</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">3</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">2</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">1</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">1</FONT></TD>
+</TR>
+<TR><TD WIDTH="11%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">P3</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">3</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">1</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">4</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">2</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">1</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">1</FONT></TD>
+</TR>
+<TR><TD WIDTH="11%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">P4</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">4</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">2</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">2</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">2</FONT></TD>
+</TR>
+</TABLE>
+</CENTER>
+<blockquote>
+<P ALIGN="Justify">N&#7871;u ti&#7871;n trình P2 yêu c&#7847;u 4 cho R1, 1 cho R3. hãy cho bi&#7871;t yêu c&#7847;u này có th&#7875; &#273;áp &#7913;ng mà b&#7843;o &#273;&#7843;m không x&#7843;y ra tình tr&#7841;ng deadlock hay không&nbsp;?
+Nh&#7853;n th&#7845;y Available[1] =4, Available[3] =2 &#273;&#7911; &#273;&#7875; thõa mãn yêu c&#7847;u c&#7911;a P2, ta có
+</blockquote>
+<CENTER><TABLE BORDER CELLSPACING=1 CELLPADDING=7 WIDTH=477>
+<TR><TD WIDTH="30%" VALIGN="TOP" COLSPAN=3 HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">Need</FONT></TD>
+<TD WIDTH="30%" VALIGN="TOP" COLSPAN=3 HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">Allocation</FONT></TD>
+<TD WIDTH="30%" VALIGN="TOP" COLSPAN=3 HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">Available</FONT></TD>
+</TR>
+<TR><TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R1</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R2</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R3</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R1</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R2</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R3</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R1</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R2</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R3</FONT></TD>
+</TR>
+<TR><TD WIDTH="11%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">P1</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">2</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">2</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">2</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">1</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+</TR>
+<TR><TD WIDTH="11%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">P2</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">1</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">6</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">1</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">2</FONT></TD>
+</TR>
+<TR><TD WIDTH="11%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">P3</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">1</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">3</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">2</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">1</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">1</FONT></TD>
+</TR>
+<TR><TD WIDTH="11%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">P4</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">4</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">2</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">2</FONT></TD>
+</TR>
+</TABLE>
+</CENTER>
+
+<P ALIGN="CENTER"><CENTER><TABLE BORDER CELLSPACING=1 CELLPADDING=7 WIDTH=477>
+<TR><TD WIDTH="30%" VALIGN="TOP" COLSPAN=3 HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">Need</FONT></TD>
+<TD WIDTH="30%" VALIGN="TOP" COLSPAN=3 HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">Allocation</FONT></TD>
+<TD WIDTH="30%" VALIGN="TOP" COLSPAN=3 HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">Available</FONT></TD>
+</TR>
+<TR><TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R1</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R2</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R3</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R1</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R2</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R3</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R1</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R2</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R3</FONT></TD>
+</TR>
+<TR><TD WIDTH="11%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">P1</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">2</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">2</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">2</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">1</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+</TR>
+<TR><TD WIDTH="11%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">P2</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+</TR>
+<TR><TD WIDTH="11%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">P3</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">1</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">3</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">2</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">1</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">1</FONT></TD>
+</TR>
+<TR><TD WIDTH="11%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">P4</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">4</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">2</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">2</FONT></TD>
+</TR>
+</TABLE>
+</CENTER>
+
+<FONT SIZE=3></FONT>
+<P ALIGN="CENTER"><CENTER><TABLE BORDER CELLSPACING=1 CELLPADDING=7 WIDTH=477>
+<TR><TD WIDTH="30%" VALIGN="TOP" COLSPAN=3 HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">Need</FONT></TD>
+<TD WIDTH="30%" VALIGN="TOP" COLSPAN=3 HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">Allocation</FONT></TD>
+<TD WIDTH="30%" VALIGN="TOP" COLSPAN=3 HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">Available</FONT></TD>
+</TR>
+<TR><TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R1</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R2</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R3</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R1</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R2</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R3</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R1</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R2</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R3</FONT></TD>
+</TR>
+<TR><TD WIDTH="11%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">P1</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+</TR>
+<TR><TD WIDTH="11%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">P2</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+</TR>
+<TR><TD WIDTH="11%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">P3</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">1</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">3</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">2</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">1</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">1</FONT></TD>
+</TR>
+<TR><TD WIDTH="11%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">P4</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">4</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">2</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">2</FONT></TD>
+</TR>
+</TABLE>
+</CENTER>
+
+<FONT SIZE=3></FONT>
+<P ALIGN="CENTER"><CENTER><TABLE BORDER CELLSPACING=1 CELLPADDING=7 WIDTH=477>
+<TR><TD WIDTH="30%" VALIGN="TOP" COLSPAN=3 HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">Need</FONT></TD>
+<TD WIDTH="30%" VALIGN="TOP" COLSPAN=3 HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">Allocation</FONT></TD>
+<TD WIDTH="30%" VALIGN="TOP" COLSPAN=3 HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">Available</FONT></TD>
+</TR>
+<TR><TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R1</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R2</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R3</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R1</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R2</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R3</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R1</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R2</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R3</FONT></TD>
+</TR>
+<TR><TD WIDTH="11%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">P1</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+</TR>
+<TR><TD WIDTH="11%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">P2</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+</TR>
+<TR><TD WIDTH="11%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">P3</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+</TR>
+<TR><TD WIDTH="11%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">P4</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">4</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">2</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">2</FONT></TD>
+</TR>
+</TABLE>
+</CENTER>
+
+<FONT FACE="VNI-Times" SIZE=3></FONT>
+<P ALIGN="CENTER"><CENTER><TABLE BORDER CELLSPACING=1 CELLPADDING=7 WIDTH=477>
+<TR><TD WIDTH="30%" VALIGN="TOP" COLSPAN=3 HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">Need</FONT></TD>
+<TD WIDTH="30%" VALIGN="TOP" COLSPAN=3 HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">Allocation</FONT></TD>
+<TD WIDTH="30%" VALIGN="TOP" COLSPAN=3 HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">Available</FONT></TD>
+</TR>
+<TR><TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R1</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R2</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R3</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R1</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R2</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R3</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R1</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R2</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">R3</FONT></TD>
+</TR>
+<TR><TD WIDTH="11%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">P1</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+</TR>
+<TR><TD WIDTH="11%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">P2</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+</TR>
+<TR><TD WIDTH="11%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">P3</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+</TR>
+<TR><TD WIDTH="11%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">P4</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="10%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+</TR>
+</TABLE>
+</CENTER>
+<blockquote>
+
+<P>Tr&#7841;ng th&aacute;i k&#7871;t q&#7911;a l&agrave; an to&agrave;n, c&oacute; th&#7875; c&#7845;p ph&aacute;t. </P>
+
+<B>
+</blockquote>
+<P><FONT FACE="Times New Roman"><img border="0" src="images/bulletjock.gif" width="18" height="18"></font>Gi&#7843;i thu&#7853;t y&ecirc;u c&#7847;u t&agrave;i nguy&ecirc;n</P>
+</B>
+<blockquote>
+<P>Gi&#7843; s&#7917;  ti&#7871;n tr&igrave;nh Pi y&ecirc;u c&#7847;u <I>k</I>  th&#7875; hi&#7879;n c&#7911;a t&agrave;i nguy&ecirc;n <I>r</I>. </P><blockquote>
+1.N&#7871;u k &lt;= Need[i], &#273;&#7871;n b&#432;&#7899;c 2&nbsp;<br>
+&nbsp;&nbsp; Ng&#432;&#7907;c l&#7841;i, x&#7843;y ra tình hu&#7889;ng l&#7895;i&nbsp;
+<p>
+
+2.N&#7871;u k &lt;= Available[i],&#273;&#7871;n b&#432;&#7899;c 3&nbsp;<br>
+&nbsp;&nbsp; Ng&#432;&#7907;c l&#7841;i, Pi ph&#7843;i ch&#7901;&nbsp;</p>
+<p>
+
+3.Gi&#7843; s&#7917; h&#7879; th&#7889;ng &#273;ã c&#7845;p phát cho Pi các tài nguyên mà nó yêu c&#7847;u và c&#7853;p nh&#7853;t tình tr&#7841;ng h&#7879; th&#7889;ng nh&#432; sau:&nbsp;</p>
+<blockquote>
+  <blockquote>
+    <p>
+ 		Available[i] = Available[i] - k;&nbsp;<br>
+		Allocation[i]= Allocation[i]+ k;&nbsp;<br>
+		Need[i] = Need[i] - k;&nbsp;</p>
+  </blockquote>
+  <p>&nbsp;&nbsp;&nbsp; N&#7871;u tr&#7841;ng thái k&#7871;t qu&#7843; là an toàn, lúc này các tài nguyên trên s&#7869;      &#273;&#432;&#7907;c c&#7845;p phát th&#7853;t s&#7921; cho Pi&nbsp;</p>
+  <p>&nbsp;&nbsp;&nbsp; Ng&#432;&#7907;c l&#7841;i, Pi ph&#7843;i ch&#7901;
+<B></p>
+  </blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<P ALIGN="JUSTIFY" class="cap2"><a name="phathien"><img border="0" src="images/read_single.gif" width="15" height="12">
+ IV.7. Ph&aacute;t hi&#7879;n t&#7855;c ngh&#7869;n</a></P>
+</B>
+<blockquote>
+<P>C&#7847;n s&#7917; d&#7909;ng c&aacute;c c&#7845;u tr&uacute;c d&#7919; li&#7879;u sau&nbsp;:</P><blockquote>
+
+<B><PRE>int Available[NumResources];
+</B>// Available[r]= <FONT SIZE=1>s&#7889; l&#432;&#7907;ng các th&#7875; hi&#7879;n còn t&#7921; do c&#7911;a tài nguyên r
+</FONT><B>int Allocation[NumProcs, NumResources];</PRE>
+</B><FONT FACE="Courier New" SIZE=2><P>// Allocation[p,r] = </FONT><FONT FACE="Courier New" SIZE=1>s&#7889; l&#432;&#7907;ng t&agrave;i nguy&ecirc;n r th&#7921;c s&#7921; c&#7845;p ph&aacute;t cho p</P>
+</FONT><B><PRE>int Request[NumProcs, NumResources];
+</B>// Request[p,r] = <FONT SIZE=1>s&#7889; l&#432;&#7907;ng tài nguyên r ti&#7871;n trình p yêu c&#7847;u thêm
+</FONT></PRE></blockquote>
+
+<B><P><img border="0" src="images/bulletjock.gif" width="18" height="18">Gi&#7843;i thu&#7853;t ph&aacute;t hi&#7879;n t&#7855;c ngh&#7869;n</P></blockquote>
+
+</B><PRE>
+      1. int Work[NumResources] = Available;
+         int Finish[NumProcs];
+
+         for (i = 0; i &lt; NumProcs; i++)
+             Finish[i] = (Allocation[i] == 0);
+
+      2. Tìm  i sao cho 
+         Finish[i] == false
+         Request[i] &lt;= Work
+         N&#7871;u không có i nh&#432; th&#7871;, &#273;&#7871;n b&#432;&#7899;c 4.
+
+      3. Work = Work + Allocation[i];
+         Finish[i] = true; 
+         &#272;&#7871;n b&#432;&#7899;c 2
+
+      4. N&#7871;u Finish[i] == true v&#7899;i m&#7885;i i, 
+         thì h&#7879; th&#7889;ng không có t&#7855;c ngh&#7869;n
+         N&#7871;u Finish[i] == false v&#7899;i m&#7897;t s&#7889; giá tr&#7883; i, 
+         thì các ti&#7871;n trình   mà  Finish[i] == false s&#7869; &#7903; trong 
+         tình tr&#7841;ng t&#7855;c ngh&#7869;n.</PRE>
+
+<B><P ALIGN="JUSTIFY" class="cap2"><a name="hieuchinh"><img border="0" src="images/read_single.gif" width="15" height="12">
+ II.8. Hi&#7879;u ch&#7881;nh t&#7855;c ngh&#7869;n</a></P>
+
+</B>
+<blockquote>
+  <P>Khi <FONT FACE="Times New Roman">&#273;</FONT>&atilde; ph&aacute;t hi&#7879;n <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c t&#7855;c ngh&#7869;n, c&oacute; hai l&#7921;a ch&#7885;n ch&iacute;nh <FONT FACE="Times New Roman">&#273;&#7875; hi&#7879;u ch&#7881;nh t&#7855;c ngh&#7869;n&nbsp;:</P>
+
+<B><P><img border="0" src="images/bulletjock.gif" width="18" height="18">&#272;</FONT>&igrave;nh ch&#7881; ho&#7841;t <FONT FACE="Times New Roman">&#273;&#7897;ng c&#7911;a các ti&#7871;n tr</FONT>&igrave;nh li&ecirc;n quan</P>
+
+</B>
+  <blockquote>
+    <P>C&aacute;ch ti&#7871;p c&#7853;n n&agrave;y d&#7921;a tr&ecirc;n vi&#7879;c thu h&#7891;i l&#7841;i c&aacute;c t&agrave;i nguy&ecirc;n c&#7911;a nh&#7919;ng ti&#7871;n tr&igrave;nh b&#7883; k&#7871;t th&uacute;c. C&oacute; th&#7875; s&#7917; d&#7909;ng m&#7897;t trong hai ph&#432;&#417;ng ph&aacute;p sau&nbsp;:</P>
+
+<FONT FACE="Times New Roman">
+<blockquote>
+  <P><img border="0" src="images/red.gif" width="7" height="10">&#272;</FONT>&igrave;nh ch&#7881; t&#7845;t c&#7843; c&aacute;c ti&#7871;n tr&igrave;nh trong t&igrave;nh tr&#7841;ng t&#7855;c ngh&#7869;n&nbsp;</P>
+<FONT FACE="Times New Roman"><P><img border="0" src="images/red.gif" width="7" height="10">&#272;</FONT>&igrave;nh ch&#7881; t&#7915;ng ti&#7871;n tr&igrave;nh li&ecirc;n quan cho <FONT FACE="Times New Roman">&#273;&#7871;n khi không c</FONT>&ograve;n chu tr&igrave;nh g&acirc;y t&#7855;c ngh&#7869;n : <FONT FACE="Times New Roman">&#273;&#7875; ch&#7885;n &#273;</FONT>&#432;&#7907;c ti&#7871;n tr&igrave;nh th&iacute;ch h&#7907;p b&#7883; <FONT FACE="Times New Roman">&#273;</FONT>&igrave;nh ch&#7881;, ph&#7843;i d&#7921;a v&agrave;o c&aacute;c y&#7871;u t&#7889; nh&#432; <FONT FACE="Times New Roman">&#273;&#7897; </FONT>&#432;u ti&ecirc;n, th&#7901;i gian <FONT FACE="Times New Roman">&#273;</FONT>&atilde; x&#7917; l&yacute;, s&#7889; l&#432;&#7907;ng t&agrave;i nguy&ecirc;n <FONT FACE="Times New Roman">&#273;ang chi&#7871;m gi&#7919; , s&#7889; l</FONT>&#432;&#7907;ng t&agrave;i nguy&ecirc;n y&ecirc;u c&#7847;u...</P>
+    </blockquote>
+<B>
+    </blockquote>
+    <P> <FONT FACE="Times New Roman"><img border="0" src="images/bulletjock.gif" width="18" height="18"></FONT>Thu h&#7891;i t&agrave;i nguy&ecirc;n</P>
+</B><blockquote>
+
+<P>C&oacute; th&#7875; hi&#7879;u ch&#7881;nh t&#7855;c ngh&#7869;n b&#7857;ng c&aacute;ch thu h&#7891;i m&#7897;t s&#7889; t&agrave;i nguy&ecirc;n t&#7915; c&aacute;c ti&#7871;n tr&igrave;nh v&agrave; c&#7845;p ph&aacute;t c&aacute;c t&agrave;i nguy&ecirc;n n&agrave;y cho nh&#7919;ng ti&#7871;n tr&igrave;nh kh&aacute;c cho <FONT FACE="Times New Roman">&#273;&#7871;n khi lo&#7841;i b&#7887; &#273;</FONT>&#432;&#7907;c chu tr&igrave;nh t&#7855;c ngh&#7869;n. C&#7847;n gi&#7843;i quy&#7871;t 3 v&#7845;n <FONT FACE="Times New Roman">&#273;&#7873; sau:</P>
+</FONT>
+<blockquote>
+  <P><FONT FACE="Times New Roman"><img border="0" src="images/red.gif" width="7" height="10"></FONT>Ch&#7885;n l&#7921;a m&#7897;t n&#7841;n nh&acirc;n: ti&#7871;n tr&igrave;nh n&agrave;o s&#7869; b&#7883; thu h&#7891;i t&agrave;i nguy&ecirc;n&nbsp;? v&agrave; thu h&#7891;i nh&#7919;ng t&agrave;i nguy&ecirc;n n&agrave;o&nbsp;?</P>
+<P><FONT FACE="Times New Roman"><img border="0" src="images/red.gif" width="7" height="10"></FONT>Tr&#7903; l&#7841;i tr&#7841;ng th&aacute;i tr&#432;&#7899;c t&#7855;c ngh&#7869;n: khi thu h&#7891;i t&agrave;i nguy&ecirc;n c&#7911;a m&#7897;t ti&#7871;n tr&igrave;nh, c&#7847;n ph&#7843;i ph&#7909;c h&#7891;i tr&#7841;ng th&aacute;i c&#7911;a ti&#7871;n tr&igrave;nh tr&#7903; l&#7841;i tr&#7841;ng th&aacute;i g&#7847;n nh&#7845;t tr&#432;&#7899;c <FONT FACE="Times New Roman">&#273;ó m</FONT>&agrave; kh&ocirc;ng x&#7843;y ra t&#7855;c ngh&#7869;n.</P>
+<P><FONT FACE="Times New Roman"><img border="0" src="images/red.gif" width="7" height="10"></FONT>T&igrave;nh tr&#7841;ng «&nbsp;<FONT FACE="Times New Roman">&#273;ói t</FONT>&agrave;i nguy&ecirc;n&nbsp;»: l&agrave;m sao b&#7843;o <FONT FACE="Times New Roman">&#273;&#7843;m r&#7857;ng không có m&#7897;t ti&#7871;n tr</FONT>&igrave;nh lu&ocirc;n lu&ocirc;n b&#7883; thu h&#7891;i t&agrave;i nguy&ecirc;n&nbsp;?</P>
+
+</blockquote>
+  </blockquote>
+
+</blockquote>
+<P class="cap1"><a name="tomtat">V.Tóm t&#7855;t</a></P>
+<blockquote>
+
+<P><img border="0" src="images/rightarrow.gif" width="6" height="12"> C&aacute;c gi&#7843;i ph&aacute;p <FONT FACE="Times New Roman">&#273;&#7891;ng b&#7897; hoá do l&#7853;p tr</FONT>&igrave;nh vi&ecirc;n x&acirc;y d&#7921;ng kh&ocirc;ng <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c &#432;a chu&#7897;ng v&igrave; ph&#7843;i ti&ecirc;u th&#7909;  CPU trong th&#7901;i gian ch&#7901; v&agrave;o mi&#7873;n g<FONT FACE="Times New Roman">&#259;ng («&nbsp;busy waiting&nbsp;»), v</FONT>&agrave; kh&oacute; m&#7903; r&#7897;ng. Thay v&agrave;o <FONT FACE="Times New Roman">&#273;ó, l&#7853;p tr</FONT>&igrave;nh vi&ecirc;n c&oacute; th&#7875; s&#7917; d&#7909;ng c&aacute;c c&#417; ch&#7871; <FONT FACE="Times New Roman">&#273;&#7891;ng b&#7897; do h&#7879; &#273;i&#7873;u h</FONT>&agrave;nh hay tr&igrave;nh bi&ecirc;n d&#7883;ch tr&#7907; gi&uacute;p nh&#432; semaphore, monitor, trao <FONT FACE="Times New Roman">&#273;&#7893;i thông &#273;i&#7879;p .</P>
+</FONT><P> <FONT FACE="Times New Roman"><img border="0" src="images/rightarrow.gif" width="6" height="12">
+</font>T&#7855;c ngh&#7869;n l&agrave; t&igrave;nh tr&#7841;ng x&#7843;y ra trong m&#7897;t t&#7853;p c&aacute;c ti&#7871;n tr&igrave;nh n&#7871;u c&oacute; hai hay nhi&#7873;u h&#417;n c&aacute;c ti&#7871;n tr&igrave;nh ch&#7901; <FONT FACE="Times New Roman">&#273;&#7907;i vô h&#7841;n m&#7897;t s&#7921; ki&#7879;n ch&#7881; có th&#7875; &#273;</FONT>&#432;&#7907;c ph&aacute;t sinh b&#7903;i m&#7897;t ti&#7871;n tr&igrave;nh c&#361;ng <FONT FACE="Times New Roman">&#273;ang ch&#7901; khác trong t&#7853;p các ti&#7871;n tr</FONT>&igrave;nh n&agrave;y.</P>
+<P> <FONT FACE="Times New Roman"><img border="0" src="images/rightarrow.gif" width="6" height="12">
+</font>C&oacute; 3 h&#432;&#7899;ng ti&#7871;p c&#7853;n ch&iacute;nh trong x&#7917; l&yacute; t&#7855;c ngh&#7869;n : </P><blockquote>
+
+<I><P ALIGN="JUSTIFY"><img border="0" src="images/dotgreen.gif" width="9" height="9">Ph&ograve;ng tr&aacute;nh t&#7855;c ngh&#7869;n </I>: tu&acirc;n th&#7911; m&#7897;t v&agrave;i nghi th&#7913;c b&#7843;o <FONT FACE="Times New Roman">&#273;&#7843;m h&#7879; th&#7889;ng không  <BR>
+                                       bao gi&#7901; lâm v</FONT>&agrave;o tr&#7841;ng th&aacute;i t&#7855;c ngh&#7869;n.</P>
+<I><P ALIGN="JUSTIFY"> <FONT FACE="Times New Roman"><img border="0" src="images/dotgreen.gif" width="9" height="9"></font>Ph&aacute;t hi&#7879;n t&#7855;c ngh&#7869;n </I>: khi c&oacute; t&#7855;c ngh&#7869;n x&#7843;y ra, ph&aacute;t hi&#7879;n c&aacute;c ti&#7871;n tr&igrave;nh li&ecirc;n <BR>
+                                   quan v&agrave; t&igrave;m c&aacute;ch ph&#7909;c h&#7891;i.</P>
+<I><P ALIGN="JUSTIFY"> <FONT FACE="Times New Roman"><img border="0" src="images/dotgreen.gif" width="9" height="9"></font>B&#7887; qua t&#7855;c ngh&#7869;n </I>: xem nh&#432; h&#7879; th&#7889;ng kh&ocirc;ng bao gi&#7901; l&acirc;m v&agrave;o tr&#7841;ng th&aacute;i <BR>
+                                    t&#7855;c ngh&#7869;n.</P></blockquote>
+</blockquote>
+
+<P><a name="cauhoi"><img border="0" src="images/blebul1a.gif" width="20" height="20"> <b><font color="#FF0000" face="Times New Roman" size="4">C&#7911;ng
+c&#7889; bài h&#7885;c</font></b></a></P>
+<blockquote>
+<P>C&aacute;c c&acirc;u h&#7887;i c&#7847;n tr&#7843; l&#7901;i <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c sau b&agrave;i h&#7885;c n&agrave;y :</P><blockquote>
+
+<P>1. Ph&acirc;n bi&#7879;t nh&oacute;m gi&#7843;i ph&aacute;p busy waiting v&agrave; Sleep&amp;Wakeup</P>
+<P>2. Ph&acirc;n bi&#7879;t c&aacute;ch s&#7917; d&#7909;ng semaphore, monitor v&agrave; message <FONT FACE="Times New Roman">&#273;&#7875; &#273;&#7891;ng b&#7897; hoá.</P>
+</FONT><P>3. M&ocirc; h&igrave;nh gi&#7843;i quy&#7871;t nhu c&#7847;u <FONT FACE="Times New Roman">&#273;&#7897;c quy&#7873;n truy xu&#7845;t v</FONT>&agrave; m&ocirc; h&igrave;nh gia&#7881; quy&#7871;t nhu c&#7847;u ph&#7889;i h&#7907;p ho&#7841;t <FONT FACE="Times New Roman">&#273;&#7897;ng.
+
+</FONT></P>
+</blockquote>
+
+</blockquote>
+<P><a name="baitap"><img border="0" src="images/blebul1a.gif" width="20" height="20"> <b><font color="#FF0000" face="Times New Roman" size="4">Bài
+t&#7853;p</font></b></a></P>
+<blockquote>
+
+<P><b><img border="0" src="images/help.gif" width="16" height="16"> Bài 1.</b> X&eacute;t gi&#7843;i ph&aacute;p ph&#7847;n m&#7873;m do Dekker <FONT FACE="Times New Roman">&#273;&#7873; ngh&#7883; &#273;&#7875; t&#7893; ch&#7913;c truy x&#7845;t &#273;&#7897;c quy&#7873;n cho hai ti&#7871;n tr</FONT>&igrave;nh . Hai ti&#7871;n tr&igrave;nh P<SUB>0</SUB>, P<SUB>1</SUB> chia s&#7867; c&aacute;c bi&#7871;n sau :</P><blockquote>
+
+<FONT FACE="Courier New" SIZE=2><P>var flag : array [0..1] of boolean; </FONT><FONT SIZE=2>(kh&#7903;i </FONT><FONT FACE="Times New Roman" SIZE=2>&#273;&#7897;ng l</FONT><FONT SIZE=2>&agrave; false)</P>
+</FONT><FONT FACE="Courier New" SIZE=2><P>&#9;turn : 0..1;</P>
+</FONT></blockquote>
+
+  <P>C&#7845;u tr&uacute;c m&#7897;t ti&#7871;n tr&igrave;nh  Pi ( i =0 hay 1, v&agrave; j l&agrave; ti&#7871;n tr&igrave;nh c&ograve;n l&#7841;i ) nh&#432; sau :</P>
+
+</font>
+<blockquote>
+  <P><font face="Courier New" size="2">repeat</font></P><blockquote>
+
+<P><font face="Courier New" size="2">flag[i] := true;</font></P>
+<P><font face="Courier New" size="2">while flag[j] do</font> </P>
+<P><font face="Courier New" size="2">&nbsp;&nbsp;&nbsp; if turn = j then</font></P>
+<blockquote>
+<P><font face="Courier New" size="2">begin&nbsp;</font>  </P>
+  <blockquote>
+<P><font face="Courier New" size="2">flag[i]:= false;<br>
+while turn = j do ;<br>
+flag[i]:= true;</font>  </P>
+  </blockquote>
+<P><font face="Courier New" size="2">end;</font></P>
+</blockquote>
+<P><font face="Courier New" size="2">&nbsp;&nbsp;&nbsp; critical_section();</font></P>
+<P><font face="Courier New" size="2">&nbsp;&nbsp;&nbsp; turn:= j;</font>  </P>
+<P><font face="Courier New" size="2">flag[i]:= false;</font> </P>
+<P><font face="Courier New" size="2">non_critical_section();</font></P></blockquote>
+
+<P><font face="Courier New" size="2">until <I>false</I>;</font></P>
+
+ <FONT FACE="Times New Roman"><P>Gi&#7843;i ph&aacute;p n&agrave;y c&oacute; ph&#7843;i l&agrave; m&#7897;t gi&#7843;i ph&aacute;p <FONT FACE="Times New Roman">&#273;úng th&#7887;a m</FONT>&atilde;n 4 y&ecirc;u c&#7847;u kh&ocirc;ng ?</P>
+  </blockquote>
+
+<P> <FONT FACE="Times New Roman"><b><img border="0" src="images/help.gif" width="16" height="16">
+Bài 2.</b></font>X&eacute;t gi&#7843;i ph&aacute;p ph&#7847;n m&#7873;m do Eisenberg v&agrave; McGuire <FONT FACE="Times New Roman">&#273;&#7873; ngh&#7883; &#273;&#7875; t&#7893; ch&#7913;c truy x&#7845;t &#273;&#7897;c quy&#7873;n cho N ti&#7871;n tr</FONT>&igrave;nh . C&aacute;c ti&#7871;n tr&igrave;nh  chia s&#7867; c&aacute;c bi&#7871;n sau :</P><blockquote>
+
+<FONT FACE="Courier New" SIZE=2><P>var&#9;flag : array [0..N-1] of (idle, want-in, in-cs);</P>
+<P>&#9;turn : 0..N-1;</P>
+</FONT></blockquote>
+
+  <P>T&#7845;t c&#7843; c&aacute;c ph&#7847;n t&#7917; c&#7911;a m&#7843;ng <I>flag</I> <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c kh&#7903;i <FONT FACE="Times New Roman">&#273;&#7897;ng l</FONT>&agrave; <I>idle</I>, <I>turn</I> <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c kh&#7903;i g&aacute;n m&#7897;t trong nh&#7919;ng gi&aacute; tr&#7883; t&#7915; 0..N-1</P>
+<P>C&#7845;u tr&uacute;c m&#7897;t ti&#7871;n tr&igrave;nh  Pi  nh&#432; sau :</P>
+
+<FONT FACE="Courier New" SIZE=2><P>repeat</P><blockquote>
+
+<P>repeat</P>
+<P>flag[i] := want-in;</P>
+<P>j := turn;</P>
+<P>while j&lt;&gt;i do </P>
+<P>      if flag[j]&lt;&gt; idle  then&#9;&#9;j:= turn</P>
+<P>      else&#9;&#9;&#9;&#9;    &#9;j:= j+1 mod n;&#9;</P>
+<P>flag[i]:= in-cs;</P>
+<P>j:=0;</P>
+<P>     while ( j&lt;N) and ( j = i or flag[j] &lt;&gt; in-cs) do&#9;j:=j+1;</P>
+<P>until ( j&gt;=N) and ( turn =i or flag[turn] = idle);</P>
+<P>turn := i;</P>
+<P>&#9;critical_section();</P>
+<P>j:= turn + 1 mod N;</P>
+<P>while (flag[j]= idle) do j := j+1 mod N;</P>
+<P>turn := j;</P>
+<P>flag[i]:= idle;</P>
+<P>non_critical_section();</P></blockquote>
+
+<P>until <I>false</I>;</P>
+
+</FONT><P>Gi&#7843;i ph&aacute;p n&agrave;y c&oacute; ph&#7843;i l&agrave; m&#7897;t gi&#7843;i ph&aacute;p <FONT FACE="Times New Roman">&#273;úng th&#7887;a m</FONT>&atilde;n 4 y&ecirc;u c&#7847;u kh&ocirc;ng ?</P>
+
+<P ALIGN="JUSTIFY"> <FONT FACE="Times New Roman"><b><img border="0" src="images/help.gif" width="16" height="16">
+ Bài 3.</b></font>X&eacute;t gi&#7843;i ph&aacute;p <FONT FACE="Times New Roman">&#273;&#7891;ng b&#7897; hoá sau :</P><blockquote>
+<DIR>
+<DIR>
+<DIR>
+
+</FONT><FONT FACE="Courier New" SIZE=2><P ALIGN="JUSTIFY">while (TRUE) {</P>
+<P ALIGN="JUSTIFY">int j = 1-i;</P>
+<P ALIGN="JUSTIFY">flag[i]= TRUE;&#9; turn = i;</P>
+<P ALIGN="JUSTIFY">while (turn&nbsp;== j &amp;&amp; flag[j]==TRUE); </P>
+<B><P ALIGN="JUSTIFY">critical-section ();</P>
+</B><P ALIGN="JUSTIFY">flag[i] = FALSE<B>;</P>
+</B><P ALIGN="JUSTIFY">    Noncritical-section ();</P>
+<P ALIGN="JUSTIFY">}</P></DIR>
+</DIR>
+</DIR>
+</blockquote>
+
+</FONT><P ALIGN="JUSTIFY"><FONT FACE="Times New Roman">&#272;ây có ph&#7843;i l</FONT>&agrave; m&#7897;t gi&#7843;i ph&aacute;p b&#7843;o <FONT FACE="Times New Roman">&#273;&#7843;m &#273;</FONT>&#432;&#7907;c <FONT FACE="Times New Roman">&#273;&#7897;c quy&#7873;n truy xu&#7845;t không ?</P>
+
+</FONT><P> <FONT FACE="Times New Roman"><b><img border="0" src="images/help.gif" width="16" height="16">
+Bài 4.</b></font>Gi&#7843; s&#7917; m&#7897;t m&aacute;y t&iacute;nh kh&ocirc;ng c&oacute; ch&#7881; th&#7883;  TSL, nh&#432;ng c&oacute; ch&#7881; th&#7883; Swap c&oacute; kh&#7843; n<FONT FACE="Times New Roman">&#259;ng hoán &#273;&#7893;i n&#7897;i dung c&#7911;a hai t&#7915; nh&#7899; ch&#7881; b&#7857;ng m&#7897;t thao tác không th&#7875; phân chia :</P><blockquote>
+
+</FONT><FONT FACE="Courier New" SIZE=2><P>procedure Swap() var a,b: boolean);</P>
+<P>var &#9;temp : boolean;</P>
+<P>begin</P>
+<P>&#9;temp := a;</P>
+<P>&#9;a:= b;</P>
+<P>&#9;b:= temp;</P>
+<P>end;</P>
+
+</FONT>
+</blockquote>
+
+  <P ALIGN="JUSTIFY">S&#7917; d&#7909;ng ch&#7881; th&#7883; n&agrave;y c&oacute; th&#7875; t&#7893; ch&#7913;c truy xu&#7845;t <FONT FACE="Times New Roman">&#273;&#7897;c quy&#7873;n không ? N&#7871;u có xây d&#7921;ng c&#7845;u trúc ch</FONT>&#432;&#417;ng tr&igrave;nh t&#432;&#417;ng &#7913;ng.</P>
+
+<P> <FONT FACE="Times New Roman"><b><img border="0" src="images/help.gif" width="16" height="16">
+ Bài 5.</b></font>Ch&#7913;ng t&#7887; r&#7857;ng n&#7871;u c&aacute;c primitive Down v&agrave; Up tr&ecirc;n semaphore kh&ocirc;ng th&#7921;c hi&#7879;n m&#7897;t c&aacute;ch kh&ocirc;ng th&#7875; ph&acirc;n chia, th&igrave; s&#7921; truy xu&#7845;t <FONT FACE="Times New Roman">&#273;&#7897;c quy&#7873;n s&#7869; b&#7883; vi ph&#7841;m.</P>
+</FONT><P ALIGN="JUSTIFY"> <FONT FACE="Times New Roman"><b><img border="0" src="images/help.gif" width="16" height="16">
+Bài 6.</b></font>S&#7917; d&#7909;ng semaphore <FONT FACE="Times New Roman">&#273;&#7875; c</FONT>&agrave;i <FONT FACE="Times New Roman">&#273;&#7863;t c</FONT>&#417; ch&#7871; monitor.</P>
+<P ALIGN="JUSTIFY"> <FONT FACE="Times New Roman"><b><img border="0" src="images/help.gif" width="16" height="16">
+Bài 7.</b></font>X&eacute;t hai ti&#7871;n tr&igrave;nh sau :</P>
+</blockquote>
+
+<blockquote>
+
+<FONT FACE="Courier New" SIZE=2><P>process A</P><blockquote>
+
+<P>{  while (TRUE)</P>
+<P>na = na +1;</P>
+<P>}</P>
+<P>process B</P>
+<P>{&#9;while (TRUE)</P><DIR>
+
+<P>nb = nb +1;</P></DIR>
+</blockquote>
+</blockquote>
+
+<P>      }</P><blockquote>
+<blockquote>
+
+</FONT><FONT FACE="Times New Roman"><P>a)&#272;&#7891;ng b&#7897; hoá x&#7917; lý c&#7911;a hai ti&#7871;n tr</FONT>&igrave;nh tr&ecirc;n, s&#7917; d&#7909;ng hai semaphore t&#7893;ng qu&aacute;t, sao cho t&#7841;i b&#7845;t k&#7923; th&#7901;i <FONT FACE="Times New Roman">&#273;i&#7875;m n</FONT>&agrave;o c&#361;ng c&oacute;  <I>nb &lt; na &lt;= nb +10</P>
+</I><P ALIGN="JUSTIFY">b)N&#7871;u gi&#7843;m <FONT FACE="Times New Roman">&#273;i&#7873;u ki&#7879;n ch&#7881; l</FONT>&agrave; <I>na &lt;=  nb +10</I>, gi&#7843;i ph&aacute;p c&#7911;a b&#7841;n s&#7869; <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c s&#7917;a ch&#7919;a nh&#432; th&#7871; n&agrave;o ?</P>
+<P ALIGN="JUSTIFY">c)Gi&#7843;i ph&aacute;p c&#7911;a b&#7841;n c&oacute; c&ograve;n <FONT FACE="Times New Roman">&#273;úng n&#7871;u có nhi&#7873;u ti&#7871;n tr</FONT>&igrave;nh lo&#7841;i A v&agrave; B c&ugrave;ng th&#7921;c hi&#7879;n?</P></blockquote>
+
+<P ALIGN="JUSTIFY"> <FONT FACE="Times New Roman"><b><img border="0" src="images/help.gif" width="16" height="16">
+Bài 8.</b></font>M&#7897;t bi&#7871;n X <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c chia s&#7867; b&#7903;i hai ti&#7871;n tr&igrave;nh c&ugrave;ng th&#7921;c hi&#7879;n <FONT FACE="Times New Roman">&#273;o&#7841;n code sau :</P><blockquote>
+
+</FONT><FONT FACE="Courier New" SIZE=2><P>do</P>
+<P>&nbsp;
+
+</FONT></font><FONT FACE="Courier New" SIZE=2>
+
+ <FONT FACE="Times New Roman">X = X +1;</P>
+<P>&nbsp;&nbsp;&nbsp;</font>
+
+</FONT>
+
+ <FONT FACE="Times New Roman"><FONT FACE="Courier New" SIZE=2>if ( X == 20) X = 0;</P></blockquote>
+
+</FONT><P><FONT FACE="Courier New" SIZE=2>&nbsp;&nbsp;&nbsp;
+</FONT></font><font face="Courier New" size="2"> </font>
+
+ <FONT FACE="Times New Roman"><FONT FACE="Courier New" SIZE=2>while ( TRUE );</P>
+</FONT><P ALIGN="JUSTIFY">B&#7855;t <FONT FACE="Times New Roman">&#273;&#7847;u v&#7899;i giá tr&#7883; X = 0, ch&#7913;ng t&#7887; r&#7857;ng giá tr&#7883; X có th&#7875; v</FONT>&#432;&#7907;t qu&aacute; 20. C&#7847;n s&#7917;a ch&#7919;a <FONT FACE="Times New Roman">&#273;o&#7841;n ch</FONT>&#432;&#417;ng tr&igrave;nh tr&ecirc;n nh&#432; th&#7871; n&agrave;o <FONT FACE="Times New Roman">&#273;&#7875; b&#7843;o &#273;&#7843;m X không v</FONT>&#432;&#7907;t qu&aacute; 20 ?</P>
+
+<P ALIGN="JUSTIFY"> <FONT FACE="Times New Roman"><b><img border="0" src="images/help.gif" width="16" height="16">
+ Bài 9.</b></font>X&eacute;t hai ti&#7871;n tr&igrave;nh x&#7917; l&yacute; <FONT FACE="Times New Roman">&#273;o&#7841;n ch</FONT>&#432;&#417;ng tr&igrave;nh sau :</P><blockquote>
+
+<FONT FACE="Courier New" SIZE=2><P>process P<SUB>1</SUB> { A<SUB>1</SUB> ; A<SUB>2 </SUB>} &#9;&#9;&#9;process P<SUB>2</SUB> { B<SUB>1</SUB> ; B<SUB>2 </SUB>}</P></blockquote>
+
+</FONT><FONT FACE="Times New Roman"><P>&#272;&#7891;ng b&#7897; hoá ho&#7841;t &#273;&#7897;ng c&#7911;a hai ti&#7871;n tr</FONT>&igrave;nh n&agrave;y sao cho c&#7843; <FONT FACE="Courier New" SIZE=2>A<SUB>1</SUB></FONT> v&agrave; <FONT FACE="Courier New" SIZE=2>B<SUB>1 </SUB></FONT><FONT FACE="Times New Roman">&#273;&#7873;u ho</FONT>&agrave;n t&#7845;t tr&#432;&#7899;c khi <FONT FACE="Courier New" SIZE=2>A<SUB>2</SUB> </FONT>hay <FONT FACE="Courier New" SIZE=2>B<SUB>2</SUB></FONT> b&#7855;t <FONT FACE="Times New Roman">&#273;&#7847;u .</P>
+
+</FONT><P ALIGN="JUSTIFY"> <FONT FACE="Times New Roman"><b><img border="0" src="images/help.gif" width="16" height="16">
+Bài 10.</b></font>T&#7893;ng qu&aacute;t ho&aacute; c&acirc;u h&#7887;i 8) cho c&aacute;c ti&#7871;n tr&igrave;nh x&#7917; l&yacute; <FONT FACE="Times New Roman">&#273;o&#7841;n ch</FONT>&#432;&#417;ng tr&igrave;nh sau :</P><blockquote>
+
+<FONT FACE="Courier New" SIZE=2><P>process P<SUB>1</SUB> { for ( i = 1; i &lt;= 100; i ++) Ai } &#9;</P>
+<P>process P<SUB>2</SUB> { for ( j = 1; j &lt;= 100; j ++) Bj } &#9;&#9;&#9;</P></blockquote>
+
+</FONT><FONT FACE="Times New Roman"><P>&#272;&#7891;ng b&#7897; hoá ho&#7841;t &#273;&#7897;ng c&#7911;a hai ti&#7871;n tr</FONT>&igrave;nh n&agrave;y sao cho c&#7843; v&#7899;i <I>k </I> b&#7845;t k&#7923; ( 2 <FONT FACE="Symbol">&#163;</FONT>
+ k <FONT FACE="Symbol">&#163;</FONT>
+ 100), <FONT FACE="Courier New" SIZE=2>Ak<SUB> </SUB></FONT>ch&#7881; c&oacute; th&#7875; b&#7855;t <FONT FACE="Times New Roman">&#273;&#7847;u khi </FONT><FONT FACE="Courier New" SIZE=2>B<SUB>(k-1) </SUB></FONT><FONT FACE="Times New Roman">&#273;</FONT>&atilde; k&#7871;t th&uacute;c, v&agrave; <FONT FACE="Courier New" SIZE=2>Bk<SUB> </SUB></FONT>ch&#7881; c&oacute; th&#7875; b&#7855;t <FONT FACE="Times New Roman">&#273;&#7847;u khi </FONT><FONT FACE="Courier New" SIZE=2>A<SUB>(k-1) </SUB></FONT><FONT FACE="Times New Roman">&#273;</FONT>&atilde; k&#7871;t th&uacute;c.</P>
+<P> <FONT FACE="Times New Roman"><b><img border="0" src="images/help.gif" width="16" height="16">
+Bài 11.</b></font>S&#7917; d&#7909;ng semaphore <FONT FACE="Times New Roman">&#273;&#7875; vi&#7871;t l&#7841;i ch</FONT>&#432;&#417;ng tr&igrave;nh sau theo m&ocirc; h&igrave;nh x&#7917; l&yacute; <FONT FACE="Times New Roman">&#273;&#7891;ng h</FONT>&agrave;nh:</P><blockquote>
+
+<PRE>	w := x1 * x2
+  	v := x3 * x4
+	y := v * x5
+	z := v * x6
+	y := w * y
+	z := w * z
+	ans := y + z</PRE></blockquote>
+
+<P ALIGN="JUSTIFY"> <FONT FACE="Times New Roman"><b><img border="0" src="images/help.gif" width="16" height="16">
+Bài 12.</b></font>X&acirc;y d&#7921;ng m&#7897;t gi&#7843;i ph&aacute;p ( s&#7917; d&#7909;ng semaphore ) <FONT FACE="Times New Roman">&#273;&#7875; gi&#7843;i quy&#7871;t v&#7845;n &#273;&#7873; Readers_Writers trong &#273;ó :</P><blockquote>
+
+</FONT><P ALIGN="JUSTIFY">a) Readers <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c &#432;u ti&ecirc;n ( khi kh&ocirc;ng c&oacute; ai truy xu&#7845;t database, Reader <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c &#432;u ti&ecirc;n truy c&#7853;p database ngay,  Writer ph&#7843;i <FONT FACE="Times New Roman">&#273;&#7907;i t&#7845;t c&#7843; các Reader truy xu&#7845;t xong m&#7899;i &#273;</FONT>&#432;&#7907;c v&agrave;o database)</P>
+<P ALIGN="JUSTIFY">b) Writers <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c &#432;u ti&ecirc;n ( khi kh&ocirc;ng c&oacute; ai truy xu&#7845;t database, Writer <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c &#432;u ti&ecirc;n truy c&#7853;p database ngay,  Reader ph&#7843;i <FONT FACE="Times New Roman">&#273;&#7907;i t&#7845;t c&#7843; các Write truy xu&#7845;t xong m&#7899;i &#273;</FONT>&#432;&#7907;c v&agrave;o database)</P>
+<P ALIGN="JUSTIFY">c) C&ocirc;ng b&#7857;ng cho Reader, Writer  ( khi kh&ocirc;ng c&oacute; ai truy xu&#7845;t database, Writer ho&#7863;c Reader c&oacute; c&#417; h&#7897;i ngang nhau <FONT FACE="Times New Roman">&#273;&#7875; truy c&#7853;p database)</P></blockquote>
+
+</FONT><P ALIGN="JUSTIFY"> <FONT FACE="Times New Roman"><b><img border="0" src="images/help.gif" width="16" height="16">
+Bài 13.</b></font><U>Dining Philosophers</U> : Gi&#7843; s&#7917; h&agrave;nh vi c&#7911;a m&#7897;t tri&#7871;t gia th&#7913; <I>i </I>trong b&#7919;a <FONT FACE="Times New Roman">&#259;n t&#7889;i &#273;</FONT>&#432;&#7907;c m&ocirc; t&#7843; nh&#432; sau :</P><blockquote>
+
+<FONT FACE="Courier New" SIZE=2><P>#define &#9;N &#9;&#9;5</P>
+<P>void philosopher( int i)</P>
+<P>{&#9;while (TRUE)</P>
+<P>{ think(); </FONT><FONT SIZE=2>// Suy ngh&#297;</P><blockquote>
+<blockquote>
+
+</FONT><FONT FACE="Courier New" SIZE=2><P>take_fork(i);</FONT><FONT SIZE=2>  // l&#7845;y n&#297;a b&ecirc;n tr&aacute;i</P>
+</FONT><FONT FACE="Courier New" SIZE=2><P>take_fork((i+1)%N);</FONT><FONT SIZE=2> 
+// l&#7845;y n&#297;a b&ecirc;n ph&#7843;i</P>
+</FONT><FONT FACE="Courier New" SIZE=2><P>eat();&#9;&#9;&#9;</FONT><FONT SIZE=2>// yum-yum, spaghetti</P>
+</FONT><FONT FACE="Courier New" SIZE=2><P>put_fork(i);</FONT><FONT SIZE=2> &#9;&#9;// </FONT><FONT FACE="Times New Roman" SIZE=2>&#273;&#7863;t  n&#297;a b</FONT><FONT SIZE=2>&ecirc;n tr&aacute;i l&ecirc;n b&agrave;n l&#7841;i</P>
+</FONT><FONT FACE="Courier New" SIZE=2><P>put_fork((i+1)%N);</FONT><FONT SIZE=2> &#9;// </FONT><FONT FACE="Times New Roman" SIZE=2>&#273;&#7863;t  n&#297;a b</FONT><FONT SIZE=2>&ecirc;n ph&#7843;i l&ecirc;n b&agrave;n l&#7841;i</P></blockquote>
+</blockquote>
+
+</FONT><FONT FACE="Courier New" SIZE=2><P>}</P>
+<P>}</P>
+
+</FONT><P ALIGN="JUSTIFY">a) L&#432;u &yacute; l&agrave; tr&ecirc;n b&agrave;n ch&#7881; c&oacute; 5 c&aacute;i n&#297;a, v&agrave; n&#7871;u c&oacute; 2 tri&#7871;t gia c&ugrave;ng mu&#7889;n l&#7845;y m&#7897;t c&aacute;i n&#297;a, th&igrave; ch&#7881; m&#7897;t ng&#432;&#7901;i <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c quy&#7873;n l&#7845;y c&aacute;i n&#297;a <FONT FACE="Times New Roman">&#273;ó. S&#7917; d&#7909;ng semaphore &#273;&#7875; t&#7893; ch&#7913;c &#273;&#7897;c quy&#7873;n truy xu&#7845;t &#273;&#7871;n các cái n&#297;a cho &#273;o&#7841;n ch</FONT>&#432;&#417;ng tr&igrave;nh tr&ecirc;n ( <U>G&#7907;i &yacute;</U> : d&ugrave;ng m&#7895;i semaphore ph&#7843;n &aacute;nh t&igrave;nh tr&#7841;ng s&#7917; d&#7909;ng c&#7911;a m&#7895;i c&aacute;i n&#297;a)</P>
+<P ALIGN="JUSTIFY">b) Li&#7879;u gi&#7843;i ph&aacute;p c&#7911;a c&acirc;u a) c&oacute; l&agrave; m&#7897;t gi&#7843;i ph&aacute;p t&#7889;t cho b&agrave;i to&aacute;n Dining philosopher?N&#7871;u kh&ocirc;ng, cho bi&#7871;t c&aacute;c t&igrave;nh hu&#7889;ng l&#7895;i s&#7869; x&#7843;y ra, v&agrave; <FONT FACE="Times New Roman">&#273;&#7873; ngh&#7883; ph</FONT>&#432;&#417;ng ph&aacute;p c&#7843;i ti&#7871;n.</P></blockquote>
+
+<P ALIGN="JUSTIFY"> <FONT FACE="Times New Roman"><b><img border="0" src="images/help.gif" width="16" height="16">
+Bài 14.</b></font>X&eacute;t m&#7897;t gi&#7843;i ph&aacute;p <FONT FACE="Times New Roman">&#273;úng cho b</FONT>&agrave;i to&aacute;n Dining philosophers :</P><blockquote>
+
+<FONT FACE="Courier New" SIZE=2>
+<PRE>
+#define	N 		5
+#define	LEFT		(i-1)%N
+#define	RIGHT		(i+1)%N
+#define	THINKING	0
+#define	HUNGRY	1
+#define	EATING	2
+int		state[N];
+semaphore	mutex = 1;
+semaphore	s[N];
+void philosopher( int i) </FONT><FONT SIZE=2>// i : xác </FONT><FONT FACE="Times New Roman" SIZE=2>&#273;&#7883;nh tri&#7871;t gia n</FONT><FONT SIZE=2>ào (0..N-1)</FONT></pre>
+<PRE><FONT FACE="Courier New" SIZE=2>{</pre>
+<P>while (TRUE)</P>
+<P>{ thinhk(); </FONT><FONT SIZE=2>// Suy ngh&#297;</P><blockquote>
+<blockquote>
+
+</FONT><FONT FACE="Courier New" SIZE=2><P>take_forks(i);</FONT><FONT SIZE=2>  // y&ecirc;u c&#7847;u </FONT><FONT FACE="Times New Roman" SIZE=2>&#273;&#7871;n khi có &#273;&#7911; 2 n&#297;a </P>
+</FONT><FONT FACE="Courier New" SIZE=2><P>eat();&#9;&#9;&#9;</FONT><FONT SIZE=2>// yum-yum, spaghetti</P>
+</FONT><FONT FACE="Courier New" SIZE=2><P>put_forks(i);</FONT><FONT SIZE=2> &#9;&#9;// </FONT><FONT FACE="Times New Roman" SIZE=2>&#273;&#7863;t  c&#7843; 2 n&#297;a  l</FONT><FONT SIZE=2>&ecirc;n b&agrave;n l&#7841;i</P></blockquote>
+</blockquote>
+
+</FONT><FONT FACE="Courier New" SIZE=2><P>}</P></blockquote>
+</blockquote>
+
+<B><P ALIGN="CENTER">}</P><blockquote>
+<blockquote>
+
+</B><P>void take_forks ( int i)</FONT><FONT SIZE=2> &#9;&#9;// i : x&aacute;c </FONT><FONT FACE="Times New Roman" SIZE=2>&#273;&#7883;nh tri&#7871;t gia n</FONT><FONT SIZE=2>&agrave;o (0..N-1)</P>
+</FONT><FONT FACE="Courier New" SIZE=2><P>{</P>
+<P>while (TRUE)</P>
+<P>{ down(mutex); </FONT><FONT SIZE=2>// v&agrave;o mi&#7873;n g</FONT><FONT FACE="Times New Roman" SIZE=2>&#259;ng</P><blockquote>
+<blockquote>
+
+</FONT><FONT FACE="Courier New" SIZE=2><P>state[i] = HUNGRY;</FONT><FONT SIZE=2>
+// ghi nh&#7853;n tri&#7871;t gia <I>i</I> </FONT><FONT FACE="Times New Roman" SIZE=2>&#273;</FONT><FONT SIZE=2>&atilde; </FONT><FONT FACE="Times New Roman" SIZE=2>&#273;ói </P>
+</FONT><FONT FACE="Courier New" SIZE=2><P>test(i); </FONT><FONT SIZE=2>// c&#7889; g&#7855;ng l&#7845;y 2 n&#297;a</P>
+</FONT><FONT FACE="Courier New" SIZE=2><P>up(mutex); </FONT><FONT SIZE=2> // ra kh&#7887;i mi&#7873;n g</FONT><FONT FACE="Times New Roman" SIZE=2>&#259;ng</P>
+</FONT><FONT FACE="Courier New" SIZE=2><P>down(s[i]);</FONT><FONT SIZE=2>  // ch&#7901; n&#7871;u kh&ocirc;ng c&oacute; </FONT><FONT FACE="Times New Roman" SIZE=2>&#273;&#7911; 2 n&#297;a</P></blockquote>
+</blockquote>
+
+</FONT><FONT FACE="Courier New" SIZE=2><P>}</P></FONT></font><P><font face="Courier New" size="2">}</font></P></blockquote>
+</blockquote>
+
+ <FONT FACE="Times New Roman"><FONT FACE="Courier New" SIZE=2>
+
+<B><P ALIGN="left">}</P><blockquote>
+<blockquote>
+
+</B><P>void put_forks ( int i)</FONT><FONT SIZE=2>  // i : x&aacute;c </FONT><FONT FACE="Times New Roman" SIZE=2>&#273;&#7883;nh tri&#7871;t gia n</FONT><FONT SIZE=2>&agrave;o (0..N-1)</P>
+</FONT><FONT FACE="Courier New" SIZE=2><P>{</P>
+<P>while (TRUE)</P>
+<P>{ down(mutex); </FONT><FONT SIZE=2>// v&agrave;o mi&#7873;n g</FONT><FONT FACE="Times New Roman" SIZE=2>&#259;ng</P><blockquote>
+<blockquote>
+
+</FONT><FONT FACE="Courier New" SIZE=2><P>state[i] = THINKING;</FONT><FONT SIZE=2>
+// ghi nh&#7853;n tri&#7871;t gia <I>i</I> </FONT><FONT FACE="Times New Roman" SIZE=2>&#259;n xong</P>
+</FONT><FONT FACE="Courier New" SIZE=2><P>test(LEFT); </FONT><FONT SIZE=2>// ki&#7875;m tra ng&#432;&#7901;i b&ecirc;n tr&aacute;i </FONT><FONT FACE="Times New Roman" SIZE=2>&#273;</FONT><FONT SIZE=2>&atilde; c&oacute; th&#7875; </FONT><FONT FACE="Times New Roman" SIZE=2>&#259;n? </P>
+</FONT><FONT FACE="Courier New" SIZE=2><P>test(RIGHT); </FONT><FONT SIZE=2>// ki&#7875;m tra ng&#432;&#7901;i b&ecirc;n ph&#7843;i </FONT><FONT FACE="Times New Roman" SIZE=2>&#273;</FONT><FONT SIZE=2>&atilde; c&oacute; th&#7875; </FONT><FONT FACE="Times New Roman" SIZE=2>&#259;n? </P>
+</FONT><FONT FACE="Courier New" SIZE=2><P>up(mutex); </FONT><FONT SIZE=2> // ra kh&#7887;i mi&#7873;n g</FONT><FONT FACE="Times New Roman" SIZE=2>&#259;ng</P></DIR>
+</DIR>
+
+</FONT><FONT FACE="Courier New" SIZE=2><P>}</P></blockquote>
+</blockquote>
+
+<B><P ALIGN="CENTER">}</P>
+</B><P>void test ( int i)</FONT><FONT SIZE=2>  // i : x&aacute;c </FONT><FONT FACE="Times New Roman" SIZE=2>&#273;&#7883;nh tri&#7871;t gia n</FONT><FONT SIZE=2>&agrave;o (0..N-1)</P>
+</FONT><FONT FACE="Courier New" SIZE=2><P>{</P>
+<P>if(state[i]==HUNGRY &amp;&amp; state[LEFT]!=EATING </P><DIR>
+<P>   &amp;&amp; state[RIGHT]!= EATING</P></DIR>
+<P>{&#9;</P><DIR>
+
+<P>state[i] = EATING;</FONT><FONT SIZE=2>&#9;</P>
+</FONT><FONT FACE="Courier New" SIZE=2><P>up(s[i]);&#9;</FONT><FONT SIZE=2> &#9;&#9;</P></DIR>
+</DIR>
+
+</FONT><FONT FACE="Courier New" SIZE=2><P>}</P></DIR>
+</DIR>
+
+</FONT><FONT FACE="Courier New"><P ALIGN="JUSTIFY">}</P>
+
+</FONT><P ALIGN="JUSTIFY">a)T&#7841;i sao ph&#7843;i <FONT FACE="Times New Roman">&#273;&#7863;t state[i] = HUNGRY trong take_forks ?</P>
+</FONT><P ALIGN="JUSTIFY">b)Gi&#7843; s&#7917;  trong put_forks, l&#7879;nh g&aacute;n state[i] = THINKING <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c th&#7921;c hi&#7879;n sau hai l&#7879;nh test(LEFT), test(RIGHT). <FONT FACE="Times New Roman">&#272;i&#7873;u n</FONT>&agrave;y &#7843;nh h&#432;&#7903;ng th&#7871; n&agrave;o <FONT FACE="Times New Roman">&#273;&#7871;n gi&#7843;i pháp cho 3 tri&#7871;t gia? Cho 100 tri&#7871;t gia?</P></blockquote>
+
+</FONT><P> <FONT FACE="Times New Roman"><b><img border="0" src="images/help.gif" width="16" height="16">
+Bài 15.</b></font>X&acirc;y d&#7921;ng  gi&#7843;i ph&aacute;p monitor cho b&agrave;i to&aacute;n Dining Philosophers.</P>
+<P> <FONT FACE="Times New Roman"><b><img border="0" src="images/help.gif" width="16" height="16">
+Bài 16.</b></font><U>Baber problem</U> : M&#7897;t c&#7917;a hi&#7879;u c&#7855;t t&oacute;c c&oacute; m&#7897;t th&#7907;, m&#7897;t gh&#7871; c&#7855;t t&oacute;c v&agrave; N gh&#7871; cho kh&aacute;ch <FONT FACE="Times New Roman">&#273;&#7907;i. N&#7871;u không có khách h</FONT>&agrave;ng, anh th&#7907; c&#7855;t t&oacute;c s&#7869; ng&#7891;i v&agrave;o gh&#7871; c&#7855;t t&oacute;c v&agrave; ng&#7911; thi&#7871;p <FONT FACE="Times New Roman">&#273;i. Khi m&#7897;t khách h</FONT>&agrave;ng v&agrave;o ti&#7879;m, anh ta ph&#7843;i <FONT FACE="Times New Roman">&#273;ánh th&#7913;c ng</FONT>&#432;&#7901;i th&#7907;. N&#7871;u m&#7897;t kh&aacute;ch h&agrave;ng v&agrave;o ti&#7879;m khi ng&#432;&#7901;i th&#7907; <FONT FACE="Times New Roman">&#273;ang b&#7853;n c&#7855;t tóc cho kh1ch h</FONT>&agrave;ng kh&aacute;c, ng&#432;&#7901;i m&#7899;i v&agrave;o s&#7869; ph&#7843;i ng&#7891;i ch&#7901; n&#7871;u c&oacute; gh&#7871; <FONT FACE="Times New Roman">&#273;&#7907;i tr&#7889;ng, ho&#7863;c r&#7901;i kh&#7887;i ti&#7879;m n&#7871;u &#273;</FONT>&atilde; c&oacute; N ng&#432;&#7901;i <FONT FACE="Times New Roman">&#273;&#7907;i. Xây d&#7921;ng m&#7897;t gi&#7843;i pháp v&#7899;i semaphore &#273;&#7875; th&#7921;c hi&#7879;n &#273;&#7891;ng b&#7897; hoá ho&#7841;t &#273;&#7897;ng c&#7911;a th&#7907; v</FONT>&agrave; kh&aacute;ch h&agrave;ng trong c&#7917;a hi&#7879;u c&#7855;t t&oacute;c n&agrave;y.</P><blockquote>
+
+<PRE>/* Semaphore to protect critical sections */
+Semaphore mutex = 1;
+
+/* Semaphore for the number of waiting customers.
+ * This lets the barber go to sleep when there are no customers */
+Semaphore customers = 0;
+
+/* Number of waiting customers in the barber shop */
+/* Just used to turn away customers when there are too many already. */
+int waiting_customers = 0
+
+/* Semaphore on which to wait for a haircut */
+Semaphore haircut = 0;
+
+/* Customer calls this function to try to get their hair cut
+ * it returns true if the hair gets cut. */
+int customer()
+{
+  /* protect access to shared variables with semaphore mutex */
+  wait( mutex );
+
+  /* Make sure there is an empty chair */
+  if( waiting_customers &gt;= 5 ){
+    signal( mutex );
+    return 0;
+  }
+  /* there is now a new waiting customer */
+  waiting_customers += 1;
+  signal( mutex );
+  /* Wake the barber if the shop was empty */
+  signal( customers );
+  /* Wait for a haircut from the barber */
+  wait( haircut );
+  return 1;
+}
+
+/* Barber loops within this function */
+void barber()
+{
+  while( 1 ){
+    /* Go to sleep if there are no customers */
+    wait( customers );
+
+    // protect access to shared variables with semaphore mutex 
+    wait( mutex );
+
+    /* take customer out of a chair */
+    waiting_customers -= 1;
+
+    signal( mutex );
+
+    /* cut hair of the current customer */
+    cut_hair();
+  
+    /* Let the customer go. */
+    signal( haircut );
+  }
+}</PRE></blockquote>
+
+<P> <FONT FACE="Times New Roman"><b><img border="0" src="images/help.gif" width="16" height="16">
+Bài 17.</b></font>Gi&#7843;i quy&#7871;t b&agrave;i to&aacute;n Baber trong tr&#432;&#7901;ng h&#7907;p ti&#7879;m c&oacute; nhi&#7873;u th&#7907; .</P>
+<P> <FONT FACE="Times New Roman"><b><img border="0" src="images/help.gif" width="16" height="16">
+Bài 18.</b></font>X&eacute;t tr&#7841;ng th&aacute;i h&#7879; th&#7889;ng :</P></blockquote>
+
+<P ALIGN="CENTER"><CENTER><TABLE BORDER CELLSPACING=1 CELLPADDING=7 WIDTH=507>
+<TR><TD WIDTH="28%" VALIGN="TOP" COLSPAN=3 HEIGHT=20>
+<FONT FACE="VNI-Times" SIZE=2><P ALIGN="CENTER">Max</FONT></TD>
+<TD WIDTH="28%" VALIGN="TOP" COLSPAN=3 HEIGHT=20>
+<FONT FACE="VNI-Times" SIZE=2><P ALIGN="CENTER">Allocation</FONT></TD>
+<TD WIDTH="28%" VALIGN="TOP" COLSPAN=3 HEIGHT=20>
+<FONT FACE="VNI-Times" SIZE=2><P ALIGN="CENTER">Available</FONT></TD>
+</TR>
+<TR><TD WIDTH="9%" VALIGN="TOP" HEIGHT=20>
+<FONT FACE="VNI-Times" SIZE=2><P ALIGN="CENTER">R1</FONT></TD>
+<TD WIDTH="9%" VALIGN="TOP" HEIGHT=20>
+<FONT FACE="VNI-Times" SIZE=2><P ALIGN="CENTER">R2</FONT></TD>
+<TD WIDTH="9%" VALIGN="TOP" HEIGHT=20>
+<FONT FACE="VNI-Times" SIZE=2><P ALIGN="CENTER">R3</FONT></TD>
+<TD WIDTH="9%" VALIGN="TOP" HEIGHT=20>
+<FONT FACE="VNI-Times" SIZE=2><P ALIGN="CENTER">R1</FONT></TD>
+<TD WIDTH="9%" VALIGN="TOP" HEIGHT=20>
+<FONT FACE="VNI-Times" SIZE=2><P ALIGN="CENTER">R2</FONT></TD>
+<TD WIDTH="9%" VALIGN="TOP" HEIGHT=20>
+<FONT FACE="VNI-Times" SIZE=2><P ALIGN="CENTER">R3</FONT></TD>
+<TD WIDTH="9%" VALIGN="TOP" HEIGHT=20>
+<FONT FACE="VNI-Times" SIZE=2><P ALIGN="CENTER">R1</FONT></TD>
+<TD WIDTH="9%" VALIGN="TOP" HEIGHT=20>
+<FONT FACE="VNI-Times" SIZE=2><P ALIGN="CENTER">R2</FONT></TD>
+<TD WIDTH="9%" VALIGN="TOP" HEIGHT=20>
+<FONT FACE="VNI-Times" SIZE=2><P ALIGN="CENTER">R3</FONT></TD>
+</TR>
+<TR><TD WIDTH="16%" VALIGN="TOP" HEIGHT=20>
+<FONT FACE="VNI-Times" SIZE=2><P ALIGN="CENTER">P1</FONT></TD>
+<TD WIDTH="9%" VALIGN="TOP" HEIGHT=20>
+<FONT FACE="VNI-Times" SIZE=2><P ALIGN="CENTER">3</FONT></TD>
+<TD WIDTH="9%" VALIGN="TOP" HEIGHT=20>
+<FONT FACE="VNI-Times" SIZE=2><P ALIGN="CENTER">2</FONT></TD>
+<TD WIDTH="9%" VALIGN="TOP" HEIGHT=20>
+<FONT FACE="VNI-Times" SIZE=2><P ALIGN="CENTER">2</FONT></TD>
+<TD WIDTH="9%" VALIGN="TOP" HEIGHT=20>
+<FONT FACE="VNI-Times" SIZE=2><P ALIGN="CENTER">1</FONT></TD>
+<TD WIDTH="9%" VALIGN="TOP" HEIGHT=20>
+<FONT FACE="VNI-Times" SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="9%" VALIGN="TOP" HEIGHT=20>
+<FONT FACE="VNI-Times" SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+</TR>
+<TR><TD WIDTH="16%" VALIGN="TOP" HEIGHT=20>
+<FONT FACE="VNI-Times" SIZE=2><P ALIGN="CENTER">P2</FONT></TD>
+<TD WIDTH="9%" VALIGN="TOP" HEIGHT=20>
+<FONT FACE="VNI-Times" SIZE=2><P ALIGN="CENTER">6</FONT></TD>
+<TD WIDTH="9%" VALIGN="TOP" HEIGHT=20>
+<FONT FACE="VNI-Times" SIZE=2><P ALIGN="CENTER">1</FONT></TD>
+<TD WIDTH="9%" VALIGN="TOP" HEIGHT=20>
+<FONT FACE="VNI-Times" SIZE=2><P ALIGN="CENTER">3</FONT></TD>
+<TD WIDTH="9%" VALIGN="TOP" HEIGHT=20>
+<FONT FACE="VNI-Times" SIZE=2><P ALIGN="CENTER">2</FONT></TD>
+<TD WIDTH="9%" VALIGN="TOP" HEIGHT=20>
+<FONT FACE="VNI-Times" SIZE=2><P ALIGN="CENTER">1</FONT></TD>
+<TD WIDTH="9%" VALIGN="TOP" HEIGHT=20>
+<FONT FACE="VNI-Times" SIZE=2><P ALIGN="CENTER">1</FONT></TD>
+</TR>
+<TR><TD WIDTH="16%" VALIGN="TOP" HEIGHT=20>
+<FONT FACE="VNI-Times" SIZE=2><P ALIGN="CENTER">P3</FONT></TD>
+<TD WIDTH="9%" VALIGN="TOP" HEIGHT=20>
+<FONT FACE="VNI-Times" SIZE=2><P ALIGN="CENTER">3</FONT></TD>
+<TD WIDTH="9%" VALIGN="TOP" HEIGHT=20>
+<FONT FACE="VNI-Times" SIZE=2><P ALIGN="CENTER">1</FONT></TD>
+<TD WIDTH="9%" VALIGN="TOP" HEIGHT=20>
+<FONT FACE="VNI-Times" SIZE=2><P ALIGN="CENTER">4</FONT></TD>
+<TD WIDTH="9%" VALIGN="TOP" HEIGHT=20>
+<FONT FACE="VNI-Times" SIZE=2><P ALIGN="CENTER">2</FONT></TD>
+<TD WIDTH="9%" VALIGN="TOP" HEIGHT=20>
+<FONT FACE="VNI-Times" SIZE=2><P ALIGN="CENTER">1</FONT></TD>
+<TD WIDTH="9%" VALIGN="TOP" HEIGHT=20>
+<FONT FACE="VNI-Times" SIZE=2><P ALIGN="CENTER">1</FONT></TD>
+</TR>
+<TR><TD WIDTH="16%" VALIGN="TOP" HEIGHT=20>
+<FONT FACE="VNI-Times" SIZE=2><P ALIGN="CENTER">P4</FONT></TD>
+<TD WIDTH="9%" VALIGN="TOP" HEIGHT=20>
+<FONT FACE="VNI-Times" SIZE=2><P ALIGN="CENTER">4</FONT></TD>
+<TD WIDTH="9%" VALIGN="TOP" HEIGHT=20>
+<FONT FACE="VNI-Times" SIZE=2><P ALIGN="CENTER">2</FONT></TD>
+<TD WIDTH="9%" VALIGN="TOP" HEIGHT=20>
+<FONT FACE="VNI-Times" SIZE=2><P ALIGN="CENTER">2</FONT></TD>
+<TD WIDTH="9%" VALIGN="TOP" HEIGHT=20>
+<FONT FACE="VNI-Times" SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="9%" VALIGN="TOP" HEIGHT=20>
+<FONT FACE="VNI-Times" SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="9%" VALIGN="TOP" HEIGHT=20>
+<FONT FACE="VNI-Times" SIZE=2><P ALIGN="CENTER">2</FONT></TD>
+</TR>
+</TABLE>
+</CENTER>
+<blockquote>
+<blockquote>
+
+<FONT SIZE=3><PRE>N&#7871;u ti&#7871;n trình P2 yêu c&#7847;u 4 cho R1, 1 cho R3. hãy cho bi&#7871;t yêu c&#7847;u này có th&#7875; </FONT><FONT FACE="Times New Roman" SIZE=3>&#273;áp &#7913;ng m</FONT><FONT SIZE=3>à b&#7843;o </FONT><FONT FACE="Times New Roman" SIZE=3>&#273;&#7843;m không x&#7843;y ra t</FONT><FONT SIZE=3>ình tr&#7841;ng deadlock hay không&nbsp;?</PRE></blockquote>
+
+</FONT><P> <FONT FACE="Times New Roman"><b><img border="0" src="images/help.gif" width="16" height="16">
+Bài 19.</b></font>X&eacute;t tr&#7841;ng th&aacute;i h&#7879; th&#7889;ng :</P></blockquote>
+
+<P ALIGN="CENTER"><CENTER><TABLE BORDER CELLSPACING=1 CELLPADDING=7 WIDTH=507>
+<TR><TD WIDTH="28%" VALIGN="TOP" COLSPAN=4 HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">Max</FONT></TD>
+<TD WIDTH="28%" VALIGN="TOP" COLSPAN=4 HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">Allocation</FONT></TD>
+<TD WIDTH="28%" VALIGN="TOP" COLSPAN=4 HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">Available</FONT></TD>
+</TR>
+<TR><TD WIDTH="7%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">A</FONT></TD>
+<TD WIDTH="7%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">B</FONT></TD>
+<TD WIDTH="7%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">C</FONT></TD>
+<TD WIDTH="7%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">D</FONT></TD>
+<TD WIDTH="7%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">A</FONT></TD>
+<TD WIDTH="7%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">B</FONT></TD>
+<TD WIDTH="7%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">C</FONT></TD>
+<TD WIDTH="7%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">D</FONT></TD>
+<TD WIDTH="7%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">A</FONT></TD>
+<TD WIDTH="7%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">B</FONT></TD>
+<TD WIDTH="7%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">C</FONT></TD>
+<TD WIDTH="7%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">D</FONT></TD>
+</TR>
+<TR><TD WIDTH="16%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">P1</FONT></TD>
+<TD WIDTH="7%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="7%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="7%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">1</FONT></TD>
+<TD WIDTH="7%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">2</FONT></TD>
+<TD WIDTH="7%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="7%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="7%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">1</FONT></TD>
+<TD WIDTH="7%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">2</FONT></TD>
+</TR>
+<TR><TD WIDTH="16%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">P2</FONT></TD>
+<TD WIDTH="7%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">1</FONT></TD>
+<TD WIDTH="7%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">7</FONT></TD>
+<TD WIDTH="7%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">5</FONT></TD>
+<TD WIDTH="7%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="7%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">1</FONT></TD>
+<TD WIDTH="7%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="7%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="7%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+</TR>
+<TR><TD WIDTH="16%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">P3</FONT></TD>
+<TD WIDTH="7%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">2</FONT></TD>
+<TD WIDTH="7%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">3</FONT></TD>
+<TD WIDTH="7%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">5</FONT></TD>
+<TD WIDTH="7%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">6</FONT></TD>
+<TD WIDTH="7%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">1</FONT></TD>
+<TD WIDTH="7%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">3</FONT></TD>
+<TD WIDTH="7%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">5</FONT></TD>
+<TD WIDTH="7%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">4</FONT></TD>
+</TR>
+<TR><TD WIDTH="16%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">P4</FONT></TD>
+<TD WIDTH="7%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="7%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">6</FONT></TD>
+<TD WIDTH="7%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">5</FONT></TD>
+<TD WIDTH="7%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">2</FONT></TD>
+<TD WIDTH="7%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="7%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">6</FONT></TD>
+<TD WIDTH="7%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">3</FONT></TD>
+<TD WIDTH="7%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">2</FONT></TD>
+</TR>
+<TR><TD WIDTH="16%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">P5</FONT></TD>
+<TD WIDTH="7%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="7%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">6</FONT></TD>
+<TD WIDTH="7%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">5</FONT></TD>
+<TD WIDTH="7%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">6</FONT></TD>
+<TD WIDTH="7%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="7%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">0</FONT></TD>
+<TD WIDTH="7%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">1</FONT></TD>
+<TD WIDTH="7%" VALIGN="TOP" HEIGHT=20>
+<FONT SIZE=2><P ALIGN="CENTER">4</FONT></TD>
+</TR>
+</TABLE>
+</CENTER>
+<blockquote>
+<blockquote>
+
+<P ALIGN="JUSTIFY">a) Cho bi&#7871;t n&#7897;i dung c&#7911;a b&#7843;ng <I>Need</I>.</P>
+<P ALIGN="JUSTIFY">b) H&#7879; th&ocirc;ng c&oacute; &#7903; tr&#7841;ng th&aacute;i an to&agrave;n kh&ocirc;ng?</P>
+<P ALIGN="JUSTIFY">c) N&#7871;u ti&#7871;n tr&igrave;nh P2 c&oacute; y&ecirc;u c&#7847;u t&agrave;i nguy&ecirc;n ( 0,4,2,0), y&ecirc;u c&#7847;u n&agrave;y c&oacute; <FONT FACE="Times New Roman">&#273;</FONT>&#432;&#7907;c <FONT FACE="Times New Roman">&#273;áp &#7913;ng t&#7913;c th&#7901;i không?</P>
+<blockquote>
+
+</FONT><B><FONT FACE="VNI-Times" SIZE=2><P ALIGN="JUSTIFY"></P>
+<P ALIGN="CENTER">&nbsp;</P>
+</B></FONT><FONT FACE="VNI-Times"><P>&nbsp;</P>
+<P>&nbsp;</P></DIR>
+</DIR>
+</DIR>
+</FONT>
+</blockquote>
+</BODY>
+</HTML>
