@@ -1,0 +1,141 @@
+#include<bits/stdc++.h>
+#include"Queue.cpp"
+#ifndef __Me_Cung__cpp__
+#define __Me_Cung__cpp__ 
+#define Toado Queue<pair<int,int>>
+#define H first
+#define C second 
+using namespace std;
+int hh[]={0, -1, 0, 1};
+int hc[]={1, 0, -1, 0};
+class MeCung{
+	int n,m;
+	int a[100][100];
+	int d;
+	public: 
+	    void LoadFile(string fn);
+		void Write();
+		void Print(Toado &x,int k);
+		void Try_MeCung(Toado &x,int k,/*pair<int, int> bd,*/ pair<int,int> f);
+		void Path();  
+}; 
+void MeCung::LoadFile(string fn){
+	ifstream f(fn);
+	f>>n>>m;
+	for(int i=1;i<=n;i++){
+		for(int j=1;j<=m;j++){
+			f>>a[i][j]; 
+		} 
+	} 
+	f.close();
+	for(int i=0;i<=n+1;i++){
+		a[i][0]=a[i][m+1]=1; 
+	} 
+	for(int j=0;j<=m+1;j++){
+		a[0][j]=a[n+1][j]=1; 
+	} 
+}
+void MeCung::Write(){
+	for(int i=0;i<=n+1;i++){
+		for(int j=0;j<=m+1;j++){
+			cout<<a[i][j]<<" "; 
+		} 
+		cout<<"\n"; 
+	} 
+} 
+void MeCung::Print(Toado &x, int k){
+	Toado y;
+	cout<<"\nCach di thu "<<d+1<<" : ";
+	for(int i=1;i<=k;i++){
+		y.push(x.front());
+		x.pop(); 	
+	} 
+	for(int i=1;i<k;i++){
+		cout<<"("<<y.front().H<<","<<y.front().C<<")->";
+		x.push(y.front());
+		y.pop();
+	}
+	cout<<"(" << y.front().H<< "," << y.front().C << ")";
+	x.push(y.front());
+	d++;
+} 
+void MeCung::Try_MeCung(Toado &x, int k,/*pair<int, int> bd,*/ pair<int,int> f)
+{/*
+	if(x.front()==f) Print(x, k);
+	else
+	{
+	    for(int t=0;t<=3;t++)
+		{
+			pair<int, int> tt;
+			tt.H = x.front().H + hh[t];
+			tt.C = x.front().C + hc[t];
+			x.push(tt);
+			if (a[x.front().H][x.front().C] == 0)
+			{
+			    a[x.front().H][x.front().C] = 1; //tien
+		    	Try_MeCung(x, k + 1, f);
+		    	a[x.front().H][x.front().C] = 0; //lui
+			}
+			x.pop();
+		}
+	}
+	/*
+	Queue<pair<int, int>> Q;
+	Q.push(bd);
+	while(!Q.empty()){
+		pair<int, int> x = Q.front();
+		Q.pop();
+		y.push_back(x);*/
+		bool check = true;
+		for(int t=0; t<=3; t++){
+			pair<int, int> tt;
+			tt.H = x.front().H + hh[t];
+			tt.C = x.front().C + hc[t];
+			if(x.front()==f){
+				cout<<"Co duong di."<<endl;
+				return;
+			}
+			if (a[x.front().H][x.front().C] == 0){
+				x.push(tt);
+				a[x.front().H][x.front().C] = 1;
+				check = false;
+			}
+		}
+/*		if(check) x.pop_back();*/
+	} /*
+}*/
+void MeCung::Path(){
+	pair<int,int> s,f;
+	d=0;
+	LoadFile("input.txt");
+	cout<<"\n\nMe cung"<<endl;
+	Write();
+	cout<<"\n(0 la duong - 1 la tuong)" ;
+	cout<<"\nNhap toa do xuat phat: ";
+	cin>>s.H>>s.C; 
+	cout<<"Nhap toa do ket thuc: ";
+	cin>>f.H>>f.C;
+	Toado x;
+	x.push(s);
+	a[s.H][s.C]=1;
+	Try_MeCung(x,1,f);
+	if(d==0) cout<<"Khong co duong di.";
+	else cout<<"\nCo so duong di la: "<<d; 
+} 
+#endif 
+/*
+int main(){
+	MeCung M; 
+	M.Path(); 
+} 
+*/
+
+
+
+
+
+
+
+
+
+

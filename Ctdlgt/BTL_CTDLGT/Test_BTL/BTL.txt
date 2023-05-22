@@ -1,0 +1,355 @@
+//Queue.cpp
+#include<bits/stdc++.h>
+using namespace std;
+#ifndef __Queue__cpp__
+#define __Queue__cpp__
+template<class T>
+class Queue
+{
+	T *buff;
+	int num, cap, F, L;
+	public: 
+	    Queue() {                        
+		    buff=0;
+			num=cap=0;
+			F=L=0;
+		} 
+	    ~Queue() {
+		    if(buff) delete[]buff; 
+			buff=0;
+		}
+		bool empty() { return num==0; }
+		int size() { return num; } 
+		T &front() { return buff[F]; }
+		T &back() { 
+		    return L==0?buff[cap-1]:buff[L-1];
+		}
+		void pop() { 
+		    F=(F+1)%cap; 
+			num--;
+		} 
+		void push(T x)
+		{
+			if(num==cap){
+				int newcap=cap*2+2;
+				T *tem=new T[newcap];
+				for(int i=F,j=0;i<F+cap;i++,j++) 
+				    tem[j]=buff[i%cap];
+				if(buff) delete[]buff;
+				buff=tem;
+				F=0;
+				L=cap;
+				cap=newcap; 
+			} 
+			buff[L]=x;
+			L=(L+1)%cap;
+			num++; 
+		} 	
+};
+#endif 
+
+//Tim_Duong_Di.cpp
+#include<bits/stdc++.h>
+#include"Queue.cpp"
+#ifndef __Tim_Duong_Di__cpp__
+#define __Tim_Duong_Di__cpp__
+using namespace std;
+class graph{
+	int n;
+	int a[100][100];
+	public:
+	    void LoadFile(string fn); 
+	    int BFS(int s, int f);
+		void inkq(int*, int, int);
+		void Out(); 
+}; 
+void graph::Out(){
+	int f, s;                                           //2
+	LoadFile("du_lieu.txt");
+	cout<<"Ma tran bieu dien do thi co huong"<<endl;    //2
+	for(int i=0;i<=n;i++){                              //2(n+1) +3 = 2n +5
+		a[0][i]=a[i][0]=i;                              //6n +6
+	}
+	for(int i=0;i<=n;i++){                              //2n +5
+		for(int j=0;j<=n;j++){                          //(2n+5)*(n+1)= 2*n*n + 7n +5
+			cout<<a[i][j]<<" ";	                        //4(n+1)(n+1) = 4*n*n + 8n +4
+		} 
+		cout<<"\n";                                     //n +1
+	} 
+	cout<<"\nNhap dinh xuat phat s: ";                  //1
+	cin>>s;                                             //1
+	cout<<"Nhap dinh ket thuc f: ";                     //1
+	cin>>f;                                             //1
+	if(BFS(s,f));                                       //1
+	else cout<<"Khong co duong di tu "<<s<<" den " << f;//4
+	//T(n) = 6*n*n + 26n +39 => O(n^2)
+} 
+void graph::inkq(int* sign, int s, int f){
+	if(sign[f]==s)                           //2
+		cout<<"\n"<<s<<"->"<<f;              //4
+	else{                             
+		inkq(sign,s,sign[f]);                //2
+		cout<<"->"<<f;                       //2
+	}
+	//T(n)=10 => O(1) 
+} 
+int graph::BFS(int s, int f){
+	Queue<int>Q;                              //1 
+	int* sign=new int[n+2];                   //4 
+	int u, v, i;                              //3
+	for(i=1;i<=n;i++){                        //2n+2
+		sign[i]=0;                            //2n
+	}              
+	Q.push(s);                                //1
+	sign[s]=1;                                //2
+	while(!Q.empty()){                        //n+2
+		u=Q.front();                          //2n
+		Q.pop();                              //n
+		for(v=1;v<=n;v++)                     //2*n*n + 2*n
+			if(sign[v]==0 && a[u][v]==1){     //6*n*n
+				Q.push(v);                    //n*n
+				sign[v]=u;                    //2*n*n
+			    if (v == f){                  //n*n
+			    	inkq(sign, s, f);         //n*n
+					return 1;                 //n*n
+			    }	
+		    }
+	} 
+	return 0;                                 //1
+	//T(n)=14*n*n + 10*n +16 => O(n^2)
+} 
+
+void graph::LoadFile(string fn){
+	ifstream f(fn);                           
+	f>>n;                                     //1
+    for(int i=1;i<=n;i++)                     //2n+3
+    for(int j=1;j<=n;j++){                    //2*n*n + 3*n
+    	int t;                                //n*n
+		f>>t;                                 //n*n
+		a[i][j]=t;                            //2*n*n
+	}
+	//T(n)=6*n*n + 5*n + 4 => O(n^2)
+}
+#endif
+
+//Me_Cung.cpp
+#include<bits/stdc++.h>
+#include"Queue.cpp"
+#ifndef __Me_Cung__cpp__
+#define __Me_Cung__cpp__ 
+#define Toado Queue<pair<int,int>>
+#define H first
+#define C second 
+using namespace std;
+int hh[]={0, -1, 0, 1};
+int hc[]={1, 0, -1, 0};
+class MeCung{
+	int n,m;
+	int a[100][100];
+	int d;
+	public: 
+	    void LoadFile(string fn);
+		void Write();
+		void Print(Toado &x,int k);
+		void Try_MeCung(Toado &x,int k, pair<int,int> f);
+		void Path();  
+}; 
+void MeCung::LoadFile(string fn){
+	ifstream f(fn);
+	f>>n>>m;                                  //2
+	for(int i=1;i<=n;i++){                    //2n+3
+		for(int j=1;j<=m;j++){                //2*n*n +3n
+			f>>a[i][j];                       //3*n*n
+		} 
+	} 
+	f.close();                                //1
+	for(int i=0;i<=n+1;i++){                  //2(n+2) +3 = 2n + 7
+		a[i][0]=a[i][m+1]=1;                  //7n +14
+	} 
+	for(int j=0;j<=m+1;j++){                  //2(n+2) +3 = 2n + 7
+		a[0][j]=a[n+1][j]=1;                  //7n + 14
+	} 
+	//T(n) = 5*n*n + 23n + 48 => O(n^2)  
+}
+void MeCung::Write(){
+	for(int i=0;i<=n+1;i++){                  //2n + 7
+		for(int j=0;j<=m+1;j++){              //(2n +7)(n + 2) = 2*n*n + 11n + 14
+			cout<<a[i][j]<<" ";               //4(n + 2)(n + 2) = 4*n*n + 16n +16
+		} 
+		cout<<"\n";                           //n+2
+	} 
+	//T(n) = 6*n*n + 30n +39 => O(n^2)
+} 
+void MeCung::Print(Toado &x, int k){
+	Toado y;                                                      //1
+	cout<<"\nCach di thu "<<d+1<<" : ";                           //4
+	for(int i=1;i<=k;i++){                                        //2n + 3
+		y.push(x.front());                                        //2n
+		x.pop(); 	                                              //n
+	} 
+	for(int i=1;i<k;i++){                                         //2(n-1) + 3 = 2n + 1
+		cout<<"("<<y.front().H<<","<<y.front().C<<")->";          //7n - 7
+		x.push(y.front());                                        //2n - 2
+		y.pop();                                                  //n - 1
+	}
+	cout<<"(" << y.front().H<< "," << y.front().C << ")";         //7
+	x.push(y.front());                                            //2
+	d++;                                                          //1
+	//T(n) = 17n + 9 => O(n)
+} 
+void MeCung::Try_MeCung(Toado &x, int k, pair<int,int> f)
+{
+	if(x.front()==f) Print(x, k);                                 //3
+	else
+	{
+	    for(int t=0;t<=3;t++)                                     //11
+		{
+			pair<int, int> tt;                                    //11
+			tt.H = x.front().H + hh[t];                           //44
+			tt.C = x.front().C + hc[t];                           //44
+			x.push(tt);                                           //11
+			if (a[x.front().H][x.front().C] == 0)                 //55
+			{
+			    a[x.front().H][x.front().C] = 1;                  //55
+		    	Try_MeCung(x, k + 1, f);                          //22
+		    	a[x.front().H][x.front().C] = 0;                  //55
+			}
+			x.pop();                                              //11
+		}
+	}
+	//T(n) <= 322 => O(1)
+}
+void MeCung::Path(){                                              
+	pair<int,int> s,f;                                            //2
+	d=0;                                                          //1
+	LoadFile("input.txt");
+	cout<<"\n\nMe cung"<<endl;                                    //2
+	Write();                                                      //1
+	cout<<"\n(0 la duong - 1 la tuong)" ;                         //1
+	cout<<"\nNhap toa do xuat phat: ";                            //1
+	cin>>s.H>>s.C;                                                //2
+	cout<<"Nhap toa do ket thuc: ";                               //1
+	cin>>f.H>>f.C;                                                //2
+	Toado x;                                                      //1
+	x.push(s);                                                    //1
+	a[s.H][s.C]=1;                                                //3
+	Try_MeCung(x,1,f);                                            //1
+	if(d==0) cout<<"Khong co duong di.";                          //2
+	else cout<<"\nCo so duong di la: "<<d;                        //2
+	//T(n) <= 23 => O(1)
+} 
+#endif 
+/*
+int main(){
+	MeCung M; 
+	M.Path(); 
+} 
+*/
+
+//Thuat_Toan.cpp
+#include<bits/stdc++.h>
+#ifndef __Thuat_Toan__cpp__
+#define __Thuat_Toan__cpp__
+using namespace std;
+map<int, bool>Dau;
+pair<int, int> P[100];
+class Thuat_Toan{
+	int n, m;
+    Queue<int> S;
+	public:
+		void LoadFile(string fn);
+		void BFS();
+		void Write();
+		void Check();
+};
+void Thuat_Toan::Check(){
+	cout<<"\n\nCac duong cua do thi vo huong\n";      //1
+	LoadFile("file.txt");
+	for(int i=0; i<m; i++)                            //2n +3
+		cout<<P[i].first <<" " <<P[i].second<<endl;   //6n
+	S.push(1);                                        //1
+	BFS();                                            //1
+	Write();                                          //1
+	//T(n) = 8n + 7 => O(n)
+}
+void Thuat_Toan::LoadFile(string fn){
+	ifstream f(fn);
+	f >> n >> m;                                      //2
+	int i=0;                                          //2
+	while(i<m){                                       //n
+		f >> P[i].first >> P[i].second;               //4n
+		i++;                                          //n
+	}	
+	//T(n) = 6n + 4 => O(n)
+}
+void Thuat_Toan::BFS(){
+	while(!S.empty()){                                //2n
+		int u = S.front();                            //3n
+		S.pop();                                      //n
+		Dau[u]= true;                                 //2n
+		for(int i=0; i<m; i++){                       //(2n+3)*n = 2*n*n +3n
+			if(u == P[i].first) {                     //2*n*n
+				if(Dau[ P[i].second ] == false){      //3*n*n
+					S.push(P[i].second);              //2*n*n
+					Dau[P[i].second] = true;          //3*n*n
+				}
+			}
+			else if(u == P[i].second) {               //2*n*n
+				if(Dau [P[i].first ] == false){       //3*n*n
+					S.push(P[i].first);               //2*n*n
+					Dau[P[i].first] = true;           //3*n*n
+				}
+			}
+		}
+	}
+	//T(n) <= 14*n*n + 11n => O(n^2)
+}
+void Thuat_Toan::Write(){                             
+	for(int i=1; i<=n; i++){                          //2n +3
+		if(Dau[i] == false){                          //2n
+			cout<<"=> DO THI KHONG LIEN THONG";       //1
+			return ;                                  //1
+		}
+	}
+	cout<<"=> DO THI CO LIEN THONG";                  //1
+	//T(n) <= 4n + 4 => O(n)
+}
+#endif
+
+//Main.cpp
+#include<bits/stdc++.h>
+#include"Tim_Duong_Di.cpp"
+#include"Me_Cung.cpp"
+#include"Thuat_Toan.cpp" 
+using namespace std;
+int main()
+{
+	//Tim duong di trong do thi co huong 
+	graph G;
+	G.Out();
+	
+	//Tim duong di trong me cung 
+	MeCung M;
+	M.Path();
+	
+	//Kiem tra tinh lien thong cua do thi vo huong 
+	Thuat_Toan T;
+	T.Check(); 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
